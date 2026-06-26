@@ -1,8 +1,8 @@
 # Valence
 
-**Cross-Model AI Interface by Helix AI Labs** — one calm, private home for every AI model you use.
+**A private, controlled, curated AI space** — every AI model you use, local or cloud, on your terms.
 
-[Website](https://helixailabs.com) · [All releases](https://github.com/HelixAILabs/Valence/releases) · help@helixailabs.com
+[Website](https://helixailabs.com) · [Updates](https://helixailabs.github.io/Valence/updates/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · help@helixailabs.com
 
 ---
 
@@ -13,34 +13,32 @@
 Windows 10/11 (64-bit) · 791 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
 > **SHA-256:** `AE9429E6EB8C93D36CE65FEA77937F07895FF7D60A0B38F427F6A589BF30361A`
-> The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**.
+> The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ---
 
 ## What is Valence?
 
-A single, private home for every AI model you use — local or cloud.
+A private, controlled, curated space for working with AI — local or cloud, all under your control.
 
-- **Cross-model chat** — OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Ollama, and on-device local models, all from one interface.
-- **Fully local option** — download a model (Gemma, Qwen, …) and chat with nothing leaving your PC.
-- **Local memory** — Valence remembers what matters across conversations, on your machine.
-- **Per-profile knowledge** — attach your own documents and let Valence answer from them.
-- **Power tools** — side-by-side model compare, X-Ray ("why did it answer that?"), scheduled prompts, MCP tool integration.
-- **Kids Mode** — a locked-down chat for children with a parent dashboard, on-device safety, and daily time limits.
+- **Curated, cross-model** — OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Ollama, and on-device local models, all from one interface.
 - **Private by design** — conversations, memory, and documents stay on your computer. No account required.
+- **Fully local option** — download a model (Gemma, Qwen, …) and chat with nothing leaving your PC.
+- **You're in control** — local memory you own, per-profile knowledge from your own documents, model compare, and X-Ray ("why did it answer that?").
+- **Kids Mode** — a locked-down chat for children with a parent dashboard, on-device safety, and daily time limits.
 
 ---
 
 ## Releases
 
-| Version | Date | Highlights |
-|---------|------|-----------|
-| **[1.0.2](https://github.com/HelixAILabs/Valence/releases/tag/v1.0.2)** &nbsp;_(latest)_ | Jun 26, 2026 | AI Providers redesign, friendlier first-run, live "Thinking" indicator, new app icon. Ollama now lists your **installed** models; new **Check for Updates** button (Settings → About) with an opt-in startup check; clear guidance when an NVIDIA driver is too old for local models; timestamp & model-name fixes. |
-| **[1.0.1](https://github.com/HelixAILabs/Valence/releases/tag/v1.0.1)** | Jun 23, 2026 | Installer packaging fix — the MSI now bundles the complete app asset set (earlier builds shipped an incomplete set). Stability release. |
-| **[1.0.0](https://github.com/HelixAILabs/Valence/releases/tag/v1.0.0)** | Jun 22, 2026 | First public release — cross-provider chat, fully-local models, local memory, per-profile knowledge, model compare, X-Ray, and Kids Mode with a parent dashboard. |
+| Version | Date | Summary |
+|---------|------|---------|
+| **[1.0.2](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-2.html)** &nbsp;_(latest)_ | Jun 26, 2026 | Interface polish, friendlier first-run, Ollama installed-model listing, manual Check for Updates, NVIDIA driver guidance. |
+| **[1.0.1](https://helixailabs.github.io/Valence/2026/06/23/valence-1-0-1.html)** | Jun 23, 2026 | Installer packaging fix — bundles the complete app asset set. |
+| **[1.0.0](https://helixailabs.github.io/Valence/2026/06/22/valence-1-0-0.html)** | Jun 22, 2026 | First public release. |
 
-Grab any version from its release page above, or browse **[all releases](https://github.com/HelixAILabs/Valence/releases)**.
+Full notes for every version live on **[Updates](https://helixailabs.github.io/Valence/updates/)**.
 
 ---
 
-<sub>© 2026 Helix AI Labs · <a href="https://helixailabs.com">helixailabs.com</a> · Questions? help@helixailabs.com</sub>
+<sub>© 2026 Helix AI Labs · <a href="https://helixailabs.com">helixailabs.com</a> · help@helixailabs.com</sub>
