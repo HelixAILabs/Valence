@@ -1,3 +1,9 @@
-theme: jekyll-theme-cayman
 title: Valence
 description: Cross-Model AI Interface by Helix AI Labs
+url: https://helixailabs.github.io
+baseurl: /Valence
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
