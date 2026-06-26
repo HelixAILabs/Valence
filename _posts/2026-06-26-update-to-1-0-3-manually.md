@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Please update to 1.0.3 manually — a one-time fix for the in-app updater"
-date: 2026-06-26 16:00:00 -0700
+date: 2026-06-26 15:00:00 -0700
 ---
 
 First, an apology. If you tried to update from inside Valence and it didn't install, that's on us. Here's exactly what happened and how to fix it in about two minutes.
