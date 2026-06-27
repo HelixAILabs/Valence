@@ -15,6 +15,21 @@ Windows 10/11 (64-bit) · 829 MB · 7-day free trial, then **$59.95 once** · wo
 > **SHA-256:** `9722ED5FB2DE27A5F78E82AE28A6E2F9C1107BFA3BAFCCAF6CA0329C2D1BB599`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
+### Why is the download ~829 MB?
+
+Valence ships **complete, offline GPU acceleration in the box** - no separate CUDA toolkit, no multi-gigabyte driver detour, no account. Most of the size is NVIDIA's GPU math libraries:
+
+| Piece | Approx. size | What it does |
+|-------|--------------|--------------|
+| NVIDIA CUDA libraries (cuBLAS / ggml-cuda) | ~640 MB | Fast local AI on NVIDIA GPUs |
+| Valence app + bundled .NET runtime | ~190 MB | The app itself, self-contained (no .NET install needed) |
+| Vulkan backend | ~54 MB | Local AI on AMD & Intel GPUs |
+| Embedding model + bundled tools | ~45 MB | On-device memory, knowledge, and web search |
+
+Everything - your conversations, models, and memory - runs on your machine. The size is the cost of an AI that works fully offline and never phones home.
+
+> **Getting lighter soon.** Valence already detects your hardware and uses the right acceleration (NVIDIA CUDA, AMD/Intel Vulkan, or CPU). A coming update will download only the pack your machine needs during setup, bringing the base install down to around 190 MB.
+
 ---
 
 ## What is Valence?
