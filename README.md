@@ -8,11 +8,11 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.0.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.0.2/Valence-1.0.2.msi)**
+**[Download Valence 1.0.3 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.0.3/Valence-1.0.3.msi)**
 
-Windows 10/11 (64-bit) · 791 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
+Windows 10/11 (64-bit) · 829 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
-> **SHA-256:** `AE9429E6EB8C93D36CE65FEA77937F07895FF7D60A0B38F427F6A589BF30361A`
+> **SHA-256:** `9722ED5FB2DE27A5F78E82AE28A6E2F9C1107BFA3BAFCCAF6CA0329C2D1BB599`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ---
@@ -33,7 +33,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.0.2](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-2.html)** &nbsp;_(latest)_ | Jun 26, 2026 | Interface polish, friendlier first-run, Ollama installed-model listing, manual Check for Updates, NVIDIA driver guidance. |
+| **[1.0.3](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-3.html)** &nbsp;_(latest)_ | Jun 26, 2026 | Local AI on AMD & Intel GPUs (Vulkan) with CPU fallback, one-click in-app purchase, smarter defaults, and an in-app update fix. |
+| **[1.0.2](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-2.html)** | Jun 26, 2026 | Interface polish, friendlier first-run, Ollama installed-model listing, manual Check for Updates, NVIDIA driver guidance. |
 | **[1.0.1](https://helixailabs.github.io/Valence/2026/06/23/valence-1-0-1.html)** | Jun 23, 2026 | Installer packaging fix — bundles the complete app asset set. |
 | **[1.0.0](https://helixailabs.github.io/Valence/2026/06/22/valence-1-0-0.html)** | Jun 22, 2026 | First public release. |
 
