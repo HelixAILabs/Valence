@@ -8,11 +8,11 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.0.3 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.0.3/Valence-1.0.3.msi)**
+**[Download Valence 1.0.4 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.0.4/Valence-1.0.4.msi)**
 
 Windows 10/11 (64-bit) · 829 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
-> **SHA-256:** `9722ED5FB2DE27A5F78E82AE28A6E2F9C1107BFA3BAFCCAF6CA0329C2D1BB599`
+> **SHA-256:** `32157D92290C75655382D4FE0FC508313303F007BD34D6BBC7C364323800EDCB`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ### Why is the download ~829 MB?
@@ -48,7 +48,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.0.3](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-3.html)** &nbsp;_(latest)_ | Jun 26, 2026 | Local AI on AMD & Intel GPUs (Vulkan) with CPU fallback, one-click in-app purchase, smarter defaults, and an in-app update fix. |
+| **[1.0.4](https://helixailabs.github.io/Valence/2026/06/27/valence-1-0-4.html)** &nbsp;_(latest)_ | Jun 27, 2026 | Lens and X-Ray reimagined as clean anchored windows over the canvas, plus a custom-lens authoring fix. |
+| **[1.0.3](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-3.html)** | Jun 26, 2026 | Local AI on AMD & Intel GPUs (Vulkan) with CPU fallback, one-click in-app purchase, smarter defaults, and an in-app update fix. |
 | **[1.0.2](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-2.html)** | Jun 26, 2026 | Interface polish, friendlier first-run, Ollama installed-model listing, manual Check for Updates, NVIDIA driver guidance. |
 | **[1.0.1](https://helixailabs.github.io/Valence/2026/06/23/valence-1-0-1.html)** | Jun 23, 2026 | Installer packaging fix — bundles the complete app asset set. |
 | **[1.0.0](https://helixailabs.github.io/Valence/2026/06/22/valence-1-0-0.html)** | Jun 22, 2026 | First public release. |
