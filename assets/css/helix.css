@@ -10,6 +10,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Geist',sans-
 .wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem}
 a{color:var(--coral);text-decoration:none}
 a:hover{text-decoration:underline}
+img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--rule-soft);margin:1.4rem auto}
 .site-head{border-bottom:2px solid var(--ink)}
 .site-head .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding-top:1.4rem;padding-bottom:1rem;flex-wrap:wrap}
 .brand{font-family:'Geist Mono',monospace;font-weight:600;font-size:1rem;letter-spacing:0.12em;color:var(--ink);text-transform:uppercase}
