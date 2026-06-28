@@ -4,6 +4,8 @@
 
 [Website](https://helixailabs.com) · [Updates](https://helixailabs.github.io/Valence/updates/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · help@helixailabs.com
 
+![Valence Conversation Explorer - browse, search, and organize every conversation in real folders](assets/img/conversation-explorer.png)
+
 ---
 
 ## ⬇ Download
