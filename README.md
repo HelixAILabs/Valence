@@ -10,11 +10,11 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.1.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.1.0/Valence-1.1.0.msi)**
+**[Download Valence 1.1.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.1.1/Valence-1.1.1.msi)**
 
-Windows 10/11 (64-bit) · 829 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
+Windows 10/11 (64-bit) · 829.86 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
-> **SHA-256:** `22F732F95215DFDB68B4920EAF3C790B0C51A903D4B2A109A0EA3FF4C7098687`
+> **SHA-256:** `FEB325AC16A28E42508A3DFEF6F69F5D08BB064DE320AB21F98845D7340A25F8`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ### Why is the download ~829 MB?
@@ -50,7 +50,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.1.0](https://helixailabs.github.io/Valence/2026/06/28/valence-1-1-0.html)** &nbsp;_(latest)_ | Jun 28, 2026 | Conversation Explorer: real disk-mirrored folders replacing the side list, grid + sortable table views (tags, model, message count), peek, conversation tagging, and per-message model attribution. |
+| **[1.1.1](https://helixailabs.github.io/Valence/2026/06/28/valence-1-1-1.html)** &nbsp;_(latest)_ | Jun 28, 2026 | Math renders (LaTeX/KaTeX) everywhere the AI shows its work; smoother "watch it think, then publish" streaming; the generating indicator now sits under your message; plus currency-safe math and an automatic update refresh. |
+| **[1.1.0](https://helixailabs.github.io/Valence/2026/06/28/valence-1-1-0.html)** | Jun 28, 2026 | Conversation Explorer: real disk-mirrored folders replacing the side list, grid + sortable table views (tags, model, message count), peek, conversation tagging, and per-message model attribution. |
 | **[1.0.5](https://helixailabs.github.io/Valence/2026/06/27/valence-1-0-5.html)** | Jun 27, 2026 | Smoother updates: the startup update prompt now appears, a robot animation shows the download, and old installers are cleaned up automatically. |
 | **[1.0.4](https://helixailabs.github.io/Valence/2026/06/27/valence-1-0-4.html)** | Jun 27, 2026 | Lens and X-Ray reimagined as clean anchored windows over the canvas, plus a custom-lens authoring fix. |
 | **[1.0.3](https://helixailabs.github.io/Valence/2026/06/26/valence-1-0-3.html)** | Jun 26, 2026 | Local AI on AMD & Intel GPUs (Vulkan) with CPU fallback, one-click in-app purchase, smarter defaults, and an in-app update fix. |
