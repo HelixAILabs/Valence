@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Updates
-permalink: /updates/
+title: News
+permalink: /news/
 ---
 
-# Updates
+# News
 
-Every Valence release &mdash; new features, fixes, and download links, newest first. Looking for plans, videos, and announcements? See [News]({{ '/news/' | relative_url }}).
+Plans, videos, announcements, and the thinking behind Valence. Looking for release notes and downloads? See [Updates]({{ '/updates/' | relative_url }}).
 
 <ul class="post-list">
-{% for post in site.posts %}{% if post.category == 'release' %}
+{% for post in site.posts %}{% if post.category == 'news' %}
   <li>
     <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
     <div class="title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>

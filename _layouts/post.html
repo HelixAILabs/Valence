@@ -6,4 +6,8 @@ layout: default
 <article>
 {{ content }}
 </article>
+{% if page.category == 'news' %}
+<p style="margin-top:2.5rem"><a href="{{ '/news/' | relative_url }}">&larr; All news</a></p>
+{% else %}
 <p style="margin-top:2.5rem"><a href="{{ '/updates/' | relative_url }}">&larr; All updates</a></p>
+{% endif %}

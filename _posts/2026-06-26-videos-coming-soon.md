@@ -2,6 +2,7 @@
 layout: post
 title: "Coming soon: install & how-to videos, and the story behind Valence"
 date: 2026-06-26 09:00:00 -0700
+category: news
 ---
 
 We're putting together a set of short videos to make Valence easier to get started with — and to show what it's really for.
