@@ -10,11 +10,11 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.2.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.2.2/Valence-1.2.2.msi)**
+**[Download Valence 1.2.3 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.2.3/Valence-1.2.3.msi)**
 
-Windows 10/11 (64-bit) · 829.86 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
+Windows 10/11 (64-bit) · 829.93 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
-> **SHA-256:** `333D9413536D929E4802B8463F7AFF10E93AB5B0DB26B7488CDD63A170E18A9C`
+> **SHA-256:** `5BF92B47F7C5269E239BE533DA04EEB6C62737146CC3F378FBBF7C66A6289FCB`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ### Why is the download ~829 MB?
@@ -50,7 +50,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.2.2](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-2.html)** &nbsp;_(latest)_ | Jul 3, 2026 | Theme-matched ink for loading effects (indigo/sepia/ocean/coral per light theme); settings navigation overhaul (chip views, sections open, compact header on small windows); Growing Tree blossoms softened; appearance-control responsiveness fix. |
+| **[1.2.3](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-3.html)** &nbsp;_(latest)_ | Jul 3, 2026 | AI Providers redesigned: provider chips with status dots, one-line model library table, Gemma vs Qwen comparison table. |
+| **[1.2.2](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-2.html)** | Jul 3, 2026 | Theme-matched ink for loading effects (indigo/sepia/ocean/coral per light theme); settings navigation overhaul (chip views, sections open, compact header on small windows); Growing Tree blossoms softened; appearance-control responsiveness fix. |
 | **[1.2.1](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-1.html)** | Jul 3, 2026 | Ink-on-paper loading effects on light themes: all 16 effects (and the classic spiral backdrop) adapt automatically; local-model fixes (no more instruction echo; quoted ability syntax stays on screen). |
 | **[1.2.0](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-0.html)** | Jul 3, 2026 | Streaming Reveal: choose how replies stream in (None / Focus Pull / Weight Settle / Line Rise) with a live preview under Settings > Theme; update checks on by default; menu keyboard-navigation fix. |
 | **[1.1.2](https://helixailabs.github.io/Valence/2026/06/29/valence-1-1-2.html)** | Jun 29, 2026 | Memory browser revamp: a roomier anchored Memory window with stats + sparkline, a facet rail (All / Recent / topics), live search + date range, and a slide-in editor drawer; plus a fix so selecting Local Model before downloading a model no longer throws a false "no API key" error. |
