@@ -10,11 +10,11 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.1.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.1.2/Valence-1.1.2.msi)**
+**[Download Valence 1.2.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.2.0/Valence-1.2.0.msi)**
 
-Windows 10/11 (64-bit) · 829.83 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
+Windows 10/11 (64-bit) · 829.82 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
 
-> **SHA-256:** `248A34379436BAF0728542FD1DBA60B87ABA362AF10D15837B6F051578A62FCA`
+> **SHA-256:** `7AEA293F9550D9E6763FF25132F91AB10B40ADFCDF2AE34E4DC2E0F974BC91DA`
 > The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
 
 ### Why is the download ~829 MB?
@@ -50,7 +50,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.1.2](https://helixailabs.github.io/Valence/2026/06/29/valence-1-1-2.html)** &nbsp;_(latest)_ | Jun 29, 2026 | Memory browser revamp: a roomier anchored Memory window with stats + sparkline, a facet rail (All / Recent / topics), live search + date range, and a slide-in editor drawer; plus a fix so selecting Local Model before downloading a model no longer throws a false "no API key" error. |
+| **[1.2.0](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-0.html)** &nbsp;_(latest)_ | Jul 3, 2026 | Streaming Reveal: choose how replies stream in (None / Focus Pull / Weight Settle / Line Rise) with a live preview under Settings > Theme; update checks on by default; menu keyboard-navigation fix. |
+| **[1.1.2](https://helixailabs.github.io/Valence/2026/06/29/valence-1-1-2.html)** | Jun 29, 2026 | Memory browser revamp: a roomier anchored Memory window with stats + sparkline, a facet rail (All / Recent / topics), live search + date range, and a slide-in editor drawer; plus a fix so selecting Local Model before downloading a model no longer throws a false "no API key" error. |
 | **[1.1.1](https://helixailabs.github.io/Valence/2026/06/28/valence-1-1-1.html)** | Jun 28, 2026 | Math renders (LaTeX/KaTeX) everywhere the AI shows its work; smoother "watch it think, then publish" streaming; the generating indicator now sits under your message; plus currency-safe math and an automatic update refresh. |
 | **[1.1.0](https://helixailabs.github.io/Valence/2026/06/28/valence-1-1-0.html)** | Jun 28, 2026 | Conversation Explorer: real disk-mirrored folders replacing the side list, grid + sortable table views (tags, model, message count), peek, conversation tagging, and per-message model attribution. |
 | **[1.0.5](https://helixailabs.github.io/Valence/2026/06/27/valence-1-0-5.html)** | Jun 27, 2026 | Smoother updates: the startup update prompt now appears, a robot animation shows the download, and old installers are cleaned up automatically. |
@@ -65,3 +66,4 @@ Full notes for every version live on **[Updates](https://helixailabs.github.io/V
 ---
 
 <sub>© 2026 Helix AI Labs · <a href="https://helixailabs.com">helixailabs.com</a> · help@helixailabs.com</sub>
+
