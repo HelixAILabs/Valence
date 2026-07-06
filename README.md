@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.3.1 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.1/Valence-1.3.1-slim.msi)**
+**[Download Valence 1.3.2 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.2/Valence-1.3.2-slim.msi)**
 
 Windows 10/11 (64-bit) · 302.65 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `6B71C1DB892E6861F9CE7FB45E1116B18D0D45C89BCF9AF9BEAD44CB367DFDEA`
+> **SHA-256:** `28A6859D731714EF5D43B304D26E6D3BDE16B9DE08594B6D73A5F456DA251A72`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.3.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.1/Valence-1.3.1.msi)**
+**[Download Valence 1.3.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.2/Valence-1.3.2.msi)**
 
 Windows 10/11 (64-bit) · 808.5 MB
 
-> **SHA-256:** `CA327D81537B70F89E2872F41C2B39350072C42F99DC13DAC09F6DF848C48068`
+> **SHA-256:** `54AECE52170B48A5240C1CD8971E29EF3E816A61E71D4063DB70A7C94327E9D3`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.3.1](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-1.html)** &nbsp;_(latest)_ | Jul 6, 2026 | A small polish fix: the badge explainer now shows a single Got-it button. |
+| **[1.3.2](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-2.html)** &nbsp;_(latest)_ | Jul 6, 2026 | Smoother updates: installing an update no longer shows a false "download failed" error (the install always worked; the message did not). |
+| **[1.3.1](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-1.html)** | Jul 6, 2026 | A small polish fix: the badge explainer now shows a single Got-it button. |
 | **[1.3.0](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-0.html)** | Jul 6, 2026 | The slim installer debuts (302.62 MB — fetches only the acceleration your card uses) beside the all-in-one; a reimagined, guided first run; the "Your AI" status badge; offline local-model sends fixed; update integrity checks. |
 | **[1.2.3](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-3.html)** | Jul 3, 2026 | AI Providers redesigned: provider chips with status dots, one-line model library table, Gemma vs Qwen comparison table. |
 | **[1.2.2](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-2.html)** | Jul 3, 2026 | Theme-matched ink for loading effects (indigo/sepia/ocean/coral per light theme); settings navigation overhaul (chip views, sections open, compact header on small windows); Growing Tree blossoms softened; appearance-control responsiveness fix. |
