@@ -10,27 +10,36 @@
 
 ## ⬇ Download
 
-**[Download Valence 1.2.3 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.2.3/Valence-1.2.3.msi)**
+**Slim — right for most people** (needs internet once, during setup):
 
-Windows 10/11 (64-bit) · 829.93 MB · 7-day free trial, then **$59.95 once** · works fully offline · no subscription
+**[Download Valence 1.3.0 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.0/Valence-1.3.0-slim.msi)**
 
-> **SHA-256:** `5BF92B47F7C5269E239BE533DA04EEB6C62737146CC3F378FBBF7C66A6289FCB`
-> The installer is unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place.
+Windows 10/11 (64-bit) · 302.62 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-### Why is the download ~829 MB?
+> **SHA-256:** `10FEDB53CD2A33BFAC0717EFB78CDECF8F73BEEF3A60D5A8E9ACA3A04E585349`
 
-Valence ships **complete, offline GPU acceleration in the box** - no separate CUDA toolkit, no multi-gigabyte driver detour, no account. Most of the size is NVIDIA's GPU math libraries:
+**All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-| Piece | Approx. size | What it does |
-|-------|--------------|--------------|
-| NVIDIA CUDA libraries (cuBLAS / ggml-cuda) | ~640 MB | Fast local AI on NVIDIA GPUs |
-| Valence app + bundled .NET runtime | ~190 MB | The app itself, self-contained (no .NET install needed) |
-| Vulkan backend | ~54 MB | Local AI on AMD & Intel GPUs |
-| Embedding model + bundled tools | ~45 MB | On-device memory, knowledge, and web search |
+**[Download Valence 1.3.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.3.0/Valence-1.3.0.msi)**
 
-Everything - your conversations, models, and memory - runs on your machine. The size is the cost of an AI that works fully offline and never phones home.
+Windows 10/11 (64-bit) · 808.47 MB
 
-> **Getting lighter soon.** Valence already detects your hardware and uses the right acceleration (NVIDIA CUDA, AMD/Intel Vulkan, or CPU). A coming update will download only the pack your machine needs during setup, bringing the base install down to around 190 MB.
+> **SHA-256:** `B699847453D18A40D1A8C2342B6EFF287D36B23F4B81E84584166D214454513A`
+> Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
+
+### Which download?
+
+The lighter install we promised is here. **Slim** takes one quick look at your hardware during setup and downloads only the graphics acceleration your machine actually uses — NVIDIA gets CUDA, AMD and Intel get Vulkan, and a CPU-only machine needs nothing extra at all. **All-in-one** still ships every backend in the box for machines that can't (or shouldn't) touch the network during setup.
+
+| | Slim | All-in-one |
+|---|---|---|
+| Download size | 302.62 MB | 808.47 MB |
+| Graphics backends | fetched for your card | all bundled |
+| Internet at setup | once | never |
+| Works offline after | yes | yes |
+| Privacy | 100% local | 100% local |
+
+Either way, everything — your conversations, models, and memory — runs on your machine and never phones home.
 
 ---
 
@@ -50,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.2.3](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-3.html)** &nbsp;_(latest)_ | Jul 3, 2026 | AI Providers redesigned: provider chips with status dots, one-line model library table, Gemma vs Qwen comparison table. |
+| **[1.3.0](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-0.html)** &nbsp;_(latest)_ | Jul 6, 2026 | The slim installer debuts (302.62 MB — fetches only the acceleration your card uses) beside the all-in-one; a reimagined, guided first run; the "Your AI" status badge; offline local-model sends fixed; update integrity checks. |
+| **[1.2.3](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-3.html)** | Jul 3, 2026 | AI Providers redesigned: provider chips with status dots, one-line model library table, Gemma vs Qwen comparison table. |
 | **[1.2.2](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-2.html)** | Jul 3, 2026 | Theme-matched ink for loading effects (indigo/sepia/ocean/coral per light theme); settings navigation overhaul (chip views, sections open, compact header on small windows); Growing Tree blossoms softened; appearance-control responsiveness fix. |
 | **[1.2.1](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-1.html)** | Jul 3, 2026 | Ink-on-paper loading effects on light themes: all 16 effects (and the classic spiral backdrop) adapt automatically; local-model fixes (no more instruction echo; quoted ability syntax stays on screen). |
 | **[1.2.0](https://helixailabs.github.io/Valence/2026/07/03/valence-1-2-0.html)** | Jul 3, 2026 | Streaming Reveal: choose how replies stream in (None / Focus Pull / Weight Settle / Line Rise) with a live preview under Settings > Theme; update checks on by default; menu keyboard-navigation fix. |
