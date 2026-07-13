@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — Helix AI Labs</title>
+<meta name="description" content="Rigorous, reproducible evaluations of the models Helix ships. We publish the work while it's in flight and the paper when it's done — highs and lows alike.">
+<style>
+  :root{
+    --ground:#0B0E14; --panel:#12161F; --panel-2:#161B26; --ink:#E9EDF5; --muted:#9AA5B8; --faint:#5F6B7E;
+    --accent:#5A97FF; --accent-soft:rgba(90,151,255,.13); --accent-line:rgba(90,151,255,.4);
+    --warn:#E9A55E; --warn-soft:rgba(233,165,94,.12); --warn-line:rgba(233,165,94,.4);
+    --good:#46CF93; --good-soft:rgba(70,207,147,.12); --good-line:rgba(70,207,147,.38);
+    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.055);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --measure:46rem;
+  }
+  @media (prefers-color-scheme:light){:root{
+    --ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F3F9;--ink:#111621;--muted:#515c70;--faint:#8b95a8;
+    --accent:#2258D8;--accent-soft:rgba(34,88,216,.08);--accent-line:rgba(34,88,216,.32);
+    --warn:#A9631A;--warn-soft:rgba(169,99,26,.09);--warn-line:rgba(169,99,26,.36);
+    --good:#12965f;--good-soft:rgba(18,150,95,.09);--good-line:rgba(18,150,95,.34);
+    --line:rgba(11,18,32,.12);--line-2:rgba(11,18,32,.06);
+  }}
+  :root[data-theme="light"]{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F3F9;--ink:#111621;--muted:#515c70;--faint:#8b95a8;--accent:#2258D8;--accent-soft:rgba(34,88,216,.08);--accent-line:rgba(34,88,216,.32);--warn:#A9631A;--warn-soft:rgba(169,99,26,.09);--warn-line:rgba(169,99,26,.36);--good:#12965f;--good-soft:rgba(18,150,95,.09);--good-line:rgba(18,150,95,.34);--line:rgba(11,18,32,.12);--line-2:rgba(11,18,32,.06)}
+  :root[data-theme="dark"]{--ground:#0B0E14;--panel:#12161F;--panel-2:#161B26;--ink:#E9EDF5;--muted:#9AA5B8;--faint:#5F6B7E;--accent:#5A97FF;--accent-soft:rgba(90,151,255,.13);--accent-line:rgba(90,151,255,.4);--warn:#E9A55E;--warn-soft:rgba(233,165,94,.12);--warn-line:rgba(233,165,94,.4);--good:#46CF93;--good-soft:rgba(70,207,147,.12);--good-line:rgba(70,207,147,.38);--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.055)}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.04;letter-spacing:-.02em;margin:0}
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+
+  header.hub{padding:58px 0 26px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-soft)}
+  header.hub h1{margin:20px 0 0}
+  .lede{font-size:1.14rem;color:var(--muted);max-width:38rem;margin:16px 0 0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-2);margin-top:28px}
+  .tabs .wrap{display:flex;gap:6px;padding:10px 22px;align-items:center}
+  .tab{appearance:none;border:1px solid transparent;background:none;color:var(--muted);font-family:var(--sans);font-weight:600;font-size:.95rem;padding:8px 15px;border-radius:100px;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-line)}
+  .tab:hover{color:var(--ink)}
+  .tab .count{font-family:var(--mono);font-size:.66rem;opacity:.8}
+
+  section.list{padding:30px 0 10px}
+  .cards{display:flex;flex-direction:column;gap:14px}
+  .card{display:block;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:20px 22px;transition:border-color .15s,transform .15s}
+  a.card:hover{border-color:var(--accent-line);transform:translateY(-1px)}
+  .card .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+  .genre{font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:100px;padding:3px 9px}
+  .status{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:100px}
+  .status.flight{color:var(--warn);background:var(--warn-soft);border:1px solid var(--warn-line)}
+  .status.done{color:var(--good);background:var(--good-soft);border:1px solid var(--good-line)}
+  .status.draft{color:var(--muted);background:var(--panel-2);border:1px solid var(--line)}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:1.32rem;line-height:1.16;letter-spacing:-.01em;margin:0}
+  .card .dek{color:var(--muted);font-size:.98rem;margin:8px 0 0;max-width:44rem}
+  .card .meta{margin-top:13px;font-family:var(--mono);font-size:.68rem;color:var(--faint);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .card .go{color:var(--accent);font-weight:600}
+  a.card:hover .go{text-decoration:underline}
+
+  .empty{border:1px dashed var(--line);border-radius:14px;padding:34px 24px;text-align:center;color:var(--muted)}
+  .empty .big{font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:6px}
+  .empty .sub{font-size:.95rem;max-width:34rem;margin:0 auto}
+  .hidden{display:none}
+
+  footer{border-top:1px solid var(--line-2);margin-top:44px;padding:26px 0 60px;color:var(--faint);font-size:.84rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .fm{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<header class="hub"><div class="wrap">
+  <div class="brand"><span class="dot"></span>HELIX&nbsp;AI&nbsp;LABS · RESEARCH</div>
+  <h1>Research</h1>
+  <p class="lede">Rigorous, reproducible evaluations of the models we ship — <b>measured, not promised</b>. We publish the work while it's in flight and the finished paper when it's done, highs and lows alike.</p>
+</div></header>
+
+<nav class="tabs"><div class="wrap">
+  <button class="tab" id="t-flight" aria-selected="true" onclick="show('flight')">In flight <span class="count">2</span></button>
+  <button class="tab" id="t-done" aria-selected="false" onclick="show('done')">Completed <span class="count">0</span></button>
+</div></nav>
+
+<!-- IN FLIGHT -->
+<section class="list" id="p-flight"><div class="wrap"><div class="cards">
+
+  <a class="card" href="./papers/kids-safety-adventure.html">
+    <div class="top"><span class="genre">Adventure log</span><span class="status flight">Living · updated</span></div>
+    <h3>How you use a small model decides what it can do</h3>
+    <p class="dek">A weak on‑device model went from 20% to 95.7% on a child‑safety detection task — by changing the prompt, not the model. The honest journey, wrong turns and a nearly‑published false conclusion included.</p>
+    <div class="meta"><span>Kids‑Safety</span><span>2026‑07‑12</span><span class="go">Read the log →</span></div>
+  </a>
+
+  <div class="card">
+    <div class="top"><span class="genre">Report card</span><span class="status draft">Draft · pending run</span></div>
+    <h3>Report Card 01 — Kids‑Safety, small model vs capable model</h3>
+    <p class="dek">The parent‑facing verdict: which on‑device model is fit for Kids Mode, in plain language. Waiting on the cascade experiment to resolve the precision problem before the conclusion is written.</p>
+    <div class="meta"><span>Kids‑Safety</span><span>In preparation</span><span class="go" style="color:var(--faint)">Not yet published</span></div>
+  </div>
+
+</div></div></section>
+
+<!-- COMPLETED -->
+<section class="list hidden" id="p-done"><div class="wrap">
+  <div class="empty">
+    <div class="big">Nothing finished here yet — and that's the point.</div>
+    <p class="sub">We publish an investigation as a living log <em>while</em> it's in flight, and promote it to a completed paper only when the result is settled and the receipts survive a skeptic. The first one lands when the Kids‑Safety cascade experiment resolves.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>Helix AI Labs — measured, not promised. Batteries frozen &amp; hashed; harnesses and pre‑registrations published.</span>
+  <span class="fm">HELIX RESEARCH · REPRODUCIBLE</span>
+</div></footer>
+
+<script>
+  function show(which){
+    var f = which === 'flight';
+    document.getElementById('p-flight').classList.toggle('hidden', !f);
+    document.getElementById('p-done').classList.toggle('hidden', f);
+    document.getElementById('t-flight').setAttribute('aria-selected', f);
+    document.getElementById('t-done').setAttribute('aria-selected', !f);
+  }
+</script>
+</body>
+</html>

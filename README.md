@@ -2,7 +2,7 @@
 
 **A private, controlled, curated AI space** — every AI model you use, local or cloud, on your terms.
 
-[Website](https://helixailabs.com) · [Updates](https://helixailabs.github.io/Valence/updates/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · help@helixailabs.com
+[Website](https://helixailabs.com) · [Updates](https://helixailabs.github.io/Valence/updates/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · [Research](https://helixailabs.github.io/Valence/research/) · help@helixailabs.com
 
 ![Valence Conversation Explorer - browse, search, and organize every conversation in real folders](assets/img/conversation-explorer.png)
 

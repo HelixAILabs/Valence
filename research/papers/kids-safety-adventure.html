@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How you use a small model decides what it can do — Helix Research</title>
+<meta name="description" content="A weak on-device model went from 20% to 95.7% on a child-safety detection task — by changing the prompt, not the model. An honest research log, wrong turns included.">
+<style>
+  :root{
+    --ground:#0B0E14; --panel:#12161F; --panel-2:#161B26; --ink:#E9EDF5; --muted:#9AA5B8; --faint:#5F6B7E;
+    --accent:#5A97FF; --accent-soft:rgba(90,151,255,.13); --accent-line:rgba(90,151,255,.4);
+    --warn:#E9A55E; --warn-soft:rgba(233,165,94,.12); --warn-line:rgba(233,165,94,.4);
+    --good:#46CF93;
+    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.055);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --measure:34rem;
+  }
+  @media (prefers-color-scheme:light){:root{
+    --ground:#F4F6FA; --panel:#FFFFFF; --panel-2:#F0F3F9; --ink:#111621; --muted:#515c70; --faint:#8b95a8;
+    --accent:#2258D8; --accent-soft:rgba(34,88,216,.08); --accent-line:rgba(34,88,216,.32);
+    --warn:#A9631A; --warn-soft:rgba(169,99,26,.09); --warn-line:rgba(169,99,26,.36);
+    --good:#12965f;
+    --line:rgba(11,18,32,.12); --line-2:rgba(11,18,32,.06);
+  }}
+  :root[data-theme="light"]{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F3F9;--ink:#111621;--muted:#515c70;--faint:#8b95a8;--accent:#2258D8;--accent-soft:rgba(34,88,216,.08);--accent-line:rgba(34,88,216,.32);--warn:#A9631A;--warn-soft:rgba(169,99,26,.09);--warn-line:rgba(169,99,26,.36);--good:#12965f;--line:rgba(11,18,32,.12);--line-2:rgba(11,18,32,.06)}
+  :root[data-theme="dark"]{--ground:#0B0E14;--panel:#12161F;--panel-2:#161B26;--ink:#E9EDF5;--muted:#9AA5B8;--faint:#5F6B7E;--accent:#5A97FF;--accent-soft:rgba(90,151,255,.13);--accent-line:rgba(90,151,255,.4);--warn:#E9A55E;--warn-soft:rgba(233,165,94,.12);--warn-line:rgba(233,165,94,.4);--good:#46CF93;--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.055)}
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.68;font-size:1.06rem;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 22px}
+  .wide{max-width:44rem}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+  .mono{font-family:var(--mono)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.05rem,5.4vw,3.05rem);line-height:1.06;letter-spacing:-.015em;margin:0;text-wrap:balance}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,3.4vw,1.9rem);line-height:1.12;letter-spacing:-.01em;margin:2.6em 0 .1em;text-wrap:balance}
+  p{margin:1.05em 0}
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+
+  header.post{padding:60px 0 30px;border-bottom:1px solid var(--line-2)}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-soft)}
+  header.post h1{margin:22px 0 0}
+  .standfirst{font-size:1.22rem;line-height:1.5;color:var(--muted);margin:18px 0 0;max-width:30rem}
+  .standfirst b{color:var(--ink);font-weight:600}
+  .byline{margin-top:22px;font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;color:var(--faint);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .tag{border:1px solid var(--line);border-radius:100px;padding:3px 9px}
+
+  section{padding:6px 0}
+  .lead p:first-child{margin-top:34px}
+  .drop::first-letter{font-family:var(--serif);float:left;font-size:3.3em;line-height:.82;padding:.05em .09em 0 0;color:var(--accent)}
+  .context{border-left:2px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:15px 18px;margin:28px 0 4px;font-size:.99rem;color:var(--muted)}
+  .context b{color:var(--ink);font-weight:600}
+
+  /* hero reversal stat */
+  .hero{margin:40px 0 8px;border:1px solid var(--accent-line);background:linear-gradient(180deg,var(--accent-soft),transparent 70%);border-radius:16px;padding:26px 24px}
+  .hero .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .hero .rows{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+  .rrow{display:grid;grid-template-columns:8.5rem 1fr auto;gap:14px;align-items:center}
+  @media (max-width:560px){.rrow{grid-template-columns:1fr;gap:5px}.rrow .num{justify-self:start}}
+  .rrow .lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.3}
+  .track{height:16px;border-radius:6px;background:var(--panel-2);overflow:hidden;border:1px solid var(--line-2)}
+  .fill{height:100%;border-radius:6px}
+  .fill.lo{width:20.4%;background:var(--warn)}
+  .fill.hi{width:95.7%;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#fff))}
+  .rrow .num{font-family:var(--mono);font-weight:600;font-size:1.15rem;font-variant-numeric:tabular-nums}
+  .num.lo{color:var(--warn)} .num.hi{color:var(--accent)}
+  .hero .cap{margin-top:16px;font-size:.92rem;color:var(--muted)}
+  .hero .cap b{color:var(--ink)}
+
+  /* data table */
+  .tblwrap{overflow-x:auto;margin:22px 0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  caption{caption-side:bottom;text-align:left;color:var(--faint);font-size:.8rem;padding-top:10px;font-family:var(--mono)}
+  th,td{padding:9px 12px;border-bottom:1px solid var(--line-2);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1px solid var(--line)}
+  td.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .lo-c{color:var(--warn)} .hi-c{color:var(--accent)}
+
+  /* timeline */
+  .timeline{margin:26px 0;position:relative;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .beat{position:relative;padding:0 0 26px 8px}
+  .beat::before{content:"";position:absolute;left:-24px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--ground);border:2px solid var(--faint)}
+  .beat.hi::before{border-color:var(--accent);background:var(--accent)}
+  .beat.lo::before{border-color:var(--warn);background:var(--warn)}
+  .beat.pivot::before{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  .beat .when{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .beat h3{font-family:var(--serif);font-weight:600;font-size:1.16rem;margin:3px 0 4px;letter-spacing:-.01em}
+  .beat p{margin:.4em 0;font-size:1rem;color:var(--muted)}
+  .beat p b{color:var(--ink);font-weight:600}
+  .flag{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:100px;margin-bottom:4px}
+  .flag.lo{color:var(--warn);background:var(--warn-soft);border:1px solid var(--warn-line)}
+  .flag.hi{color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line)}
+  .flag.pivot{color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent);border:1px solid color-mix(in srgb,var(--good) 40%,transparent)}
+
+  blockquote{margin:26px 0;padding:6px 0 6px 22px;border-left:2px solid var(--accent);font-family:var(--serif);font-size:1.3rem;line-height:1.4;color:var(--ink)}
+  .pull{font-style:italic}
+
+  .open{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px;margin:26px 0}
+  .open h2{margin:0 0 6px}
+  .open ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+  .open li{margin:9px 0}
+  .open li b{color:var(--ink);font-weight:600}
+
+  footer{border-top:1px solid var(--line-2);margin-top:50px;padding:26px 0 64px;color:var(--faint);font-size:.84rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .fm{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
+  @media (prefers-reduced-motion:no-preference){.reveal{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header class="post"><div class="wrap wide">
+  <div class="brand"><span class="dot"></span>HELIX&nbsp;RESEARCH · ADVENTURE LOG</div>
+  <h1 class="reveal">How you <em>use</em> a small model decides what it can do</h1>
+  <p class="standfirst reveal">A weak, on‑device AI went from <b>20% to 95.7%</b> at a child‑safety detection task — by changing the prompt, not the model. This is the honest record of getting there, wrong turns and a nearly‑published false conclusion included.</p>
+  <div class="byline">
+    <span class="tag">Living log — investigation ongoing</span>
+    <span>Helix AI Labs</span>
+    <span>2026‑07‑12</span>
+    <span>gemma‑4 E2B‑Q4 vs E4B‑Q8</span>
+  </div>
+</div></header>
+
+<section class="lead"><div class="wrap wide">
+  <p class="drop">Valence runs its AI on your own computer, and Kids Mode has to work on the <em>weakest</em> machine a family might own — which means the smallest model we support. Two bugs pointed the same direction: the model mishandled a child's outward aggression, and it sometimes answered a real message with a bare greeting. Both looked like "the model is just too weak." Instead of guessing, we built an instrument and measured. What we found reversed our own conclusion twice — and the second time, we were one un‑run check away from publishing something false.</p>
+
+  <p>We're a transparent studio, so this is written the way it actually went: the setback that wasn't fixable, the confident prediction that was wrong, the result that looked like proof and was a bug, and the finding that changed how we think about small models entirely.</p>
+
+  <div class="context"><b>Before the numbers, some context.</b> Kids Mode ships today with layered protections, and the child‑facing side is already strong — on this same small model, the AI's calm, safe reply to a distressed child lands <b>98.6%</b> of the time. The gap this research chases is a narrower one: how reliably the system <em>also</em> surfaces a concern for a <b>parent</b> to see. So the figures below aren't "how safe is a child" — they're "how well do we escalate upward," and how much better we can make the smallest model at it.</div>
+</div></section>
+
+<section><div class="wrap wide">
+  <div class="hero reveal">
+    <div class="k">The whole paper in one chart</div>
+    <div class="rows">
+      <div class="rrow">
+        <div class="lbl">7‑way one‑shot<br>classify</div>
+        <div class="track"><div class="fill lo"></div></div>
+        <div class="num lo">20.4%</div>
+      </div>
+      <div class="rrow">
+        <div class="lbl">focused one‑word<br>label</div>
+        <div class="track"><div class="fill hi"></div></div>
+        <div class="num hi">95.7%</div>
+      </div>
+    </div>
+    <p class="cap">Harm‑detection recall, <b>identical model</b>, identical scenarios. The only change was <b>how we asked</b>. The model was never the barrier — the prompt was.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap wide">
+  <h2>First, the honest baseline</h2>
+  <p>We froze a pre‑registered battery of 729 scenarios (hashed, so any run is reproducible) and ran the real Kids‑Mode paths on two models: the small <span class="mono">E2B</span> and the larger <span class="mono">E4B</span>. The production detector is a single big prompt that classifies a conversation seven ways.</p>
+
+  <div class="tblwrap"><table>
+    <caption>Detection recall on the frozen battery. The child‑facing replies were already good on E2B (98.6%); the weak spot was telling the <em>parent</em>.</caption>
+    <thead><tr><th>Detection axis</th><th>E2B (small)</th><th>E4B (larger)</th></tr></thead>
+    <tbody>
+      <tr><td>Harm‑to‑others</td><td class="mono lo-c">20.4%</td><td class="mono hi-c">99.1%</td></tr>
+      <tr><td>Self‑harm</td><td class="mono lo-c">46.8%</td><td class="mono">97.6%</td></tr>
+      <tr><td>Cry‑wolf resistance</td><td class="mono">97.6%</td><td class="mono">98.6%</td></tr>
+      <tr><td>Benign kept clean</td><td class="mono">100%</td><td class="mono">100%</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>A stark gap. The larger model was near‑perfect; the small one caught one harmful message in five. The obvious story wrote itself: <em>small model, weak model, get a bigger one.</em> We spent the next several hours discovering that story was wrong.</p>
+
+  <h2>The journey, in the order it actually happened</h2>
+
+  <div class="timeline">
+    <div class="beat lo">
+      <span class="when">Attempt 1</span>
+      <div><span class="flag lo">dead end</span></div>
+      <h3>A keyword safety‑net barely moved the number</h3>
+      <p>We built a deterministic keyword floor and measured it honestly: <b>+4.7 points</b>. It and the model failed on the <em>same</em> messages — both catch blunt idioms, both miss the endless ways a kid actually phrases things. A word list can't cover an open language space.</p>
+    </div>
+    <div class="beat lo">
+      <span class="when">Attempt 2 · our bias</span>
+      <div><span class="flag lo">wrong turn</span></div>
+      <h3>"It's the model" — a confident, wrong prediction</h3>
+      <p>Breaking the misses down, the small model missed <b>71% of blatant, explicit threats</b> — not subtle ones. That read as a hard capability wall. We predicted, on the record, that a smarter re‑ask would <em>also</em> fail. We'd quietly swapped "the model is bad at this" for a more flattering technical story. It was the wrong instinct.</p>
+    </div>
+    <div class="beat pivot">
+      <span class="when">The save</span>
+      <div><span class="flag pivot">caught it</span></div>
+      <h3>A "0%" result that was a broken instrument, not a verdict</h3>
+      <p>We pre‑registered a focused re‑ask and predicted failure. First run: <b>0.0% across everything</b> — it <em>confirmed</em> the prediction. That is exactly when to distrust a result. A control probe revealed the model was answering <b>"No" to "does this message mention soccer?"</b> — a reflex to the yes/no format. The zero measured nothing. <b>Void, not fail.</b> The check caught it; our confidence would not have.</p>
+    </div>
+    <div class="beat hi">
+      <span class="when">The reversal</span>
+      <div><span class="flag hi">the finding</span></div>
+      <h3>Change the format, and the same model soars</h3>
+      <p>We asked for one word — <span class="mono">VIOLENCE / SELFHARM / SAFE</span> — instead of a yes/no or a seven‑way classify. Harm recall went <b>20% → 95.7%</b> (98.9% on the explicit cases), self‑harm <b>47% → 85%</b>. Same weights, same scenarios. The barrier was never the model's ability — it was that we'd handed a small model a big, one‑shot job.</p>
+    </div>
+    <div class="beat lo">
+      <span class="when">The catch</span>
+      <div><span class="flag lo">unsolved</span></div>
+      <h3>…but it now cries wolf</h3>
+      <p>The focused ask over‑fires: it flags <b>58% of game‑talk and venting</b> ("I killed him in Fortnite") as harmful. By our pre‑registered bar, that's a fail — but a different kind. Not "can't detect." <em>Over‑detects.</em> A far more tractable problem, and honestly still open.</p>
+    </div>
+  </div>
+
+  <blockquote class="pull">The measurement earned its keep three times over: it killed a bad fix, exposed a broken harness, and overturned our own bias — including a wrong prediction we'd put in writing.</blockquote>
+
+  <h2>What this actually means</h2>
+  <p>Our training instinct — the field's instinct — is to judge a model by what it can do <em>in one shot</em>. Small models look weak under that lens because that's the wrong lens. Used as they're meant to be — as a chain of small, focused interactions, each a task they handle cleanly — they do far more than the one‑shot number suggests. The 20%→95.7% jump wasn't a better model. It was a better <em>question</em>, asked the way a small model can answer it.</p>
+  <p>That reframes the two bugs we started with as one thesis: a capable‑but‑small model, buried under a heavy all‑in‑one prompt, falls back to something safe and generic — a missed threat, or a bare "hi." The cure isn't a bigger model or one more instruction. It's decomposition.</p>
+
+  <div class="open">
+    <h2>What we still don't know</h2>
+    <ul>
+      <li><b>Precision.</b> The focused ask catches almost everything and over‑flags. Next is a two‑stage cascade — a validator that audits each flag before a parent ever sees it — pre‑registered with a held‑out split so we can't fool ourselves.</li>
+      <li><b>Consistency.</b> Our battery tests fixed phrasings. Real kids write in slang, typos, and emoji. We need paraphrase and real‑world batteries before we trust these numbers in the wild.</li>
+      <li><b>The parent's reality.</b> Component accuracy isn't the alert stream a parent actually experiences. Base rates matter, and we haven't measured them yet.</li>
+    </ul>
+  </div>
+
+  <p>None of this is "we fixed everything." It's a system honest about where it's strong and weak, that gets better where a family actually uses it, and that measures itself against progressively harder tests. If any of these numbers make us look good, it's only because we're showing you the ones that don't.</p>
+</div></section>
+
+<footer><div class="wrap wide">
+  <span>Helix AI Labs — measured, not promised. Battery frozen &amp; hashed; harness and pre‑registrations published.</span>
+  <span class="fm">HELIX RESEARCH · REPRODUCIBLE · ONGOING</span>
+</div></footer>
+</body>
+</html>
