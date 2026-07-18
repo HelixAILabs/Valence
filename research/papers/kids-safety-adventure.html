@@ -1,8 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How you use a small model decides what it can do — Helix Research</title>
 <meta name="description" content="A weak on-device model went from 20% to 95.7% on a child-safety detection task — by changing the prompt, not the model. An honest research log, wrong turns included.">
 <style>
@@ -47,6 +42,8 @@
   .standfirst b{color:var(--ink);font-weight:600}
   .byline{margin-top:22px;font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;color:var(--faint);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .tag{border:1px solid var(--line);border-radius:100px;padding:3px 9px}
+  a.tag.jump{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent);text-decoration:none;font-weight:600}
+  a.tag.jump:hover{background:color-mix(in srgb,var(--accent) 18%,transparent)}
 
   section{padding:6px 0}
   .lead p:first-child{margin-top:34px}
@@ -112,16 +109,16 @@
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
   @media (prefers-reduced-motion:no-preference){.reveal{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
 </style>
-</head>
-<body>
+
 <header class="post"><div class="wrap wide">
   <div class="brand"><span class="dot"></span>HELIX&nbsp;RESEARCH · ADVENTURE LOG</div>
   <h1 class="reveal">How you <em>use</em> a small model decides what it can do</h1>
   <p class="standfirst reveal">A weak, on‑device AI went from <b>20% to 95.7%</b> at a child‑safety detection task — by changing the prompt, not the model. This is the honest record of getting there, wrong turns and a nearly‑published false conclusion included.</p>
   <div class="byline">
+    <a class="tag jump" href="#latest">↓ Jump to latest update · 2026‑07‑14</a>
     <span class="tag">Living log — investigation ongoing</span>
     <span>Helix AI Labs</span>
-    <span>2026‑07‑12</span>
+    <span>2026‑07‑12 · updated 2026‑07‑14</span>
     <span>gemma‑4 E2B‑Q4 vs E4B‑Q8</span>
   </div>
 </div></header>
@@ -149,7 +146,7 @@
         <div class="num hi">95.7%</div>
       </div>
     </div>
-    <p class="cap">Harm‑detection recall, <b>identical model</b>, identical scenarios. The only change was <b>how we asked</b>. The model was never the barrier — the prompt was.</p>
+    <p class="cap">Harm‑detection recall <span class="mono">(N=211 scenarios)</span>, <b>identical model</b>, identical scenarios. The only change was <b>how we asked</b>. The model was never the barrier — the prompt was.</p>
   </div>
 </div></section>
 
@@ -157,14 +154,16 @@
   <h2>First, the honest baseline</h2>
   <p>We froze a pre‑registered battery of 729 scenarios (hashed, so any run is reproducible) and ran the real Kids‑Mode paths on two models: the small <span class="mono">E2B</span> and the larger <span class="mono">E4B</span>. The production detector is a single big prompt that classifies a conversation seven ways.</p>
 
+  <div class="context"><b>How to read these numbers.</b> Every percentage is a point estimate over a fixed count of scenarios <span class="mono">(N)</span> from the frozen 729‑case battery — so "98%" means <em>98% of N</em>, not a feeling. The <b>N</b> column below spells it out per axis: harm‑to‑others 211, self‑harm 124, cry‑wolf 209, benign 141, child de‑escalation 440 (44 scenarios × 10 samples). Where we show a range it's a 95% Wilson confidence interval — small N means a wide interval, and we show it rather than hide it.</div>
+
   <div class="tblwrap"><table>
-    <caption>Detection recall on the frozen battery. The child‑facing replies were already good on E2B (98.6%); the weak spot was telling the <em>parent</em>.</caption>
-    <thead><tr><th>Detection axis</th><th>E2B (small)</th><th>E4B (larger)</th></tr></thead>
+    <caption>Detection recall on the frozen battery. The child‑facing replies were already good on E2B (98.6% of 440); the weak spot was telling the <em>parent</em>.</caption>
+    <thead><tr><th>Detection axis</th><th>N</th><th>E2B (small)</th><th>E4B (larger)</th></tr></thead>
     <tbody>
-      <tr><td>Harm‑to‑others</td><td class="mono lo-c">20.4%</td><td class="mono hi-c">99.1%</td></tr>
-      <tr><td>Self‑harm</td><td class="mono lo-c">46.8%</td><td class="mono">97.6%</td></tr>
-      <tr><td>Cry‑wolf resistance</td><td class="mono">97.6%</td><td class="mono">98.6%</td></tr>
-      <tr><td>Benign kept clean</td><td class="mono">100%</td><td class="mono">100%</td></tr>
+      <tr><td>Harm‑to‑others</td><td class="mono">211</td><td class="mono lo-c">20.4%</td><td class="mono hi-c">99.1%</td></tr>
+      <tr><td>Self‑harm</td><td class="mono">124</td><td class="mono lo-c">46.8%</td><td class="mono">97.6%</td></tr>
+      <tr><td>Cry‑wolf resistance</td><td class="mono">209</td><td class="mono">97.6%</td><td class="mono">98.6%</td></tr>
+      <tr><td>Benign kept clean</td><td class="mono">141</td><td class="mono">100%</td><td class="mono">100%</td></tr>
     </tbody>
   </table></div>
 
@@ -205,7 +204,7 @@
     </div>
   </div>
 
-  <blockquote class="pull">The measurement earned its keep three times over: it killed a bad fix, exposed a broken harness, and overturned our own bias — including a wrong prediction we'd put in writing.</blockquote>
+  <blockquote class="pull">The measurement earned its keep four times over: it killed a bad fix, exposed a broken harness, overturned our own bias — and, later, caught <em>itself</em> scoring empty conversations.</blockquote>
 
   <h2>What this actually means</h2>
   <p>Our training instinct — the field's instinct — is to judge a model by what it can do <em>in one shot</em>. Small models look weak under that lens because that's the wrong lens. Used as they're meant to be — as a chain of small, focused interactions, each a task they handle cleanly — they do far more than the one‑shot number suggests. The 20%→95.7% jump wasn't a better model. It was a better <em>question</em>, asked the way a small model can answer it.</p>
@@ -223,9 +222,44 @@
   <p>None of this is "we fixed everything." It's a system honest about where it's strong and weak, that gets better where a family actually uses it, and that measures itself against progressively harder tests. If any of these numbers make us look good, it's only because we're showing you the ones that don't.</p>
 </div></section>
 
+<section id="latest"><div class="wrap wide">
+  <div class="eyebrow" style="margin-top:10px">Revision · added 2026‑07‑14</div>
+  <h2>Update: the rig caught itself — and the honest production numbers</h2>
+
+  <p>Going back to re‑verify the numbers above, we found something humbling. Our Layer‑3 harness had been writing its test conversations to the wrong place, so the scanner's own security guard refused to load them and <b>every scan silently returned "normal." The model was never consulted.</b> A green harness had been proving nothing — the ~4‑second runs should have tipped us off. So the measurement rig earned its keep a fourth time by catching <em>itself</em>.</p>
+
+  <div class="context"><b>What "production" really means.</b> A second harness — the barrage — had been scoring the <em>raw model only</em>, never applying the deterministic safety floor that actually ships. Fixed, we now report every number at two levels: the raw classifier, and <b>production = what a parent actually gets</b> (model ∪ floor).</div>
+
+  <div class="tblwrap"><table>
+    <caption>Shipped detection, raw‑LLM → +floor, both tiers. On the calibrated model the LLM solves self‑harm on its own (99.2%); harm‑to‑others stays floor‑only on <em>both</em> tiers.</caption>
+    <thead><tr><th>Axis</th><th>N</th><th>E2B: raw → +floor</th><th>E4B: raw → +floor</th></tr></thead>
+    <tbody>
+      <tr><td>Harm‑to‑others</td><td class="mono">211</td><td class="mono">0% → <span class="lo-c">5.2%</span></td><td class="mono">0% → <span class="lo-c">0.9%</span></td></tr>
+      <tr><td>Self‑harm (crisis)</td><td class="mono">124</td><td class="mono">70.2% → 71.0%</td><td class="mono"><span class="hi-c">99.2%</span> → 99.2%</td></tr>
+      <tr><td>Cry‑wolf resistance</td><td class="mono">209</td><td class="mono">98.6% → 98.6%</td><td class="mono">97.6% → 97.6%</td></tr>
+      <tr><td>Benign kept clean</td><td class="mono">141</td><td class="mono">100% → 100%</td><td class="mono">100% → 100%</td></tr>
+      <tr><td>Child de‑escalation</td><td class="mono">440</td><td class="mono">~98%</td><td class="mono"><span class="hi-c">100%</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <p><b>The honest headline for what ships today:</b> harm‑to‑others detection is <b>~5% on E2B and ~1% on E4B</b>. The shipped prompt has no dedicated harm label, so all of it is the blunt‑idiom keyword floor; on the larger model the floor's harm catches are even <em>masked</em>, because E4B labels most outward threats as a self‑harm crisis — the parent is still <em>alerted</em>, just with the wrong words on it. The release's real, narrower win: the alert now <b>fires</b> where it was previously computed and silently thrown away.</p>
+
+  <h2>The label that hurt self‑harm</h2>
+  <p>The earlier 20.4% / 99.1% harm figures were measured with a prompt that carried a fourth <span class="mono">harm_to_others</span> label. We removed it — and the small model got <em>better</em> at the axis that matters most:</p>
+
+  <div class="tblwrap"><table>
+    <caption>E2B self‑harm recall — a controlled same‑battery A/B, prompt the only variable. Removing the 4th label bought back ~17 points on the safety‑critical axis; adding it bought only ~2 points of harm detection in return.</caption>
+    <thead><tr><th>E2B self‑harm recall (of N=124)</th><th>prompt shape</th></tr></thead>
+    <tbody>
+      <tr><td class="mono lo-c">53.2%</td><td>4‑way (with harm label)</td></tr>
+      <tr><td class="mono hi-c">70.2%</td><td>3‑way (label removed)</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>It's the same one‑shot‑degeneration effect from the top of this log — now measured directly on the safety axis with a controlled A/B: adding a label to the one‑shot classify made the weak model <b>~17 points worse</b> at catching self‑harm, while buying only ~2 points of harm detection. A stark trade, and an easy call: we ship the leaner prompt (protecting self‑harm) plus a deterministic harm floor, and leave real harm detection to the deferred focused cascade. <span class="mono" style="color:var(--faint);font-size:.85em">(The controlled 17pp corrected our own earlier cross‑session estimate of ~24pp — the honest number is the one where only the prompt changed.)</span> And the instant that floor was measured honestly, it caught a bug of our own making: the crisis word‑list was matching <span class="mono">"kys"</span> inside <span class="mono">"skyscraper"</span> — a kid recounting a movie was raised to a crisis alert — now fixed to match on word boundaries. An accurate rig doesn't just grade the model; it audits your own detectors.</p>
+</div></section>
+
 <footer><div class="wrap wide">
   <span>Helix AI Labs — measured, not promised. Battery frozen &amp; hashed; harness and pre‑registrations published.</span>
   <span class="fm">HELIX RESEARCH · REPRODUCIBLE · ONGOING</span>
 </div></footer>
-</body>
-</html>
