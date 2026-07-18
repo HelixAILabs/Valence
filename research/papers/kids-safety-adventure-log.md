@@ -4,6 +4,13 @@ An honest, running record of how we actually worked this out — wrong turns inc
 [`../CONVENTIONS.md`](../CONVENTIONS.md); hard numbers in the pre-registration and result files. This
 log is the *story* and the *lessons*; it never replaces the receipts.
 
+> **Two promises — read this first.** Kids Mode's core job is to *keep the child from being exposed to
+> harmful chat* (the AI won't produce harmful content, resists jailbreaks, de-escalates — 1,000
+> adversarial turns, 0 harmful outputs). **This log is about a *different* layer:** how reliably we
+> *alert the parent* when the child says something concerning. Every % here measures **alerting, not
+> exposure** — a missed alert means we didn't notify the parent as reliably as we want yet, *not* that
+> the child was shown anything harmful.
+
 > Genre note: append-only, dated, every entry carries a real lesson or a real number.
 
 > **Revisions** (newest first — each entry below is also dated inline):
