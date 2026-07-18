@@ -1,8 +1,9 @@
 # Adventure Log — Kids-Safety on a Weak Local Model
 
 An honest, running record of how we actually worked this out — wrong turns included. Rigor rules in
-[`../CONVENTIONS.md`](../CONVENTIONS.md); hard numbers in the pre-registration and result files. This
-log is the *story* and the *lessons*; it never replaces the receipts.
+[`../CONVENTIONS.md`](../CONVENTIONS.md); the hard numbers, every prompt, and the raw run data are
+published in [Data &amp; receipts](../data/). This log is the *story* and the *lessons*; it never
+replaces the receipts.
 
 > **Two promises — read this first.** Kids Mode's core job is to *keep the child from being exposed to
 > harmful chat* (the AI won't produce harmful content, resists jailbreaks, de-escalates — 1,000
