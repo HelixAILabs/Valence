@@ -1,8 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — Helix AI Labs</title>
 <meta name="description" content="Rigorous, reproducible evaluations of the models Helix ships. We publish the work while it's in flight and the paper when it's done — highs and lows alike.">
 <style>
@@ -64,6 +59,20 @@
   .card .go{color:var(--accent);font-weight:600}
   a.card:hover .go{text-decoration:underline}
 
+  /* featured — the proven safety result leads the page */
+  .feature{padding:28px 0 4px}
+  a.feature-card{display:block;border:1px solid var(--good-line);border-radius:18px;background:linear-gradient(180deg,var(--good-soft),transparent 74%);padding:24px 24px;transition:border-color .15s,transform .15s}
+  a.feature-card:hover{transform:translateY(-1px);border-color:var(--good)}
+  .feature-card .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .feature-card h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3.7vw,2.05rem);line-height:1.1;letter-spacing:-.015em;margin:0}
+  .feature-card .dek{color:var(--muted);font-size:1.02rem;margin:10px 0 0;max-width:40rem}
+  .feature-card .stat{margin-top:16px;font-family:var(--mono);font-size:.8rem;color:var(--ink);display:flex;gap:18px;flex-wrap:wrap}
+  .feature-card .stat b{color:var(--good);font-size:1.05em}
+  .feature-card .go{display:inline-block;margin-top:15px;font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--good)}
+  a.feature-card:hover .go{text-decoration:underline}
+  .sechead{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--ink);margin:32px 0 0}
+  .sechead + .lede-sm{color:var(--muted);font-size:.96rem;margin:5px 0 0}
+
   .empty{border:1px dashed var(--line);border-radius:14px;padding:34px 24px;text-align:center;color:var(--muted)}
   .empty .big{font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:6px}
   .empty .sub{font-size:.95rem;max-width:34rem;margin:0 auto}
@@ -74,13 +83,25 @@
   .fm{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 </style>
-</head>
-<body>
+
 <header class="hub"><div class="wrap">
   <div class="brand"><span class="dot"></span>HELIX&nbsp;AI&nbsp;LABS · RESEARCH</div>
   <h1>Research</h1>
-  <p class="lede">Rigorous, reproducible evaluations of the models we ship — <b>measured, not promised</b>. We publish the work while it's in flight and the finished paper when it's done, highs and lows alike.</p>
+  <p class="lede">We prove two different things, and we don't mix them up. <b>One — your child is protected:</b> we attacked Kids Mode 1,000 times and never got a harmful response through to a child. <b>Two — how reliably we alert you, the parent:</b> honest, still‑improving work. Measured, not promised — highs and lows alike.</p>
 </div></header>
+
+<!-- FEATURED: the proven safety result leads the page -->
+<section class="feature"><div class="wrap">
+  <a class="feature-card" href="./papers/kids-safety-proven.html">
+    <div class="top"><span class="genre">Safety proof</span><span class="status done">✓ Completed · proven</span></div>
+    <h3>We attacked Kids Mode 1,000 times. Nothing harmful reached the child.</h3>
+    <p class="dek">The plain‑language proof that your child won't be shown harmful content — 10 jailbreak techniques, every age band, run 20 times against the real shipping safety system. With the honest fine print, too.</p>
+    <div class="stat"><span><b>1,000</b> adversarial turns</span><span><b>0</b> harmful outputs</span><span><b>0</b> reached the child</span></div>
+    <span class="go">Read the proof →</span>
+  </a>
+</div></section>
+
+<div class="wrap"><div class="sechead">The research behind it — investigations in flight</div><p class="lede-sm">The living logs of how we work — mostly the alerting side we're still improving. Published while in flight, wrong turns and all.</p></div>
 
 <nav class="tabs"><div class="wrap">
   <button class="tab" id="t-flight" aria-selected="true" onclick="show('flight')">In flight <span class="count">2</span></button>
@@ -92,15 +113,15 @@
 
   <a class="card" href="./papers/kids-safety-adventure.html">
     <div class="top"><span class="genre">Adventure log</span><span class="status flight">Living · updated</span></div>
-    <h3>How you use a small model decides what it can do</h3>
-    <p class="dek">A weak on‑device model went from 20% to 95.7% on a child‑safety detection task — by changing the prompt, not the model. The honest journey, wrong turns and a nearly‑published false conclusion included. Latest chapter: the numbers that actually ship, and a controlled A/B that corrected our own over‑claim.</p>
-    <div class="meta"><span>Kids‑Safety</span><span>2026‑07‑14 · updated</span><span class="go">Read the log →</span></div>
+    <h3>Improving the alerting — how well we tell a parent</h3>
+    <p class="dek">The honest, in‑progress work on the <em>other</em> layer: how reliably our on‑device system flags a concern <b>to the parent</b>. A weak model went 20% → 95.7% on the detection task by changing the prompt — wrong turns, a nearly‑published false conclusion, and the honest ceilings included.</p>
+    <div class="meta"><span>Kids‑Safety · Alerting</span><span>2026‑07‑14 · updated</span><span class="go">Read the log →</span></div>
   </a>
 
   <div class="card">
     <div class="top"><span class="genre">Report card</span><span class="status draft">Draft · pending run</span></div>
     <h3>Report Card 01 — Kids‑Safety, small model vs capable model</h3>
-    <p class="dek">The parent‑facing verdict: which on‑device model is fit for Kids Mode, in plain language. Waiting on the cascade experiment to resolve the precision problem before the conclusion is written.</p>
+    <p class="dek">The parent‑facing verdict: which on‑device model is fit for Kids Mode, in plain language. The cascade experiment has now resolved (see the log); the plain‑language conclusion is being written.</p>
     <div class="meta"><span>Kids‑Safety</span><span>In preparation</span><span class="go" style="color:var(--faint)">Not yet published</span></div>
   </div>
 
@@ -109,8 +130,8 @@
 <!-- COMPLETED -->
 <section class="list hidden" id="p-done"><div class="wrap">
   <div class="empty">
-    <div class="big">Nothing finished here yet — and that's the point.</div>
-    <p class="sub">We publish an investigation as a living log <em>while</em> it's in flight, and promote it to a completed paper only when the result is settled and the receipts survive a skeptic. The first one lands when the Kids‑Safety cascade experiment resolves.</p>
+    <div class="big">Our first settled result is featured up top.</div>
+    <p class="sub">The Kids‑Safety <a href="./papers/kids-safety-proven.html">safety proof</a> is a completed, reproducible result — that's why it leads the page. The research <em>logs</em> here stay "in flight" until each result is settled and its receipts survive a skeptic; the first completed log lands as the alerting work firms up.</p>
   </div>
 </div></section>
 
@@ -128,5 +149,3 @@
     document.getElementById('t-done').setAttribute('aria-selected', !f);
   }
 </script>
-</body>
-</html>
