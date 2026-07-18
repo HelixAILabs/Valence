@@ -213,7 +213,7 @@
   <div class="open">
     <h2>What we still don't know</h2>
     <ul>
-      <li><b>Precision.</b> The focused ask catches almost everything and over‑flags. Next is a two‑stage cascade — a validator that audits each flag before a parent ever sees it — pre‑registered with a held‑out split so we can't fool ourselves.</li>
+      <li><b>Precision — now measured.</b> The two‑stage cascade recovered violence precision 42% → ~76% while holding ~92% recall (pre‑registered, held‑out); self‑harm is model‑bound (~84%) and rides the floor + capable tier. What's left is a <em>product</em> call — accept the ~76%/92% violence operating point, or hold for a precision lever that doesn't risk recall. (See the cascade chapter above.)</li>
       <li><b>Consistency.</b> Our battery tests fixed phrasings. Real kids write in slang, typos, and emoji. We need paraphrase and real‑world batteries before we trust these numbers in the wild.</li>
       <li><b>The parent's reality.</b> Component accuracy isn't the alert stream a parent actually experiences. Base rates matter, and we haven't measured them yet.</li>
     </ul>
@@ -257,6 +257,25 @@
   </table></div>
 
   <p>It's the same one‑shot‑degeneration effect from the top of this log — now measured directly on the safety axis with a controlled A/B: adding a label to the one‑shot classify made the weak model <b>~17 points worse</b> at catching self‑harm, while buying only ~2 points of harm detection. A stark trade, and an easy call: we ship the leaner prompt (protecting self‑harm) plus a deterministic harm floor, and leave real harm detection to the deferred focused cascade. <span class="mono" style="color:var(--faint);font-size:.85em">(The controlled 17pp corrected our own earlier cross‑session estimate of ~24pp — the honest number is the one where only the prompt changed.)</span> And the instant that floor was measured honestly, it caught a bug of our own making: the crisis word‑list was matching <span class="mono">"kys"</span> inside <span class="mono">"skyscraper"</span> — a kid recounting a movie was raised to a crisis alert — now fixed to match on word boundaries. An accurate rig doesn't just grade the model; it audits your own detectors.</p>
+
+  <h2>The cascade, measured — the arc's honest ending</h2>
+  <p>The two‑stage cascade (detect → validate) is no longer a hypothesis. Pre‑registered (v2, then v3 with self‑harm bypassing the validator), held‑out test split, validity‑gated <b>7/7</b>. This is where the 20%→95.7% method meets the product — and the ending is honest, not a banner.</p>
+
+  <div class="tblwrap"><table>
+    <caption>Cascade on the held‑out test split (E2B). "Net" = after the validator drops clear false alarms. The deliverable is the operating point, not clearing a model‑bound bar.</caption>
+    <thead><tr><th>Axis</th><th>N</th><th>Stage‑1 label alone</th><th>Cascade net (v3)</th><th>note</th></tr></thead>
+    <tbody>
+      <tr><td>Violence recall</td><td class="mono">110</td><td class="mono">~95.7%</td><td class="mono"><span class="hi-c">91.8%</span> (expl. 93.8%)</td><td class="mono">held</td></tr>
+      <tr><td>Violence precision</td><td class="mono">101</td><td class="mono lo-c">42%</td><td class="mono"><span class="hi-c">~76%</span></td><td class="mono">safe ceiling</td></tr>
+      <tr><td>Self‑harm recall</td><td class="mono">63</td><td class="mono">~85%</td><td class="mono">84.1%</td><td class="mono">model‑bound</td></tr>
+    </tbody>
+  </table></div>
+
+  <p><b>Violence is the real win:</b> detect→validate recovers precision <b>42% → ~76%</b> while <em>holding</em> recall at <b>~92%</b> — a usable, safe operating point (nearly every real threat caught; ~3 of 4 alerts real). 76% is the <em>deliberate</em> safe ceiling: we keep venting‑anger (a venting kid may act), so we never reach 90% without risking real threats.</p>
+
+  <p><b>Self‑harm belongs to the floor and the capable tier, not the cascade.</b> v3 bypassed the validator for self‑harm (never dropped): recall rose 81% → 84%, which <em>proves the residual gap is the model, not the cascade</em> — nothing can drop a self‑harm flag now, yet the weak model still tops ~84%. That axis is covered by the deterministic floor and E4B (99.2%), never the weak‑model label alone. And the safe rule has a disclosed cost: never‑dropping‑self‑harm also keeps the <em>false</em> self‑harm flags ("this homework is killing me"), which cost ~5 points of cry‑wolf precision. Deliberate, safe, named.</p>
+
+  <blockquote class="pull">Decomposition genuinely unlocks a weak model — but the honest product ending isn't one number. It's a usable violence operating point, a self‑harm gap that's model‑bound and layered over, and a precision/recall trade we made on the safe side and disclosed.</blockquote>
 </div></section>
 
 <footer><div class="wrap wide">

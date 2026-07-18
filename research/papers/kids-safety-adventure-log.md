@@ -190,19 +190,53 @@ spacing-collapse case "k m s i…" → "kmsi…" that a both-sides boundary woul
 **Lesson.** Measurement that finds real bugs is measurement worth trusting. An accurate rig doesn't
 just grade the model — it audits your own detectors.
 
+## 2026-07-14 — The cascade, measured: the arc's honest ending
+
+The two-stage cascade (detect → validate) is no longer a hypothesis. Pre-registered (v2, then v3 with
+self-harm bypassing the validator), held-out test split, validity-gated **7/7** — the honest resolution:
+
+| Axis | N | Stage-1 label alone | Cascade net (v3) | strict bar |
+|---|---|---|---|---|
+| Violence recall | 110 | ~95.7% | **91.8%** (explicit 93.8%) | ≥80/≥90 → OK |
+| Violence precision | 101 | 42% | **~76%** | ≥90 → XX |
+| Self-harm recall | 63 | ~85% | **84.1%** | ≥90 → XX |
+
+**Finding — the mechanism works, and the ending is honest, not a headline.**
+- **Violence is the real win.** detect→validate recovers precision **42% → ~76%** while *holding*
+  recall at **~92%** — a usable, safe operating point (nearly every real threat caught; ~3 of 4 alerts
+  real). 76% is the *deliberate* safe ceiling: we keep venting-anger (a venting kid may act), so we
+  never reach 90% without risking real threats.
+- **Self-harm belongs to the floor + the capable tier, not the cascade.** v3 bypassed the validator for
+  self-harm (Tier-1, never dropped): recall rose **81% → 84%**, which *proves the residual gap is the
+  model, not the cascade* — nothing can drop a self-harm flag now, yet E2B tops ~84%. Self-harm is
+  covered by the deterministic floor + E4B (99.2%), never the weak-model label alone.
+- **The safe choice has a disclosed cost.** Never-dropping-self-harm also keeps the *false* self-harm
+  flags — a cry-wolf like "this homework is killing me" that Stage-1 mislabels — which cost ~5 points of
+  cry-wolf precision (76% → 71%). Deliberate, safe, and named.
+
+**Lesson.** Decomposition genuinely unlocks the weak model — the 20% → 95.7% recall jump was real. But
+the honest product ending isn't one number: it's a *usable violence operating point*, a *self-harm gap
+that is model-bound and layered over*, and a *precision/recall trade made on the safe side and
+disclosed*. That's the arc — a bounded, honest engineering result, not a banner.
+
 ## Threads still open
 
 - **Harm-to-others labeling coherence** — E4B flags outward-harm as `crisis_mention` (145/211), so the
   parent alert fires with self-harm framing (the 988 voice) on a threat-to-others. Detection ≠ correct
   label; the cascade or a targeted floor should route the *label*, not just the flag.
-- **Cascade precision fix** — pre-register + measure (held-out split).
+- **Cascade product decision** (research done) — measured v2+v3: a usable *violence* operating point
+  (~92% recall / ~76% precision), self-harm model-bound (~84%) and riding the floor + capable tier. The
+  open question is product, not research: accept ~76%/92% for the default-OFF flag, or hold for a
+  precision lever that doesn't risk recall?
 - **Consistency + realism batteries** — the frozen battery tests fixed phrasings; build paraphrase +
   real-world batteries.
 - **The greeting bug (SEQ-1333)** — almost certainly the *same disease*: a heavy one-shot system
   prompt suppressing a capable-but-small model. Instrument the composed prompt before fixing; adding
   another anti-greeting directive likely treats the symptom.
-- **The papers** — the *methods* finding (focused-interaction unlocks small models) is ready to
-  write; the kids-mode *product* verdict waits on the cascade.
+- **The papers** — the *methods* finding (focused-interaction unlocks small models) is written. The
+  kids-mode *product* verdict is now bounded rather than pending: strong child-facing safety, a usable
+  violence-alert operating point, self-harm on the floor + capable tier. Consistency + real-world
+  (paraphrase) batteries remain the honest caveat.
 
 ## The through-line
 
