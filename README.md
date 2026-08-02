@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.4.1 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.4.1/Valence-1.4.1-slim.msi)**
+**[Download Valence 1.4.2 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.4.2/Valence-1.4.2-slim.msi)**
 
-Windows 10/11 (64-bit) · 302.80 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+Windows 10/11 (64-bit) · 302.83 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `0166EF6F678998E935888007A853B2392FB7CC2D0F6B006115979AD2E9C648F8`
+> **SHA-256:** `B5D55A15C09F8B8EF8FE53487FA4C2EBF581D06AC9938982ED4EB2FE351D20F1`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.4.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.4.1/Valence-1.4.1.msi)**
+**[Download Valence 1.4.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.4.2/Valence-1.4.2.msi)**
 
-Windows 10/11 (64-bit) · 808.64 MB
+Windows 10/11 (64-bit) · 808.67 MB
 
-> **SHA-256:** `65533F208D11DB220DBF13080845DCEA139FF4F43085DB8C34FCE29A816C7EC2`
+> **SHA-256:** `4DCED64E359C3AE7EABDB7FED8EA2B03EF971A0424203EEF497BE917680D8E4A`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 302.80 MB | 808.64 MB |
+| Download size | 302.83 MB | 808.67 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.4.1](https://helixailabs.github.io/Valence/2026/07/20/valence-1-4-1.html)** &nbsp;_(latest)_ | Jul 20, 2026 | Local AI that fits your hardware - on-device models now size their context window to your PC and the model you run (Auto by default) instead of a fixed short window; plus clearer model switching that names the model, shows the current step and a live timer, and loads right away. |
+| **[1.4.2](https://helixailabs.github.io/Valence/2026/08/01/valence-1-4-2.html)** &nbsp;_(latest)_ | Aug 1, 2026 | A Kids Mode safety fix - the crisis-detection calibration file was missing from the installer, so installed copies fell back to simpler keyword matching; now shipped, with a build check so it cannot silently recur. Plus a maximised first launch, correct window sizing on scaled displays, and background update downloads. |
+| **[1.4.1](https://helixailabs.github.io/Valence/2026/07/20/valence-1-4-1.html)** | Jul 20, 2026 | Local AI that fits your hardware - on-device models now size their context window to your PC and the model you run (Auto by default) instead of a fixed short window; plus clearer model switching that names the model, shows the current step and a live timer, and loads right away. |
 | **[1.4.0](https://helixailabs.github.io/Valence/2026/07/19/valence-1-4-0.html)** | Jul 19, 2026 | Kids privacy & safety - deny-by-default Kids Mode, a 988 crisis guarantee, at-rest encryption + a Local-Only switch, a parent console - plus a calmer, more honest experience: calm streaming, friendly model names, honest first-run/GPU, and a collapsed Chain of Thought. |
 | **[1.3.2](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-2.html)** | Jul 6, 2026 | Smoother updates: installing an update no longer shows a false "download failed" error (the install always worked; the message did not). |
 | **[1.3.1](https://helixailabs.github.io/Valence/2026/07/06/valence-1-3-1.html)** | Jul 6, 2026 | A small polish fix: the badge explainer now shows a single Got-it button. |
