@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.7.0 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.0/Valence-1.7.0-slim.msi)**
+**[Download Valence 1.7.1 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.1/Valence-1.7.1-slim.msi)**
 
 Windows 10/11 (64-bit) · 309.80 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `437FE2B5879F421C9DB2E8FD2E995B3651F3D86319FA5222BD3081F0F99A7BC5`
+> **SHA-256:** `910466D3D12E52AEDBD9436D4BECA0C1884DEE19F141FC644FF4641C7C5BBCDF`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.7.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.0/Valence-1.7.0.msi)**
+**[Download Valence 1.7.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.1/Valence-1.7.1.msi)**
 
 Windows 10/11 (64-bit) · 808.25 MB
 
-> **SHA-256:** `F575AA6448040F7A73E83B69C758CAED59072FC7F20E3F2F44F849578373165A`
+> **SHA-256:** `82A534545D391AB7DBF970CE4E09821BAB1DA32EC691636EB3615C9CC444C611`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 309.80 MB | 808.25 MB |
+| Download size | 309.84 MB | 808.29 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.7.0](https://helixailabs.github.io/Valence/2026/08/25/valence-1-7-0.html)** &nbsp;_(latest)_ | Aug 25, 2026 | The premium reskin - glass surfaces across the app, one accent color that retints everything, the appearance picker in the top bar, bundled Barlow typography, a calmer top bar with a token donut, and X-Ray reorganized into four chip views with engine performance-over-time charts. |
+| **[1.7.1](https://helixailabs.github.io/Valence/2026/08/31/valence-1-7-1.html)** &nbsp;_(latest)_ | Aug 31, 2026 | Kids Mode alerts that reach the right person: notifications wait until a grown-up profile is active instead of firing at the child, each alert opens the conversation it is about and carries a badge, and the bell is hidden entirely in Kids Mode. The parent dashboard's conversation tips, flagged-message highlighting, mark-reviewed and quiet hours all work. Detection catches more indirect phrasing while one class of false alarm is gone. |
+| **[1.7.0](https://helixailabs.github.io/Valence/2026/08/25/valence-1-7-0.html)** | Aug 25, 2026 | The premium reskin - glass surfaces across the app, one accent color that retints everything, the appearance picker in the top bar, bundled Barlow typography, a calmer top bar with a token donut, and X-Ray reorganized into four chip views with engine performance-over-time charts. |
 | **[1.6.0](https://helixailabs.github.io/Valence/2026/08/24/valence-1-6-0.html)** | Aug 24, 2026 | Streaming that never stalls, replies sized to the model's real capacity, memory recall that finds and cites what it used, the X-Ray Performance card, faster local models (Qwen 3.8 now loads), wider Kids crisis detection re-audited at 1,000 fresh turns per model with zero harmful replies. |
 | **[1.5.1](https://helixailabs.github.io/Valence/2026/08/13/valence-1-5-1.html)** | Aug 13, 2026 | The installer teaches: fresh installs get a heads-up quoting the "unknown publisher" question verbatim with the honest why and exact Yes/No consequences, a screen-will-dim warning on the Ready page, and an exit page with first-launch expectations (Defender one-time scan, model download, llama-server firewall Allow). Upgrades skip the walkthrough. Branded wizard art throughout. |
 | **[1.5.0](https://helixailabs.github.io/Valence/2026/08/12/valence-1-5-0.html)** | Aug 12, 2026 | The Local AI page rebuilt around honesty: graphics + system memory bars drawn to scale showing where a running model actually lives, a two-question Help-me-pick that draws the recommendation's footprint on your bars, a family-grouped catalogue with plain "Short by N GB" refusals, and truthful switching (progress ring, title bar always matches the answering model). Fixes: background downloads no longer evict the model mid-answer, picker downloads show real progress, small local models no longer invent conversations on a bare hello, memory-browser filter typing. |
