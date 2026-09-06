@@ -10,7 +10,7 @@
 
 ## ⬇ Download
 
-**[Download the latest release](https://github.com/HelixAILabs/Valence/releases/latest)** · Windows 10/11 (64-bit) · 7-day free trial, then **$59.95 once** for every version on every platform
+**[Download the latest release](https://github.com/HelixAILabs/Valence/releases/latest)** · Windows 10/11 (64-bit) · 7-day free trial, then **$59.95 once**, on every platform
 
 Two installers on that page. **Slim** is right for most people and needs internet once during setup. **All-in-one** bundles every backend for machines that cannot touch the network while installing.
 

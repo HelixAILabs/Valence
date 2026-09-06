@@ -34,7 +34,16 @@ Redirect 301 /Guides/mcp-brave-search.html  /Valence%20-%20Docs.html
 Redirect 301 /Guides/mcp-github.html        /Valence%20-%20Docs.html
 Redirect 301 /Guides/mcp-nodejs-setup.html  /Valence%20-%20Docs.html
 
-# 2026-09-06: site v2 ships a styled /404.html. Apache has no idea it exists
-# without this line, so GoDaddy's generic error page would be served instead.
-# (On GitHub Pages 404.html is served automatically; on Apache it is not.)
+# 2026-09-06: site v2 ships a styled /404.html at the site root.
+#
+# This directive is INERT on the current host and is kept deliberately.
+# GoDaddy shared hosting overrides ErrorDocument at the server level: tested with
+# both a path and a literal string, and both are ignored - a missing URL returns a
+# bare 13-byte "404 Not Found" either way, while the mod_alias Redirects in this
+# same file work, so the file is definitely being read. The custom error page has
+# to be set through cPanel's "Error Pages" tool instead, which is browser-only.
+#
+# The line stays because it is correct everywhere else (GitHub Pages serves
+# 404.html automatically; a normal Apache honours this), so if the site ever moves
+# off GoDaddy the styled page starts working with no change needed here.
 ErrorDocument 404 /404.html
