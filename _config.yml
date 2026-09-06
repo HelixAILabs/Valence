@@ -35,10 +35,17 @@ social:
 # checkout URL is changed in one place rather than hunted through pages.
 valence_buy_url: "https://buy.stripe.com/4gMdR31yQadY1E4d2beAg01"
 
-valence_version: 1.7.1
-valence_date: August 31, 2026
-valence_slim_mb: 309.84
-valence_full_mb: 808.29
+valence_version: 1.7.2
+valence_date: September 3, 2026
+valence_slim_mb: 121.71
+valence_full_mb: 620.16
+
+# Jekyll skips dotfiles by default, but .htaccess is a real web-server file that
+# must ship: it carries the 301s for the retired doc URLs and the ErrorDocument
+# mapping for /404.html. Leaving it out means those rules live only on the server,
+# owned by no repo — which is exactly how they were nearly lost before.
+include:
+  - .htaccess
 
 exclude:
   - preview-home.html
@@ -46,3 +53,8 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  # Repo-only files. CNAME would claim the custom domain if this tree were ever
+  # served by GitHub Pages, and neither belongs on a web server.
+  - CNAME
+  - README.md
+  - serve.sh

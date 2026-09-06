@@ -1,0 +1,40 @@
+# helixailabs.com — Apache directives
+#
+# 2026-08-24: retired the pre-migration documentation URLs.
+#
+# Two generations of docs were still being served publicly:
+#   /HowTos/valence_docs.html    /HowTos/valence_guides.html   (git-tracked, redeployed every push)
+#   /valence_docs.html           /valence_guides.html          (server-only; NOT in the repo, so
+#                                                               deploy.ps1 could never see or fix them)
+# All four returned HTTP 200 while claiming to match "Valence v1.4.5" — a version that was never
+# released — and their navigation pointed at pages that 404. They had no inbound links from any
+# current page, which is exactly why they survived every release pass untouched.
+#
+# The files are deleted. These redirects exist because the URLs may hold external links and search
+# placement, and because the retired copy told readers (and any AI they pasted it into) to treat
+# /valence_docs.html as the authoritative guide. A 301 sends that traffic to the real handbook
+# instead of a 404.
+#
+# mod_alias Redirect is used rather than mod_rewrite: no RewriteEngine dependency, and the mapping
+# is a plain one-to-one. Targets are percent-encoded because the live filenames contain spaces.
+
+Redirect 301 /HowTos/valence_docs.html   /Valence%20-%20Docs.html
+Redirect 301 /HowTos/valence_guides.html /Valence%20-%20Guides.html
+Redirect 301 /valence_docs.html          /Valence%20-%20Docs.html
+Redirect 301 /valence_guides.html        /Valence%20-%20Guides.html
+
+# 2026-08-24: retired the standalone MCP setup guides (dated 2026-03-14). Same class as
+# the pages above - server-only, absent from the repo, no inbound link from any current
+# page - so deploy.ps1 could not manage them either.
+#
+# These point at the HANDBOOK, not at /Valence - Guides.html: the Guides page does not
+# mention MCP at all, so sending someone asking about MCP setup there would be a dead end
+# dressed as a redirect. Docs, Privacy & Licensing and Tech Specs are where MCP is covered.
+Redirect 301 /Guides/mcp-brave-search.html  /Valence%20-%20Docs.html
+Redirect 301 /Guides/mcp-github.html        /Valence%20-%20Docs.html
+Redirect 301 /Guides/mcp-nodejs-setup.html  /Valence%20-%20Docs.html
+
+# 2026-09-06: site v2 ships a styled /404.html. Apache has no idea it exists
+# without this line, so GoDaddy's generic error page would be served instead.
+# (On GitHub Pages 404.html is served automatically; on Apache it is not.)
+ErrorDocument 404 /404.html
