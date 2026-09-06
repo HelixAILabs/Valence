@@ -47,3 +47,25 @@ Redirect 301 /Guides/mcp-nodejs-setup.html  /Valence%20-%20Docs.html
 # 404.html automatically; a normal Apache honours this), so if the site ever moves
 # off GoDaddy the styled page starts working with no change needed here.
 ErrorDocument 404 /404.html
+
+# 2026-09-06: URLs the SHIPPED app links to that returned 404 on the live site.
+# These are not old marketing URLs - they are live buttons inside Valence, so
+# every user who clicks them today lands on an error page. Found by extracting
+# every helixailabs.com URL from the app source and curling each one.
+#
+# Two of the three are pure case mismatches against redirects that already exist
+# above: mod_alias Redirect is case-sensitive, and the app links "Valence_Guides"
+# and "/guides/" while the rules above only cover "valence_guides" and "/Guides/".
+#
+#   Settings > About > "Help & Guides"        -> the Guides page it means
+#   Settings > MCP > Node.js setup guide      -> Docs, matching the /Guides/ rule above
+Redirect 301 /Valence_Guides.html            /Valence%20-%20Guides.html
+Redirect 301 /guides/mcp-nodejs-setup.html   /Valence%20-%20Docs.html
+
+# Settings > Memory > "HIVE Coming Soon - Learn More". There is no HIVE page on
+# the site and Docs does not mention it, so sending this to Docs would be a dead
+# end dressed as a redirect - the same mistake the MCP note above avoids. The
+# home page is the honest destination until HIVE has a page of its own. The real
+# fix is in the app: SettingsModalComponent.js hiveLearnMoreBtn should not link
+# to a page that does not exist.
+Redirect 301 /hive_explore.html              /
