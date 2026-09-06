@@ -58,3 +58,6 @@ exclude:
   - CNAME
   - README.md
   - serve.sh
+  # carries the SFTP account name and server IP - must never be web-servable
+  - deploy.py
+  - DEPLOYING.md
