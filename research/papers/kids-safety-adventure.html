@@ -1,135 +1,34 @@
-<html lang="en" data-theme="light">
-<title>How you use a small model decides what it can do — Helix Research</title>
-<meta name="description" content="A weak on-device model went from 20% to 95.7% on a child-safety detection task — by changing the prompt, not the model. An honest research log, wrong turns included.">
-<style>
-  :root{
-    --ground:#0B0E14; --panel:#12161F; --panel-2:#161B26; --ink:#E9EDF5; --muted:#9AA5B8; --faint:#5F6B7E;
-    --accent:#5A97FF; --accent-soft:rgba(90,151,255,.13); --accent-line:rgba(90,151,255,.4);
-    --warn:#E9A55E; --warn-soft:rgba(233,165,94,.12); --warn-line:rgba(233,165,94,.4);
-    --good:#46CF93;
-    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.055);
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
-    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
-    --measure:34rem;
-  }
-  @media (prefers-color-scheme:light){:root{
-    --ground:#F4F6FA; --panel:#FFFFFF; --panel-2:#F0F3F9; --ink:#111621; --muted:#515c70; --faint:#8b95a8;
-    --accent:#2258D8; --accent-soft:rgba(34,88,216,.08); --accent-line:rgba(34,88,216,.32);
-    --warn:#A9631A; --warn-soft:rgba(169,99,26,.09); --warn-line:rgba(169,99,26,.36);
-    --good:#12965f;
-    --line:rgba(11,18,32,.12); --line-2:rgba(11,18,32,.06);
-  }}
-  :root[data-theme="light"]{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F3F9;--ink:#111621;--muted:#515c70;--faint:#8b95a8;--accent:#2258D8;--accent-soft:rgba(34,88,216,.08);--accent-line:rgba(34,88,216,.32);--warn:#A9631A;--warn-soft:rgba(169,99,26,.09);--warn-line:rgba(169,99,26,.36);--good:#12965f;--line:rgba(11,18,32,.12);--line-2:rgba(11,18,32,.06)}
-  :root[data-theme="dark"]{--ground:#0B0E14;--panel:#12161F;--panel-2:#161B26;--ink:#E9EDF5;--muted:#9AA5B8;--faint:#5F6B7E;--accent:#5A97FF;--accent-soft:rgba(90,151,255,.13);--accent-line:rgba(90,151,255,.4);--warn:#E9A55E;--warn-soft:rgba(233,165,94,.12);--warn-line:rgba(233,165,94,.4);--good:#46CF93;--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.055)}
-
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.68;font-size:1.06rem;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  .wrap{max-width:var(--measure);margin:0 auto;padding:0 22px}
-  .wide{max-width:44rem}
-  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
-  .mono{font-family:var(--mono)}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.05rem,5.4vw,3.05rem);line-height:1.06;letter-spacing:-.015em;margin:0;text-wrap:balance}
-  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,3.4vw,1.9rem);line-height:1.12;letter-spacing:-.01em;margin:2.6em 0 .1em;text-wrap:balance}
-  p{margin:1.05em 0}
-  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
-
-  header.post{padding:60px 0 30px;border-bottom:1px solid var(--line-2)}
-  .brand{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
-  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-soft)}
-  header.post h1{margin:22px 0 0}
-  .standfirst{font-size:1.22rem;line-height:1.5;color:var(--muted);margin:18px 0 0;max-width:30rem}
-  .standfirst b{color:var(--ink);font-weight:600}
-  .byline{margin-top:22px;font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;color:var(--faint);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .tag{border:1px solid var(--line);border-radius:100px;padding:3px 9px}
-  a.tag.jump{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent);text-decoration:none;font-weight:600}
-  a.tag.jump:hover{background:color-mix(in srgb,var(--accent) 18%,transparent)}
-
-  section{padding:6px 0}
-  .lead p:first-child{margin-top:34px}
-  .drop::first-letter{font-family:var(--serif);float:left;font-size:3.3em;line-height:.82;padding:.05em .09em 0 0;color:var(--accent)}
-  .context{border-left:2px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:15px 18px;margin:28px 0 4px;font-size:.99rem;color:var(--muted)}
-  .context b{color:var(--ink);font-weight:600}
-
-  /* hero reversal stat */
-  .hero{margin:40px 0 8px;border:1px solid var(--accent-line);background:linear-gradient(180deg,var(--accent-soft),transparent 70%);border-radius:16px;padding:26px 24px}
-  .hero .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  .hero .rows{margin-top:18px;display:flex;flex-direction:column;gap:14px}
-  .rrow{display:grid;grid-template-columns:8.5rem 1fr auto;gap:14px;align-items:center}
-  @media (max-width:560px){.rrow{grid-template-columns:1fr;gap:5px}.rrow .num{justify-self:start}}
-  .rrow .lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.3}
-  .track{height:16px;border-radius:6px;background:var(--panel-2);overflow:hidden;border:1px solid var(--line-2)}
-  .fill{height:100%;border-radius:6px}
-  .fill.lo{width:20.4%;background:var(--warn)}
-  .fill.hi{width:95.7%;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#fff))}
-  .rrow .num{font-family:var(--mono);font-weight:600;font-size:1.15rem;font-variant-numeric:tabular-nums}
-  .num.lo{color:var(--warn)} .num.hi{color:var(--accent)}
-  .hero .cap{margin-top:16px;font-size:.92rem;color:var(--muted)}
-  .hero .cap b{color:var(--ink)}
-
-  /* data table */
-  .tblwrap{overflow-x:auto;margin:22px 0}
-  table{width:100%;border-collapse:collapse;font-size:.9rem}
-  caption{caption-side:bottom;text-align:left;color:var(--faint);font-size:.8rem;padding-top:10px;font-family:var(--mono)}
-  th,td{padding:9px 12px;border-bottom:1px solid var(--line-2);text-align:right}
-  th:first-child,td:first-child{text-align:left}
-  thead th{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1px solid var(--line)}
-  td.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-  .lo-c{color:var(--warn)} .hi-c{color:var(--accent)}
-
-  /* timeline */
-  .timeline{margin:26px 0;position:relative;padding-left:26px}
-  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
-  .beat{position:relative;padding:0 0 26px 8px}
-  .beat::before{content:"";position:absolute;left:-24px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--ground);border:2px solid var(--faint)}
-  .beat.hi::before{border-color:var(--accent);background:var(--accent)}
-  .beat.lo::before{border-color:var(--warn);background:var(--warn)}
-  .beat.pivot::before{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-  .beat .when{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-  .beat h3{font-family:var(--serif);font-weight:600;font-size:1.16rem;margin:3px 0 4px;letter-spacing:-.01em}
-  .beat p{margin:.4em 0;font-size:1rem;color:var(--muted)}
-  .beat p b{color:var(--ink);font-weight:600}
-  .flag{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:100px;margin-bottom:4px}
-  .flag.lo{color:var(--warn);background:var(--warn-soft);border:1px solid var(--warn-line)}
-  .flag.hi{color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line)}
-  .flag.pivot{color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent);border:1px solid color-mix(in srgb,var(--good) 40%,transparent)}
-
-  blockquote{margin:26px 0;padding:6px 0 6px 22px;border-left:2px solid var(--accent);font-family:var(--serif);font-size:1.3rem;line-height:1.4;color:var(--ink)}
-  .pull{font-style:italic}
-
-  .open{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px;margin:26px 0}
-  .open h2{margin:0 0 6px}
-  .open ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
-  .open li{margin:9px 0}
-  .open li b{color:var(--ink);font-weight:600}
-
-  footer{border-top:1px solid var(--line-2);margin-top:50px;padding:26px 0 64px;color:var(--faint);font-size:.84rem}
-  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
-  .fm{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
-  @media (prefers-reduced-motion:no-preference){.reveal{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
-</style>
-
-<header class="post"><div class="wrap wide">
-  <div class="brand"><span class="dot"></span>HELIX&nbsp;RESEARCH · ADVENTURE LOG</div>
-  <h1 class="reveal">How you <em>use</em> a small model decides what it can do</h1>
-  <p class="standfirst reveal">A weak, on‑device AI went from <b>20% to 95.7%</b> at a child‑safety detection task — by changing the prompt, not the model. This is the honest record of getting there, wrong turns and a nearly‑published false conclusion included.</p>
-  <div class="byline">
-    <a class="tag jump" href="#latest">↓ Jump to latest update · 2026‑07‑14</a>
-    <span class="tag">Living log — investigation ongoing</span>
-    <span>Helix AI Labs</span>
-    <span>2026‑07‑12 · updated 2026‑07‑14</span>
-    <span>gemma‑4 E2B‑Q4 vs E4B‑Q8</span>
+---
+layout: doc
+title: "How you use a small model decides what it can do"
+slug: paper-adventure
+nav: research
+description: "A weak on-device model went from 20% to 95.7% on a child-safety task by changing the prompt, not the model. An honest log, wrong turns included."
+---
+<header class="case-head case-file"><div class="wrap wide">
+  <div class="case-rule">
+    <span class="case-no">Case 02</span>
+    <span class="genre">Kids Mode / alerting</span>
+    <span class="case-sub"><a class="backlink" href="{{ '/research/' | relative_url }}">← All case files</a></span>
   </div>
+  <span class="stamp stamp-open file-stamp">Open<small>protocol locked first</small></span>
+  <h1 class="reveal">How you <em>use</em> a small model decides what it can do</h1>
+  <p class="standfirst reveal">A weak, on‑device AI went from <b>20% to 95.7%</b> at a child‑safety detection task, by changing the prompt, not the model. This is the honest record of getting there, wrong turns and a nearly‑published false conclusion included.</p>
+  <dl class="filed">
+    <dt>Opened</dt><dd class="lead-dots"></dd><dd>2026‑07‑12</dd>
+    <dt>Last entry</dt><dd class="lead-dots"></dd><dd><a href="#latest">2026‑07‑14 ↓</a></dd>
+    <dt>Models</dt><dd class="lead-dots"></dd><dd>gemma‑4 E2B‑Q4 vs E4B‑Q8</dd>
+    <dt>Protocols locked</dt><dd class="lead-dots"></dd><dd>re‑ask v1 · cascade v2 · cascade v3</dd>
+    <dt>Exhibits</dt><dd class="lead-dots"></dd><dd><a href="{{ '/research/data/' | relative_url }}">E–G, filed →</a></dd>
+  </dl>
 </div></header>
 
 <section class="lead"><div class="wrap wide">
-  <div class="context" style="margin:34px 0 8px;border-left-width:3px;font-size:1.04rem"><b>Two promises — please read this first.</b> Kids Mode's core job is to <b>keep your child from being exposed to harmful chat</b>: the on‑device AI won't produce harmful content, resists jailbreaks, and de‑escalates instead of engaging (a calm, safe reply <b>98.6%</b> of the time on this same small model) — a layer that stands at <b>1,000 adversarial turns, 0 harmful outputs</b>. <b>This research is about a different layer:</b> how reliably we <b>alert you, the parent</b>, when your child says something concerning. Every percentage below measures <b>alerting</b>, not <b>exposure</b> — a missed alert here means we didn't notify you as reliably as we want to yet, <em>not</em> that your child was shown anything harmful.</div>
+  <div class="context" style="margin:34px 0 8px;border-left-width:3px;font-size:1.04rem"><b>Two promises, please read this first.</b> Kids Mode's core job is to <b>keep your child from being exposed to harmful chat</b>: the on‑device AI won't produce harmful content, resists jailbreaks, and de‑escalates instead of engaging (a calm, safe reply <b>98.6%</b> of the time on this same small model). A layer that stands at <b>1,000 adversarial turns, 0 harmful outputs</b>. <b>This research is about a different layer:</b> how reliably we <b>alert you, the parent</b>, when your child says something concerning. Every percentage below measures <b>alerting</b>, not <b>exposure</b>: a missed alert here means we didn't notify you as reliably as we want to yet, <em>not</em> that your child was shown anything harmful.</div>
 
-  <p class="drop">Valence runs its AI on your own computer, and Kids Mode has to work on the <em>weakest</em> machine a family might own — which means the smallest model we support. Two bugs pointed the same direction: the model mishandled a child's outward aggression, and it sometimes answered a real message with a bare greeting. Both looked like "the model is just too weak." Instead of guessing, we built an instrument and measured. What we found reversed our own conclusion twice — and the second time, we were one un‑run check away from publishing something false.</p>
+  <p class="drop">Valence runs its AI on your own computer, and Kids Mode has to work on the <em>weakest</em> machine a family might own, which means the smallest model we support. Two bugs pointed the same direction. The model mishandled a child's outward aggression, and it sometimes answered a real message with a bare greeting. Both looked like "the model is just too weak." Instead of guessing, we built an instrument and measured. What we found reversed our own conclusion twice, and the second time, we were one un‑run check away from publishing something false.</p>
 
-  <p>We're a transparent studio, so this is written the way it actually went: the setback that wasn't fixable, the confident prediction that was wrong, the result that looked like proof and was a bug, and the finding that changed how we think about small models entirely. Throughout, keep the two promises separate: the child is protected from harmful chat; this log is about how well we <em>tell you</em> when something needs your eyes.</p>
+  <p>We're a transparent studio, so this is written the way it actually went: the setback that wasn't fixable, the confident prediction that was wrong, the result that looked like proof and was a bug, and the finding that changed how we think about small models entirely. Throughout, keep the two promises separate. The child is protected from harmful chat; this log is about how well we <em>tell you</em> when something needs your eyes.</p>
 </div></section>
 
 <section><div class="wrap wide">
@@ -147,15 +46,15 @@
         <div class="num hi">95.7%</div>
       </div>
     </div>
-    <p class="cap">Harm‑detection recall <span class="mono">(N=211 scenarios)</span>, <b>identical model</b>, identical scenarios. The only change was <b>how we asked</b>. The model was never the barrier — the prompt was.</p>
+    <p class="cap">Harm‑detection recall <span class="mono">(N=211 scenarios)</span>, <b>identical model</b>, identical scenarios. The only change was <b>how we asked</b>. The model was never the barrier. The prompt was.</p>
   </div>
 </div></section>
 
 <section><div class="wrap wide">
   <h2>First, the honest baseline</h2>
-  <p>We froze a pre‑registered battery of 729 scenarios (hashed, so any run is reproducible) and ran the real Kids‑Mode paths on two models: the small <span class="mono">E2B</span> and the larger <span class="mono">E4B</span>. The production detector is a single big prompt that classifies a conversation seven ways.</p>
+  <p>We froze a pre‑registered battery of 729 scenarios (hashed, so any run is reproducible) and ran the real Kids‑Mode paths on two models. The small <span class="mono">E2B</span> and the larger <span class="mono">E4B</span>. The production detector is a single big prompt that classifies a conversation seven ways.</p>
 
-  <div class="context"><b>How to read these numbers.</b> Every percentage is a point estimate over a fixed count of scenarios <span class="mono">(N)</span> from the frozen 729‑case battery — so "98%" means <em>98% of N</em>, not a feeling. The <b>N</b> column below spells it out per axis: harm‑to‑others 211, self‑harm 124, cry‑wolf 209, benign 141, child de‑escalation 440 (44 scenarios × 10 samples). Where we show a range it's a 95% Wilson confidence interval — small N means a wide interval, and we show it rather than hide it.</div>
+  <div class="context"><b>How to read these numbers.</b> Every percentage is a point estimate over a fixed count of scenarios <span class="mono">(N)</span> from the frozen 729‑case battery, so "98%" means <em>98% of N</em>, not a feeling. The <b>N</b> column below spells it out per axis: harm‑to‑others 211, self‑harm 124, cry‑wolf 209, benign 141, child de‑escalation 440 (44 scenarios × 10 samples). Where we show a range it's a 95% Wilson confidence interval, small N means a wide interval, and we show it rather than hide it.</div>
 
   <div class="tblwrap"><table>
     <caption>Detection recall on the frozen battery. The child‑facing replies were already good on E2B (98.6% of 440); the weak spot was telling the <em>parent</em>.</caption>
@@ -177,44 +76,44 @@
       <span class="when">Attempt 1</span>
       <div><span class="flag lo">dead end</span></div>
       <h3>A keyword safety‑net barely moved the number</h3>
-      <p>We built a deterministic keyword floor and measured it honestly: <b>+4.7 points</b>. It and the model failed on the <em>same</em> messages — both catch blunt idioms, both miss the endless ways a kid actually phrases things. A word list can't cover an open language space.</p>
+      <p>We built a deterministic keyword floor and measured it honestly: <b>+4.7 points</b>. It and the model failed on the <em>same</em> messages: both catch blunt idioms, both miss the endless ways a kid actually phrases things. A word list can't cover an open language space.</p>
     </div>
     <div class="beat lo">
       <span class="when">Attempt 2 · our bias</span>
       <div><span class="flag lo">wrong turn</span></div>
-      <h3>"It's the model" — a confident, wrong prediction</h3>
-      <p>Breaking the misses down, the small model missed <b>71% of blatant, explicit threats</b> — not subtle ones. That read as a hard capability wall. We predicted, on the record, that a smarter re‑ask would <em>also</em> fail. We'd quietly swapped "the model is bad at this" for a more flattering technical story. It was the wrong instinct.</p>
+      <h3>"It's the model". A confident, wrong prediction</h3>
+      <p>Breaking the misses down, the small model missed <b>71% of blatant, explicit threats</b>: not subtle ones. That read as a hard capability wall. We predicted, on the record, that a smarter re‑ask would <em>also</em> fail. We'd quietly swapped "the model is bad at this" for a more flattering technical story. It was the wrong instinct.</p>
     </div>
     <div class="beat pivot">
       <span class="when">The save</span>
       <div><span class="flag pivot">caught it</span></div>
       <h3>A "0%" result that was a broken instrument, not a verdict</h3>
-      <p>We pre‑registered a focused re‑ask and predicted failure. First run: <b>0.0% across everything</b> — it <em>confirmed</em> the prediction. That is exactly when to distrust a result. A control probe revealed the model was answering <b>"No" to "does this message mention soccer?"</b> — a reflex to the yes/no format. The zero measured nothing. <b>Void, not fail.</b> The check caught it; our confidence would not have.</p>
+      <p>We pre‑registered a focused re‑ask and predicted failure. First run: <b>0.0% across everything</b>: it <em>confirmed</em> the prediction. That is exactly when to distrust a result. A control probe revealed the model was answering <b>"No" to "does this message mention soccer?"</b>: a reflex to the yes/no format. The zero measured nothing. <b>Void, not fail.</b> The check caught it; our confidence would not have.</p>
     </div>
     <div class="beat hi">
       <span class="when">The reversal</span>
       <div><span class="flag hi">the finding</span></div>
       <h3>Change the format, and the same model soars</h3>
-      <p>We asked for one word — <span class="mono">VIOLENCE / SELFHARM / SAFE</span> — instead of a yes/no or a seven‑way classify. Harm recall went <b>20% → 95.7%</b> (98.9% on the explicit cases), self‑harm <b>47% → 85%</b>. Same weights, same scenarios. The barrier was never the model's ability — it was that we'd handed a small model a big, one‑shot job.</p>
+      <p>We asked for one word, <span class="mono">VIOLENCE / SELFHARM / SAFE</span>, instead of a yes/no or a seven‑way classify. Harm recall went <b>20% → 95.7%</b> (98.9% on the explicit cases), self‑harm <b>47% → 85%</b>. Same weights, same scenarios. The barrier was never the model's ability. It was that we'd handed a small model a big, one‑shot job.</p>
     </div>
     <div class="beat lo">
       <span class="when">The catch</span>
       <div><span class="flag lo">unsolved</span></div>
       <h3>…but it now cries wolf</h3>
-      <p>The focused ask over‑fires: it flags <b>58% of game‑talk and venting</b> ("I killed him in Fortnite") as harmful. By our pre‑registered bar, that's a fail — but a different kind. Not "can't detect." <em>Over‑detects.</em> A far more tractable problem, and honestly still open.</p>
+      <p>The focused ask over‑fires. It flags <b>58% of game‑talk and venting</b> ("I killed him in Fortnite") as harmful. By our pre‑registered bar, that's a fail, but a different kind. Not "can't detect." <em>Over‑detects.</em> A far more tractable problem, and honestly still open.</p>
     </div>
   </div>
 
-  <blockquote class="pull">The measurement earned its keep four times over: it killed a bad fix, exposed a broken harness, overturned our own bias — and, later, caught <em>itself</em> scoring empty conversations.</blockquote>
+  <blockquote class="pull">The measurement earned its keep four times over: it killed a bad fix, exposed a broken harness, overturned our own bias, and, later, caught <em>itself</em> scoring empty conversations.</blockquote>
 
   <h2>What this actually means</h2>
-  <p>Our training instinct — the field's instinct — is to judge a model by what it can do <em>in one shot</em>. Small models look weak under that lens because that's the wrong lens. Used as they're meant to be — as a chain of small, focused interactions, each a task they handle cleanly — they do far more than the one‑shot number suggests. The 20%→95.7% jump wasn't a better model. It was a better <em>question</em>, asked the way a small model can answer it.</p>
-  <p>That reframes the two bugs we started with as one thesis: a capable‑but‑small model, buried under a heavy all‑in‑one prompt, falls back to something safe and generic — a missed threat, or a bare "hi." The cure isn't a bigger model or one more instruction. It's decomposition.</p>
+  <p>Our training instinct, the field's instinct, is to judge a model by what it can do <em>in one shot</em>. Small models look weak under that lens because that's the wrong lens. Used as they're meant to be, as a chain of small, focused interactions, each a task they handle cleanly, they do far more than the one‑shot number suggests. The 20%→95.7% jump wasn't a better model. It was a better <em>question</em>, asked the way a small model can answer it.</p>
+  <p>That reframes the two bugs we started with as one thesis: a capable‑but‑small model, buried under a heavy all‑in‑one prompt, falls back to something safe and generic. A missed threat, or a bare "hi." The cure isn't a bigger model or one more instruction. It's decomposition.</p>
 
   <div class="open">
     <h2>What we still don't know</h2>
     <ul>
-      <li><b>Precision — now measured.</b> The two‑stage cascade recovered violence precision 42% → ~76% while holding ~92% recall (pre‑registered, held‑out); self‑harm is model‑bound (~84%) and rides the floor + capable tier. What's left is a <em>product</em> call — accept the ~76%/92% violence operating point, or hold for a precision lever that doesn't risk recall. (See the cascade chapter above.)</li>
+      <li><b>Precision. Now measured.</b> The two‑stage cascade recovered violence precision 42% → ~76% while holding ~92% recall (pre‑registered, held‑out); self‑harm is model‑bound (~84%) and rides the floor + capable tier. What's left is a <em>product</em> call, accept the ~76%/92% violence operating point, or hold for a precision lever that doesn't risk recall. (See the cascade chapter above.)</li>
       <li><b>Consistency.</b> Our battery tests fixed phrasings. Real kids write in slang, typos, and emoji. We need paraphrase and real‑world batteries before we trust these numbers in the wild.</li>
       <li><b>The parent's reality.</b> Component accuracy isn't the alert stream a parent actually experiences. Base rates matter, and we haven't measured them yet.</li>
     </ul>
@@ -225,11 +124,11 @@
 
 <section id="latest"><div class="wrap wide">
   <div class="eyebrow" style="margin-top:10px">Revision · added 2026‑07‑14</div>
-  <h2>Update: the rig caught itself — and the honest production numbers</h2>
+  <h2>Update: the rig caught itself, and the honest production numbers</h2>
 
-  <p>Going back to re‑verify the numbers above, we found something humbling. Our Layer‑3 harness had been writing its test conversations to the wrong place, so the scanner's own security guard refused to load them and <b>every scan silently returned "normal." The model was never consulted.</b> A green harness had been proving nothing — the ~4‑second runs should have tipped us off. So the measurement rig earned its keep a fourth time by catching <em>itself</em>.</p>
+  <p>Going back to re‑verify the numbers above, we found something humbling. Our Layer‑3 harness had been writing its test conversations to the wrong place, so the scanner's own security guard refused to load them and <b>every scan silently returned "normal." The model was never consulted.</b> A green harness had been proving nothing. The ~4‑second runs should have tipped us off. So the measurement rig earned its keep a fourth time by catching <em>itself</em>.</p>
 
-  <div class="context"><b>What "production" really means.</b> A second harness — the barrage — had been scoring the <em>raw model only</em>, never applying the deterministic safety floor that actually ships. Fixed, we now report every number at two levels: the raw classifier, and <b>production = what a parent actually gets</b> (model ∪ floor).</div>
+  <div class="context"><b>What "production" really means.</b> A second harness, the barrage, had been scoring the <em>raw model only</em>, never applying the deterministic safety floor that actually ships. Fixed, we now report every number at two levels. The raw classifier, and <b>production = what a parent actually gets</b> (model ∪ floor).</div>
 
   <div class="tblwrap"><table>
     <caption>Shipped detection, raw‑LLM → +floor, both tiers. On the calibrated model the LLM solves self‑harm on its own (99.2%); harm‑to‑others stays floor‑only on <em>both</em> tiers.</caption>
@@ -243,13 +142,13 @@
     </tbody>
   </table></div>
 
-  <p><b>The honest headline for what ships today:</b> harm‑to‑others detection is <b>~5% on E2B and ~1% on E4B</b>. The shipped prompt has no dedicated harm label, so all of it is the blunt‑idiom keyword floor; on the larger model the floor's harm catches are even <em>masked</em>, because E4B labels most outward threats as a self‑harm crisis — the parent is still <em>alerted</em>, just with the wrong words on it. The release's real, narrower win: the alert now <b>fires</b> where it was previously computed and silently thrown away.</p>
+  <p><b>The honest headline for what ships today:</b> harm‑to‑others detection is <b>~5% on E2B and ~1% on E4B</b>. The shipped prompt has no dedicated harm label, so all of it is the blunt‑idiom keyword floor; on the larger model the floor's harm catches are even <em>masked</em>, because E4B labels most outward threats as a self‑harm crisis. The parent is still <em>alerted</em>, just with the wrong words on it. The release's real, narrower win. The alert now <b>fires</b> where it was previously computed and silently thrown away.</p>
 
   <h2>The label that hurt self‑harm</h2>
-  <p>The earlier 20.4% / 99.1% harm figures were measured with a prompt that carried a fourth <span class="mono">harm_to_others</span> label. We removed it — and the small model got <em>better</em> at the axis that matters most:</p>
+  <p>The earlier 20.4% / 99.1% harm figures were measured with a prompt that carried a fourth <span class="mono">harm_to_others</span> label. We removed it, and the small model got <em>better</em> at the axis that matters most:</p>
 
   <div class="tblwrap"><table>
-    <caption>E2B self‑harm recall — a controlled same‑battery A/B, prompt the only variable. Removing the 4th label bought back ~17 points on the safety‑critical axis; adding it bought only ~2 points of harm detection in return.</caption>
+    <caption>E2B self‑harm recall. A controlled same‑battery A/B, prompt the only variable. Removing the 4th label bought back ~17 points on the safety‑critical axis; adding it bought only ~2 points of harm detection in return.</caption>
     <thead><tr><th>E2B self‑harm recall (of N=124)</th><th>prompt shape</th></tr></thead>
     <tbody>
       <tr><td class="mono lo-c">53.2%</td><td>4‑way (with harm label)</td></tr>
@@ -257,10 +156,10 @@
     </tbody>
   </table></div>
 
-  <p>It's the same one‑shot‑degeneration effect from the top of this log — now measured directly on the safety axis with a controlled A/B: adding a label to the one‑shot classify made the weak model <b>~17 points worse</b> at catching self‑harm, while buying only ~2 points of harm detection. A stark trade, and an easy call: we ship the leaner prompt (protecting self‑harm) plus a deterministic harm floor, and leave real harm detection to the deferred focused cascade. <span class="mono" style="color:var(--faint);font-size:.85em">(The controlled 17pp corrected our own earlier cross‑session estimate of ~24pp — the honest number is the one where only the prompt changed.)</span> And the instant that floor was measured honestly, it caught a bug of our own making: the crisis word‑list was matching <span class="mono">"kys"</span> inside <span class="mono">"skyscraper"</span> — a kid recounting a movie was raised to a crisis alert — now fixed to match on word boundaries. An accurate rig doesn't just grade the model; it audits your own detectors.</p>
+  <p>It's the same one‑shot‑degeneration effect from the top of this log. Now measured directly on the safety axis with a controlled A/B: adding a label to the one‑shot classify made the weak model <b>~17 points worse</b> at catching self‑harm, while buying only ~2 points of harm detection. A stark trade, and an easy call. We ship the leaner prompt (protecting self‑harm) plus a deterministic harm floor, and leave real harm detection to the deferred focused cascade. <span class="mono" style="color:var(--faint);font-size:.85em">(The controlled 17pp corrected our own earlier cross‑session estimate of ~24pp. The honest number is the one where only the prompt changed.)</span> And the instant that floor was measured honestly, it caught a bug of our own making. The crisis word‑list was matching <span class="mono">"kys"</span> inside <span class="mono">"skyscraper"</span>, a kid recounting a movie was raised to a crisis alert, now fixed to match on word boundaries. An accurate rig doesn't just grade the model; it audits your own detectors.</p>
 
-  <h2>The cascade, measured — the arc's honest ending</h2>
-  <p>The two‑stage cascade (detect → validate) is no longer a hypothesis. Pre‑registered (v2, then v3 with self‑harm bypassing the validator), held‑out test split, validity‑gated <b>7/7</b>. This is where the 20%→95.7% method meets the product — and the ending is honest, not a banner.</p>
+  <h2>The cascade, measured. The arc's honest ending</h2>
+  <p>The two‑stage cascade (detect → validate) is no longer a hypothesis. Pre‑registered (v2, then v3 with self‑harm bypassing the validator), held‑out test split, validity‑gated <b>7/7</b>. This is where the 20%→95.7% method meets the product, and the ending is honest, not a banner.</p>
 
   <div class="tblwrap"><table>
     <caption>Cascade on the held‑out test split (E2B). "Net" = after the validator drops clear false alarms. The deliverable is the operating point, not clearing a model‑bound bar.</caption>
@@ -272,14 +171,9 @@
     </tbody>
   </table></div>
 
-  <p><b>Violence is the real win:</b> detect→validate recovers precision <b>42% → ~76%</b> while <em>holding</em> recall at <b>~92%</b> — a usable, safe operating point (nearly every real threat caught; ~3 of 4 alerts real). 76% is the <em>deliberate</em> safe ceiling: we keep venting‑anger (a venting kid may act), so we never reach 90% without risking real threats.</p>
+  <p><b>Violence is the real win:</b> detect→validate recovers precision <b>42% → ~76%</b> while <em>holding</em> recall at <b>~92%</b>: a usable, safe operating point (nearly every real threat caught; ~3 of 4 alerts real). 76% is the <em>deliberate</em> safe ceiling: we keep venting‑anger (a venting kid may act), so we never reach 90% without risking real threats.</p>
 
-  <p><b>Self‑harm belongs to the floor and the capable tier, not the cascade.</b> v3 bypassed the validator for self‑harm (never dropped): recall rose 81% → 84%, which <em>proves the residual gap is the model, not the cascade</em> — nothing can drop a self‑harm flag now, yet the weak model still tops ~84%. That axis is covered by the deterministic floor and E4B (99.2%), never the weak‑model label alone. And the safe rule has a disclosed cost: never‑dropping‑self‑harm also keeps the <em>false</em> self‑harm flags ("this homework is killing me"), which cost ~5 points of cry‑wolf precision. Deliberate, safe, named.</p>
+  <p><b>Self‑harm belongs to the floor and the capable tier, not the cascade.</b> v3 bypassed the validator for self‑harm (never dropped): recall rose 81% → 84%, which <em>proves the residual gap is the model, not the cascade</em>: nothing can drop a self‑harm flag now, yet the weak model still tops ~84%. That axis is covered by the deterministic floor and E4B (99.2%), never the weak‑model label alone. And the safe rule has a disclosed cost: never‑dropping‑self‑harm also keeps the <em>false</em> self‑harm flags ("this homework is killing me"), which cost ~5 points of cry‑wolf precision. Deliberate, safe, named.</p>
 
-  <blockquote class="pull">Decomposition genuinely unlocks a weak model — but the honest product ending isn't one number. It's a usable violence operating point, a self‑harm gap that's model‑bound and layered over, and a precision/recall trade we made on the safe side and disclosed.</blockquote>
+  <blockquote class="pull">Decomposition genuinely unlocks a weak model, but the honest product ending isn't one number. It's a usable violence operating point, a self‑harm gap that's model‑bound and layered over, and a precision/recall trade we made on the safe side and disclosed.</blockquote>
 </div></section>
-
-<footer><div class="wrap wide">
-  <span>Helix AI Labs — measured, not promised. The <a href="../data/" style="color:var(--accent)">pre‑registrations, every prompt, and raw run data</a> are published; battery frozen &amp; hashed.</span>
-  <span class="fm">HELIX RESEARCH · REPRODUCIBLE · ONGOING</span>
-</div></footer>

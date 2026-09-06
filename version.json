@@ -1,0 +1,19 @@
+{
+  "version": "1.6.0",
+  "releaseDate": "2026-08-24",
+  "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.6.0/Valence-1.6.0.msi",
+  "sha256": "47E902E4F4B15A016535F7509DC5DB2DFDC6DFAB1B1B4C8BF269228CE39229A3",
+  "channel": "stable",
+  "flavors": {
+    "full": {
+      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.6.0/Valence-1.6.0.msi",
+      "sha256": "47E902E4F4B15A016535F7509DC5DB2DFDC6DFAB1B1B4C8BF269228CE39229A3",
+      "sizeBytes": 847381008
+    },
+    "slim": {
+      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.6.0/Valence-1.6.0-slim.msi",
+      "sha256": "31F3C1E3A9A7BBF70B79B88840C2179E79D8232ED9675E6D34D58881E271CA65",
+      "sizeBytes": 324714828
+    }
+  }
+}

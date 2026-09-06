@@ -1,0 +1,299 @@
+---
+layout: doc
+title: "Guides"
+slug: guides
+nav: guides
+description: "Short, plain-language how-to guides for Valence: use the built-in AI, connect ChatGPT or Claude, turn on memory, and import your old conversations."
+---
+<header class="hero" id="top">
+  <div class="wrap">
+    
+    <h1 class="hero-h1 reveal">Do one thing, <em>step by step</em>.</h1>
+    <div class="hero-grid">
+      <p class="hero-lead reveal">New to Valence? Start with <a href="Valence - Getting Started.html" style="color:var(--coral)">Getting Started</a>. It walks the whole journey. These guides are for when you want <em>one specific task</em> done: connect a cloud AI, turn on memory, or bring your old chats across.</p>
+      <div class="hero-right reveal">
+        <div class="hero-actions">
+          <a class="btn btn-coral" href="#providers">Connect an AI <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="Valence - Getting Started.html">New here? Start there</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 LOCAL -->
+<div class="wrap">
+  <div class="docs">
+
+  <aside class="docs-rail" id="rail">
+    <div class="rail-group">
+      <span class="rail-h">Set up your AI</span>
+      <a class="rail-link" href="#local">Use the built-in AI</a>
+      <a class="rail-link" href="#providers">Connect a cloud AI</a>
+      <a class="rail-link" href="#keys">Where to get a key</a>
+    </div>
+    <div class="rail-group">
+      <span class="rail-h">Make it yours</span>
+      <a class="rail-link" href="#memory">Turn on memory</a>
+      <a class="rail-link" href="#import">Bring your old chats</a>
+    </div>
+    <div class="rail-group">
+      <span class="rail-h">Help</span>
+      <a class="rail-link" href="#trouble">If something's wrong</a>
+      <a class="rail-link" href="#next">More, when you want it</a>
+    </div>
+    <div class="rail-group">
+      <span class="rail-h">Elsewhere</span>
+      <a class="rail-link" href="{{ '/Valence - Getting Started.html' | relative_url | escape }}">Getting started</a>
+      <a class="rail-link" href="{{ '/Valence - Docs.html' | relative_url | escape }}">Full docs</a>
+    </div>
+  </aside>
+
+  <div class="docs-main">
+<section id="local">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">You already have an AI. <em>No key needed.</em></h2>
+    <p class="sec-lead reveal">Valence comes with its own AI that runs on your computer. For most people this is the whole answer, it's private, it's free, it works offline, and there's nothing to sign up for. Only read the next guide if you specifically want ChatGPT, Claude, or Gemini as well.</p>
+
+    <div class="feature reveal wide">
+      <div class="fcopy">
+        <span class="fnum">The local model</span>
+        <h3>Private by default, <em>free forever</em>.</h3>
+        <p>Your built-in AI is set up during first run. If you ever need to check it or switch models, it lives in <b>Settings → AI Providers</b> under <b>Local AI</b>.</p>
+        <ol class="steps stagger">
+          <li>Open <b>Settings</b> from the menu, then choose <b>AI Providers</b>.</li>
+          <li>Pick <b>Local AI</b>: it's the first chip, marked <b>Recommended</b>.</li>
+          <li>Choose a model from the list. <b>Gemma 4</b> is the calm, everyday choice and the one that's safe for Kids Mode.</li>
+          <li>Click <b>Use this</b>. The badge at the top will read <b>Private · Ready</b> when it's working.</li>
+        </ol>
+        <div class="callout">
+          <span class="c-h">Which model should I pick?</span>
+          <p><b>Gemma 4</b> for everyday chat, family use, and Kids Mode. <b>Qwen 3</b> if you want code, maths, or non-English conversation, but it's more verbose and isn't suitable for Kids Mode. Valence dims any model that's too big for your machine, so you can't accidentally pick one that won't run well.</p>
+        </div>
+      </div>
+      <figure class="shot" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">settings, ai providers</span></div>
+        <picture><source srcset="pics/gs-providers.webp" type="image/webp"><img src="pics/gs-providers.png" alt="The AI Providers settings pane showing provider chips and the Local AI card: graphics and system memory bars drawn to scale, Help me pick / Ready to switch / All models buttons, and the model catalogue grouped by family" loading="lazy" //></picture><span class="zoom-hint">Click to enlarge</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 02 CLOUD -->
+<section id="providers">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Prefer ChatGPT or Claude? Paste one key.</h2>
+    <p class="sec-lead reveal">Valence can talk to the big cloud AIs too. You pay that company directly for what you use, Valence never takes a cut and never sees your conversations. Your key is encrypted and stays on your computer.</p>
+
+    <div class="reveal" style="margin-top:clamp(2rem,4vh,3rem)">
+      <span class="fnum">Adding a key</span>
+      <h3 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(1.6rem,2.9vw,2.2rem);line-height:1.06;margin:0">The same four steps for <em style="font-style:italic;color:var(--coral)">every</em> provider.</h3>
+      <ol class="steps stagger" style="max-width:70ch">
+        <li>Get a key from the provider you want (see <a href="#keys" style="color:var(--coral)">the next guide</a> for links).</li>
+        <li>In Valence, open <b>Settings → AI Providers</b>.</li>
+        <li>Click that provider's chip, paste the key into its box, and save.</li>
+        <li>Pick it from the provider dropdown at the top of the chat, and start typing.</li>
+      </ol>
+    </div>
+
+    <div class="prov-grid stagger reveal" style="margin-top:1.6rem">
+      <div class="callout" style="margin-top:0">
+        <span class="c-h">Your key never leaves your PC</span>
+        <p>Valence stores keys encrypted on your machine using Windows' own protection, and talks to the provider directly from your computer. We don't proxy, store, or see your messages or your key.</p>
+      </div>
+      <div class="callout" style="margin-top:0">
+        <span class="c-h">What a key costs</span>
+        <p>A key is like a tab at a shop, you're billed for what you use, usually fractions of a penny per message. Most providers give new accounts free starter credit. If you'd rather never think about billing, <b>stay on the built-in local AI</b>: it's genuinely free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 KEYS -->
+<section id="keys">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Straight to the right page.</h2>
+    <p class="sec-lead reveal">Each link below goes to that provider's key page. Create an account, make a key, copy it, and paste it into Valence.</p>
+
+    <div class="prov-grid stagger reveal">
+      <a class="prov" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">Google Gemini</span><span class="prov-cost free">Generous free tier</span></span>
+        <p>The most forgiving free option of the big three, good if you want to try a cloud AI without paying anything.</p>
+        <span class="prov-key">Key starts with: AI…</span>
+        <span class="prov-go">Get a Gemini key →</span>
+      </a>
+      <a class="prov" href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">OpenAI</span><span class="prov-cost paid">Pay as you go</span></span>
+        <p>The models behind ChatGPT. The most widely used option, and a safe default if you're unsure.</p>
+        <span class="prov-key">Key starts with: sk-…</span>
+        <span class="prov-go">Get an OpenAI key →</span>
+      </a>
+      <a class="prov" href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">Anthropic</span><span class="prov-cost paid">Pay as you go</span></span>
+        <p>Claude. Strong at long documents, careful writing, and thinking through a problem with you.</p>
+        <span class="prov-key">Key starts with: sk-ant-…</span>
+        <span class="prov-go">Get a Claude key →</span>
+      </a>
+      <a class="prov" href="https://openrouter.ai/keys" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">OpenRouter</span><span class="prov-cost free">Some free models</span></span>
+        <p>One key that reaches many different AIs. Handy if you like experimenting with models.</p>
+        <span class="prov-key">Key starts with: sk-or-…</span>
+        <span class="prov-go">Get an OpenRouter key →</span>
+      </a>
+      <a class="prov" href="https://console.x.ai" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">xAI (Grok)</span><span class="prov-cost free">Free monthly credit</span></span>
+        <p>Grok, from xAI. Worth a look if you want up-to-the-minute knowledge.</p>
+        <span class="prov-key">Key starts with: xai-…</span>
+        <span class="prov-go">Get an xAI key →</span>
+      </a>
+      <a class="prov" href="https://ollama.com/download" target="_blank" rel="noopener">
+        <span class="prov-top"><span class="prov-name">Ollama</span><span class="prov-cost free">Free · on your PC</span></span>
+        <p>Already run your own models with Ollama? Valence connects to it: no key, nothing leaves your machine.</p>
+        <span class="prov-key">No key needed</span>
+        <span class="prov-go">Get Ollama →</span>
+      </a>
+    </div>
+
+    <div class="callout reveal">
+      <span class="c-h">Also supported</span>
+      <p><b>Azure OpenAI</b> and <b>Vertex AI</b> are available for business and enterprise setups: both appear as chips in <b>Settings → AI Providers</b> and need details from your organisation's cloud account.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MEMORY -->
+<section id="memory">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Let it remember, and stay in charge of what it keeps.</h2>
+    <p class="sec-lead reveal">With memory on, Valence carries what matters between conversations. Everything is stored on your computer, and you can read, search, or delete any of it whenever you like.</p>
+
+    <div class="feature reveal wide">
+      <div class="fcopy">
+        <span class="fnum">Switching it on</span>
+        <h3>One toggle, then <em>forget about it</em>.</h3>
+        <ol class="steps stagger">
+          <li>Open <b>Settings → Memory</b>.</li>
+          <li>Turn on <b>Enable Local Memory</b>.</li>
+          <li>Leave <b>Save Mode</b> as it is unless you have a reason to change it, <b>Summary</b> keeps short notes, <b>Full</b> keeps whole conversations and uses more disk.</li>
+          <li>That's it. Valence saves quietly as you chat and brings things back when they're relevant.</li>
+        </ol>
+        <div class="callout">
+          <span class="c-h">Reading and deleting memories</span>
+          <p>Open <b>Browse &amp; Import → Open Memory Browser</b> (or <b>Memory browser</b> in the menu). You'll see every memory with its title, summary, and topics: search them, or delete any one permanently. Nothing is hidden from you.</p>
+        </div>
+      </div>
+      <figure class="shot" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">settings, memory</span></div>
+        <picture><source srcset="pics/gs-memory-settings.webp" type="image/webp"><img src="pics/gs-memory-settings.png" alt="The Memory settings pane with the Enable Local Memory toggle and save options" loading="lazy" //></picture><span class="zoom-hint">Click to enlarge</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 IMPORT -->
+<section id="import">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Moving from ChatGPT, Claude, or Gemini?</h2>
+    <p class="sec-lead reveal">Valence can pull your existing conversations in so it feels familiar from day one. They become searchable memories on your machine. They are not uploaded anywhere.</p>
+
+    <div class="feature flip reveal wide">
+      <div class="fcopy">
+        <span class="fnum">Importing</span>
+        <h3>Sign in once, and it <em>fetches the rest</em>.</h3>
+        <ol class="steps stagger">
+          <li>Open <b>Settings → Memory → Browse &amp; Import</b>.</li>
+          <li>Choose <b>Import from ChatGPT</b>, <b>Claude</b>, or <b>Gemini</b>.</li>
+          <li>A browser window opens, sign in to that account as normal, then confirm the import.</li>
+          <li>Watch the progress. When it finishes, your old conversations are searchable in the Memory Browser.</li>
+        </ol>
+        <div class="callout">
+          <span class="c-h">Two things worth knowing</span>
+          <p><b>ChatGPT also accepts a ZIP.</b> If you'd rather not sign in through Valence, export your data from ChatGPT's own settings and choose <b>Import from ZIP file</b> instead. <b>Gemini is slower</b>: it has no bulk export, so Valence reads conversations one at a time. Leave it running.</p>
+        </div>
+      </div>
+      <figure class="shot" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">memory browser</span></div>
+        <picture><source srcset="pics/gs-memory.webp" type="image/webp"><img src="pics/gs-memory.png" alt="The memory browser showing imported and saved memories with topics and dates" loading="lazy" //></picture><span class="zoom-hint">Click to enlarge</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TROUBLE -->
+<section id="trouble">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">The five things people hit most.</h2>
+
+    <div class="prov-grid stagger reveal">
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">Windows blocked the download</span></span>
+        <p>Expected for a new app. Keep the file (<b>•••</b> or <b>⌃</b> next to the download → <b>Keep</b>), then on first open click <b>More info → Run anyway</b>. It only happens once.</p>
+      </div>
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">The first reply is slow</span></span>
+        <p>Your local AI warms up the first time you use it after opening Valence. The status badge shows what it's doing. After that it stays warm and answers quickly.</p>
+      </div>
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">A cloud AI says the key is invalid</span></span>
+        <p>Copy the key again. A stray space at either end is the usual culprit. Also check that account has credit; most providers stop working the moment the free credit runs out.</p>
+      </div>
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">It forgot something I told it</span></span>
+        <p>Memory has to be switched on first (<b>Settings → Memory</b>). Even then it saves what looks important, not everything. Open the Memory Browser to see exactly what it kept.</p>
+      </div>
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">Answers seem worse than expected</span></span>
+        <p>Check which AI is selected at the top of the chat. A small local model on a modest PC won't match a large cloud model, that's the trade for privacy and zero cost.</p>
+      </div>
+      <div class="prov">
+        <span class="prov-top"><span class="prov-name">Still stuck?</span></span>
+        <p>Email <a href="mailto:help@helixailabs.com" style="color:var(--coral);text-decoration:none">help@helixailabs.com</a>. Valence also keeps logs on your machine, <b>Settings → Diagnostics → Log Files</b> shows where they are if we ask.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section id="next">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">More, when you want it.</h2>
+    <div class="next-grid stagger reveal">
+      <a class="ncard" href="Valence - Getting Started.html">
+        <span class="alt">Start here</span>
+        <h3>The full walkthrough</h3>
+        <p>Install to first chat, profiles, saving conversations, and setting up for kids. One calm step at a time.</p>
+        <span class="go">Open Getting Started →</span>
+      </a>
+      <a class="ncard" href="Valence - Docs.html">
+        <span class="alt">Reference</span>
+        <h3>Everything Valence can do</h3>
+        <p>The complete handbook: every feature, setting, and shortcut, for when you want to go deeper.</p>
+        <span class="go">Open the docs →</span>
+      </a>
+      <a class="ncard" href="Valence - Kids Mode.html">
+        <span class="alt">For families</span>
+        <h3>Kids Mode</h3>
+        <p>How the guardrails work, what we tested, and why families choose Valence.</p>
+        <span class="go">Explore Kids Mode →</span>
+      </a>
+      <a class="ncard" href="Valence - Privacy &amp; Licensing.html">
+        <span class="alt">Privacy</span>
+        <h3>Where your data lives</h3>
+        <p>The plain-language account of what stays on your machine and what your license covers.</p>
+        <span class="go">Read the details →</span>
+      </a>
+    </div>
+  </div>
+</section>
+  </div>
+
+  </div>
+</div>
+

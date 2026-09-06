@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A lighter way in &mdash; the slim installer arrives"
+title: "A lighter way in: the slim installer arrives"
 category: news
 date: 2026-07-06
 ---
@@ -37,7 +37,7 @@ date: 2026-07-06
 @media(max-width:560px){.v13-hw,.v13-ways{grid-template-columns:1fr}.v13-weight .new{font-size:2.7rem}}
 </style>
 
-<p class="v13-lead">For most of Valence's life, everyone downloaded the same 810&nbsp;megabytes &mdash; whether their computer had an NVIDIA card, an AMD card, or no dedicated graphics at all. It worked. But it was <b>heavy</b>, and most of that weight was GPU code your particular machine would never run.</p>
+<p class="v13-lead">For most of Valence's life, everyone downloaded the same 810&nbsp;megabytes: whether their computer had an NVIDIA card, an AMD card, or no dedicated graphics at all. It worked. But it was <b>heavy</b>, and most of that weight was GPU code your particular machine would never run.</p>
 
 Valence 1.3 changes how it arrives. The new **slim installer** takes one quick look at your hardware during setup and brings down only the acceleration your card actually uses. Same private workspace, in less than a third of the download.
 
@@ -45,12 +45,12 @@ Valence 1.3 changes how it arrives. The new **slim installer** takes one quick l
 
 <div class="v13-weight">
   <div class="num"><span class="old">810<span class="u">MB</span></span><span class="arr">&rarr;</span><span class="new">300<span class="u">MB</span></span></div>
-  <div class="cap"><strong>2.5&times; lighter.</strong><span>Because Valence stopped shipping every graphics backend to every machine &mdash; and started fetching just the one yours needs.</span></div>
+  <div class="cap"><strong>2.5&times; lighter.</strong><span>Because Valence stopped shipping every graphics backend to every machine, and started fetching just the one yours needs.</span></div>
 </div>
 
 ## One quick look at your machine
 
-The idea is almost boring in its simplicity. Instead of packing every possible graphics backend into one enormous file, the slim installer checks what's in your computer &mdash; right there on your machine, with nothing about your hardware sent anywhere &mdash; and downloads only what fits.
+The idea is almost boring in its simplicity. Instead of packing every possible graphics backend into one enormous file, the slim installer checks what's in your computer, right there on your machine, with nothing about your hardware sent anywhere, and downloads only what fits.
 
 <div class="v13-hw">
   <div><div class="t">NVIDIA</div><div class="v">CUDA pack</div><div class="s">Fetched on first run</div></div>
@@ -62,13 +62,13 @@ There's no "NVIDIA edition" to pick from a list. It's one download that quietly 
 
 ## A calmer first run
 
-The install got lighter; so did the first five minutes. Setup is now a guided, unhurried sequence: Valence takes that one look at your hardware, shows you exactly what it found, fetches anything missing with honest per-item progress, and hands you a workspace that's *already* using your graphics card. No wall of options, no guesswork &mdash; a clear path from download to your first conversation.
+The install got lighter; so did the first five minutes. Setup is now a guided, unhurried sequence: Valence takes that one look at your hardware, shows you exactly what it found, fetches anything missing with honest per-item progress, and hands you a workspace that's *already* using your graphics card. No wall of options, no guesswork. A clear path from download to your first conversation.
 
-And once you're in, a small badge beside the wordmark keeps you oriented: which AI you're talking to, and where it runs. One click for the full picture &mdash; including how to switch.
+And once you're in, a small badge beside the wordmark keeps you oriented: which AI you're talking to, and where it runs. One click for the full picture, including how to switch.
 
 ## Two ways in
 
-Slim is the right choice for almost everyone. It does need the internet once, during setup &mdash; so if you're installing on an offline or locked-down machine, the original **all-in-one** installer is still here, with every backend bundled and nothing to fetch afterward.
+Slim is the right choice for almost everyone. It does need the internet once, during setup, so if you're installing on an offline or locked-down machine, the original **all-in-one** installer is still here, with every backend bundled and nothing to fetch afterward.
 
 <div class="v13-ways">
   <div class="w lead">
@@ -85,8 +85,9 @@ Slim is the right choice for almost everyone. It does need the internet once, du
   </div>
 </div>
 
-Both are the same application, with the same privacy: your conversations, models, and memory stay on your computer, and no account is required. The slim installer's single trip to the network is to bring down your graphics pack &mdash; and only that.
+Both are the same application, with the same privacy: your conversations, models, and memory stay on your computer, and no account is required. The slim installer's single trip to the network is to bring down your graphics pack, and only that.
 
+<p><strong>Now shipped.</strong> Full release notes: <a href="{{ '/2026/07/06/valence-1-3-0.html' | relative_url }}">Valence 1.3.0</a>.</p>
 <div class="v13-cta">
   <a href="https://helixailabs.com/Valence.html#get">Get Valence 1.3 &rarr;</a>
   <div class="fine">Windows 10/11 (64-bit) &middot; 7-day free trial, then $59.95 once</div>

@@ -1,0 +1,76 @@
+---
+layout: doc
+title: "Contact"
+slug: contact
+nav: contact
+---
+<header class="hero">
+  <div class="wrap">
+    
+    <h1 class="reveal">Talk to me, <em>Goose</em>.</h1>
+    <p class="lead reveal">Found a bug, want a feature, or just have a question? Send it straight to me: <b>Chase</b>, the person who builds Valence. No ticket queue, no bot.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+
+    <!-- Posts to the AWS contact-relay Lambda (valence-contact-form), which emails
+         help@helixailabs.com with the sender as Reply-To. If the request fails for any
+         reason the submit handler falls back to opening the visitor's email client. -->
+    <form id="contactForm" class="form-grid reveal"
+          action="https://5bjb6gtir2m3fg2a7btpy2fcv40tifdw.lambda-url.us-east-1.on.aws/" method="POST">
+      <!-- honeypot: real users leave this empty; bots fill it -->
+      <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field">
+        <label for="category">What's this about? <span class="req">*</span></label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Choose one…</option>
+          <option value="Bug report">🐞 Bug report, something's broken</option>
+          <option value="Improvement request">✨ Improvement request. I wish it could…</option>
+          <option value="General question">💬 General question, how do I…</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="name">Your name <span class="req">*</span></label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="First name is fine">
+      </div>
+
+      <div class="field">
+        <label for="email">Your email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="So I can reply to you">
+        <span class="hint">Only used to reply. Never added to a list, never shared.</span>
+      </div>
+
+      <div class="field">
+        <label for="message">Your message <span class="req">*</span></label>
+        <textarea id="message" name="message" required placeholder="The more detail the better, for bugs, what you did and what happened helps a ton."></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-coral" id="submitBtn">Send it <span aria-hidden="true">→</span></button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">By sending, you're emailing Helix AI Labs directly. That's the only place this goes.</p>
+    </form>
+
+    <!-- Two outcomes, two messages. The submit handler shows exactly one:
+         #successSent when the relay accepted the message, #successFallback when the
+         backend was unreachable and we handed off to the visitor's email app. -->
+    <div class="success hidden" id="successPanel">
+      <div id="successSent">
+        <p class="big">Got it, <em>message sent.</em></p>
+        <p>It's landed in my inbox, which I read personally. I'll reply to the address you gave me, usually within a day. No need to do anything else. <b>: Chase</b></p>
+      </div>
+      <div id="successFallback" class="hidden">
+        <p class="big">Almost there: <em>just hit send.</em></p>
+        <p>Your email app should have opened with your message ready to go, give it a quick send and it lands straight in my inbox, which I read personally. If nothing opened, write to <b><a href="mailto:help@helixailabs.com">help@helixailabs.com</a></b> and paste your note there. <b>, Chase</b></p>
+      </div>
+    </div>
+
+    <p class="alt reveal">Prefer plain email? Write me directly at <b><a href="mailto:help@helixailabs.com">help@helixailabs.com</a></b>: same inbox, same human.</p>
+
+  </div>
+</section>

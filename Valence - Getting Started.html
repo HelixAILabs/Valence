@@ -1,0 +1,271 @@
+---
+layout: doc
+title: "Run AI Locally, the Easy Way: Getting Started"
+slug: start
+nav: start
+description: "A calm, step-by-step walkthrough of Valence: install it, meet your private AI, make it yours with profiles and memory, and set up a safe space for kids."
+---
+<header class="hero" id="top">
+  <div class="wrap">
+    
+    <h1 class="hero-h1 reveal">From install to your first chat, <em>one calm step</em> at a time.</h1>
+    <div class="hero-grid">
+      <p class="hero-lead reveal">Valence is a private AI that lives on your computer. This guide walks you through it in plain language: <b>no jargon, nothing to sign up for</b>. Install it, get past the Windows warnings, say hello, and keep the conversations worth keeping. Everything else is waiting in the <a href="{{ '/Valence - Docs.html' | relative_url | escape }}">docs</a> when you want it.</p>
+      <div class="hero-right reveal">
+        <div class="hero-actions">
+          <a class="btn btn-coral" href="{{ '/' | relative_url }}#downloads">Download Valence <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#run">Already installed? Jump in</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stamps reveal">
+      <span class="s"><span class="dot"></span> Windows 10 &amp; 11</span>
+      <span class="s"><span class="dot"></span> Works offline</span>
+      <span class="s"><span class="dot"></span> Free 7-day trial</span>
+      <span class="s"><span class="dot"></span> Buy once, own it</span>
+    </div>
+  </div>
+</header>
+
+<!-- 01 INSTALL -->
+<div class="wrap">
+  <div class="docs">
+
+  <aside class="docs-rail" id="rail">
+    <div class="rail-group">
+      <span class="rail-h">This guide</span>
+      <a class="rail-link" href="#install">Install Valence</a>
+      <a class="rail-link" href="#run">Your first run</a>
+      <a class="rail-link" href="#hello">Say hello</a>
+      <a class="rail-link" href="#save">Save &amp; find chats</a>
+      <a class="rail-link" href="#next">Where to next</a>
+    </div>
+    <div class="rail-group">
+      <span class="rail-h">When you need more</span>
+      <a class="rail-link" href="{{ '/Valence - Docs.html' | relative_url | escape }}">Full docs</a>
+      <a class="rail-link" href="{{ '/Valence - Kids Mode.html' | relative_url | escape }}">Kids Mode</a>
+    </div>
+  </aside>
+
+  <div class="docs-main">
+<section id="install">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Download, double-click, done.</h2>
+    <p class="sec-lead reveal">Valence installs like any normal Windows app. There are two downloads. Pick whichever line you like. Both are the same app with the same privacy; they only differ in how much they download up front.</p>
+
+    <div class="feature reveal">
+      <div class="fcopy">
+        <span class="fnum">Two ways to get it</span>
+        <h3>Not sure which one? <em>Pick the small one.</em></h3>
+        <p>The difference between them is only the <b>graphics support</b>. The <b>slim installer</b> fetches the one piece your card needs while it installs. The <b>all-in-one</b> carries every version in the box instead, which suits locked-down machines. <b>Either way your AI model is a separate one-time download on first run</b>, so neither installer is the whole thing on its own.</p>
+        <ul class="mini stagger">
+          <li><b>Slim (~300&nbsp;MB)</b>: quickest to download, fetches the right graphics support for your PC</li>
+          <li><b>All-in-one (~810&nbsp;MB)</b>: every graphics backend in the box, nothing fetched while installing</li>
+          <li>Double-click the downloaded file and follow the prompts, that's it</li>
+        </ul>
+        <div class="tip">✻&nbsp;<span><b>Tip:</b> Each install updates itself in its own lane, so you never have to think about it again.</span></div>
+      </div>
+      <div class="dl-cards stagger">
+        <a class="dl-card dl-card--pick" href="{{ '/' | relative_url }}#downloads">
+          <span class="dl-tag">Recommended</span>
+          <span class="dl-name">Slim installer</span>
+          <span class="dl-size">about 300 MB</span>
+          <span class="dl-note">Looks at your hardware during setup and fetches only the graphics support your PC actually uses.</span>
+          <span class="dl-go">Get this one →</span>
+        </a>
+        <a class="dl-card" href="{{ '/' | relative_url }}#downloads">
+          <span class="dl-tag">Also fine</span>
+          <span class="dl-name">All-in-one installer</span>
+          <span class="dl-size">about 810 MB</span>
+          <span class="dl-note">Every graphics backend bundled, handy for locked-down PCs or maximum compatibility.</span>
+          <span class="dl-go">Get this one →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="headsup reveal">
+      <span class="hu-ey">Heads-up &middot; you&rsquo;ll only do this once</span>
+      <h3>Windows will ask &ldquo;are you sure?&rdquo;. <em>That&rsquo;s normal</em>.</h3>
+      <p class="hu-lead">Valence is brand new, so Windows hasn&rsquo;t seen it enough times to recognise it yet. You&rsquo;ll meet a few warnings the first time, not because anything is wrong, but because that&rsquo;s how Windows treats every new app until it becomes well-known. Here is <b>every screen you&rsquo;ll see, and exactly what to click</b>. Click any picture to enlarge it.</p>
+
+      <div class="ws-group">
+        <div class="ws-group-h"><span class="num">A</span> While it downloads</div>
+        <div class="wsteps stagger">
+        <figure class="wstep">
+          <div class="ws-head"><span class="ws-n">1</span><span class="ws-t">Your browser warns you</span></div>
+          <div class="ws-shot">
+            <picture><source srcset="pics/install-1-download-warning.webp" type="image/webp"><img src="pics/install-1-download-warning.png" alt="Microsoft Edge downloads panel warning that Valence-1.4.1-slim.msi isn't commonly downloaded" loading="lazy" //></picture>
+          </div>
+          <figcaption>Edge says the file <b>&ldquo;isn&rsquo;t commonly downloaded&rdquo;</b>. Don&rsquo;t delete it. Click the <b>&hellip;</b> button on the right.</figcaption>
+        </figure>
+        <figure class="wstep">
+          <div class="ws-head"><span class="ws-n">2</span><span class="ws-t">Choose Keep</span></div>
+          <div class="ws-shot">
+            <picture><source srcset="pics/install-2-keep-menu.webp" type="image/webp"><img src="pics/install-2-keep-menu.png" alt="The downloads menu showing Delete, Keep, Report this file as safe, and Learn more" loading="lazy" //></picture>
+          </div>
+          <figcaption>In the little menu that opens, click <b>Keep</b>.</figcaption>
+        </figure>
+        <figure class="wstep">
+          <div class="ws-head"><span class="ws-n">3</span><span class="ws-t">Confirm once more</span></div>
+          <div class="ws-shot">
+            <picture><source srcset="pics/install-3-keep-anyway.webp" type="image/webp"><img src="pics/install-3-keep-anyway.png" alt="A confirmation asking to trust the file, with a Delete dropdown expanded to reveal Keep anyway" loading="lazy" //></picture>
+          </div>
+          <figcaption>Windows asks again. Open the <b>Delete</b> dropdown and choose <b>Keep anyway</b>.</figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <div class="ws-group">
+        <div class="ws-group-h"><span class="num">B</span> When you open it</div>
+        <div class="wsteps stagger">
+        <figure class="wstep">
+          <div class="ws-head"><span class="ws-n">4</span><span class="ws-t">A red screen appears</span></div>
+          <div class="ws-shot">
+            <picture><source srcset="pics/install-4-smartscreen.webp" type="image/webp"><img src="pics/install-4-smartscreen.png" alt="The red Windows protected your PC screen with a More info link" loading="lazy" //></picture>
+          </div>
+          <figcaption><b>&ldquo;Windows protected your PC.&rdquo;</b> There&rsquo;s no Run button yet. Click the small <b>More info</b> link.</figcaption>
+        </figure>
+        <figure class="wstep">
+          <div class="ws-head"><span class="ws-n">5</span><span class="ws-t">Now click Run anyway</span></div>
+          <div class="ws-shot">
+            <picture><source srcset="pics/install-5-run-anyway.webp" type="image/webp"><img src="pics/install-5-run-anyway.png" alt="The same red screen after clicking More info, now showing the app name, publisher, and a Run anyway button" loading="lazy" //></picture>
+          </div>
+          <figcaption>The app name appears along with a <b>Run anyway</b> button. Click it and the installer opens.</figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <p class="hu-foot">&#10003;&nbsp;&nbsp;<b>After the first time, these prompts stop</b>: Valence opens like any other app. &ldquo;Publisher: Unknown&rdquo; simply means the app isn&rsquo;t code-signed yet; it doesn&rsquo;t mean anything is wrong. To be certain you have the genuine file, the SHA-256 fingerprint for each download is published on the <a href="{{ '/' | relative_url }}#downloads" style="color:var(--coral);text-decoration:none">download page</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 FIRST RUN -->
+<section id="run">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Valence sets itself up <em>for you</em>.</h2>
+    <p class="sec-lead reveal">The first time you open Valence, a short guided setup runs. It takes a quick look at your computer, right there on your machine, nothing is sent anywhere, and gets your own private AI ready to go. No account. No key. No settings to wrestle with.</p>
+
+    <div class="run-steps stagger reveal">
+      <div class="run-step">
+        <span class="rs-n">1</span>
+        <span class="rs-h">Your machine</span>
+        <p>Valence takes one quick look at your computer, processor, memory, graphics, free space. This happens <b>entirely on your PC</b>; nothing is sent anywhere. It then tells you plainly what it found.</p>
+      </div>
+      <div class="run-step">
+        <span class="rs-n">2</span>
+        <span class="rs-h">Download</span>
+        <p>Your on-device AI model arrives. A <b>one-time download</b>. Valence fetches only what your machine actually needs, with honest progress for each item rather than a spinner.</p>
+      </div>
+      <div class="run-step">
+        <span class="rs-n">3</span>
+        <span class="rs-h">Ready</span>
+        <p>It shows you what's running and where, your graphics card doing the work if you have one, and hands you the chat. <b>You're all set.</b></p>
+      </div>
+    </div>
+
+    <div class="headsup reveal" style="border-left-color:var(--ink)">
+      <span class="hu-ey">Two choices on the very first screen</span>
+      <h3>You're not locked in.</h3>
+      <p class="hu-lead"><b>Prefer an online account?</b> You can connect ChatGPT, Claude, or Gemini instead of using the built-in AI. The setup offers that right at the start, and you can change your mind later. <b>Want maximum privacy?</b> A <b>Local-only</b> toggle switches off every optional online feature from the very beginning. (It won't block the things you explicitly ask for, like downloading your model or importing old chats.)</p>
+    </div>
+
+  </div>
+  </section>
+
+<!-- 03 SAY HELLO -->
+<section id="hello">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Type a message. Press send. That's chatting.</h2>
+    <p class="sec-lead reveal">The main screen is a chat. Type in the box at the bottom and your AI replies. A small badge up top always tells you, in plain words, which AI you're using and where it's running.</p>
+
+    <div class="feature reveal">
+      <div class="fcopy">
+        <span class="fnum">The basics</span>
+        <h3>Everything you need is <em>one line</em> of the screen.</h3>
+        <p>Send a message, attach a file or an image, or click the microphone to talk instead of type. Your reply appears cleanly formatted, want to watch it write in real time? One click.</p>
+        <ul class="mini stagger">
+          <li><b>Send</b>: type and press <span class="mono">Enter</span>, or click the send arrow</li>
+          <li><b>Your AI badge</b>: reads <b>Private · Ready</b> when it's running on your computer</li>
+          <li><b>Attach or speak</b>: the paperclip adds files &amp; images; the mic lets you talk</li>
+        </ul>
+        <div class="tip">✻&nbsp;<span><b>Good to know:</b> With the built-in on-device AI, your conversation never leaves your machine.</span></div>
+      </div>
+      <figure class="shot" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">welcome, running locally</span></div>
+        <picture><source srcset="pics/gs-welcome.webp" type="image/webp"><img src="pics/gs-welcome.png" alt="The Valence welcome screen running the built-in Gemma 4 model, with a Private · Ready badge and starter prompts" loading="lazy" //></picture><span class="zoom-hint">Click to enlarge</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SAVE & FIND -->
+<section id="save">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Keep the good conversations. Find them later.</h2>
+    <p class="sec-lead reveal">Any chat can be saved, organized into folders, and reopened whenever you want. Nothing is saved to a server. It all lives on your computer.</p>
+
+    <div class="feature flip reveal">
+      <div class="fcopy">
+        <span class="fnum">Conversations</span>
+        <h3>A tidy home for <em>every</em> chat.</h3>
+        <p>Open the menu and choose <b>Save chat</b>. Later, <b>Load chat</b> opens a friendly browser: search, pin your favorites, and sort chats into folders like Work, Personal, or Research.</p>
+        <ul class="mini stagger">
+          <li><b>Save</b>: Menu → <b>Save chat</b> (or <b>Save as new</b> to keep both)</li>
+          <li><b>Find</b>: Menu → <b>Load chat</b>, then search or browse folders</li>
+          <li><b>Edit &amp; branch</b>: hover any message you sent to fix it and try a different path</li>
+          <li><b>Export &amp; share</b>: save as PDF or Markdown, or share a snapshot</li>
+        </ul>
+      </div>
+      <figure class="shot" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">conversations</span></div>
+        <picture><source srcset="pics/gs-conversations.webp" type="image/webp"><img src="pics/gs-conversations.png" alt="The Valence Conversations browser: folders for Personal, Research, Work and Writing, with pinned and recent chats" loading="lazy" //></picture><span class="zoom-hint">Click to enlarge</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PROFILES -->
+
+<!-- 09 NEXT -->
+<section id="next">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">You're set. Here's where to wander.</h2>
+    <div class="next-grid stagger reveal">
+      <a class="ncard" href="Valence - Guides.html">
+        <span class="alt">Setup guides</span>
+        <h3>Connect a cloud AI</h3>
+        <p>Prefer ChatGPT, Claude, or Gemini? Step-by-step help getting a key and pasting it in.</p>
+        <span class="go">Open the guides →</span>
+      </a>
+      <a class="ncard" href="Valence - Docs.html">
+        <span class="alt">Full handbook</span>
+        <h3>Everything Valence can do</h3>
+        <p>The complete reference: every feature, setting, and shortcut, when you want to go deeper.</p>
+        <span class="go">Open the docs →</span>
+      </a>
+      <a class="ncard" href="Valence - Kids Mode.html">
+        <span class="alt">For families</span>
+        <h3>More on Kids Mode</h3>
+        <p>How the guardrails work, what we tested, and why families choose Valence.</p>
+        <span class="go">Explore Kids Mode →</span>
+      </a>
+      <a class="ncard" href="Valence - Privacy &amp; Licensing.html">
+        <span class="alt">Privacy &amp; licensing</span>
+        <h3>Where your data lives</h3>
+        <p>The plain-language account of what stays on your machine and what your license covers.</p>
+        <span class="go">Read the details →</span>
+      </a>
+    </div>
+  </div>
+</section>
+  </div>
+
+  </div>
+</div>
+

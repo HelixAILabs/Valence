@@ -1,0 +1,114 @@
+/* chrome.css — the shell every page wears: tokens, resets, the sticky
+   header, the sitemap footer, the reading-progress bar. Loaded on all
+   pages. Home-page *content* components live in home.css so they cannot
+   bleed into the converted pages under .pg. */
+:root{
+  --paper:#F5F6F8; --paper-2:#EDEFF2;
+  --ink:#15161A; --ink-soft:#3E4047; --mute:#787C85; --faint:#A6AAB2;
+  --coral:#F0431E;
+  --hair-card:rgba(20,22,28,0.08);
+  --hair-head:rgba(20,22,28,0.10);
+  --hair-chip:rgba(20,22,28,0.18);
+  --glass:rgba(255,255,255,0.72);
+  --glow:0 6px 18px rgba(240,67,30,0.25);
+  --wrap:960px;--rule:rgba(20,22,28,0.14);--coral-soft:#FCE6E0;
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100%;
+  background:linear-gradient(180deg,#F5F6F8 0%,#EDEFF2 100%);
+  background-attachment:fixed;
+  color:var(--ink); font-family:'Geist',system-ui,sans-serif; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--coral);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:2px}
+.head{position:sticky;top:0;z-index:20;background:rgba(245,246,248,0.7);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hair-head)}
+.head-in{max-width:var(--wrap);margin:0 auto;padding:.9rem 1.6rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand-row{display:flex;align-items:center;gap:.6rem}
+.brand{font-family:'Geist Mono',monospace;font-weight:600;font-size:.95rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink)}
+.brand:hover{text-decoration:none;color:var(--coral)}
+.brand small{display:block;font-weight:400;font-size:.56rem;letter-spacing:.1em;color:var(--mute)}
+.chip{font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--mute);
+  border:1px solid var(--hair-chip);border-radius:99px;padding:.15rem .5rem;background:rgba(255,255,255,0.6)}
+.nav{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.nav a{font-family:'Geist Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.nav a:hover{color:var(--coral);text-decoration:none}
+.nav a[aria-current="page"]{color:var(--coral)}
+.cta-slot{display:inline-flex;transition:opacity .45s ease,transform .45s ease}
+.cta-slot[data-on="false"]{opacity:0;transform:translateY(-6px);pointer-events:none}
+.cta-slot[data-on="true"]{opacity:1;transform:none}
+.cta-pill{font-family:'Geist Mono',monospace;font-weight:600;font-size:.68rem;letter-spacing:.06em;
+  background:var(--coral);color:#fff;border-radius:99px;padding:.45rem 1rem;box-shadow:var(--glow)}
+.nav a.cta-pill,
+.nav a.cta-pill:hover,
+.nav a.cta-pill:focus-visible{color:#fff;text-decoration:none}
+.nav a.cta-pill:hover{filter:brightness(1.06)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta-slot{transition:none}}
+.foot{background:var(--ink);color:var(--faint);margin-top:3rem}
+.foot-in{max-width:var(--wrap);margin:0 auto;padding:1.4rem 1.6rem;display:flex;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;font-family:'Geist Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.foot a{color:#F5F6F8}
+.foot-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem;
+  align-items:start;padding-top:2.1rem;padding-bottom:1.5rem;text-transform:none;
+  letter-spacing:0;font-family:'Geist',system-ui,sans-serif;font-size:.9rem}
+.foot-col{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.foot-col b{font-family:'Geist Mono',monospace;font-weight:600;font-size:.68rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.15rem}
+.foot-col a{color:#D8DBE2;text-decoration:none}
+.foot-col a:hover{color:var(--coral)}
+.foot-legal-row{border-top:1px solid rgba(255,255,255,.09)}
+@media(max-width:900px){.foot-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.foot-map{grid-template-columns:1fr;gap:1.5rem}}
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:30;pointer-events:none}
+.scroll-progress i{display:block;height:100%;width:0;background:var(--coral);
+  transition:width .12s linear}
+@media(prefers-reduced-motion:reduce){.scroll-progress i{transition:none}}
+@media(max-width:640px){.head-in{padding:.75rem 1.1rem}}
+@keyframes shine{from{left:-65%}to{left:125%}}
+@keyframes siri{to{transform:translate(-50%,-50%) rotate(1turn)}}
+@keyframes scan{to{top:104%}}
+@keyframes sweepbusy{from{background-position:120% 0}to{background-position:-120% 0}}
+
+@media (max-width:560px){
+  /* the nav needs two rows at this width; centre them and give the CTA its
+     own line so it reads as a deliberate stack, not as overflow */
+  .head-in{gap:.55rem}
+  .nav{justify-content:center;gap:.85rem .95rem;width:100%}
+  .nav a{font-size:.66rem;letter-spacing:.1em}
+  .cta-slot{flex-basis:100%;justify-content:center;margin-top:.15rem}
+  .nav a.cta-pill{display:block;text-align:center}
+}
+
+/* ---- social marks ----
+   Circular, on the footer's dark ground. Hover lifts and picks up the brand
+   orange, which is the one place on the site that palette belongs. Icons are
+   inline SVG so the page still makes zero third-party requests. */
+.foot-right{display:inline-flex;align-items:center;gap:.9rem;flex-wrap:wrap}
+.social{display:inline-flex;align-items:center;gap:.45rem}
+.soc{display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.soc svg{width:13px;height:13px;fill:#C9CDD6;transition:fill .18s ease}
+.soc:hover{transform:translateY(-2px);border-color:rgba(240,67,30,.75);
+  background:rgba(240,67,30,.12);box-shadow:0 6px 18px rgba(240,67,30,.28)}
+.soc:hover svg{fill:#FF8C3A}
+.soc:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  .soc{transition:none} .soc:hover{transform:none}
+}
+@media (max-width:640px){
+  .foot-legal-row .foot-in,.foot-right{width:100%}
+  .foot-right{justify-content:flex-start}
+}
+
+/* the version chip now carries a platform word ("Windows v1.7.1"); give it a
+   touch more room so it doesn't crowd the brand mark on narrow screens */
+

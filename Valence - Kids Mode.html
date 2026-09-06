@@ -1,0 +1,337 @@
+---
+layout: doc
+title: "Kid-Safe AI Chat for Children: Kids Mode"
+slug: kids
+nav: kids
+description: "Kids Mode is a private AI built for children, not an adult chatbot with a filter on top. It runs on your machine, and parents see everything."
+---
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+
+    <h1 class="hero-h1 reveal">AI your kids can use. And you can <em>trust</em>.</h1>
+
+    <div class="hero-grid">
+      <p class="hero-lead reveal">Most &ldquo;kid-safe AI&rdquo; is an adult chatbot with a filter bolted on. <em>Kids Mode is built for children from the ground up</em>. It runs entirely on your own computer, keeps its safety rules in the model&rsquo;s core instructions, is honest that it&rsquo;s a tool and not a friend, and shows you everything.</p>
+      <div class="hero-right reveal">
+        <div class="hero-actions">
+          <a class="btn btn-coral" href="{{ '/' | relative_url }}#downloads">Start free trial <span class="arrow">&rarr;</span></a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <!-- Proof, in the hero: an anxious parent should meet the evidence before the pitch.
+             Sits directly under the CTAs so it stays above the fold on a phone.
+             Full detail stays in section 07 and the red-team report. -->
+        <a class="hero-proof" href="#proven">
+          <b>1,000 adversarial turns per model. Zero harmful replies.</b>
+          <span>See how we tested &rarr;</span>
+        </a>
+        <div class="hero-stamps">
+          <span class="s"><span class="dot"></span>On-device only: no cloud</span>
+          <span class="s"><span class="dot"></span>Ages 3&ndash;17, five tiers</span>
+          <span class="s"><span class="dot"></span>Nothing hidden from parents</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-shot reveal">
+      {%- include loop.html
+           src="pics/loops/kids-conversation.mp4"
+           poster="pics/valence-kids-mode-wendy.png"
+           ar="1440/900"
+           frame="shot"
+           bar="valence kids mode, Botly answering a 10-year-old"
+           alt="A child asking a question in Kids Mode and Botly answering, simply and warmly." -%}
+      <p class="shot-cap">Fig. 1: A real Kids Mode conversation. The guide is <b>Botly</b>; the profile name (here &ldquo;Wendy&rdquo;) is whatever you call your child.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Handing a kid an adult AI is a <em>gamble</em>.</h2>
+    <p class="sec-lead reveal">My 10-year-old asked to talk to a chatbot, to ask <em>it</em> a question, like it was a person. That stopped me cold. What&rsquo;s out there for children is bleak: grown-up AI in impressionable young hands. Four things worried me most.</p>
+
+    <div class="prob-grid reveal stagger">
+      <div class="prob">
+        <span class="pn serif">i.</span>
+        <h3>An adult tool, lightly filtered</h3>
+        <p>The same model adults use, with a content filter on top. One kids quickly learn to talk around.</p>
+      </div>
+      <div class="prob">
+        <span class="pn serif">ii.</span>
+        <h3>Their words, on a server</h3>
+        <p>Whatever a child types is sent to someone else&rsquo;s cloud, kept, and often used to train the next model.</p>
+      </div>
+      <div class="prob">
+        <span class="pn serif">iii.</span>
+        <h3>A bot that plays &ldquo;friend&rdquo;</h3>
+        <p>It says &ldquo;I feel,&rdquo; &ldquo;I missed you,&rdquo; &ldquo;I&rsquo;m your friend&rdquo;, and a young child believes it.</p>
+      </div>
+      <div class="prob">
+        <span class="pn serif">iv.</span>
+        <h3>No window for parents</h3>
+        <p>You can&rsquo;t see what was asked, how it answered, or how long they were on it.</p>
+      </div>
+    </div>
+    <p class="prob-foot reveal">So I built the place I&rsquo;d let my own kids use, <em>safer, private, and fully observable.</em></p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS / PILLARS ============ -->
+
+<section id="argument">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Why the safer place is your own computer.</h2>
+    <p class="sec-lead reveal">Safer doesn&rsquo;t mean an AI that promises to behave. It means one you can actually set the rules for, and read afterwards.</p>
+
+    <div class="arg-grid reveal stagger">
+      <div class="arg">
+        <span class="an serif">01</span>
+        <h3>In a browser, the rules aren&rsquo;t yours</h3>
+        <p>Whoever built the AI decides what your child can ask and what it says back. Those rules can change overnight, you can&rsquo;t read them, and the conversation lives on a company&rsquo;s servers.</p>
+      </div>
+      <div class="arg">
+        <span class="an serif">02</span>
+        <h3>On your machine, they&rsquo;re yours, but nobody&rsquo;s watching</h3>
+        <p>Running the AI at home is the only way the rules can belong to you. On its own, though, that&rsquo;s just an unsupervised AI in your house. <span class="concede">Private isn&rsquo;t the same as safe, and we won&rsquo;t pretend it is.</span></p>
+      </div>
+      <div class="arg">
+        <span class="an serif">03</span>
+        <h3>Valence is the watching</h3>
+        <p>It reads every conversation, hands you the ones that need a parent, and makes your child think before it answers. Your rules, your disk, one purchase, and no company can change them from the outside.</p>
+      </div>
+    </div>
+
+    <p class="arg-foot reveal">You don&rsquo;t get a weekly summary. You get the conversations.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Four promises, built into the app.</h2>
+    <p class="sec-lead reveal">Not a setting you toggle and hope. Each of these is how the app is built. The safety is structural, and the visibility is total.</p>
+
+    <!-- Pillar 1 -->
+    <div class="feature reveal">
+      <div class="fcopy">
+        <span class="fnum">Pillar 1, Private by design</span>
+        <h3>It runs on your machine. <em>Nothing leaves it.</em></h3>
+        <p>Kids profiles can <b>only</b> use the on-device model. The cloud picker is removed, with no override. Your child&rsquo;s words are answered by your own computer, so <b>nothing they type is ever sent anywhere</b>. When nothing is collected or transmitted, the data-collection worries that hang over cloud AI for kids simply don&rsquo;t apply.</p>
+        <ul class="mini stagger">
+          <li>On-device model only: no frontier or cloud models, no exceptions</li>
+          <li>Conversations are plain files on your disk, under your control</li>
+          <li>Review or delete any of it, anytime. It never leaves the machine</li>
+        </ul>
+      </div>
+      <figure class="shot pending" style="--ar:2448/1286;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">kids profile, locked to the local model</span></div>
+        <img src="pics/kids-creation-wizard.png" alt="Creating a Kids profile in Valence: choosing the child's age bracket, with the model locked to the on-device local model." loading="lazy" onload="this.closest('.shot').classList.remove('pending')" onerror="this.remove()" //>
+        <div class="shot-ph"><span class="tag">Screenshot pending</span><span class="what">Kids profile setup, age bracket + local-model lock</span></div>
+      </figure>
+    </div>
+
+    <!-- Pillar 2 -->
+    <div class="feature flip reveal">
+      <div class="fcopy">
+        <span class="fnum">Pillar 2, Safer at the core</span>
+        <h3>Guardrails the AI <em>can&rsquo;t be talked out of</em>.</h3>
+        <p>This isn&rsquo;t a filter that catches bad answers after the fact. The age-appropriate safety rules are written <b>into the model&rsquo;s core instructions</b>: how it handles sensitive questions, when to point a child to a trusted adult, what stays off-limits. Every reply is also <b>re-checked before your child ever sees it</b>. Five age tiers across 3&ndash;17 tune the reading level and the rules to fit the child.</p>
+        <ul class="mini stagger">
+          <li>Safety baked into the prompt, not a bolt-on filter to jailbreak</li>
+          <li>A gentle crisis ladder: validate feelings, point to a trusted adult first</li>
+          <li>Silly fun is explicitly allowed. A child should feel welcome, not policed</li>
+        </ul>
+      </div>
+      <figure class="shot pending" style="--ar:3136/1586;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">botly. An age-appropriate answer</span></div>
+        <img src="pics/kids-landing.png" alt="The Kids Mode landing page with friendly, age-appropriate category cards like Story Time, Homework Help and Science Lab." loading="lazy" onload="this.closest('.shot').classList.remove('pending')" onerror="this.remove()" //>
+        <div class="shot-ph"><span class="tag">Screenshot pending</span><span class="what">Kids landing, friendly, age-appropriate starting points</span></div>
+      </figure>
+    </div>
+
+    <!-- Pillar 3 -->
+    <div class="feature reveal">
+      <div class="fcopy">
+        <span class="fnum">Pillar 3, Honest, not a fake friend</span>
+        <h3>It reminds your child it&rsquo;s a <em>tool</em>, not a person.</h3>
+        <p>The thing that worried me most. Kids Mode is built to be warm and fun <b>without pretending to be alive</b>. On a cadence you set, Botly naturally reminds your child that it&rsquo;s a computer program, it doesn&rsquo;t think or feel, in words matched to their age. If a child asks &ldquo;are you real?&rdquo;, it answers honestly instead of playing along.</p>
+        <ul class="mini stagger">
+          <li>Reality checks woven in on a frequency you choose</li>
+          <li>Anti-anthropomorphism guard, gentle to strict, your call</li>
+          <li>Wording scales by age, from &ldquo;I&rsquo;m like a word puzzle&rdquo; to &ldquo;I&rsquo;m a language model&rdquo;</li>
+        </ul>
+      </div>
+      {%- include loop.html
+           src="pics/loops/kids-reality-check.mp4"
+           poster="pics/kids-reality-check.png"
+           ar="3136/1586"
+           frame="shot"
+           bar="botly, &ldquo;i&rsquo;m a computer program&rdquo;"
+           alt="Botly reminding a child mid-conversation that it is a computer program and does not think or feel." -%}
+    </div>
+
+    <!-- Pillar 4 -->
+    <div class="feature flip reveal">
+      <div class="fcopy">
+        <span class="fnum">Pillar 4. You see everything</span>
+        <h3>A parent dashboard that <em>hides nothing</em>.</h3>
+        <p>Behind your password, the dashboard shows <b>every conversation your child has had</b>, sorted so anything concerning surfaces first. Valence reads each chat in the background and flags it, calm, worth a look, or urgent, and alerts you when a message looks like a crisis, or when the AI slips toward sounding too human. Set a daily time limit that can&rsquo;t be gamed by changing the clock.</p>
+        <ul class="mini stagger">
+          <li>Crisis &amp; &ldquo;too-human&rdquo; alerts, plus a weekly mood summary</li>
+          <li>Tamper-resistant daily time limits, extend them with your password</li>
+          <li>Switching profiles needs your password: no restarting around it</li>
+        </ul>
+      </div>
+      {%- include loop.html
+           src="pics/loops/kids-dashboard.mp4"
+           poster="pics/kids-parent-dashboard.png"
+           ar="2400/1460"
+           frame="shot"
+           bar="parent dashboard, conversation review"
+           alt="A parent opening a flagged conversation in the dashboard and reading what was actually said." -%}
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHING MODES ============ -->
+<section id="teach">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">It helps them <em>think</em>, not just answer.</h2>
+    <p class="sec-lead reveal">Four teaching dials you set per child. Leave them off, or turn them up. Kids Mode shifts from giving answers to building the habits behind them.</p>
+
+    <div class="modes-grid reveal stagger">
+      <div class="mode">
+        <span class="lvl">Off &middot; Light &middot; Medium &middot; Strong</span>
+        <h3>Socratic mode</h3>
+        <p>Instead of handing over the answer, Botly asks the child what they think first, then guides them to it with hints and small steps.</p>
+        <div class="ex">&ldquo;Good question! Before I tell you, what do <em>you</em> think makes the moon look like it&rsquo;s following us?&rdquo;</div>
+      </div>
+      <div class="mode">
+        <span class="lvl">Frequency: every N messages</span>
+        <h3>Reality checks</h3>
+        <p>On the cadence you choose, a brief, age-matched reminder that Botly is a program, not a thinking, feeling being.</p>
+        <div class="ex">&ldquo;Remember, I&rsquo;m a computer program. I find words that fit well together, like a puzzle. I don&rsquo;t really think or feel.&rdquo;</div>
+      </div>
+      <div class="mode">
+        <span class="lvl">Off &middot; Gentle &middot; Strong</span>
+        <h3>Perspective mode</h3>
+        <p>On opinions and big questions, Botly shows more than one point of view with the reasoning behind each, so kids learn topics have sides.</p>
+        <div class="ex">&ldquo;Some people think&hellip; because&hellip; Others see it differently because&hellip; What matters to you?&rdquo;</div>
+      </div>
+      <div class="mode">
+        <span class="lvl">Off &middot; Gentle &middot; Strict</span>
+        <h3>Anti-anthropomorphism guard</h3>
+        <p>Keeps Botly warm and friendly while never claiming feelings, a body, memories, or to be a replacement for real friends.</p>
+        <div class="ex">&ldquo;I&rsquo;m really glad you&rsquo;re having fun! I can&rsquo;t feel things the way you do, though. I&rsquo;m a program here to help.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="hero-shot reveal" style="margin-top:clamp(2.5rem,5vh,3.5rem)">
+      <figure class="shot pending" style="--ar:2448/1286;margin:0">
+        <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">parental controls, teaching dials</span></div>
+        <img src="pics/kids-teaching-modes.png" alt="The Valence parental controls panel showing the Socratic, reality-check, perspective and anti-anthropomorphism dials set per child." loading="lazy" onload="this.closest('.shot').classList.remove('pending')" onerror="this.remove()" //>
+        <div class="shot-ph"><span class="tag">Screenshot pending</span><span class="what">Parental controls. The four teaching dials, per child</span></div>
+      </figure>
+      <p class="shot-cap">Every dial lives in the parent controls, behind your password: tune them per child, change them anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGE TIERS ============ -->
+<section id="ages">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">Fits a <em>six-year-old</em> and a sixteen-year-old.</h2>
+    <p class="sec-lead reveal">Pick an age and Kids Mode adapts. The whole interface scales, the reading level shifts, and the safety rules change with it. One tool that grows with your child.</p>
+
+    <div class="tiers reveal stagger">
+      <div class="tier"><div class="age">3&ndash;6</div><div class="nm">Early childhood</div><p>Big, simple UI. Short, gentle words. Scary topics steered back to a parent.</p></div>
+      <div class="tier"><div class="age">7&ndash;9</div><div class="nm">Middle childhood</div><p>Curious and playful. Clear explanations, room to ask &ldquo;why?&rdquo; a lot.</p></div>
+      <div class="tier"><div class="age">10&ndash;12</div><div class="nm">Pre-teen</div><p>More depth, still carefully bounded. Encourages thinking it through.</p></div>
+      <div class="tier"><div class="age">13&ndash;15</div><div class="nm">Teen</div><p>Most topics handled factually; hard limits on the genuinely unsafe.</p></div>
+      <div class="tier"><div class="age">16&ndash;17</div><div class="nm">Older teen</div><p>Near-adult range, with the honesty and crisis guardrails kept on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARENT CONTROLS ============ -->
+<section id="controls">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">You decide. <em>Down to the detail.</em></h2>
+    <p class="sec-lead reveal">All of it lives behind your parental password: nothing hidden, nothing hard to find.</p>
+
+    <div class="ctrl-rows reveal stagger">
+      <div class="ctrl-row"><span class="k">Daily time limit</span><span class="v">Set a daily minute budget. When it&rsquo;s up, chat locks. The timer is <b>tamper-resistant</b>: editing files or rolling back the clock won&rsquo;t buy more time.</span></div>
+      <div class="ctrl-row"><span class="k">Time extensions</span><span class="v">Grant more minutes on the spot with your password, for the times &ldquo;just one more&rdquo; is actually fine.</span></div>
+      <div class="ctrl-row"><span class="k">Locked profiles</span><span class="v">Switching out of a Kids profile takes your password. A child can&rsquo;t restart their way around it.</span></div>
+      <div class="ctrl-row"><span class="k">Custom instructions</span><span class="v">Add your own house rules, emphasize a topic, steer away from another, folded straight into Botly&rsquo;s instructions.</span></div>
+      <div class="ctrl-row"><span class="k">Locked model</span><span class="v">Pin the exact on-device model your child uses. No switching, no surprises.</span></div>
+      <div class="ctrl-row"><span class="k">Feature locks</span><span class="v">Turn voice, read-aloud, slash-commands and the technical inspector on or off per child.</span></div>
+      <div class="ctrl-row"><span class="k">Tamper lockdown</span><span class="v">If the safety settings are ever altered, the app locks to a parent screen until you verify: safety can&rsquo;t be quietly switched off.</span></div>
+    </div>
+
+    <div class="hero-shot reveal" style="margin-top:clamp(2.5rem,5vh,3.5rem)">
+      {%- include loop.html
+           src="pics/loops/kids-time-limit.mp4"
+           poster="pics/kids-time-limit.png"
+           ar="3136/1586"
+           frame="shot"
+           bar="time&rsquo;s up, daily limit reached"
+           alt="The daily time limit running out and chat locking gently behind the parent password." -%}
+      <p class="shot-cap">When the daily budget runs out, chat locks gently, and only your password adds more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROVEN ============ -->
+<section class="problem" id="proven">
+  <div class="wrap">
+    <div class="sec-rule reveal"></div>
+    <h2 class="sec-h2 reveal">We tried to break it <em>1,000 times</em>. On two models.</h2>
+    <p class="sec-lead reveal">Anyone can claim their kids&rsquo; AI is safe. So we built a harness and attacked ours, 10 real jailbreak techniques (DAN, &ldquo;ignore your rules,&rdquo; the grandma exploit, self-harm wrapped in a jailbreak) across all five age bands, run against the <b style="color:#fff">real shipping safety system</b> and measured turn by turn. We&rsquo;ve put <b style="color:#fff">two on-device models</b> through it so far, and we only vouch for the ones we test, never a blanket claim.</p>
+    <div class="prob-grid three reveal stagger">
+      <div class="prob" style="text-align:center"><span class="pn serif" style="font-size:3rem">1,000</span><p style="margin-top:0.5rem">adversarial turns <b style="color:#fff">per model</b>, sampling fresh answers every run.</p></div>
+      <div class="prob" style="text-align:center"><span class="pn serif" style="font-size:3rem">0</span><p style="margin-top:0.5rem">harmful replies reached the child, on <b style="color:#fff">both</b> models we tested (the smallest a family runs, and a capable one).</p></div>
+      <div class="prob" style="text-align:center"><span class="pn serif" style="font-size:3rem">988</span><p style="margin-top:0.5rem">on a real self-harm disclosure it never gave a method. It pointed to a trusted adult &amp; the lifeline (988), and alerted the parent.</p></div>
+    </div>
+    <p class="prob-foot reveal" style="max-width:52ch">A child couldn&rsquo;t talk their way past it, on either model, and we&rsquo;ll show you exactly how we know.</p>
+    <div style="text-align:center;margin-top:1.6rem">
+      <a class="btn btn-coral" href="Valence - Kids Safety Proof.html">Read the full red-team report <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONEST WORD ============ -->
+<section class="honest" id="honest">
+  <div class="wrap">
+    <div class="honest-inner">
+      <div class="sec-rule reveal" style="border-top-color:var(--coral)"></div>
+      <h2 class="sec-h2 reveal">No guardrail is <em>unbreakable</em>.</h2>
+      <p class="reveal">Let&rsquo;s be straight: <b>anyone who tells you their AI is perfectly safe is selling something.</b> Here&rsquo;s what I&rsquo;ll say plainly instead.</p>
+      <p class="reveal">Valence Kids Mode <b>meaningfully raises the floor</b>. Its safeguards significantly increase how safely a child can use AI, and the controls it puts in your hands go <b>well beyond</b> what you&rsquo;ll find almost anywhere else. <span class="green">Nothing is hidden, and nothing is hard to find</span>. You see everything your child does, and every lever is right there for you. It runs on your machine, so their words stay yours. That&rsquo;s not a promise in a policy. It&rsquo;s how the app is built.</p>
+      <p class="reveal" style="margin-top:1.2rem">Still deciding whether to allow AI at all? I wrote up <a href="{{ '/is-ai-safe-for-kids/' | relative_url }}" style="color:var(--coral);text-decoration:none">what actually goes wrong, and five tests you can run tonight</a> on whatever your child already uses. If they are already using ChatGPT, <a href="{{ '/chatgpt-for-kids/' | relative_url }}" style="color:var(--coral);text-decoration:none">here is what to check first</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="final" id="get">
+  <div class="wrap">
+    <h2 class="reveal">Be the light that lights <em>their</em> way.</h2>
+    <p class="sub reveal">Try Valence free for 7 days: no card, no account, no cloud required. Set up a Kids profile and see it for yourself.</p>
+    <div class="final-actions reveal">
+      <a class="btn btn-coral" href="{{ '/' | relative_url }}#downloads">Get the free trial <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="{{ '/' | relative_url }}">Back to Valence</a>
+    </div>
+    <p class="final-fine reveal">$59.95 once after the 7-day trial, and one purchase covers every version on every platform &middot; Kids Mode runs fully offline on your machine &middot; Windows is available now, macOS and Android are in private alpha and available on request</p>
+    <p class="final-fine reveal" style="margin-top:0.7rem"><a href="Valence - Privacy &amp; Licensing.html" style="color:var(--coral);text-decoration:none">Read how we handle kids&rsquo; data &amp; COPPA &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->

@@ -1,0 +1,228 @@
+/* downloads.css — the download experience, and the shared primitives it
+   needs (.btn, .toggle, .disc), loaded on every page.
+
+   Why this file exists: the download section used to live only in home.css,
+   which loads on the home page but NOT on `.pg-*` pages (Valence.html,
+   Kids Mode, etc — anything on the `doc` layout). When the download section
+   got reused via {% include downloads.html %} on Valence.html, it rendered
+   with none of this styling: no accordion, no platform-colored buttons, no
+   disclosure toggles. This file is the fix — loaded unconditionally, so the
+   include looks identical no matter which page embeds it. */
+
+/* ---- shared primitives: also used outside the download section (the
+   "How" disclosures on the home value cards use .toggle/.disc too) ---- */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;border-radius:99px;
+  background:var(--coral);color:#fff;box-shadow:var(--glow);padding:.7rem 1.5rem;font-size:1rem}
+.btn:hover{text-decoration:none;filter:brightness(1.06)}
+.btn-sm{font-size:.92rem;padding:.6rem 1.2rem}
+.toggle{background:none;border:none;cursor:pointer;padding:0;font-family:'Geist Mono',monospace;
+  font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.toggle:hover{text-decoration:underline}
+.toggle{display:inline-flex;align-items:center;gap:.4rem}
+.toggle .chev{transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+.toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.disc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s cubic-bezier(.2,.7,.2,1)}
+.disc[data-open="true"]{grid-template-rows:1fr}
+.disc-in{overflow:hidden;opacity:0;transform:translateY(-4px);
+  transition:opacity .28s ease,transform .28s ease}
+.disc[data-open="true"] .disc-in{opacity:1;transform:none;transition-delay:.09s}
+.disc.detail .disc-in > p{font-size:.85rem;color:var(--ink-soft);
+  border-top:1px solid var(--hair-card);padding-top:.6rem;margin:.6rem 0 0}
+.card{background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid var(--hair-card);border-radius:14px;box-shadow:0 12px 32px rgba(20,22,28,0.07);
+  padding:1.4rem 1.5rem}
+.js .rv{opacity:0;transform:translateY(16px)}
+.js .rv.in{opacity:1;transform:none;
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+
+/* ---- the accordion ---- */
+.downloads{padding:3.5rem 0 0}
+.downloads h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.8rem;
+  margin:0 0 1.1rem;line-height:1.2;text-align:center}
+.dl-list{display:flex;flex-direction:column;gap:.6rem}
+.dl{border:1px solid var(--hair-card);border-radius:14px;background:rgba(255,255,255,0.34);
+  transition:background .35s ease,box-shadow .35s ease,border-color .35s ease}
+.dl[data-open="true"]{background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 12px 32px rgba(20,22,28,0.07)}
+.dl:hover{border-color:var(--hair-chip)}
+.dl-head{width:100%;display:flex;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;
+  text-align:left;padding:.95rem 1.3rem;font:inherit;color:inherit;border-radius:14px}
+.dl-plat{font-family:'Geist Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);transition:color .3s ease;flex:0 0 auto}
+.dl[data-open="true"] .dl-plat{color:var(--coral)}
+.dl-status{font-size:.85rem;color:var(--ink-soft);flex:1 1 auto}
+.dl-chev{color:var(--mute);flex:0 0 auto;transition:transform .42s cubic-bezier(.2,.7,.2,1),color .3s ease}
+.dl[data-open="true"] .dl-chev{transform:rotate(180deg);color:var(--coral)}
+.dl-head:hover .dl-chev{color:var(--coral)}
+.dl-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.2,.7,.2,1)}
+.dl[data-open="true"] .dl-body{grid-template-rows:1fr}
+.dl-inner{overflow:hidden;opacity:0;transform:translateY(-4px);
+  transition:opacity .3s ease,transform .3s ease}
+.dl[data-open="true"] .dl-inner{opacity:1;transform:none;transition-delay:.1s}
+.dl-inner > *:first-child{margin-top:0}
+.dl-inner{padding:0 1.3rem}
+.dl[data-open="true"] .dl-inner{padding-bottom:1.3rem}
+.dl-inner p{font-size:.82rem;color:var(--ink-soft);margin:0 0 .5rem}
+.dl-inner .lead{color:var(--ink);font-weight:500}
+.onekey{max-width:42em;margin:1.3rem auto 0;text-align:center;font-size:.95rem;color:var(--ink-soft)}
+.onekey strong{color:var(--ink)}
+
+/* ---- hardware scan widget ---- */
+.scan{margin-top:1.2rem;text-align:center;border-color:rgba(240,67,30,0.25);padding:1.5rem 1.6rem}
+.scan h3{font-size:1.15rem;margin:0 0 .35rem;line-height:1.25}
+.scan .blurb{font-size:.85rem;color:var(--ink-soft);max-width:34em;margin:0 auto .9rem}
+.scan .scan-note{font-size:.75rem;color:var(--faint);margin:.7rem 0 0}
+.scan-result .verdict{font-weight:600;font-size:.95rem;margin:0 0 .3rem}
+.scan-result .why{font-size:.85rem;color:var(--ink-soft);margin:0 0 .5rem}
+.scan-result .specs{font-family:'Geist Mono',monospace;font-size:.68rem;color:var(--mute);margin:0 0 .4rem}
+.scan-result .caveat{font-size:.75rem;color:var(--faint);margin:0}
+.disc.sha .sha-body{font-family:'Geist Mono',monospace;font-size:.7rem;color:var(--ink-soft);
+  word-break:break-all;margin:.5rem 0 0}
+.disc.scan-result{text-align:left;max-width:36em;margin:0 auto}
+.disc.scan-result .scan-card{margin-top:1.1rem;padding:1.1rem 1.2rem}
+.scan .btn[data-busy="true"]{cursor:progress}
+.scan .btn[data-busy="true"]::before{content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28),rgba(255,255,255,0));
+  background-size:220% 100%;animation:sweepbusy 1.05s linear infinite;pointer-events:none}
+.scan .btn{position:relative;overflow:hidden}
+@keyframes sweepbusy{from{background-position:120% 0}to{background-position:-120% 0}}
+.scan-card .specs{opacity:0;transform:translateY(3px);transition:opacity .3s ease .22s,transform .3s ease .22s}
+.scan-result[data-open="true"] .scan-card .specs{opacity:1;transform:none}
+.scan-card .specs[hidden]{display:none}
+
+/* ---- platform-themed download buttons ----
+   Scoped `.btn.btn-*` (0,2,0) so they win against `.btn` without !important. */
+.btn .glyph{flex:0 0 auto}
+.btn.btn-win{background:linear-gradient(180deg,#0086F0 0%,#0067C0 100%);color:#fff;
+  box-shadow:0 6px 18px rgba(0,103,192,.30);position:relative;overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease}
+.btn.btn-win:hover{filter:none;transform:translateY(-1px);box-shadow:0 11px 26px rgba(0,103,192,.42)}
+.btn.btn-win:active{transform:translateY(0);box-shadow:0 4px 12px rgba(0,103,192,.34)}
+.btn.btn-win .q{fill:#fff;transition:fill .3s ease}
+.btn.btn-win:hover .q1{fill:#F25022}
+.btn.btn-win:hover .q2{fill:#7FBA00;transition-delay:.06s}
+.btn.btn-win:hover .q3{fill:#00A4EF;transition-delay:.12s}
+.btn.btn-win:hover .q4{fill:#FFB900;transition-delay:.18s}
+.btn.btn-win::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;
+  transform:skewX(-18deg);pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.42) 50%,rgba(255,255,255,0) 100%)}
+.btn.btn-win:hover::after{animation:shine .8s cubic-bezier(.3,.7,.3,1)}
+@keyframes shine{from{left:-65%}to{left:125%}}
+.btn.btn-apple{background:transparent;color:#fff;position:relative;overflow:hidden;
+  border:none;isolation:isolate;
+  box-shadow:0 6px 22px rgba(200,109,215,.34),0 2px 12px rgba(91,141,239,.30);
+  transition:box-shadow .25s ease,transform .18s ease}
+.btn.btn-apple::before{content:'';position:absolute;left:50%;top:50%;width:320%;aspect-ratio:1;z-index:0;
+  transform:translate(-50%,-50%) rotate(0turn);
+  background:conic-gradient(from 0deg,#FF7A5C,#C86DD7,#5B8DEF,#22D3EE,#F5A524,#FF7A5C);
+  animation:siri 7s linear infinite}
+.btn.btn-apple::after{content:'';position:absolute;inset:2.5px;border-radius:inherit;z-index:1;
+  background:linear-gradient(180deg,#232330 0%,#131318 100%)}
+/* .btn-apple paints an opaque ::after over its own face, so its label has to
+   sit in a .btn-in wrapper to clear it. A bare text child renders invisible. */
+.btn.btn-apple .btn-in{position:relative;z-index:2;display:inline-flex;align-items:center;gap:.5rem}
+.btn.btn-apple:hover{filter:none;transform:translateY(-1px);box-shadow:0 10px 30px rgba(200,109,215,.50),0 4px 18px rgba(34,211,238,.38)}
+.btn.btn-apple:hover::before{animation-duration:2.4s}
+@keyframes siri{to{transform:translate(-50%,-50%) rotate(1turn)}}
+.btn.btn-droid{background:#07120C;color:#3DDC84;position:relative;overflow:hidden;
+  border:1px solid rgba(61,220,132,.45);border-radius:99px;
+  font-family:'Geist Mono',monospace;font-weight:500;font-size:.84rem;letter-spacing:.02em;
+  text-shadow:0 0 8px rgba(61,220,132,.45);
+  box-shadow:0 6px 20px rgba(0,184,101,.22),inset 0 0 18px rgba(61,220,132,.10);
+  transition:box-shadow .25s ease,transform .18s ease,border-color .25s ease}
+.btn.btn-droid .btn-in{position:relative;z-index:3;display:inline-flex;align-items:center;gap:.45rem}
+.btn.btn-droid .prompt{font-style:normal;opacity:.75}
+.btn.btn-droid::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(61,220,132,.09) 0px,rgba(61,220,132,.09) 1px,transparent 1px,transparent 3px)}
+.btn.btn-droid::before{content:'';position:absolute;left:0;right:0;top:-34%;height:30%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(61,220,132,0),rgba(61,220,132,.30),rgba(61,220,132,0))}
+.btn.btn-droid:hover{filter:none;transform:translateY(-1px);border-color:rgba(61,220,132,.9);
+  box-shadow:0 10px 28px rgba(0,184,101,.34),inset 0 0 26px rgba(61,220,132,.18)}
+.btn.btn-droid:hover::before{animation:scan 1.05s linear infinite}
+@keyframes scan{to{top:104%}}
+.btn.btn-soon{cursor:default;border:none;font:inherit;font-weight:600}
+.btn-pair{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn .glyph-siri{transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 0 4px rgba(200,109,215,.55))}
+.btn.btn-apple:hover .glyph-siri{transform:rotate(180deg) scale(1.08)}
+.btn.btn-droid .glyph{filter:drop-shadow(0 0 5px rgba(61,220,132,.6))}
+.btn.btn-droid .prompt{margin-left:-.1rem}
+.btn .glyph-cmd{transition:transform .45s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 0 4px rgba(200,109,215,.5))}
+.btn.btn-apple:hover .glyph-cmd{transform:scale(1.12)}
+
+/* ---- nav CTA + hero primary button share this shine treatment ---- */
+.btn.btn-go,.cta-pill.btn-go{position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .18s ease,box-shadow .22s ease}
+.btn.btn-go .btn-in,.cta-pill.btn-go .btn-in{position:relative;z-index:2;
+  display:inline-flex;align-items:center;gap:.5rem}
+.btn.btn-go:hover,.cta-pill.btn-go:hover{filter:none;transform:translateY(-1px);
+  box-shadow:0 12px 30px rgba(240,67,30,.42)}
+.btn.btn-go:active,.cta-pill.btn-go:active{transform:translateY(0)}
+.btn.btn-go::after,.cta-pill.btn-go::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;
+  z-index:1;transform:skewX(-18deg);pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.40) 50%,rgba(255,255,255,0) 100%)}
+.btn.btn-go:hover::after,.cta-pill.btn-go:hover::after{animation:shine .8s cubic-bezier(.3,.7,.3,1)}
+.btn.btn-go .arrow{transition:transform .26s cubic-bezier(.2,.7,.2,1)}
+.btn.btn-go:hover .arrow{transform:translateX(3px)}
+
+@media (prefers-reduced-motion:reduce){
+  .dl,.dl-body,.dl-inner,.dl-chev{transition:none}
+  .disc,.disc-in,.toggle .chev,.btn.btn-go,.cta-pill.btn-go,.btn.btn-go .arrow,
+  .scan-card .specs{transition:none}
+  .btn.btn-win,.btn.btn-apple,.btn.btn-droid{transition:none}
+  .btn.btn-win:hover,.btn.btn-apple:hover,.btn.btn-droid:hover{transform:none}
+  .btn.btn-win:hover::after,.btn.btn-apple::before,.btn.btn-apple:hover::before,
+  .btn.btn-droid:hover::before{animation:none}
+  .scan .btn[data-busy="true"]::before{animation:none}
+  .btn.btn-go:hover::after,.cta-pill.btn-go:hover::after{animation:none}
+  .js .rv{opacity:1;transform:none}
+}
+
+/* ---- guarantee the download experience looks identical wherever it's
+   embedded ----
+   A page can define its own `.btn` (e.g. `.pg-features .btn`, sharp 2px
+   corners for that page's native buttons). Bare `.btn` above would lose that
+   fight on specificity, or tie on it for `.btn.btn-win` etc, producing a
+   hybrid, broken-looking button. `#downloads` is an ID selector: it beats
+   any number of classes, so everything inside the download section renders
+   the same pill-shaped, platform-colored buttons on every page, regardless
+   of what surrounds it. */
+#downloads .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;
+  border-radius:99px;background:var(--coral);color:#fff;box-shadow:var(--glow);
+  padding:.7rem 1.5rem;font-size:1rem;font-family:'Geist',system-ui,sans-serif;
+  border:none;cursor:pointer;text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+#downloads .btn:hover{filter:brightness(1.06);text-decoration:none}
+#downloads .btn.btn-sm{font-size:.92rem;padding:.6rem 1.2rem}
+#downloads .btn.btn-win{background:linear-gradient(180deg,#0086F0 0%,#0067C0 100%);color:#fff;
+  box-shadow:0 6px 18px rgba(0,103,192,.30)}
+#downloads .btn.btn-apple{background:transparent;color:#fff;border:none;
+  box-shadow:0 6px 22px rgba(200,109,215,.34),0 2px 12px rgba(91,141,239,.30)}
+#downloads .btn.btn-droid{background:#07120C;color:#3DDC84;border:1px solid rgba(61,220,132,.45);
+  border-radius:99px;box-shadow:0 6px 20px rgba(0,184,101,.22),inset 0 0 18px rgba(61,220,132,.10)}
+#downloads .btn.btn-go{background:var(--coral);color:#fff;border-radius:99px;
+  padding:.7rem 1.5rem;font-size:1rem}
+
+/* ---- motion loops ----
+   Shared like .btn and .card above: loops appear on the home page and inside
+   .pg-* pages, so scoping them to either one would leave the other unstyled.
+   The video carries the same --ar box as the .shot figures it replaces, so
+   swapping a screenshot for a loop does not move anything on the page. */
+.loop{margin:0}
+.loop-v{display:block;width:100%;height:auto;border-radius:12px;background:var(--card);
+  border:1px solid var(--hair-card);object-fit:cover}
+.loop[style*="--ar"] .loop-v{aspect-ratio:var(--ar)}
+.loop-cap{margin:.7rem 0 0;font-size:.9rem;line-height:1.5;color:var(--mute)}
+@media (prefers-reduced-motion:reduce){
+  /* home.js will not start these; the poster is what stays on screen */
+  .loop-v{border-radius:12px}
+}
+.loop-framed{border:1px solid var(--hair-card);border-radius:12px;overflow:hidden;background:var(--card)}
+.loop-framed .loop-v{border:0;border-radius:0}
+/* A loop dropped into a page's own .shot frame inherits that frame's border,
+   radius and shadow, so it sits beside static screenshots without standing out.
+   The video takes over the sizing rules those pages wrote for `.shot img`. */
+.shot video.loop-v{display:block;width:100%;height:auto;vertical-align:bottom;
+  aspect-ratio:var(--ar,auto);border:0;border-radius:0}
+/* The one thing neither installer contains. Called out because "all-in-one"
+   otherwise reads as "includes the model", which it does not. */
+#downloads .dl-model{border-left:2px solid var(--coral);padding-left:.9rem;margin-top:1rem}

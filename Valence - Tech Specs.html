@@ -1,0 +1,197 @@
+---
+layout: doc
+title: "Tech Specs"
+slug: specs
+nav: specs
+---
+<header class="spec-hero">
+  <div class="shell">
+    
+    <h1 class="reveal">Technical <em>specifications</em>.</h1>
+    <p class="reveal">Everything under the hood, providers and models, the local engine, memory, tooling, storage, and where your data actually lives. Reference-grade detail, kept off the front page on purpose.</p>
+    <span class="ver reveal"><span class="d"></span>Matches Valence <b>v{{ site.valence_version }}</b> · Windows desktop</span>
+
+    <nav class="toc reveal stagger">
+      <a href="#local">Local engine</a>
+      <a href="#providers">Providers</a>
+      <a href="#memory">Memory</a>
+      <a href="#tools">Abilities &amp; MCP</a>
+      <a href="#files">Files &amp; vision</a>
+      <a href="#workspace">Workspace</a>
+      <a href="#profiles">Profiles</a>
+      <a href="#storage">Storage &amp; data</a>
+      <a href="#kids">Kids Mode</a>
+      <a href="#shortcuts">Shortcuts</a>
+      <a href="#license">Licensing</a>
+    </nav>
+  </div>
+</header>
+
+<!-- LOCAL ENGINE -->
+<section class="sec" id="local">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">01</span><h2>The local engine</h2><p class="blurb">A full model runs on your machine: no account, no key, and after one guided setup, no internet.</p></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Local model</span><span class="v"><b>Gemma 4 E2B-it</b>, fetched once during first-run setup (straight from Hugging Face), then served by an embedded <code>llama-server</code> sidecar built from llama.cpp.</span></div>
+      <div class="row"><span class="k">Acceleration</span><span class="v">Matched to your hardware: <b>CUDA</b> on NVIDIA, <b>Vulkan</b> on AMD &amp; Intel, with a CPU fallback that always works. Exposes a local OpenAI-compatible endpoint.</span></div>
+      <div class="row"><span class="k">Two installers</span><span class="v"><b>Slim (~300&nbsp;MB)</b> scans your hardware at setup and fetches only the acceleration pack your card uses, integrity-checked against a fingerprint built into the app. <b>All-in-one (~810&nbsp;MB)</b> bundles every backend for offline or locked-down machines.</span></div>
+      <div class="row"><span class="k">Setup</span><span class="v">A guided first run: hardware scan (local: nothing sent), model download with honest progress, then auto-starts. <b>No API key, no daemon, no configuration.</b></span></div>
+      <div class="row"><span class="k">Connectivity</span><span class="v"><span class="green">Fully offline after setup.</span> The local model never makes a network request.</span></div>
+      <div class="row"><span class="k">Bring your own local</span><span class="v">Drop in <b>your own downloaded models</b> and run them on the same built-in engine, most popular open models work.<a class="fn-ref" href="#fn-gguf" id="fnref-gguf">1</a> Prefer <b>Ollama</b>? Point Valence at your install and use those too.</span></div>
+    </div>
+    <p class="footnote" id="fn-gguf"><span class="fn-num">1</span> Local models use the <b>GGUF</b> format (the file format llama.cpp loads). Most open-source models are published in GGUF or can be converted to it. <a href="#fnref-gguf" class="fn-back">↩</a></p>
+  </div>
+</section>
+
+<!-- PROVIDERS -->
+<section class="sec" id="providers">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">02</span><h2>Providers &amp; models</h2><p class="blurb">Bring your own key (BYOK) for any cloud provider. Your keys are stored encrypted on your machine and calls go straight to the provider, never through Helix.</p><p class="blurb" style="margin-top:0.7rem">New to on-device models? <a href="{{ '/run-ai-locally/' | relative_url }}" style="color:var(--coral);text-decoration:none">How to run AI locally</a> covers the memory each model size needs and how the free tools compare.</p></div>
+    <table class="ptable reveal">
+      <thead><tr><th>Provider</th><th>Representative models</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td><b>Local (bundled)</b><div class="models">Gemma 4 E2B-it · llama-server</div></td><td>The fastest path to a fully offline conversation.</td><td><span class="badge local">Local</span></td></tr>
+        <tr><td><b>Your own local models</b><div class="models">most popular open models</div></td><td>Load models you've downloaded yourself and run them on the built-in engine, fully offline.</td><td><span class="badge local">Local</span></td></tr>
+        <tr><td><b>Ollama</b><div class="models">your Ollama library</div></td><td>Already use Ollama? Connect it and use those models too, air-gapped.</td><td><span class="badge local">Local</span></td></tr>
+        <tr><td><b>OpenAI</b><div class="models">GPT-4.1 · GPT-4o · o-series</div></td><td>Fast generalist coverage for writing, coding, multimodal.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>Anthropic</b><div class="models">Claude Opus 4 · Sonnet 4 · 3.5</div></td><td>Strong analysis, careful reasoning, review-heavy work.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>Google</b><div class="models">Gemini 2.5 / 3 Pro · Flash</div></td><td>Fast synthesis and broad coverage for research.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>xAI</b><div class="models">Grok 4</div></td><td>Frontier general model.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>Azure OpenAI</b><div class="models">enterprise tier</div></td><td>OpenAI models under your Azure tenancy.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>Vertex AI</b><div class="models">Google enterprise</div></td><td>Gemini under Google Cloud governance.</td><td><span class="badge byok">BYOK</span></td></tr>
+        <tr><td><b>OpenRouter</b><div class="models">100+ aggregated</div></td><td>One key, the long tail of models.</td><td><span class="badge byok">BYOK</span></td></tr>
+      </tbody>
+    </table>
+    <div class="rows" style="margin-top:1.4rem">
+      <div class="row"><span class="k">Vision</span><span class="v">Vision-capable models analyze images you paste or drag into the chat.</span></div>
+      <div class="row"><span class="k">Switching</span><span class="v"><code>@</code>-mention any configured model mid-thread; context carries across the switch.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORY -->
+<section class="sec" id="memory">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">03</span><h2>Memory</h2><p class="blurb">Persistent, on-device recall. The model keeps useful context across sessions without anything leaving your disk.</p></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Store a fact</span><span class="v"><code>#remember{ }</code>, e.g. <code>#remember{user prefers Python}</code>. Saved to local memory.</span></div>
+      <div class="row"><span class="k">Recall</span><span class="v"><code>#recall{ }</code> searches your memory for relevant facts and feeds them back into the conversation.</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">Plain JSON on your disk (<code>Documents\AIOverlay\LocalMemory\</code>), per profile. <span class="green">Never transmitted.</span></span></div>
+      <div class="row"><span class="k">Scales into HIVE</span><span class="v">When <b>HIVE</b> (Helix's document-memory platform) is connected, the same commands route to durable, searchable memory across documents, conversations and logs. <span style="color:var(--mute-2)">HIVE is in active development.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="sec" id="tools">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">04</span><h2>Abilities &amp; MCP tools</h2><p class="blurb">Give the model a real action layer, search the web, read your files, query databases, through the Model Context Protocol.</p></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">How it works</span><span class="v">Configure a stdio MCP server in Settings; Valence discovers its tools automatically and each becomes an <b>ability</b> the model can invoke, with results fed back into the thread.</span></div>
+      <div class="row"><span class="k">Example servers</span><span class="v"><ul>
+        <li><b>Filesystem</b>: <code>@modelcontextprotocol/server-filesystem</code></li>
+        <li><b>Brave Search</b>: <code>server-brave-search</code> (web search)</li>
+        <li><b>Memory</b>: <code>server-memory</code></li>
+        <li><b>GitHub</b>: issues, repos, and more</li>
+      </ul></span></div>
+      <div class="row"><span class="k">Built-in abilities</span><span class="v">Trigger systems and built-in commands (<code>#remember</code>, <code>#recall</code>) work the same way: invoked inline during conversation.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILES -->
+<section class="sec" id="files">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">05</span><h2>Files &amp; vision</h2></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Attachments</span><span class="v">Drop in a <b>CSV, PDF, or whole directory</b> and the model reads them as context.</span></div>
+      <div class="row"><span class="k">Images</span><span class="v">Paste or drag images into the chat for vision-capable models to analyze.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSPACE -->
+<section class="sec" id="workspace">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">06</span><h2>Workspace</h2></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Tabs</span><span class="v">Run separate threads in parallel; <b>provider selection is per tab</b>, so workflows don't collide.</span></div>
+      <div class="row"><span class="k">Compare</span><span class="v">Send the same prompt through two or three models and read the answers <b>side by side</b>.</span></div>
+      <div class="row"><span class="k">Conversations</span><span class="v">Save, load, <b>search</b> (by title or content), sort and delete. Import existing conversations from elsewhere.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section class="sec" id="profiles">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">07</span><h2>Profiles &amp; personas</h2><p class="blurb">Each profile carries its own model, system prompt, preferences and memory, and what one knows, the next can't see.</p></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Per-profile</span><span class="v">Custom system prompts and preferences for code review, writing, research, family: swap posture without opening a new app.</span></div>
+      <div class="row"><span class="k">Sealed memory</span><span class="v">Memory is partitioned per profile (<code>profiles/&lt;name&gt;/</code>). Your work profile and your home profile never share context.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORAGE -->
+<section class="sec" id="storage">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">08</span><h2>Storage &amp; data</h2><p class="blurb">You can open, read and audit everything Valence stores. It's all on your machine.</p></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Settings</span><span class="v"><code>%AppData%\AIOverlayV2.1\settings.json</code></span></div>
+      <div class="row"><span class="k">Saved chats</span><span class="v"><code>Documents\AIOverlay</code> (configurable), stored as JSON with full message metadata.</span></div>
+      <div class="row"><span class="k">API keys</span><span class="v">Encrypted with <b>Windows DPAPI</b>: they never leave your machine in plain text.</span></div>
+      <div class="row"><span class="k">Telemetry to Helix</span><span class="v"><span class="green">0 bytes.</span> Cloud calls go straight to the provider you chose; Helix is never in the path.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KIDS -->
+<section class="sec" id="kids">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">09</span><h2>Kids Mode</h2></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Guardrail tiers</span><span class="v"><b>5 tiers</b> across ages 3–17, reading level, topic limits and refusal rules locked to the profile.</span></div>
+      <div class="row"><span class="k">Forced local</span><span class="v">Kids profiles can <b>only</b> use the on-device model. The cloud picker is removed: no override.</span></div>
+      <div class="row"><span class="k">Parent dashboard</span><span class="v">Review every conversation, enforce daily session limits, see flagged topics. Nothing is hidden.</span></div>
+      <div class="row"><span class="k">Full overview</span><span class="v"><a href="Valence - Kids Mode.html" style="color:var(--coral);text-decoration:none">See the dedicated Kids Mode page →</a>, how the guardrails, teaching modes, age tiers and parent dashboard fit together, with screenshots.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHORTCUTS -->
+<section class="sec" id="shortcuts">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">10</span><h2>Keyboard shortcuts</h2></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">New chat</span><span class="v"><kbd>Ctrl</kbd> + <kbd>L</kbd>, clear / start a new conversation</span></div>
+      <div class="row"><span class="k">Copy thread</span><span class="v"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>, copy entire conversation</span></div>
+      <div class="row"><span class="k">Find</span><span class="v"><kbd>Ctrl</kbd> + <kbd>F</kbd>, search within the current conversation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSE -->
+<section class="sec" id="license">
+  <div class="shell">
+    <div class="sec-head reveal"><span class="ord">11</span><h2>Licensing</h2></div>
+    <div class="rows stagger">
+      <div class="row"><span class="k">Price</span><span class="v"><b>$59.95 once.</b> Covers every version of Valence on every platform. No tiers, no feature gating, no “pro” tax. The entire product surface.</span></div>
+      <div class="row"><span class="k">Trial</span><span class="v">7 days · no card · no account.</span></div>
+      <div class="row"><span class="k">Running cost</span><span class="v">The local model costs nothing per chat. Cloud usage bills to <b>your own provider account</b>, never to Helix.</span></div>
+      <div class="row"><span class="k">Platform</span><span class="v">Windows desktop application. <span style="color:var(--mute)">macOS and Android alphas, on request; iOS after.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="spec-foot">
+  <div class="shell">
+    <h3 class="reveal">That's the <em>whole machine</em>.</h3>
+    <a class="btn-coral reveal" href="{{ '/' | relative_url }}">Back to Valence <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<div class="shell foot-legal">
+  <span>© 2026 HELIX AI LABS · Registered in Washington State, USA</span>
+  <span><a href="{{ '/' | relative_url }}">Valence</a> · <a href="Valence - Privacy &amp; Licensing.html">Privacy &amp; licensing</a> · <a href="Contact.html">Contact</a></span>
+</div>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Set before the stylesheets so `.js .rv` (scroll reveal) hides its
+     elements on the first paint. home.js also sets it, but it is deferred,
+     so on its own the reveal content flashes in and then snaps out. -->
+<script>document.documentElement.className+=" js"</script>
+{% seo %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/chrome.css' | relative_url }}">
+<!-- Loaded on every page: the shared download section markup lives in
+     downloads.html and is used both by the home page and by .pg-* pages,
+     so its styling can't live in a sometimes-loaded file. Same reasoning
+     for pages.css below: the home page now embeds a .pg-features block
+     (the merged former Valence.html content), so pages.css has to be
+     available there too. Every selector in it is .pg-*-scoped, so loading
+     it everywhere is safe. Do not put Liquid tags inside HTML comments —
+     Jekyll still executes them; this comment caused that exact bug once. -->
+<link rel="stylesheet" href="{{ '/assets/css/downloads.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/pages.css' | relative_url }}">
+{% if page.layout == 'doc' %}{% if page.nav == 'research' %}<link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url }}">{% endif %}
+{% else %}<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">{% endif %}
+</head>
+<body>
+
+<header class="head">
+  <div class="head-in">
+    <div class="brand-row">
+      <a class="brand" href="{{ '/' | relative_url }}">Valence<small>Helix AI Labs</small></a>
+    </div>
+    <nav class="nav">
+      <a href="{{ '/Valence - Getting Started.html' | relative_url }}"{% if page.nav == 'start' %} aria-current="page"{% endif %}>Get started</a>
+      <a href="{{ '/Valence - Docs.html' | relative_url }}"{% if page.nav == 'docs' %} aria-current="page"{% endif %}>Docs</a>
+      <a href="{{ '/Valence - Kids Mode.html' | relative_url }}"{% if page.nav == 'kids' %} aria-current="page"{% endif %}>Kids Mode</a>
+      <a href="{{ '/research/' | relative_url }}"{% if page.nav == 'research' %} aria-current="page"{% endif %}>Research</a>
+      <a href="{{ '/updates/' | relative_url }}"{% if page.nav == 'updates' %} aria-current="page"{% endif %}>Updates</a>
+      <a href="{{ '/news/' | relative_url }}"{% if page.nav == 'news' %} aria-current="page"{% endif %}>News</a>
+      <span class="cta-slot" data-cta-slot data-on="{% if page.nav == 'home' %}false{% else %}true{% endif %}">
+        <a class="cta-pill btn-go" href="{{ '/#downloads' | relative_url }}"><span class="btn-in">Try it free</span></a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<div class="scroll-progress"><i id="sp"></i></div>
+
+<main>{{ content }}</main>
+
+<footer class="foot">
+  <div class="foot-in foot-map">
+    <div class="foot-col">
+      <b>Valence</b>
+      <a href="{{ '/' | relative_url }}">Features</a>
+      <a href="{{ '/Valence - Getting Started.html' | relative_url }}">Get started</a>
+      <a href="{{ '/Valence - Docs.html' | relative_url }}">Docs</a>
+      <a href="{{ '/Valence - Guides.html' | relative_url }}">Guides</a>
+      <a href="{{ '/Valence - Tech Specs.html' | relative_url }}">Tech specs</a>
+    </div>
+    <div class="foot-col">
+      <b>Safety &amp; privacy</b>
+      <a href="{{ '/Valence - Kids Mode.html' | relative_url }}">Kids Mode</a>
+      <a href="{{ '/Valence - Kids Safety Proof.html' | relative_url }}">Safety, proven</a>
+      <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; licensing</a>
+    </div>
+    <div class="foot-col">
+      <b>Learn</b>
+      <a href="{{ '/is-ai-safe-for-kids/' | relative_url }}">Is AI safe for kids?</a>
+      <a href="{{ '/chatgpt-for-kids/' | relative_url }}">ChatGPT for kids</a>
+      <a href="{{ '/run-ai-locally/' | relative_url }}">Run AI locally</a>
+    </div>
+    <div class="foot-col">
+      <b>Helix AI Labs</b>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/research/' | relative_url }}">Research</a>
+      <a href="{{ '/updates/' | relative_url }}">Updates</a>
+      <a href="{{ '/news/' | relative_url }}">News</a>
+      <a href="{{ '/Contact.html' | relative_url }}">Contact</a>
+    </div>
+  </div>
+  <div class="foot-in foot-legal-row">
+    <span>&copy; 2026 Helix AI Labs &middot; Registered in Washington State, USA</span>
+    <span class="foot-right">
+      <a href="https://helixailabs.com">helixailabs.com</a> &middot; help@helixailabs.com
+      {%- assign live = site.social | where_exp: "s", "s.url != ''" -%}
+      {%- if live.size > 0 %}
+      <span class="social">
+        {%- for s in live %}
+        <a class="soc" href="{{ s.url }}" aria-label="{{ s.label | default: s.name }}" rel="me noopener" target="_blank">
+          {%- case s.name -%}
+          {%- when 'X' -%}
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
+          {%- when 'YouTube' -%}
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+          {%- endcase -%}
+        </a>
+        {%- endfor %}
+      </span>
+      {%- endif %}
+    </span>
+  </div>
+</footer>
+
+<script src="{{ '/assets/js/home.js' | relative_url }}" defer></script>
+{% if page.layout == 'doc' %}<script src="{{ '/assets/js/pages.js' | relative_url }}" defer></script>{% endif %}
+</body>
+</html>

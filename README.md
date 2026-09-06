@@ -1,8 +1,8 @@
 # Valence
 
-**A private, controlled, curated AI space** — every AI model you use, local or cloud, on your terms.
+**A private, controlled, curated AI space**: every AI model you use, local or cloud, on your terms.
 
-[Website](https://helixailabs.com) · [Updates](https://helixailabs.github.io/Valence/updates/) · [News](https://helixailabs.github.io/Valence/news/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · [Research](https://helixailabs.github.io/Valence/research/) · help@helixailabs.com
+[Website](https://helixailabs.com) · [Updates](https://helixailabs.com/updates/) · [News](https://helixailabs.com/news/) · [All releases](https://github.com/HelixAILabs/Valence/releases) · [Research](https://helixailabs.com/research/) · help@helixailabs.com
 
 ![Valence 1.7 premium reskin - glass surfaces, one accent color, a recalled memory beside the answer it informed](assets/img/premium-reskin.png)
 
@@ -10,26 +10,21 @@
 
 ## ⬇ Download
 
-**Slim — right for most people** (needs internet once, during setup):
+**[Download the latest release](https://github.com/HelixAILabs/Valence/releases/latest)** · Windows 10/11 (64-bit) · 7-day free trial, then **$59.95 once** for every version on every platform
 
-**[Download Valence 1.7.0 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.0/Valence-1.7.0-slim.msi)**
+Two installers on that page. **Slim** is right for most people and needs internet once during setup. **All-in-one** bundles every backend for machines that cannot touch the network while installing.
 
-Windows 10/11 (64-bit) · 309.80 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+macOS and Android are in private alpha. Email help@helixailabs.com to ask for access.
 
-> **SHA-256:** `437FE2B5879F421C9DB2E8FD2E995B3651F3D86319FA5222BD3081F0F99A7BC5`
+> Current version, exact file sizes, and the SHA-256 for each installer are on the
+> **[download section of the website](https://helixailabs.com/#downloads)**, which is generated
+> from one source so it cannot drift. This README deliberately does not repeat them.
 
-**All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
-
-**[Download Valence 1.7.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.0/Valence-1.7.0.msi)**
-
-Windows 10/11 (64-bit) · 808.25 MB
-
-> **SHA-256:** `F575AA6448040F7A73E83B69C758CAED59072FC7F20E3F2F44F849578373165A`
-> Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
+> Both installers are unsigned, so Windows SmartScreen may warn you. Click **More info → Run anyway**. Existing installs upgrade in place and keep their flavor.
 
 ### Which download?
 
-The lighter install we promised is here. **Slim** takes one quick look at your hardware during setup and downloads only the graphics acceleration your machine actually uses — NVIDIA gets CUDA, AMD and Intel get Vulkan, and a CPU-only machine needs nothing extra at all. **All-in-one** still ships every backend in the box for machines that can't (or shouldn't) touch the network during setup.
+The lighter install we promised is here. **Slim** takes one quick look at your hardware during setup and downloads only the graphics acceleration your machine actually uses, NVIDIA gets CUDA, AMD and Intel get Vulkan, and a CPU-only machine needs nothing extra at all. **All-in-one** still ships every backend in the box for machines that can't (or shouldn't) touch the network during setup.
 
 | | Slim | All-in-one |
 |---|---|---|
@@ -39,19 +34,19 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 | Works offline after | yes | yes |
 | Privacy | 100% local | 100% local |
 
-Either way, everything — your conversations, models, and memory — runs on your machine and never phones home.
+Either way, everything, your conversations, models, and memory, runs on your machine and never phones home.
 
 ---
 
 ## What is Valence?
 
-A private, controlled, curated space for working with AI — local or cloud, all under your control.
+A private, controlled, curated space for working with AI: local or cloud, all under your control.
 
-- **Curated, cross-model** — OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Ollama, and on-device local models, all from one interface.
-- **Private by design** — conversations, memory, and documents stay on your computer. No account required.
-- **Fully local option** — download a model (Gemma, Qwen, …) and chat with nothing leaving your PC.
-- **You're in control** — local memory you own, per-profile knowledge from your own documents, model compare, and X-Ray ("why did it answer that?").
-- **Kids Mode** — a locked-down chat for children with a parent dashboard, on-device safety, and daily time limits.
+- **Curated, cross-model**: OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Ollama, and on-device local models, all from one interface.
+- **Private by design**: conversations, memory, and documents stay on your computer. No account required.
+- **Fully local option**: download a model (Gemma, Qwen, …) and chat with nothing leaving your PC.
+- **You're in control**: local memory you own, per-profile knowledge from your own documents, model compare, and X-Ray ("why did it answer that?").
+- **Kids Mode**: a locked-down chat for children with a parent dashboard, on-device safety, and daily time limits.
 
 ---
 

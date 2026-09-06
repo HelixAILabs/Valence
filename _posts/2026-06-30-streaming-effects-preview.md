@@ -5,9 +5,9 @@ date: 2026-06-30 10:00:00 -0700
 category: news
 ---
 
-You spend more time watching text stream in than almost anything else in Valence. So we're building a way to let *you* decide how it feels &mdash; a small set of **Streaming Effects** you'll pick from in **Settings &rarr; Theme**, with a live preview of each before you commit.
+You spend more time watching text stream in than almost anything else in Valence. So we're building a way to let *you* decide how it feels. A small set of **Streaming Effects** you'll pick from in **Settings &rarr; Theme**, with a live preview of each before you commit.
 
-This is early &mdash; it hasn't shipped yet, and nothing here changes how Valence works today. But the direction is worth sharing, and it's the kind of thing that's easier to *show* than describe. Try the three below (tap the tabs, hit replay):
+This is early. It hasn't shipped yet, and nothing here changes how Valence works today. But the direction is worth sharing, and it's the kind of thing that's easier to *show* than describe. Try the three below (tap the tabs, hit replay):
 
 <div id="sfx-demo" data-sfx="on">
   <div class="sfx-tabs">
@@ -86,8 +86,10 @@ This is early &mdash; it hasn't shipped yet, and nothing here changes how Valenc
 
 ## What we're actually building
 
-- **A short menu of reveal styles**, chosen in **Settings &rarr; Theme** with a live preview exactly like the one above &mdash; so you see each one before you pick.
+- **A short menu of reveal styles**, chosen in **Settings &rarr; Theme** with a live preview exactly like the one above, so you see each one before you pick.
 - **A calm default that never gets in the way.** There will always be a plain **None / Instant** option, and if your system asks for reduced motion, Valence honors it and skips the animation entirely.
-- **Effects that respect your content.** Code blocks, math, and formatting have to render perfectly first &mdash; the motion is a layer on top, never something that garbles what the model actually said. (That constraint is why we're starting with a small, careful set rather than every idea at once.)
+- **Effects that respect your content.** Code blocks, math, and formatting have to render perfectly first. The motion is a layer on top, never something that garbles what the model actually said. (That constraint is why we're starting with a small, careful set rather than every idea at once.)
 
-No date, no promises on the exact final lineup &mdash; just a look at where a corner of Valence is heading. If one of these speaks to you, or you have an idea for another, we'd genuinely like to hear it: **help@helixailabs.com**.
+No date, no promises on the exact final lineup: just a look at where a corner of Valence is heading. If one of these speaks to you, or you have an idea for another, we'd genuinely like to hear it: **help@helixailabs.com**.
+
+**Now shipped.** The Streaming Reveal picker described above is live in [Valence 1.2.0]({{ '/2026/07/03/valence-1-2-0.html' | relative_url }}).

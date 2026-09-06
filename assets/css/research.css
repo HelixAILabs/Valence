@@ -1,0 +1,280 @@
+/* research.css — the case-file skin for the research annex.
+   Loaded only on pages with `nav: research`, layered over pages.css so it
+   reskins those pages (surfaces, type, rules) without rebuilding their
+   layouts. Scoped to .dossier throughout: it must never reach the product
+   pages, which stay on the cool grey system.
+
+   The framing is not decoration. This work files a preregistration before
+   the run and publishes the raw transcripts after, so a case file — filed
+   date, exhibits, finding — is the honest shape of it. */
+
+.dossier{
+  --d-paper:#F3EEE4; --d-paper-2:#EAE2D2; --d-kraft:#DFD3BC; --d-kraft-2:#D2C3A6;
+  --d-ink:#211D16; --d-ink-soft:#4A4336; --d-mute:#7A7060; --d-faint:#A2988A;
+  --d-rule:rgba(33,29,22,.20); --d-rule-soft:rgba(33,29,22,.10);
+  --d-stamp:#AE2F19; --d-cleared:#2E6B45; --d-open:#96650F;
+  --d-accent:#D93B18;
+  --d-mono:'Geist Mono',ui-monospace,Menlo,monospace;
+  --d-serif:'Instrument Serif',Georgia,serif;
+  background:var(--d-paper); color:var(--d-ink);
+
+  /* Remap the palette the research pages already reference, rather than
+     chasing their rules one selector at a time. Everything pages.css draws
+     for this family — panels, captions, semantic hi/lo colour — lands on
+     paper automatically because it reads these tokens. */
+  --ground:#F3EEE4; --panel:#FFFDF8; --panel-2:#EAE2D2;
+  --ink:#211D16; --ink-soft:#4A4336; --muted:#7A7060; --faint:#A2988A;
+  --line:rgba(33,29,22,.20); --line-2:rgba(33,29,22,.10);
+  --accent:#D93B18; --accent-soft:rgba(217,59,24,.08); --accent-line:rgba(217,59,24,.30);
+  --good:#2E6B45; --good-soft:rgba(46,107,69,.10); --good-line:rgba(46,107,69,.30);
+  --warn:#96650F; --warn-soft:rgba(150,101,15,.10); --warn-line:rgba(150,101,15,.32);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Geist',system-ui,sans-serif;
+  --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+}
+
+/* the annex reads on warm paper, not the cool grey of the product pages */
+.dossier::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #FBF8F1 0%, rgba(251,248,241,0) 52%),
+    radial-gradient(70% 50% at 88% 0%, rgba(174,47,25,.05) 0%, rgba(174,47,25,0) 60%),
+    linear-gradient(180deg,#F5F1E8 0%,#EFE8DA 100%);
+}
+
+.dossier a{color:var(--d-accent)}
+.dossier ::selection{background:rgba(174,47,25,.16)}
+
+/* ---- the label vocabulary: everything administrative is monospaced ---- */
+.dossier .lbl,
+.dossier .case-no,
+.dossier .genre,
+.dossier .status,
+.dossier .fmt,
+.dossier .ex-id,
+.dossier .filed dt{
+  font-family:var(--d-mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; font-weight:600;
+}
+
+/* ---- folder tab: a panel that announces itself like a file divider ---- */
+.dossier .tab-head{
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--d-kraft); color:var(--d-ink-soft);
+  border:1px solid var(--d-rule); border-bottom:none;
+  border-radius:6px 6px 0 0; padding:.44rem 1.1rem .4rem;
+  font-family:var(--d-mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; font-weight:600; position:relative; top:1px;
+}
+.dossier .tab-head .dot{width:6px;height:6px;border-radius:50%;background:var(--d-stamp)}
+.dossier .panel{
+  background:rgba(255,253,248,.72); border:1px solid var(--d-rule);
+  border-radius:0 6px 6px 6px; padding:1.5rem 1.6rem;
+}
+
+/* ---- case masthead ---- */
+.dossier .case-head{padding:2.6rem 0 .4rem}
+.dossier .case-rule{
+  display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap;
+  border-bottom:1px solid var(--d-rule); padding-bottom:.6rem; margin-bottom:1.3rem;
+}
+.dossier .case-no{color:var(--d-stamp)}
+.dossier .case-sub{font-family:var(--d-mono);font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--d-mute)}
+.dossier .case-head h1{
+  font-family:var(--d-serif); font-weight:400; letter-spacing:-.01em; line-height:1.06;
+  font-size:clamp(1.95rem,3.5vw,2.6rem); margin:0; color:var(--d-ink); max-width:20ch;
+}
+.dossier .case-head .lede,
+.dossier .case-head .standfirst{
+  color:var(--d-ink-soft); font-size:1.05rem; max-width:56ch; margin:1.1rem 0 0;
+}
+
+/* ---- stamp: rotated, letterpressed, never more than one per view ---- */
+.dossier .stamp{
+  display:inline-flex; flex-direction:column; align-items:center; gap:.12rem;
+  font-family:var(--d-mono); font-size:.72rem; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase; text-align:center;
+  border:2px solid currentColor; border-radius:2px; padding:.42rem .85rem;
+  transform:rotate(-3deg); opacity:.92;
+}
+.dossier .stamp-cleared{color:var(--d-cleared)}
+.dossier .stamp-open{color:var(--d-open)}
+.dossier .stamp-pending{color:var(--d-faint);border-style:dashed}
+.dossier .stamp small{
+  display:block; font-size:.53rem; letter-spacing:.08em; opacity:.72; font-weight:500;
+  max-width:16ch; line-height:1.3;
+}
+
+/* ---- filed: the metadata block, as a form with dotted leaders ---- */
+.dossier .filed{
+  display:grid; grid-template-columns:auto 1fr auto; gap:.5rem .7rem;
+  align-items:baseline; margin:1.3rem 0 0; font-size:.86rem;
+}
+.dossier .filed dt{color:var(--d-mute); white-space:nowrap; margin:0}
+.dossier .filed .lead-dots{border-bottom:1px dotted var(--d-rule); transform:translateY(-.24em)}
+.dossier .filed dd{margin:0; font-family:var(--d-mono); font-size:.78rem; color:var(--d-ink)}
+
+/* ---- case cards on the index ---- */
+.dossier .case-list{display:grid; gap:1.1rem; margin:1.2rem 0 0}
+.dossier .case-card{
+  display:block; background:rgba(255,253,248,.78); border:1px solid var(--d-rule);
+  border-left:3px solid var(--d-kraft-2); border-radius:2px 10px 10px 2px;
+  padding:1.3rem 1.5rem; color:inherit; text-decoration:none;
+  transition:border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+a.case-card:hover{
+  text-decoration:none; transform:translateY(-1px);
+  border-left-color:var(--d-stamp); box-shadow:0 10px 26px rgba(33,29,22,.09);
+}
+.dossier .case-card .top{
+  display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; margin-bottom:.7rem;
+}
+.dossier .case-card{position:relative}
+.dossier .case-card .top .stamp{
+  position:absolute; top:1.15rem; right:1.3rem; margin:0;
+}
+.dossier .case-card .top,
+.dossier .case-card h3{padding-right:10.5rem}
+@media (max-width:720px){
+  .dossier .case-card .top,
+  .dossier .case-card h3{padding-right:0}
+  .dossier .case-card .top .stamp{position:static; transform:rotate(-1.6deg); margin-top:.3rem}
+}
+.dossier .case-card h3{
+  font-family:var(--d-serif); font-weight:400; font-size:1.5rem; line-height:1.15;
+  letter-spacing:-.01em; margin:0 0 .5rem;
+}
+.dossier .case-card .dek{color:var(--d-ink-soft); font-size:.94rem; margin:0; max-width:66ch}
+.dossier .genre{color:var(--d-mute)}
+.dossier .status{
+  border:1px solid currentColor; border-radius:99px; padding:.14rem .6rem; font-size:.6rem;
+}
+.dossier .status.done{color:var(--d-cleared)}
+.dossier .status.flight{color:var(--d-open)}
+.dossier .status.draft{color:var(--d-faint); border-style:dashed}
+
+/* the headline numbers a case turns on */
+.dossier .stat{
+  display:flex; gap:1.6rem; flex-wrap:wrap; margin-top:1rem; padding-top:.9rem;
+  border-top:1px dotted var(--d-rule); font-family:var(--d-mono); font-size:.72rem;
+  letter-spacing:.06em; color:var(--d-mute);
+}
+.dossier .stat b{font-family:var(--d-serif); font-size:1.5rem; font-weight:400;
+  letter-spacing:0; color:var(--d-ink); margin-right:.34rem}
+.dossier .go{
+  font-family:var(--d-mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--d-accent); font-weight:600;
+}
+
+/* ---- exhibits: the receipts, as an evidence list ---- */
+.dossier .exhibits{border-top:1px solid var(--d-rule); margin:.4rem 0 0}
+.dossier .exhibit{
+  display:grid; grid-template-columns:5.5rem 1fr auto; gap:.4rem 1rem;
+  align-items:baseline; padding:.95rem .2rem; border-bottom:1px solid var(--d-rule-soft);
+  color:inherit; text-decoration:none;
+}
+a.exhibit:hover{text-decoration:none; background:rgba(223,211,188,.34)}
+.dossier .ex-id{color:var(--d-stamp); white-space:nowrap}
+.dossier .exhibit h3{
+  font-family:'Geist',system-ui,sans-serif; font-size:.98rem; font-weight:600;
+  margin:0 0 .25rem; line-height:1.3;
+}
+.dossier .exhibit p{margin:0; font-size:.88rem; color:var(--d-ink-soft); max-width:64ch}
+.dossier .fmt{
+  color:var(--d-mute); border:1px solid var(--d-rule); border-radius:2px;
+  padding:.1rem .42rem; font-size:.58rem; background:var(--d-paper-2);
+}
+.dossier .exhibit .links{display:flex; gap:.9rem; flex-wrap:wrap; margin-top:.5rem}
+.dossier .exhibit .links a{font-family:var(--d-mono); font-size:.7rem; letter-spacing:.06em}
+
+/* ---- section headers inside a file ---- */
+.dossier .sechead{
+  font-family:var(--d-mono); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--d-mute); font-weight:600; margin:3rem 0 .3rem;
+  padding-bottom:.5rem; border-bottom:1px solid var(--d-rule);
+}
+.dossier .lede-sm{color:var(--d-ink-soft); font-size:.94rem; margin:.8rem 0 0; max-width:62ch}
+
+/* ---- a marginal note, the way an annotation sits in a file ---- */
+.dossier .note{
+  border-left:3px solid var(--d-kraft-2); background:rgba(223,211,188,.30);
+  padding:.95rem 1.2rem; margin:1.4rem 0; font-size:.92rem; color:var(--d-ink-soft);
+  border-radius:0 2px 2px 0;
+}
+.dossier .note b{color:var(--d-ink)}
+
+/* ---- tabs on the index, as divider tabs rather than buttons ---- */
+.dossier .tabs{border-bottom:1px solid var(--d-rule); margin:1.6rem 0 0}
+.dossier .tabs .wrap{display:flex; gap:.4rem; padding:0; align-items:flex-end}
+.dossier .tab{
+  background:transparent; border:1px solid transparent; border-bottom:none; cursor:pointer;
+  font-family:var(--d-mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:600; color:var(--d-mute); padding:.5rem 1rem; border-radius:6px 6px 0 0;
+  position:relative; top:1px;
+}
+.dossier .tab[aria-selected="true"]{
+  background:rgba(255,253,248,.85); border-color:var(--d-rule);
+  color:var(--d-ink); border-bottom:1px solid rgba(255,253,248,.85);
+}
+.dossier .tab .count{color:var(--d-faint); margin-left:.4rem}
+.dossier .hidden{display:none}
+
+/* ---- reskin what the papers already ship, rather than rebuilding them ---- */
+.dossier .post{padding:2.6rem 0 .4rem}
+.dossier .tag{font-family:var(--d-mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--d-stamp); font-weight:600}
+.dossier .backlink{font-family:var(--d-mono); font-size:.64rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--d-mute); margin-left:.8rem}
+.dossier h2{font-family:var(--d-serif); font-weight:400; letter-spacing:-.01em;
+  font-size:1.8rem; line-height:1.2; margin:2.6rem 0 .5rem; color:var(--d-ink)}
+.dossier h3{font-size:1.02rem; margin:1.6rem 0 .4rem; color:var(--d-ink)}
+.dossier p{color:var(--d-ink-soft)}
+.dossier .h2sub{color:var(--d-mute); font-size:.92rem; margin:.2rem 0 1rem}
+.dossier table{border-collapse:collapse; width:100%; font-size:.86rem}
+.dossier th,.dossier td{border:1px solid var(--d-rule-soft); padding:.5rem .7rem;
+  text-align:left; vertical-align:top}
+.dossier th{background:var(--d-paper-2); font-family:var(--d-mono); font-size:.62rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--d-mute); font-weight:600}
+.dossier .tblwrap{overflow-x:auto; border:1px solid var(--d-rule); border-radius:6px;
+  background:rgba(255,253,248,.6); margin:1rem 0}
+.dossier .tblwrap table{border:none}
+.dossier code,.dossier .mono{font-family:var(--d-mono); font-size:.84em}
+.dossier .empty{
+  border:1px dashed var(--d-rule); border-radius:6px; padding:1.8rem 1.6rem;
+  background:rgba(223,211,188,.18); text-align:left;
+}
+.dossier .empty .big{font-family:var(--d-serif); font-weight:400; font-size:1.4rem;
+  color:var(--d-ink); margin-bottom:.5rem}
+.dossier .empty .sub{color:var(--d-ink-soft); font-size:.94rem; margin:0}
+
+@media (max-width:640px){
+  .dossier .exhibit{grid-template-columns:1fr; gap:.3rem}
+  .dossier .filed{grid-template-columns:auto 1fr}
+  .dossier .filed .lead-dots{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .dossier .case-card{transition:none}
+  a.case-card:hover{transform:none}
+}
+
+/* ---- a paper is a case file: the stamp sits on the masthead ---- */
+.dossier .case-file{position:static}
+.dossier .case-file > .wrap{position:relative}
+.dossier .file-stamp{position:absolute; top:2.6rem; right:0; z-index:2}
+.dossier .case-file h1{max-width:26ch; padding-right:10rem}
+.dossier .case-file .standfirst{max-width:60ch}
+.dossier .case-file .filed{max-width:38rem}
+/* Below ~1000px the reserved 10rem squeezes the headline into a narrow
+   column, so the stamp goes inline above it instead of into the corner. */
+@media (max-width:1000px){
+  .dossier .file-stamp{position:static; display:inline-flex; margin:0 0 1rem; transform:rotate(-1.6deg)}
+  .dossier .case-file h1{padding-right:0}
+}
+
+/* ---- warm the panels the papers already ship ----
+   These carried the old cool mint/blue tints, which read as a different
+   document sitting inside the file. Same semantics (settled result vs
+   read-this-first), re-toned onto paper. */
+.dossier .proof{border-radius:10px}
+.dossier .context{border-left-color:var(--d-kraft-2); border-radius:0 6px 6px 0}

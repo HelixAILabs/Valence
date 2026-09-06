@@ -44,4 +44,4 @@ Here is the honest version of the problem. Today, when memory looks for somethin
 
 What you should notice when it lands: ask "what did we decide about the garden project?" and get the decision - not a recitation of loosely related history. Watch your AI stay on topic without old memories steering it sideways. And keep long conversations flowing further before anything has to be trimmed.
 
-No date promise yet - it ships when it passes our tests, and we will write up the details here when it does. Release notes, as always, live on [Updates]({{ '/updates/' | relative_url }}).
+**Now shipped.** This landed in [Valence 1.6.0]({{ '/2026/08/24/valence-1-6-0.html' | relative_url }}), alongside the streaming fix described in [Coming in 1.6]({{ '/2026/08/24/valence-1-6-preview.html' | relative_url }}).

@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: page
+nav: news
 title: News
 permalink: /news/
 ---
-
-# News
 
 Plans, videos, announcements, and the thinking behind Valence. Looking for release notes and downloads? See [Updates]({{ '/updates/' | relative_url }}).
 

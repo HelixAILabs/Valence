@@ -95,4 +95,4 @@ Two safety improvements. The crisis check now recognises indirect phrasing - a c
 
 We also re-ran our kids-safety measurements against the prompt that actually ships, rather than a stand-in built for testing. That distinction matters more than it sounds: a test that grades a prompt you never shipped can pass while the real thing fails.
 
-<p class="v16-note"><b>No date promise.</b> It ships when it passes our tests, as always. Release notes and downloads land on <a href="{{ '/updates/' | relative_url }}">Updates</a> the day it does.</p>
+<p class="v16-note"><b>Now shipped.</b> This is live in <a href="{{ '/2026/08/24/valence-1-6-0.html' | relative_url }}">Valence 1.6.0</a>, alongside the memory work described in <a href="{{ '/2026/08/13/memory-architecture-preview.html' | relative_url }}">the memory redesign preview</a>.</p>

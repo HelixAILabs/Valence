@@ -1,0 +1,375 @@
+---
+layout: doc
+title: "Docs"
+slug: docs
+nav: docs
+description: "The complete Valence handbook in plain language: chatting, conversations, profiles, memory, Kids Mode, the Parent Dashboard, privacy, and every setting."
+---
+<header class="hero" id="top" style="padding-bottom:clamp(1.4rem,3vh,2rem)">
+  <div class="wrap">
+    <h1 class="hero-h1 reveal">Everything Valence <em>can do</em>.</h1>
+    <div class="hero-grid">
+      <p class="hero-lead reveal">The full reference, in plain language. Look something up, or read it start to finish. If you're new, <a href="Valence - Getting Started.html" style="color:var(--coral)">Getting Started</a> is a friendlier place to begin.</p>
+      <div class="hero-right reveal">
+        <div class="hero-actions">
+          <a class="btn btn-ghost" href="Valence - Getting Started.html">New here? Start there</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="docs">
+
+    <!-- RAIL -->
+    <aside class="docs-rail" id="rail">
+      <div class="rail-group">
+        <span class="rail-h">The basics</span>
+        <a class="rail-link" href="#chatting">Chatting</a>
+        <a class="rail-link" href="#conversations">Saving &amp; finding chats</a>
+        <a class="rail-link" href="#editing">Editing &amp; branching</a>
+        <a class="rail-link" href="#files">Files, images &amp; voice</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Your AI</span>
+        <a class="rail-link" href="#local-ai">The built-in AI</a>
+        <a class="rail-link" href="#providers">Cloud providers</a>
+        <a class="rail-link" href="#status">The status badge</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Make it yours</span>
+        <a class="rail-link" href="#profiles">Profiles</a>
+        <a class="rail-link" href="#appearance">Appearance</a>
+        <a class="rail-link" href="#tabs">Tabs</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Memory</span>
+        <a class="rail-link" href="#memory">Local memory</a>
+        <a class="rail-link" href="#browser">Memory browser</a>
+        <a class="rail-link" href="#import">Importing chats</a>
+        <a class="rail-link" href="#knowledge">Knowledge folders</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Families</span>
+        <a class="rail-link" href="#kids">Kids Mode</a>
+        <a class="rail-link" href="#kids-controls">Child controls</a>
+        <a class="rail-link" href="#parent">Parent Dashboard</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Privacy &amp; data</span>
+        <a class="rail-link" href="#privacy">Where your data lives</a>
+        <a class="rail-link" href="#local-only">Local-only mode</a>
+        <a class="rail-link" href="#licensing">License &amp; trial</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Power tools</span>
+        <a class="rail-link" href="#advanced">Turning on Advanced</a>
+        <a class="rail-link" href="#abilities">Abilities</a>
+        <a class="rail-link" href="#mcp">MCP tools</a>
+        <a class="rail-link" href="#compare">Comparing models</a>
+      </div>
+      <div class="rail-group">
+        <span class="rail-h">Help</span>
+        <a class="rail-link" href="#shortcuts">Keyboard shortcuts</a>
+        <a class="rail-link" href="#logs">Logs &amp; diagnostics</a>
+        <a class="rail-link" href="#trouble">Troubleshooting</a>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="docs-main">
+
+      <!-- THE BASICS -->
+      <section class="doc-sec" id="chatting">
+        <h2>Chatting</h2>
+        <p class="doc-lead">The main screen is a conversation. Type in the box at the bottom and your AI replies above it.</p>
+        <p>By default, press <b>Enter</b> to send (you can switch this to Ctrl + Enter in settings if you'd rather use Enter for new lines). Press <b>Esc</b> to stop a reply that's still being written.</p>
+        <h3>Watching it write</h3>
+        <p>Replies arrive complete and cleanly formatted rather than flickering as they generate. If you prefer to watch the text stream in live, there's a one-click toggle on the reply.</p>
+        <h3>Reasoning</h3>
+        <p>Some models show their working. When they do, Valence tucks that <b>Chain of Thought</b> into a small collapsible note so it never buries the actual answer.</p>
+        <span class="where">Main chat screen</span>
+      </section>
+
+      <section class="doc-sec" id="conversations">
+        <h2>Saving &amp; finding chats</h2>
+        <p class="doc-lead">Nothing is saved to a server. Conversations live as files on your computer.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">New chat</span><span class="v">Starts fresh. Also <b>Ctrl + Shift + N</b>.</span></div>
+          <div class="kv-row"><span class="k">Save chat</span><span class="v">Saves the current conversation, updating it if it was saved before.</span></div>
+          <div class="kv-row"><span class="k">Save as new</span><span class="v">Keeps the original and saves a second copy.</span></div>
+          <div class="kv-row"><span class="k">Load chat</span><span class="v">Opens the browser, search, pin favourites, and organise into folders.</span></div>
+          <div class="kv-row"><span class="k">Export Markdown / PDF</span><span class="v">Saves a copy of the conversation as a file.</span></div>
+          <div class="kv-row"><span class="k">Share snapshot</span><span class="v">Creates a self-contained HTML page of the conversation.</span></div>
+        </div>
+        <span class="where">Menu → Conversation, and Menu → More options</span>
+      </section>
+
+      <section class="doc-sec" id="editing">
+        <h2>Editing &amp; branching</h2>
+        <p class="doc-lead">You can change what you asked and explore a different answer without losing the original.</p>
+        <p>Hover a message you sent and choose to edit it. Saving re-runs the conversation from that point, creating a <b>branch</b>: you can move between branches to compare where each one led. <b>Ctrl + Shift + R</b> regenerates the most recent reply.</p>
+        <span class="where">Hover any message you sent</span>
+      </section>
+
+      <section class="doc-sec" id="files">
+        <h2>Files, images &amp; voice</h2>
+        <p class="doc-lead">You can give Valence documents and pictures, or talk instead of typing.</p>
+        <h3>Attachments</h3>
+        <p>The paperclip attaches text files, PDFs, and images. Long documents are split into chunks automatically so they fit the model's context. Images need a model that can see, most current cloud models can, and Valence tells you when the selected one can't.</p>
+        <h3>Voice</h3>
+        <p><b>Ctrl + M</b> toggles voice input. <b>Ctrl + Alt + T</b> is push-to-talk and works even when Valence isn't the active window.</p>
+        <span class="where">The input bar at the bottom of the chat</span>
+      </section>
+
+      <!-- YOUR AI -->
+      <section class="doc-sec" id="local-ai">
+        <h2>The built-in AI</h2>
+        <p class="doc-lead">Valence ships with an AI that runs on your own machine. No account, no key, no internet needed.</p>
+        <p>It's set up during first run and is the right choice for most people, it's free, private, and works offline. <b>Gemma 4</b> is the recommended everyday model and the only family suitable for Kids Mode. <b>Qwen 3</b> is stronger at code, maths, and non-English conversation, but is more verbose and isn't offered for Kids Mode.</p>
+        <p>The model library shows how much memory each model needs and dims any that your machine can't comfortably run, so you can't accidentally choose one that will crawl.</p>
+        <span class="where">Settings → AI Providers → Local AI</span>
+      </section>
+
+      <section class="doc-sec" id="providers">
+        <h2>Cloud providers</h2>
+        <p class="doc-lead">Valence can also talk to the major cloud AIs using your own key.</p>
+        <p>Supported: <b>OpenAI</b>, <b>Anthropic</b> (Claude), <b>Google</b> (Gemini), <b>xAI</b> (Grok), <b>OpenRouter</b>, <b>Ollama</b>, plus <b>Azure OpenAI</b> and <b>Vertex AI</b> for business setups. You pay the provider directly; Valence takes no cut and never sees your conversations.</p>
+        <p>Keys are encrypted on your machine using Windows' own protection and are never uploaded. Switch provider or model from the dropdowns at the top of the chat.</p>
+        <p>Step-by-step help getting a key lives in the <a href="Valence - Guides.html#keys" style="color:var(--coral)">setup guides</a>.</p>
+        <span class="where">Settings → AI Providers</span>
+      </section>
+
+      <section class="doc-sec" id="status">
+        <h2>The status badge</h2>
+        <p class="doc-lead">A small pill beside the wordmark always says which AI you're using and where it runs.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Private · Ready</span><span class="v">A local model, running on your computer.</span></div>
+          <div class="kv-row"><span class="k">Online · Ready</span><span class="v">A cloud provider, running on their computers.</span></div>
+          <div class="kv-row"><span class="k">Getting ready</span><span class="v">A local model is downloading or warming up.</span></div>
+          <div class="kv-row"><span class="k">Set up your AI</span><span class="v">Nothing is configured yet.</span></div>
+        </div>
+        <p>Click it for the full picture, including how to switch.</p>
+        <span class="where">Top-left, next to the Valence wordmark</span>
+      </section>
+
+      <!-- MAKE IT YOURS -->
+      <section class="doc-sec" id="profiles">
+        <h2>Profiles</h2>
+        <p class="doc-lead">A profile is a saved way of working. A name, an icon, a personality, and a preferred AI.</p>
+        <p>Create one from the profile menu with <b>+ New</b>. Give it a name, pick an icon, and optionally write <b>System Instructions</b> telling the AI how to behave (up to 10,000 characters). Switch profiles from the same menu or with <b>Ctrl + P</b>.</p>
+        <h3>Keeping profiles separate</h3>
+        <p>Each profile can isolate its memories, so a work profile never recalls anything personal. Profiles can also be exported to a file and imported on another machine.</p>
+        <p><b>For a child, use the Kids Mode wizard instead</b>: see <a href="#kids" style="color:var(--coral)">Kids Mode</a>. A child's profile is created there, not here.</p>
+        <span class="where">Profile menu at the top of the chat</span>
+      </section>
+
+      <section class="doc-sec" id="appearance">
+        <h2>Appearance</h2>
+        <p class="doc-lead">Themes, text size, motion, and how the window behaves.</p>
+        <p>The Theme pane is grouped into <b>Style</b>, <b>Motion</b>, <b>Text &amp; Input</b>, and <b>Window</b>. You can change the colour theme, adjust font size and family, reduce animation, and control whether Valence floats above other windows.</p>
+        <p><b>Ctrl + Alt + O</b> shows or hides the window from anywhere, even when you're in another app.</p>
+        <span class="where">Settings → Theme</span>
+      </section>
+
+      <section class="doc-sec" id="tabs">
+        <h2>Tabs</h2>
+        <p class="doc-lead">Run several conversations side by side.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Ctrl + T</span><span class="v">New tab</span></div>
+          <div class="kv-row"><span class="k">Ctrl + W</span><span class="v">Close the current tab</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Tab</span><span class="v">Next tab</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Shift + Tab</span><span class="v">Previous tab</span></div>
+          <div class="kv-row"><span class="k">Ctrl + 1–5</span><span class="v">Jump straight to a tab</span></div>
+        </div>
+      </section>
+
+      <!-- MEMORY -->
+      <section class="doc-sec" id="memory">
+        <h2>Local memory</h2>
+        <p class="doc-lead">With memory on, Valence carries what matters from one conversation to the next: all stored on your machine.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Enable Local Memory</span><span class="v">The master switch.</span></div>
+          <div class="kv-row"><span class="k">Save Mode</span><span class="v"><b>Summary</b> keeps short notes; <b>Full</b> keeps whole conversations and uses more disk.</span></div>
+          <div class="kv-row"><span class="k">Auto-Save Mode</span><span class="v">Manual only, every few messages, on a timer, or both.</span></div>
+          <div class="kv-row"><span class="k">Search Mode</span><span class="v"><b>Simple</b> matches keywords; <b>Enhanced</b> lets the AI broaden the search.</span></div>
+        </div>
+        <span class="where">Settings → Memory</span>
+      </section>
+
+      <section class="doc-sec" id="browser">
+        <h2>Memory browser</h2>
+        <p class="doc-lead">Everything Valence remembers, in one place: readable, searchable, deletable.</p>
+        <p>Each memory shows its title, a summary, when it was saved, and its topics. Filter by text or date, browse by topic, or delete any memory permanently. Nothing is hidden from you.</p>
+        <span class="where">Menu → Memory browser, or Settings → Memory → Browse &amp; Import</span>
+      </section>
+
+      <section class="doc-sec" id="import">
+        <h2>Importing chats</h2>
+        <p class="doc-lead">Bring your history from ChatGPT, Claude, or Gemini.</p>
+        <p>Choose the provider, sign in through the browser window that opens, and confirm. Your conversations become searchable memories on your machine. They are not uploaded anywhere.</p>
+        <p><b>ChatGPT</b> also accepts a ZIP export if you'd rather not sign in through Valence. <b>Gemini</b> has no bulk export, so it's read one conversation at a time and takes longer.</p>
+        <span class="where">Settings → Memory → Browse &amp; Import</span>
+      </section>
+
+      <section class="doc-sec" id="knowledge">
+        <h2>Knowledge folders</h2>
+        <p class="doc-lead">Point Valence at folders of your own documents so it can answer from them.</p>
+        <p>Add a folder as a knowledge source and its contents become searchable context for your questions. Sources can be attached per profile, so a work profile can read work documents without touching anything else.</p>
+        <span class="where">Settings → Knowledge</span>
+      </section>
+
+      <!-- FAMILIES -->
+      <section class="doc-sec" id="kids">
+        <h2>Kids Mode</h2>
+        <p class="doc-lead">A protected space for a child, created through a guided six-step wizard.</p>
+        <p>Start from the profile menu → <b>+ New</b> → <b>Use the Kids Mode wizard</b>. The wizard walks you through consent, setting a <b>parental password</b>, adding each child (name, age, icon), previewing the safety behaviour, choosing controls, and creating the profiles.</p>
+        <h3>What gets locked</h3>
+        <p>While a kids profile is active, Valence hides settings, profile creation and editing, saving and exporting conversations, the memory browser, usage, and model comparison. Switching profiles requires the parental password. A <b>Kids Mode</b> badge shows in the title bar.</p>
+        <h3>Which AI a child can use</h3>
+        <p>Only the built-in local model or Vertex AI. With the local model, <b>a child's conversations never leave the computer</b>.</p>
+        <span class="where">Profile menu → + New → Kids Mode wizard</span>
+      </section>
+
+      <section class="doc-sec" id="kids-controls">
+        <h2>Child controls</h2>
+        <p class="doc-lead">Each child gets age-appropriate defaults that you can tune.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Daily time limit</span><span class="v">Unlimited, or 15–120 minutes. Extending time requires your password.</span></div>
+          <div class="kv-row"><span class="k">Socratic mode</span><span class="v">Off, Light, Medium, or Strong. The AI asks questions instead of handing over answers.</span></div>
+          <div class="kv-row"><span class="k">Perspective mode</span><span class="v">Encourages more than one point of view on a topic.</span></div>
+          <div class="kv-row"><span class="k">AI literacy reminders</span><span class="v">Periodic gentle reminders that the AI isn't a person.</span></div>
+          <div class="kv-row"><span class="k">AI identity guard</span><span class="v">Off, Gentle, or Strict: limits how human-like the AI sounds.</span></div>
+          <div class="kv-row"><span class="k">Extra instructions</span><span class="v">Free text you can add for that child.</span></div>
+        </div>
+        <h3>If a child is in distress</h3>
+        <p>If a conversation contains self-harm or crisis language, Valence surfaces the <b>988 Suicide &amp; Crisis Lifeline</b> and flags the conversation for you in the Parent Dashboard rather than trying to handle it alone.</p>
+      </section>
+
+      <section class="doc-sec" id="parent">
+        <h2>Parent Dashboard</h2>
+        <p class="doc-lead">A calm overview of each child's activity, with anything worth a look floated to the top.</p>
+        <p>Open it from the menu and enter your parental password. It fills the window, with a rail down the left:</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Overview</span><span class="v">Each child, how much they've chatted, and what needs review.</span></div>
+          <div class="kv-row"><span class="k">Needs attention</span><span class="v">Conversations flagged as concerning, redirected, or crisis-related.</span></div>
+          <div class="kv-row"><span class="k">Conversations</span><span class="v">Read any conversation in full.</span></div>
+          <div class="kv-row"><span class="k">Trends</span><span class="v">Mood and usage patterns over time.</span></div>
+          <div class="kv-row"><span class="k">Controls</span><span class="v">Adjust any child's settings from one place.</span></div>
+          <div class="kv-row"><span class="k">Knowledge</span><span class="v">Manage what documents a child's AI can read.</span></div>
+        </div>
+        <p>The dashboard locks itself after a few minutes of inactivity, and re-locks if the window is minimised while it's open. Everything stays on your PC.</p>
+        <span class="where">Menu → Parent Dashboard (password required)</span>
+      </section>
+
+      <!-- PRIVACY -->
+      <section class="doc-sec" id="privacy">
+        <h2>Where your data lives</h2>
+        <p class="doc-lead">On your computer, as ordinary files. There is no Valence account and no Valence server.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Conversations</span><span class="v">Saved chats, one file each.</span></div>
+          <div class="kv-row"><span class="k">Memories</span><span class="v">Per profile, with a search index.</span></div>
+          <div class="kv-row"><span class="k">Profiles &amp; settings</span><span class="v">Including parental controls and encrypted API keys.</span></div>
+          <div class="kv-row"><span class="k">Kids activity</span><span class="v">Session history and the data behind the Parent Dashboard.</span></div>
+        </div>
+        <p>Kids conversations can additionally be <b>encrypted at rest</b>, so nobody else using the same computer can read them. Settings → Storage shows where everything lives and lets you back it up or wipe it.</p>
+        <span class="where">Settings → Storage</span>
+      </section>
+
+      <section class="doc-sec" id="local-only">
+        <h2>Local-only mode</h2>
+        <p class="doc-lead">Switches off every optional online feature so nothing can leave your machine.</p>
+        <p>You can turn it on during first-run setup or later in settings. Note that it does not block the things you explicitly ask for, downloading a model, or importing your history from another service, still reach the internet by design.</p>
+      </section>
+
+      <section class="doc-sec" id="licensing">
+        <h2>License &amp; trial</h2>
+        <p class="doc-lead">Free for 7 days, then a one-time purchase. No subscription.</p>
+        <p>The trial is the full app: nothing is held back and no card is needed. After it ends, enter your license key to keep going. Every feature is included in the one price; there are no tiers and nothing is gated.</p>
+        <span class="where">Settings → License</span>
+      </section>
+
+      <!-- POWER TOOLS -->
+      <section class="doc-sec" id="advanced">
+        <h2>Turning on Advanced</h2>
+        <p class="doc-lead">Valence hides its power tools until you ask for them.</p>
+        <p>At the top of the settings sidebar there's an <b>Advanced</b> switch. Turn it on to reveal Triggers, Abilities, MCP, Automations, Diagnostics, Contexts, and other expert panes. Leave it off and settings stays short and calm, which is where most people should leave it.</p>
+        <span class="where">Settings → Advanced toggle, top of the sidebar</span>
+      </section>
+
+      <section class="doc-sec" id="abilities">
+        <h2>Abilities <span class="adv">Advanced</span></h2>
+        <p class="doc-lead">Small built-in actions the AI can run mid-conversation.</p>
+        <div class="kv">
+          <div class="kv-row"><span class="k">#time</span><span class="v">The current date and time.</span></div>
+          <div class="kv-row"><span class="k">#calc</span><span class="v">Work out a calculation exactly.</span></div>
+          <div class="kv-row"><span class="k">#recall</span><span class="v">Look something up in your memories.</span></div>
+          <div class="kv-row"><span class="k">#remember</span><span class="v">Save something to memory deliberately.</span></div>
+          <div class="kv-row"><span class="k">#forget</span><span class="v">Remove something from memory.</span></div>
+          <div class="kv-row"><span class="k">#imagine</span><span class="v">Generate an image from a description.</span></div>
+        </div>
+        <p>You don't need to type these. The AI uses them when they're useful. You can switch individual abilities off.</p>
+        <span class="where">Settings → Abilities (Advanced)</span>
+      </section>
+
+      <section class="doc-sec" id="mcp">
+        <h2>MCP tools <span class="adv">Advanced</span></h2>
+        <p class="doc-lead">Connect outside tools that follow the Model Context Protocol.</p>
+        <p>Add a server and its tools become available to the AI as abilities. Anything a tool wants to do <b>asks for your confirmation first</b>. Tools never connect on their own. You turn them on deliberately.</p>
+        <span class="where">Settings → MCP (Advanced)</span>
+      </section>
+
+      <section class="doc-sec" id="compare">
+        <h2>Comparing models</h2>
+        <p class="doc-lead">Ask the same question of several AIs at once and read the answers side by side.</p>
+        <p>Pick the models you want, send one prompt, and compare. Useful when deciding whether a cloud model is actually worth it over your local one.</p>
+        <span class="where">Menu → More options → Compare models</span>
+      </section>
+
+      <!-- HELP -->
+      <section class="doc-sec" id="shortcuts">
+        <h2>Keyboard shortcuts</h2>
+        <div class="kv">
+          <div class="kv-row"><span class="k">Enter</span><span class="v">Send message (configurable)</span></div>
+          <div class="kv-row"><span class="k">Esc</span><span class="v">Stop the reply being written</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Shift + N</span><span class="v">Clear conversation / new chat</span></div>
+          <div class="kv-row"><span class="k">Ctrl + F</span><span class="v">Search in conversation</span></div>
+          <div class="kv-row"><span class="k">Ctrl + P</span><span class="v">Quick switch profile</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Shift + R</span><span class="v">Regenerate last response</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Shift + C</span><span class="v">Copy conversation to clipboard</span></div>
+          <div class="kv-row"><span class="k">Ctrl + M</span><span class="v">Toggle voice input</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Alt + T</span><span class="v">Push-to-talk (works globally)</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Alt + O</span><span class="v">Show or hide Valence (works globally)</span></div>
+        </div>
+        <span class="where">Menu → More options → Keyboard shortcuts</span>
+      </section>
+
+      <section class="doc-sec" id="logs">
+        <h2>Logs &amp; diagnostics</h2>
+        <p class="doc-lead">If we ever need to help you troubleshoot, this is where the details are.</p>
+        <p>The Log Files panel shows the folder path (clickable to open it), how long logs are kept, and buttons to copy the path or open today's log. Logs stay on your machine: nothing is sent to us unless you choose to send it.</p>
+        <span class="where">Settings → Diagnostics → Log Files (Advanced)</span>
+      </section>
+
+      <section class="doc-sec" id="trouble">
+        <h2>Troubleshooting</h2>
+        <h3>Windows blocked the download or the app</h3>
+        <p>Expected for a new app with no reputation yet. Keep the file from your browser's download menu, then on first open click <b>More info → Run anyway</b>. It only happens once.</p>
+        <h3>The first reply is slow</h3>
+        <p>A local model warms up the first time you use it after opening Valence. The status badge shows what's happening. After that it stays warm.</p>
+        <h3>A cloud provider rejects the key</h3>
+        <p>Re-copy the key, a stray space is the usual cause, and check the account still has credit.</p>
+        <h3>It forgot something</h3>
+        <p>Memory must be switched on, and it saves what looks important rather than everything. Open the Memory browser to see exactly what it kept.</p>
+        <h3>Still stuck</h3>
+        <p>Email <a href="mailto:help@helixailabs.com" style="color:var(--coral);text-decoration:none">help@helixailabs.com</a>.</p>
+      </section>
+
+      <section class="doc-sec" id="colophon" style="border-top:2px solid var(--ink)">
+        <p style="font-family:'Geist Mono',monospace;font-size:0.76rem;color:var(--mute)">This handbook describes <b>Valence {{ site.valence_version }}</b>. Features are listed as they appear in the shipping app; panes marked <span class="adv">Advanced</span> only appear when the Advanced switch is on.</p>
+      </section>
+
+    </div>
+  </div>
+</div>

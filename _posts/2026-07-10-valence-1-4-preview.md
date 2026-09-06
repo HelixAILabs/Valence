@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Coming in 1.4: privacy you can see, safety you can prove — and a workspace that fits you"
+title: "Coming in 1.4: privacy you can see, safety you can prove: and a workspace that fits you"
 category: news
 date: 2026-07-10
 ---
@@ -49,14 +49,14 @@ date: 2026-07-10
 @media(max-width:560px){.v14-pillars{grid-template-columns:1fr}.v14-proof .n{font-size:2.2rem}.v14-mock{width:210px}}
 </style>
 
-<p class="v14-lead">Valence has always made two quiet promises: your AI lives on <b>your</b> computer, and it's a space you can hand to the people you love. Version 1.4 &mdash; in final testing as we write this &mdash; is the release where those promises stop being something you take on faith. <b>Privacy you can see. Safety we can prove.</b> A memory that listens, every model you bring working the way it should, and a workspace you can size to your own eyes. It's the steadiest &mdash; and most personal &mdash; Valence yet.</p>
+<p class="v14-lead">Valence has always made two quiet promises: your AI lives on <b>your</b> computer, and it's a space you can hand to the people you love. Version 1.4, in final testing as we write this, is the release where those promises stop being something you take on faith. <b>Privacy you can see. Safety we can prove.</b> A memory that listens, every model you bring working the way it should, and a workspace you can size to your own eyes. It's the steadiest, and most personal, Valence yet.</p>
 
 <div class="v14-pillars">
   <div><div class="t">Private</div><div class="h">Locked down</div><div class="s">Encrypted on disk, with one switch that keeps everything on your machine.</div></div>
   <div><div class="t">Safe</div><div class="h">Built for kids</div><div class="s">Deny-by-default, real crisis support, and a red-team to back it up.</div></div>
-  <div><div class="t">Smart</div><div class="h">Memory that listens</div><div class="s">Surfaces what's relevant &mdash; and your thumbs up and down actually count.</div></div>
+  <div><div class="t">Smart</div><div class="h">Memory that listens</div><div class="s">Surfaces what's relevant, and your thumbs up and down actually count.</div></div>
   <div><div class="t">Flexible</div><div class="h">Every model works</div><div class="s">Web search, tools and reasoning behave the same, whoever you bring.</div></div>
-  <div><div class="t">Yours</div><div class="h">Sized to you</div><div class="s">Scale the whole interface &mdash; chat, menus, all of it &mdash; to your screen.</div></div>
+  <div><div class="t">Yours</div><div class="h">Sized to you</div><div class="s">Scale the whole interface, chat, menus, all of it, to your screen.</div></div>
   <div><div class="t">Steady</div><div class="h">Fewer rough edges</div><div class="s">Crash fixes, no stray processes, calmer local answers.</div></div>
 </div>
 
@@ -64,50 +64,50 @@ date: 2026-07-10
 
 Valence never needed an account and never sent your conversations anywhere. 1.4 makes that concrete:
 
-<div class="v14-feat"><b>Everything's encrypted on disk.</b> Your conversations, your memory, and your profiles are now encrypted at rest &mdash; so even the files sitting on your own drive don't give up what you talked about.</div>
+<div class="v14-feat"><b>Everything's encrypted on disk.</b> Your conversations, your memory, and your profiles are now encrypted at rest, so even the files sitting on your own drive don't give up what you talked about.</div>
 
-<div class="v14-feat"><b>One switch for "stays on this machine."</b> A single local-only master toggle guarantees nothing leaves your computer, with plain-spoken labels beside every provider so you always know what would &mdash; and wouldn't &mdash; reach the internet.</div>
+<div class="v14-feat"><b>One switch for "stays on this machine."</b> A single local-only master toggle guarantees nothing leaves your computer, with plain-spoken labels beside every provider so you always know what would, and wouldn't, reach the internet.</div>
 
 <div class="v14-feat"><b>Take it or erase it.</b> Export everything you've saved in one step, or wipe it all just as easily. It's yours; you decide.</div>
 
 ## A space built for kids
 
-Kids Mode grew up. In 1.4 it doesn't just filter &mdash; it starts from *no* and opens only what's been checked:
+Kids Mode grew up. In 1.4 it doesn't just filter. It starts from *no* and opens only what's been checked:
 
-<div class="v14-feat"><b>Deny-by-default.</b> Every sensitive action is blocked first and allowed only when it's explicitly vetted &mdash; the safe direction to fail.</div>
+<div class="v14-feat"><b>Deny-by-default.</b> Every sensitive action is blocked first and allowed only when it's explicitly vetted. The safe direction to fail.</div>
 
-<div class="v14-feat"><b>Help when it matters.</b> If a child ever signals real distress, Valence surfaces age-appropriate crisis support instead of looking away &mdash; and quietly gives a parent a heads-up.</div>
+<div class="v14-feat"><b>Help when it matters.</b> If a child ever signals real distress, Valence surfaces age-appropriate crisis support instead of looking away, and quietly gives a parent a heads-up.</div>
 
 <div class="v14-proof">
   <div class="n">0</div>
-  <div class="c">harmful outputs across <b>1,000 adversarial conversations</b> in our own red-team. Not a promise &mdash; a result you can read for yourself.</div>
+  <div class="c">harmful outputs across <b>1,000 adversarial conversations</b> in our own red-team. Not a promise. A result you can read for yourself.</div>
 </div>
 
 <p><a href="https://helixailabs.com/Valence%20-%20Kids%20Safety%20Proof.html">See the Kids Safety Proof &rarr;</a></p>
 
 ## Memory that actually listens
 
-Valence's on-device memory got noticeably sharper in 1.4 &mdash; and it takes your feedback to heart:
+Valence's on-device memory got noticeably sharper in 1.4: and it takes your feedback to heart:
 
-<div class="v14-feat"><b>Only what's relevant.</b> Instead of pushing every saved note into every answer, Valence now weighs what you're actually asking and brings up only what fits &mdash; and stays quiet when nothing does. Cleaner answers, less clutter.</div>
+<div class="v14-feat"><b>Only what's relevant.</b> Instead of pushing every saved note into every answer, Valence now weighs what you're actually asking and brings up only what fits, and stays quiet when nothing does. Cleaner answers, less clutter.</div>
 
-<div class="v14-feat"><b>Your thumbs count.</b> Thumbs-down a memory and it stops resurfacing; thumbs-up and it's favored next time. You're never stuck with what it guessed &mdash; you shape what it keeps in mind.</div>
+<div class="v14-feat"><b>Your thumbs count.</b> Thumbs-down a memory and it stops resurfacing; thumbs-up and it's favored next time. You're never stuck with what it guessed. You shape what it keeps in mind.</div>
 
 ## Works with every model
 
-Valence has always let you bring your own AI &mdash; OpenAI, Claude, Gemini, xAI, OpenRouter, or a model running entirely on your machine. In 1.4 we went provider by provider and fixed the quiet places where the *advanced* features used to break, so switching models never costs you the good stuff:
+Valence has always let you bring your own AI, OpenAI, Claude, Gemini, xAI, OpenRouter, or a model running entirely on your machine. In 1.4 we went provider by provider and fixed the quiet places where the *advanced* features used to break, so switching models never costs you the good stuff:
 
-<div class="v14-feat"><b>Web search that actually searches.</b> Ask Gemini something that needs the live web &mdash; <i>"when does the Slate Truck come out?"</i> &mdash; and it searches, then answers. No error, no query that vanishes into an empty reply.</div>
+<div class="v14-feat"><b>Web search that actually searches.</b> Ask Gemini something that needs the live web, <i>"when does the Slate Truck come out?"</i>, and it searches, then answers. No error, no query that vanishes into an empty reply.</div>
 
-<div class="v14-feat"><b>Deep thinking and tools, together.</b> Claude's extended reasoning now rides alongside tool use the way it's meant to &mdash; the model can think hard <i>and</i> take action in a single turn.</div>
+<div class="v14-feat"><b>Deep thinking and tools, together.</b> Claude's extended reasoning now rides alongside tool use the way it's meant to. The model can think hard <i>and</i> take action in a single turn.</div>
 
 <div class="v14-feat"><b>Reasoning models, handled right.</b> Point Valence at a step-by-step reasoning model and it speaks that model's dialect correctly, instead of stumbling on the way it likes to answer.</div>
 
-<p>You're never locked into one provider to get web search, tools, or careful reasoning. Switch freely &mdash; the powerful parts behave the same no matter who's behind the curtain.</p>
+<p>You're never locked into one provider to get web search, tools, or careful reasoning. Switch freely. The powerful parts behave the same no matter who's behind the curtain.</p>
 
 ## Size the whole thing to you
 
-For a while, one setting changed your chat text and nothing else &mdash; so it never quite felt like it did anything. In 1.4 it became a real <b>Interface Scale</b>: it grows or shrinks the <i>entire</i> workspace, in five steps from Extra Small to Extra Large. Try it &mdash; tap through the sizes:
+For a while, one setting changed your chat text and nothing else, so it never quite felt like it did anything. In 1.4 it became a real <b>Interface Scale</b>: it grows or shrinks the <i>entire</i> workspace, in five steps from Extra Small to Extra Large. Try it: tap through the sizes:
 
 <div class="v14-scale" id="v14-scale">
   <div class="v14-stage">
@@ -115,7 +115,7 @@ For a while, one setting changed your chat text and nothing else &mdash; so it n
       <div class="v14-mockbar"><span class="v14-dot"></span> Valence</div>
       <div class="v14-mockbody">
         <div class="v14-bubble v14-you">How should I plan a two-week trip?</div>
-        <div class="v14-bubble v14-ai">Start with the anchors &mdash; the two or three places you can't miss &mdash; and let the days between them stay loose.</div>
+        <div class="v14-bubble v14-ai">Start with the anchors, the two or three places you can't miss, and let the days between them stay loose.</div>
         <div class="v14-mockinput">Ask anything&hellip;</div>
       </div>
     </div>
@@ -132,7 +132,7 @@ For a while, one setting changed your chat text and nothing else &mdash; so it n
 
 <div class="v14-feat"><b>For every screen and every pair of eyes.</b> Big, sharp monitor that makes everything feel tiny? Scale up. Want more on screen at once? Scale down. Whatever you choose, it's there again next time you open Valence.</div>
 
-<div class="v14-feat"><b>Nothing gets left behind.</b> Menus, dialogs, buttons and chat all grow together and stay where they belong &mdash; the whole interface reflows, so nothing clips off the edge or drifts out of reach.</div>
+<div class="v14-feat"><b>Nothing gets left behind.</b> Menus, dialogs, buttons and chat all grow together and stay where they belong. The whole interface reflows, so nothing clips off the edge or drifts out of reach.</div>
 
 <script>
 (function(){
@@ -155,17 +155,18 @@ The unglamorous work that makes the rest trustworthy:
 
 <ul class="v14-fixes">
   <li><b>Fixed a startup crash</b> on certain graphics configurations that could leave the local model stuck.</li>
-  <li><b>Stopped a rare out-of-memory crash</b> on big, complex answers &mdash; heavy math and long code render safely now.</li>
+  <li><b>Stopped a rare out-of-memory crash</b> on big, complex answers: heavy math and long code render safely now.</li>
   <li><b>No more stray background processes</b> lingering after you close Valence.</li>
-  <li><b>Calmer local conversations</b> &mdash; the on-device AI no longer echoes your greeting back or leaves an awkward gap before it answers.</li>
+  <li><b>Calmer local conversations</b>: the on-device AI no longer echoes your greeting back or leaves an awkward gap before it answers.</li>
 </ul>
 
 ## Almost here
 
-None of this has shipped yet &mdash; 1.4 is in final testing as we write this, and we don't put a version in your hands until it's earned it. No firm date, but it's close.
+None of this has shipped yet, 1.4 is in final testing as we write this, and we don't put a version in your hands until it's earned it. No firm date, but it's close.
 
-When it lands, it's the same deal it's always been: everything runs on your machine, no account required, and the 7-day trial becomes a one-time <b>$59.95</b> &mdash; never a subscription. If any of this matters to you, or there's something we haven't built yet, we'd genuinely like to hear it: <b>help@helixailabs.com</b>.
+When it lands, it's the same deal it's always been: everything runs on your machine, no account required, and the 7-day trial becomes a one-time <b>$59.95</b>: never a subscription. If any of this matters to you, or there's something we haven't built yet, we'd genuinely like to hear it: <b>help@helixailabs.com</b>.
 
+<p><strong>Now shipped.</strong> This is live in <a href="{{ '/2026/07/19/valence-1-4-0.html' | relative_url }}">Valence 1.4.0</a>.</p>
 <div class="v14-cta">
   <a href="https://helixailabs.com/Valence.html#get">Get Valence today &rarr;</a>
   <div class="fine">Windows 10/11 (64-bit) &middot; 7-day free trial, then $59.95 once</div>

@@ -1,0 +1,291 @@
+---
+layout: doc
+title: "How to Run AI Locally on Your Own Computer"
+slug: guide
+nav: guide
+permalink: /run-ai-locally/
+description: "What local AI means, the hardware you really need with real numbers, an honest look at every tool worth using, and where it falls short."
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it mean to run AI locally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The model file sits on your own disk and the computation happens on your own processor or graphics card. Nothing is sent to a server. You can unplug the network and it keeps working. The trade is that your hardware sets the ceiling on how capable a model you can run, where a cloud service runs models far larger than any consumer machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hardware do I need to run AI locally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a 7 to 8 billion parameter model at 4-bit quantization you need roughly 5 GB of memory for the weights plus headroom for context, so 16 GB of system RAM is a comfortable floor and it will run on the processor alone. A graphics card with 8 GB or more of VRAM makes it several times faster. For a 14B model expect around 9 GB, and for a 32B model around 20 GB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is local AI as good as ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and anyone saying otherwise is selling something. A model that fits on a laptop is smaller than the frontier models a cloud service runs. For summarizing, drafting, rewriting, extracting from documents, and everyday questions, a good 8B model is genuinely useful. For hard reasoning, long complex code, and obscure knowledge, the gap is real and obvious."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is running AI locally free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The models are free to download and there is no per-message cost, so after the download it costs only electricity. Several good tools are free and open source. Some applications built on top of them are paid, which buys you an easier experience rather than access to the models themselves."
+      }
+    }
+  ]
+}
+</script>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="masthead">
+      <span>Helix AI Labs</span>
+      <span>A practical guide</span>
+    </div>
+
+    <h1 class="hero-h1 reveal">How to run AI <em>on your own computer</em></h1>
+    <p class="hero-lead reveal">No subscription, no account, nothing leaving your machine, and it works on a plane. Here is what it actually takes, with real memory numbers instead of "a modern PC", an honest look at every tool worth using including the free ones, and a straight answer on where it falls short.</p>
+
+    <div class="answer reveal">
+      <span class="lbl">The short version</span>
+      <p>If you have <b>16 GB of RAM</b>, you can run a useful AI on your own computer today, for free, and it will be good at summarizing, drafting, rewriting, and answering ordinary questions. If you have a graphics card with <b>8 GB or more of VRAM</b>, it will be fast enough that you stop thinking about it. What you will not get is a frontier model, and <em>anyone telling you otherwise is selling something</em>.</p>
+    </div>
+
+    <nav class="toc reveal" aria-label="On this page">
+      <ol>
+        <li><a href="#what">What local AI actually means</a></li>
+        <li><a href="#why">Why bother, and why not</a></li>
+        <li><a href="#hardware">The hardware you actually need</a></li>
+        <li><a href="#tools">Every tool worth using</a></li>
+        <li><a href="#start">The fastest way to start</a></li>
+        <li><a href="#faq">Questions people ask</a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<section id="what">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">01</span><span class="sec-name">The basics</span></div>
+    <h2 class="sec-h2 reveal">What local AI actually means</h2>
+    <p class="sec-lead reveal">A model is a file. A large one, but a file. Running AI locally means that file sits on your disk, and the arithmetic happens on your own processor or graphics card.</p>
+
+    <p class="prose reveal" style="margin-top:1.8rem">When you use a cloud service, your words travel to a datacenter, a very large model computes a reply, and the text comes back. When you run locally, none of that happens. You can turn off your network and keep working. Nothing is retained by anybody, nothing is trained on, and there is no per-message cost because nobody is renting you a machine.</p>
+
+    <p class="prose reveal" style="margin-top:1.2rem">The catch is the size of the file. Cloud providers run models far larger than anything that fits on a consumer machine, on hardware that costs more than a car. <b>Your hardware sets your ceiling</b>, and the entire practical question of local AI is whether the model that fits under your ceiling is good enough for what you actually do.</p>
+
+    <div class="callout reveal">
+      <h3>Two words worth knowing</h3>
+      <p><b>Parameters</b> are the model's size, written as 7B or 14B for billions. Bigger is generally more capable and always needs more memory. <b>Quantization</b> compresses those parameters to fewer bits, usually 4, which shrinks a model to roughly a quarter of its original size for a small quality cost. Nearly every model you will download is already quantized, which is why an 8-billion-parameter model is a 5 GB file rather than a 16 GB one.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="crisis">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">02</span><span class="sec-name">The trade</span></div>
+    <h2 class="sec-h2 reveal">Why bother, and <em>why not</em></h2>
+    <p class="sec-lead reveal">I run local models daily and I also keep cloud keys configured. Both statements are honest, and the reasons pull in opposite directions.</p>
+
+    <table class="tbl reveal">
+      <thead><tr><th>Reason to run locally</th><th>What it actually gets you</th></tr></thead>
+      <tbody>
+        <tr><td>Privacy</td><td>The text never leaves the machine. This is the one that matters for client work, medical questions, financial documents, anything under an NDA, and anything about your family.</td></tr>
+        <tr><td>No subscription</td><td>No monthly fee and no per-token bill. Download once, use it forever, pay only for electricity.</td></tr>
+        <tr><td>It works offline</td><td>On a plane, in a basement, during an outage, and in a country where the service is blocked.</td></tr>
+        <tr><td>Nothing is rate limited</td><td>Run it all day. Nobody throttles you, deprecates your model, or changes the terms.</td></tr>
+        <tr><td>It cannot be taken away</td><td>The file is yours. A model you have downloaded cannot be retired out from under you.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="prose reveal" style="margin-top:2rem"><b>And the honest case against.</b> A model that fits on your laptop is meaningfully less capable than a frontier model, and the gap is not subtle on hard work. Local models are weaker at long multi-step reasoning, large or unfamiliar codebases, and obscure factual knowledge, and they hallucinate more when pushed past what they know. First-time setup is more friction than opening a website, even with good tools. And your laptop will get warm and your battery will drain, because you are now doing the work the datacenter was doing.</p>
+
+    <div class="callout reveal">
+      <h3>Where the line actually falls</h3>
+      <p>In my own use, an 8B model handles summarizing, drafting, rewriting, extracting from documents, formatting, brainstorming, and ordinary questions well enough that I stopped noticing. <b>The moment I want hard reasoning or unfamiliar code, I feel the difference immediately.</b> Most people's daily work is on the first list, which is why local is more practical than its reputation suggests.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hardware">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">03</span><span class="sec-name">Requirements</span></div>
+    <h2 class="sec-h2 reveal">The hardware you actually need</h2>
+    <p class="sec-lead reveal">Most guides say "a modern computer with a decent graphics card", which helps nobody. Here are real numbers. The rule is simple: the model has to fit in memory, with room left over.</p>
+
+    <table class="tbl reveal">
+      <thead><tr><th>Model size</th><th>File, at 4-bit</th><th>Comfortable on</th><th>Good for</th></tr></thead>
+      <tbody>
+        <tr><td>3B</td><td>around 2 GB</td><td>8 GB RAM, any machine from the last several years</td><td>Quick rewriting and simple questions. Noticeably limited.</td></tr>
+        <tr><td>7B to 8B</td><td>around 4 to 5 GB</td><td>16 GB RAM, or 8 GB of VRAM to be fast</td><td>The sweet spot. Genuinely useful for daily work.</td></tr>
+        <tr><td>13B to 14B</td><td>around 8 to 9 GB</td><td>32 GB RAM, or 12 GB of VRAM</td><td>Better reasoning and noticeably better writing.</td></tr>
+        <tr><td>32B</td><td>around 20 GB</td><td>24 GB of VRAM, or a lot of patience</td><td>Strong, and getting close to useful for real code.</td></tr>
+        <tr><td>70B</td><td>around 42 GB</td><td>Two large cards, or a Mac with plenty of unified memory</td><td>Excellent, and out of reach for most machines.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="prose reveal" style="margin-top:2rem"><b>Add headroom on top of the file size.</b> The conversation itself lives in memory too, and a long one can add a gigabyte or more. If a model is exactly the size of your free memory, it will run badly or not at all. Leave a few gigabytes spare.</p>
+
+    <p class="prose reveal" style="margin-top:1.2rem"><b>RAM works, VRAM is fast.</b> A model can run entirely on your processor using ordinary system memory, and on 16 GB of RAM an 8B model works fine. It will produce a few words per second, which is readable but you will watch it. Moving the same model onto a graphics card is typically several times faster, to the point where it arrives quicker than you read. If you are choosing hardware for this, VRAM is the number that matters and more of it beats a faster chip with less.</p>
+
+    <p class="prose reveal" style="margin-top:1.2rem"><b>Apple Silicon is unusually good at this</b>, because the processor and graphics share one pool of memory. A Mac with 32 GB of unified memory can run models that would need an expensive dedicated card on a PC.</p>
+
+    <div class="callout reveal">
+      <h3>Do not guess at your own numbers</h3>
+      <p>Open your task manager or system monitor and look at total memory, and at your graphics card's dedicated memory if you have one. Those two numbers tell you which row of the table above you are on. <b>If you would rather not go looking, the <a href="{{ '/#downloads' | relative_url }}" style="color:var(--coral);text-decoration:none">hardware check on our download page</a> reads them in your browser and tells you which size fits</b>, without installing anything or sending the result anywhere.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tools" class="crisis">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">04</span><span class="sec-name">The software</span></div>
+    <h2 class="sec-h2 reveal">Every tool worth using</h2>
+    <p class="sec-lead reveal">These are the real options, including the free ones that compete with what I sell. I would rather you picked the right one than the one I make.</p>
+
+    <table class="tbl reveal">
+      <thead><tr><th>Tool</th><th>What it is</th><th>Pick it if</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>llama.cpp<br><span class="mono" style="font-size:0.8rem;color:var(--mute)">free, open source</span></td>
+          <td>The inference engine most of the others are built on. A command-line tool, and the closest thing to bare metal.</td>
+          <td>You want maximum control, you are building something, or you enjoy this sort of thing.</td>
+        </tr>
+        <tr>
+          <td>Ollama<br><span class="mono" style="font-size:0.8rem;color:var(--mute)">free, open source</span></td>
+          <td>The most popular way to run a model locally. One command pulls a model and runs it, and it exposes a local API other apps can talk to.</td>
+          <td>You are comfortable in a terminal. This is the default answer for developers and it deserves to be.</td>
+        </tr>
+        <tr>
+          <td>LM Studio<br><span class="mono" style="font-size:0.8rem;color:var(--mute)">free</span></td>
+          <td>A desktop app with a model browser and a chat window. Point, click, download, chat.</td>
+          <td>You want a graphical app, you are happy to choose your own models, and you do not need it to do anything else.</td>
+        </tr>
+        <tr>
+          <td>Jan, GPT4All<br><span class="mono" style="font-size:0.8rem;color:var(--mute)">free, open source</span></td>
+          <td>Open source desktop chat apps in the same territory as LM Studio, each with a different emphasis.</td>
+          <td>You want an open source graphical app and want to compare a few before settling.</td>
+        </tr>
+        <tr>
+          <td>Valence<br><span class="mono" style="font-size:0.8rem;color:var(--mute)">paid, 7-day trial</span></td>
+          <td>A desktop app that runs on-device models and can also use your own cloud keys, with memory you can read, a Kids Mode, and an X-Ray view of why it answered as it did.</td>
+          <td>You want it to work without research, you want local and cloud in one place, or you want the family side.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="prose reveal" style="margin-top:2rem"><b>Where I actually sit in that list.</b> Ollama and LM Studio are good and free, and if you are technical and only want a local chat window, use them and keep your money. What I built is for the case where you do not want to research quantization formats to get started, and where you want on-device models and, when you choose, your own OpenAI, Anthropic, Google, or xAI key living in the same app, with a Kids Mode on the family machine. That is a real difference for some people and no difference at all for others, and you can tell which you are from the paragraph above.</p>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">05</span><span class="sec-name">Getting going</span></div>
+    <h2 class="sec-h2 reveal">The fastest way to start</h2>
+    <p class="sec-lead reveal">Whichever tool you choose, the first hour looks the same. This is the order that avoids the usual frustration.</p>
+
+    <ol class="checks">
+      <li class="reveal">
+        <h3>Find your two numbers</h3>
+        <p>Total system RAM, and dedicated graphics memory if you have a card. Match them to the table above and you know your model size before you download anything.</p>
+      </li>
+      <li class="reveal">
+        <h3>Start one size below your ceiling</h3>
+        <p>If 14B would just barely fit, start at 8B. A model that runs quickly gets used, and a model that makes your machine crawl gets uninstalled by Thursday. You can always move up once it is working.</p>
+      </li>
+      <li class="reveal">
+        <h3>Expect a large download once</h3>
+        <p>Several gigabytes, and it happens a single time per model. After that it loads from disk in seconds and never touches the network again.</p>
+      </li>
+      <li class="reveal">
+        <h3>Allow it through the firewall on first run</h3>
+        <p>Most local AI tools run a small server on your own machine so the app can talk to the model. Your operating system will ask about it. This is expected and the traffic does not leave the computer.</p>
+      </li>
+      <li class="reveal">
+        <h3>Give it real work on day one</h3>
+        <p>Not "tell me a joke". Paste in a document you actually need summarized, or an email you need rewritten. <b>The gap between local and cloud is smallest exactly on this kind of work</b>, so it is the fairest first impression and the honest test of whether this is worth it for you.</p>
+      </li>
+    </ol>
+
+    <div class="next reveal">
+      <a href="{{ '/#downloads' | relative_url }}">
+        <span class="t">Check your hardware</span>
+        <span class="d">Reads your memory in the browser and tells you which model size fits</span>
+      </a>
+      <a href="{{ '/Valence - Tech Specs.html' | relative_url }}">
+        <span class="t">Full technical specs</span>
+        <span class="d">Supported models, engines, and requirements in detail</span>
+      </a>
+      <a href="{{ '/is-ai-safe-for-kids/' | relative_url }}">
+        <span class="t">Local AI with children</span>
+        <span class="d">Why private is not the same as safe, and what to check</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="crisis">
+  <div class="wrap">
+    <div class="sec-rule reveal"><span class="sec-no">06</span><span class="sec-name">Questions</span></div>
+    <h2 class="sec-h2 reveal">Questions people ask</h2>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Is local AI as good as ChatGPT?</summary>
+        <div class="a">
+          <p>No. A model that fits on your machine is smaller than one running on a rack of datacenter hardware, and the difference shows on hard reasoning, long or unfamiliar code, and obscure knowledge.</p>
+          <p>For summarizing, drafting, rewriting, extracting from documents, and ordinary questions, a good 8B model is genuinely useful and the gap narrows to something most people stop noticing. Judge it on your own work rather than on benchmarks.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is it really free?</summary>
+        <div class="a">
+          <p>The models are free to download and there is no cost per message, so after the initial download you are paying for electricity. Several of the best tools are free and open source too. Paid applications built on top are selling you an easier experience, not access to the models.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I run this without a graphics card?</summary>
+        <div class="a">
+          <p>Yes. Models run on the processor using ordinary system memory, and on 16 GB of RAM an 8B model is perfectly usable. It generates a few words per second, so you will watch it write rather than have it appear at once. A graphics card mainly buys speed, not capability.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does the model learn from my conversations?</summary>
+        <div class="a">
+          <p>No. The file on your disk is fixed and does not change as you use it. If an app appears to remember things about you, it is storing notes separately and adding them back into the conversation, which is a feature of the app rather than a change to the model. Worth knowing where those notes live and whether you can read and delete them.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Is local AI private enough for confidential work?</summary>
+        <div class="a">
+          <p>A genuinely local model does not send your text anywhere, which is the strongest privacy position available short of not using AI at all. Two cautions. Check whether the app you are using also has cloud features that might route a request outward, and know which mode you are in. And local does not mean encrypted at rest, so the ordinary rules about disk encryption and who can use your computer still apply.</p>
+        </div>
+      </details>
+    </div>
+
+    <p class="updated reveal">Last reviewed September 2026</p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="reveal">Find out what your machine <em>can actually run</em></h2>
+    <p class="sub reveal">The hardware check reads your memory in the browser and tells you which model size fits. Nothing is installed and nothing is sent anywhere.</p>
+    <div class="final-actions reveal">
+      <a class="btn btn-coral" href="{{ '/#downloads' | relative_url }}">Check my hardware <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="{{ '/Valence - Tech Specs.html' | relative_url }}">Read the tech specs</a>
+    </div>
+    <p class="fineprint reveal">7-day free trial, no account and no card. One purchase buys every version on every platform. Windows is available now. macOS and Android are in private alpha and available on request.</p>
+  </div>
+</section>

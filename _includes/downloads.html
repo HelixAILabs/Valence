@@ -1,0 +1,66 @@
+<section class="downloads wrap rv" id="downloads">
+  <h2>Download Valence</h2>
+  <div class="dl-list">
+
+    <div class="dl" data-dl data-open="true">
+      <button class="dl-head" type="button" aria-expanded="true" aria-controls="dl-win">
+        <span class="dl-plat">Windows &middot; v{{ site.valence_version }}</span>
+        <span class="dl-status">Available now &middot; free 7-day trial</span>
+        <svg class="dl-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="dl-body" id="dl-win"><div class="dl-inner">
+        <p><a class="btn btn-sm btn-win" href="https://github.com/HelixAILabs/Valence/releases/download/v{{ site.valence_version }}/Valence-{{ site.valence_version }}-slim.msi">
+          <svg class="glyph" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><rect class="q q1" x="1" y="1" width="10" height="10" rx="1"/><rect class="q q2" x="13" y="1" width="10" height="10" rx="1"/><rect class="q q3" x="1" y="13" width="10" height="10" rx="1"/><rect class="q q4" x="13" y="13" width="10" height="10" rx="1"/></svg>
+          Download for Windows</a></p>
+        <p class="lead">The trial asks for nothing: no email, no account, no credit card. Download, install, use.</p>
+        <p>Windows 10/11 (64-bit) &middot; {{ site.valence_slim_mb }} MB &middot; free 7 days, then $59.95 once for every version on every platform. Fetches the graphics support your card needs while it installs.</p>
+        <p><a href="https://github.com/HelixAILabs/Valence/releases/download/v{{ site.valence_version }}/Valence-{{ site.valence_version }}.msi">All-in-one installer</a> ({{ site.valence_full_mb }} MB): every graphics backend already in the box, so nothing is fetched while it installs. SmartScreen may warn: <strong>More info → Run anyway</strong>.</p>
+        <p class="dl-model"><b>Both installers download your AI model once, on first run.</b> Neither one carries it, so that is the part that always comes over the network. Valence picks a model that fits your machine and sets it up for you. After that it runs with the network unplugged.</p>
+        <button class="toggle" data-sha aria-expanded="false" aria-controls="sha-win">Verify your download (SHA-256)<svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="disc sha" id="sha-win" data-open="false"><div class="disc-in"><p class="sha-body">Slim: 910466D3D12E52AEDBD9436D4BECA0C1884DEE19F141FC644FF4641C7C5BBCDF<br>All-in-one: 82A534545D391AB7DBF970CE4E09821BAB1DA32EC691636EB3615C9CC444C611</p></div></div>
+      </div></div>
+    </div>
+
+    <div class="dl" data-dl data-open="false">
+      <button class="dl-head" type="button" aria-expanded="false" aria-controls="dl-mac">
+        <span class="dl-plat">macOS &middot; alpha 0.0.1</span>
+        <span class="dl-status">Apple Silicon &middot; ask for access</span>
+        <svg class="dl-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="dl-body" id="dl-mac"><div class="dl-inner">
+        <p><a class="btn btn-sm btn-apple" href="mailto:help@helixailabs.com?subject=macOS%20alpha%20access&amp;body=Hi%20Chase%2C%20I%27d%20like%20to%20try%20the%20Valence%20macOS%20alpha."><span class="btn-in"><svg class="glyph glyph-cmd" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="url(#cmd-grad)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="cmd-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7A5C"/><stop offset=".34" stop-color="#C86DD7"/><stop offset=".68" stop-color="#5B8DEF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><path d="M8.9 8.9h6.2v6.2H8.9z"/><path d="M8.9 8.9H6.6a2.3 2.3 0 1 1 2.3-2.3v2.3Z"/><path d="M15.1 8.9h2.3a2.3 2.3 0 1 0-2.3-2.3v2.3Z"/><path d="M8.9 15.1H6.6a2.3 2.3 0 1 0 2.3 2.3v-2.3Z"/><path d="M15.1 15.1h2.3a2.3 2.3 0 1 1-2.3 2.3v-2.3Z"/></svg>Ask for the macOS alpha</span></a></p>
+        <p class="lead">An early alpha, and it behaves like one. The core works, the edges are rough. Email me and I&rsquo;ll send you the build, usually the same day.</p>
+        <p>Apple Silicon (M-series) &middot; macOS 14+ &middot; 64.7 MB. Local models run on Apple&rsquo;s own AI engine (MLX), so it needs an M-series Mac; Intel Macs aren&rsquo;t supported. First launch needs one trip through System Settings &rarr; Privacy &amp; Security &rarr; <strong>Open Anyway</strong>; updates arrive in-app after that.</p>
+        <p><a href="{{ '/2026/08/27/valence-macos-0-0-1.html' | relative_url }}">What works and what doesn&rsquo;t</a> &middot; <a href="{{ '/updates/' | relative_url }}">Updates</a></p>
+      </div></div>
+    </div>
+
+    <div class="dl" data-dl data-open="false">
+      <button class="dl-head" type="button" aria-expanded="false" aria-controls="dl-mob">
+        <span class="dl-plat">iPhone &amp; Android</span>
+        <span class="dl-status">Android in private alpha &middot; ask for access</span>
+        <svg class="dl-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="dl-body" id="dl-mob"><div class="dl-inner">
+        <p class="btn-pair"><button class="btn btn-sm btn-apple btn-soon" type="button" aria-disabled="true"><span class="btn-in"><svg class="glyph glyph-siri" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="siri-ios" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7A5C"/><stop offset=".34" stop-color="#C86DD7"/><stop offset=".68" stop-color="#5B8DEF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><circle cx="12" cy="12" r="8.2" fill="none" stroke="url(#siri-ios)" stroke-width="3.1"/><circle cx="12" cy="12" r="3.1" fill="url(#siri-ios)"/></svg>iPhone &middot; after Android</span></button> <a class="btn btn-sm btn-droid" href="mailto:help@helixailabs.com?subject=Android%20alpha%20access&amp;body=Hi%20Chase%2C%20I%27d%20like%20to%20try%20the%20Valence%20Android%20alpha."><span class="btn-in"><svg class="glyph" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.6 5.3 6.5 3.6a.5.5 0 0 1 .84-.54l1.14 1.79a7.2 7.2 0 0 1 5.04 0l1.14-1.79a.5.5 0 1 1 .84.54l-1.1 1.7A6.3 6.3 0 0 1 18 10.4H6a6.3 6.3 0 0 1 1.6-5.1Z"/><circle cx="9.3" cy="8.1" r=".95" fill="#07120C"/><circle cx="14.7" cy="8.1" r=".95" fill="#07120C"/><rect x="6" y="11.5" width="12" height="8" rx="1.7"/><rect x="2.7" y="11.5" width="2.4" height="6" rx="1.2"/><rect x="18.9" y="11.5" width="2.4" height="6" rx="1.2"/></svg><i class="prompt">&gt;</i>ask for the android alpha</span></a></p>
+        <p>The Android build is in private alpha while it firms up for Google Play. Email me and I&rsquo;ll send it over, usually the same day. iPhone follows once Android lands, and your key covers both.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <p class="onekey"><strong>One key, every platform.</strong> Buy Valence once and the same key unlocks it on Windows, on Mac, and on everything that comes next. There&rsquo;s no second purchase and no per-device fee.</p>
+
+  <div class="card scan">
+    <h3>Will local AI run well on this PC?</h3>
+    <p class="blurb">Cloud models run on anything. Local models like 8 GB of RAM or more; the bigger ones want 16 GB and a graphics card. <b>You never have to pick one yourself.</b> On first run Valence looks at your machine, suggests a model that fits, and downloads and sets the whole thing up in a couple of clicks. Curious before you install? Check here.</p>
+    <button class="btn btn-sm" data-scan type="button">Check this computer</button>
+    <p class="scan-note">Runs in your browser, sends nothing anywhere.</p>
+    <div class="disc scan-result" id="scan-result" data-open="false"><div class="disc-in"><div class="card scan-card">
+      <p class="verdict"></p>
+      <p class="why"></p>
+      <p class="specs"></p>
+      <p class="caveat">Browsers only see a rough sketch of your hardware. Valence does the real check on first run, recommends a model that genuinely fits, then downloads and configures it for you. No account, no API key, no command line.</p>
+      </div></div></div>
+  </div>
+</section>

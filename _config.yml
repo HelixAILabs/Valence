@@ -1,12 +1,48 @@
 title: Valence
 description: A private, controlled, curated AI space.
-url: https://helixailabs.github.io
-baseurl: /Valence
+# Served by GitHub Pages behind the custom domain (see CNAME). The github.io
+# address 301s here automatically once the domain is set in repo settings.
+url: https://helixailabs.com
+baseurl: ""
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
 # Keep the original date-based post URLs even though posts now carry a category —
 # the default permalink would otherwise inject /:categories/ and break existing links.
 permalink: /:year/:month/:day/:title:output_ext
 defaults:
   - scope: { path: "" }
-    values: { layout: default }
+    values: { layout: default, image: /assets/img/og-card.png }
   - scope: { path: "", type: posts }
     values: { layout: post, category: release }
+
+# Social accounts. Icons render only for entries with a url, so an unset
+# account simply doesn't appear — no dead links. Icons are local inline SVG:
+# a CDN-hosted sprite would be a third-party request on a site that promises
+# it never makes one.
+social:
+  - name: X
+    label: Valence on X
+    url: ""
+  - name: YouTube
+    label: Valence on YouTube
+    url: ""
+
+# Surfaced on the home page header chip and the download card.
+# Stripe payment link. Referenced everywhere a purchase is offered, so the
+# checkout URL is changed in one place rather than hunted through pages.
+valence_buy_url: "https://buy.stripe.com/4gMdR31yQadY1E4d2beAg01"
+
+valence_version: 1.7.1
+valence_date: August 31, 2026
+valence_slim_mb: 309.84
+valence_full_mb: 808.29
+
+exclude:
+  - preview-home.html
+  - preview-buttons.html
+  - vendor
+  - Gemfile
+  - Gemfile.lock

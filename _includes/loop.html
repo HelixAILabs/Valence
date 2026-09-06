@@ -1,0 +1,37 @@
+{%- comment -%}
+A motion loop that degrades to the static screenshot it replaces.
+
+  {% include loop.html
+       src="pics/loops/memory.mp4"
+       poster="pics/conversation-explorer.png"
+       ar="615/604"
+       alt="Memory being recalled and cited inside an answer."
+       bar="conversation explorer"
+       frame="shot"
+       caption="Optional line under the frame." %}
+
+frame= is optional. Give it a page's own figure class (e.g. "shot") and the loop
+inherits that page's border, radius and shadow, so it sits beside static
+screenshots without standing out. Omit it for the default loop framing.
+
+The poster is a real screenshot, so until src exists the frame shows exactly
+what it shows today. Drop the .mp4 in and it starts moving. Nothing else to
+change, and no build step knows or cares whether the file is there yet.
+
+src is deliberately NOT set here. home.js assigns it on first scroll into view,
+so page load pays only for the poster, and a file that is not there yet fails
+silently with the poster left on screen.
+{%- endcomment -%}
+<figure class="{% if include.frame %}{{ include.frame }}{% else %}loop{% if include.bar %} loop-framed{% endif %}{% endif %} reveal rv"{% if include.ar %} style="--ar:{{ include.ar }}"{% endif %}>
+  {%- if include.bar %}
+  <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">{{ include.bar }}</span></div>
+  {%- endif %}
+  <video class="loop-v" muted loop playsinline preload="none"
+         poster="{{ include.poster | relative_url }}"
+         data-src="{{ include.src | relative_url }}"
+         aria-label="{{ include.alt | escape }}"></video>
+  <noscript><img src="{{ include.poster | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy"></noscript>
+  {%- if include.caption %}
+  <figcaption class="loop-cap">{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
