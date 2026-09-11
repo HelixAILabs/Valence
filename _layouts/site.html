@@ -39,6 +39,7 @@
       <a href="{{ '/research/' | relative_url }}"{% if page.nav == 'research' %} aria-current="page"{% endif %}>Research</a>
       <a href="{{ '/updates/' | relative_url }}"{% if page.nav == 'updates' %} aria-current="page"{% endif %}>Updates</a>
       <a href="{{ '/news/' | relative_url }}"{% if page.nav == 'news' %} aria-current="page"{% endif %}>News</a>
+      <a href="{{ site.valence_buy_page | relative_url }}"{% if page.nav == 'buy' %} aria-current="page"{% endif %}>Buy</a>
       <span class="cta-slot" data-cta-slot data-on="{% if page.nav == 'home' %}false{% else %}true{% endif %}">
         <a class="cta-pill btn-go" href="{{ '/#downloads' | relative_url }}"><span class="btn-in">Try it free</span></a>
       </span>

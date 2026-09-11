@@ -10,9 +10,16 @@
     if (panel) panel.setAttribute('data-open', String(open));
   }
 
-  /* ---- header CTA appears once past the hero ---- */
+  /* ---- header CTA appears once past the hero ----
+     Only on the home page, where the template starts data-on="false"
+     because the hero already has its own big CTA. On every other page
+     the template starts it "true" (there's no in-page hero button), and
+     it must STAY visible from load — this scroll-reveal logic used to
+     run unconditionally on every page and immediately re-hid it at
+     scrollY=0, which is exactly the "can't find how to download" bug
+     it caused everywhere except the home page. */
   var slot = document.querySelector('[data-cta-slot]');
-  if (slot) {
+  if (slot && slot.getAttribute('data-on') === 'false') {
     var shown = false;
     var onScroll = function () {
       var on = window.scrollY > 380;
