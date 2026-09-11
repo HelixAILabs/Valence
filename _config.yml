@@ -31,9 +31,14 @@ social:
     url: ""
 
 # Surfaced on the home page header chip and the download card.
-# Stripe payment link. Referenced everywhere a purchase is offered, so the
+# Stripe payment links. Referenced everywhere a purchase is offered, so a
 # checkout URL is changed in one place rather than hunted through pages.
+# valence_buy_page is where every "Buy a license" CTA on the site points —
+# a chooser page listing every SKU as its own card (IMP-2034). The two
+# valence_buy_url* vars are the actual Stripe checkout links that page uses.
+valence_buy_page: "/buy.html"
 valence_buy_url: "https://buy.stripe.com/4gMdR31yQadY1E4d2beAg01"
+valence_buy_url_windows: "https://buy.stripe.com/fZu9AN91i0DofuU2nxeAg02"
 
 valence_version: 1.7.2
 valence_date: September 3, 2026
@@ -57,6 +62,8 @@ exclude:
   # served by GitHub Pages, and neither belongs on a web server.
   - CNAME
   - README.md
+  - AGENTS.md
+  - DEPLOYING.md
   - serve.sh
   # carries the SFTP account name and server IP - must never be web-servable
   - deploy.py

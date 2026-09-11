@@ -1,0 +1,89 @@
+---
+layout: doc
+title: "Buy Valence"
+slug: buy
+nav: buy
+description: "Choose the Valence license that fits: a Windows-only key, or one key that unlocks every platform we ship."
+---
+<style>
+/* Page-specific — IMP-2034 platform-choice picker. Reuses .pg tokens only. */
+.pg-buy{background:var(--paper);color:var(--ink)}
+.pg-buy .wrap{width:min(var(--max),calc(100% - clamp(1.5rem,5vw,4rem)));margin:0 auto}
+.pg-buy .hero{padding:clamp(2.04rem,7vw,3.4rem) 0 clamp(1.6rem,4vw,2.04rem)}
+.pg-buy .hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.03rem,3.78vw,2.6rem);line-height:1.02;letter-spacing:-0.01em;margin:0;max-width:22ch}
+.pg-buy .hero h1 em{font-style:italic;color:var(--coral)}
+.pg-buy .hero .lead{font-size:1.14rem;color:var(--ink-soft);max-width:62ch;margin:1.1rem 0 0;line-height:1.6}
+.pg-buy .hero .lead b{color:var(--ink);font-weight:600}
+.pg-buy .hero .trial-note{font-family:'Geist Mono',monospace;font-size:0.76rem;letter-spacing:0.04em;color:var(--mute);margin:1rem 0 0}
+.pg-buy .sec{padding:0 0 clamp(2.4rem,5vw,3.4rem);border-top:1px solid var(--rule)}
+.pg-buy .sec + .sec{padding-top:clamp(2.4rem,5vw,3.4rem)}
+.pg-buy .sec-head{margin:clamp(2.4rem,5vw,3.4rem) 0 1.3rem}
+.pg-buy .sec-head h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(1.5rem,2.6vw,1.9rem);letter-spacing:-0.01em;margin:0;line-height:1.1}
+.pg-buy .sec-head p{font-size:1rem;color:var(--mute);margin:0.4rem 0 0}
+.pg-buy .skus{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(max-width:720px){.pg-buy .skus{grid-template-columns:1fr}}
+.pg-buy .sku{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.5rem 1.6rem;display:flex;flex-direction:column}
+.pg-buy .sku.featured{border-color:var(--coral)}
+.pg-buy .sku .tag{position:absolute;top:-0.65rem;left:1.4rem;font-family:'Geist Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);background:var(--card);border:1px solid var(--coral);border-radius:99px;padding:0.24rem 0.7rem}
+.pg-buy .sku .plat{font-family:'Geist Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute)}
+.pg-buy .sku .price{font-family:'Instrument Serif',Georgia,serif;font-size:2rem;line-height:1.1;margin:0.5rem 0 0}
+.pg-buy .sku .price small{font-family:'Geist',sans-serif;font-size:0.95rem;color:var(--mute);font-weight:400}
+.pg-buy .sku p.blurb{font-size:0.98rem;color:var(--ink-soft);line-height:1.55;margin:0.8rem 0 1.3rem;flex-grow:1}
+.pg-buy .sku .btn{justify-content:center;width:100%}
+.pg-buy .sku.alpha{opacity:0.92}
+.pg-buy .sku.alpha .price{color:var(--mute);font-size:1.1rem;font-family:'Geist Mono',monospace}
+.pg-buy .foot-note{font-size:0.95rem;color:var(--mute);line-height:1.6;margin:1.6rem 0 0;max-width:70ch;padding-top:1.2rem;border-top:1px dashed var(--rule)}
+.pg-buy .foot-note b{color:var(--ink-soft);font-weight:600}
+@media (pointer:coarse){.pg-buy .btn{min-height:44px}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="reveal">Buy <em>Valence</em>.</h1>
+    <p class="lead reveal">One key, cryptographically yours, activated on your machine with no server call. Pick the platforms you need.</p>
+    <p class="trial-note">Not sure yet? <a href="{{ '/#downloads' | relative_url }}">Try it free for 7 days</a> first — no card, no account.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Choose your platform</h2>
+      <p>Every key is permanently yours, verified by cryptography built into Valence itself — no activation server, ever.</p>
+    </div>
+    <div class="skus">
+
+      <div class="sku">
+        <span class="plat">Windows</span>
+        <div class="price">$24.99<small> once</small></div>
+        <p class="blurb">Unlocks Valence on Windows. The right pick if that's the only place you'll run it.</p>
+        <a class="btn btn-coral" href="{{ site.valence_buy_url_windows }}">Buy Windows key &rarr;</a>
+      </div>
+
+      <div class="sku featured">
+        <span class="tag">Recommended</span>
+        <span class="plat">All platforms</span>
+        <div class="price">$59.95<small> once</small></div>
+        <p class="blurb">Unlocks Valence everywhere we ship it: Windows now, Mac and Android as they land. No second purchase when they arrive.</p>
+        <a class="btn btn-coral" href="{{ site.valence_buy_url }}">Buy All-in-one key &rarr;</a>
+      </div>
+
+      <div class="sku alpha">
+        <span class="plat">macOS</span>
+        <div class="price">Private alpha</div>
+        <p class="blurb">Apple Silicon (M-series). The core works, the edges are rough. Email me and I'll send you the build, usually the same day.</p>
+        <a class="btn btn-coral" href="mailto:help@helixailabs.com?subject=macOS%20alpha%20access&amp;body=Hi%20Chase%2C%20I%27d%20like%20to%20try%20the%20Valence%20macOS%20alpha.">Ask for access &rarr;</a>
+      </div>
+
+      <div class="sku alpha">
+        <span class="plat">iPhone &amp; Android</span>
+        <div class="price">Private alpha</div>
+        <p class="blurb">Android is firming up for Google Play; iPhone follows once it lands. Email me for early access, usually the same day.</p>
+        <a class="btn btn-coral" href="mailto:help@helixailabs.com?subject=Android%20alpha%20access&amp;body=Hi%20Chase%2C%20I%27d%20like%20to%20try%20the%20Valence%20Android%20alpha.">Ask for access &rarr;</a>
+      </div>
+
+    </div>
+
+    <p class="foot-note"><b>No refunds, here's why:</b> your key is cryptographic and permanently yours — I genuinely can't revoke it or stop you using it. A refund would mean you keep the working software <b>and</b> get your money back. That's why the 7-day free trial is your test drive: buy only when you're sure. Full detail on <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a>.</p>
+  </div>
+</section>
