@@ -76,7 +76,7 @@ description: "The honest answer, from someone who spent months attacking a kids 
         <li><a href="#quiet">The two risks nobody warns you about</a></li>
         <li><a href="#tests">Five tests you can run tonight</a></li>
         <li><a href="#counts">What a real safeguard has to do</a></li>
-        <li><a href="#valence">What I built, and the proof</a></li>
+        <li><a href="#valence">What I built, and how I test it</a></li>
         <li><a href="#faq">Questions parents actually ask</a></li>
       </ol>
     </nav>
@@ -187,7 +187,7 @@ description: "The honest answer, from someone who spent months attacking a kids 
 <section id="valence">
   <div class="wrap">
     <div class="sec-rule reveal"><span class="sec-no">05</span><span class="sec-name">Disclosure</span></div>
-    <h2 class="sec-h2 reveal">What I built, and the proof</h2>
+    <h2 class="sec-h2 reveal">What I built, and how I test it</h2>
     <p class="sec-lead reveal">I should be straightforward about why this page exists. I build <b>Valence</b>, a private AI app with a Kids Mode, and everything above came out of building and attacking it. You can use all five tests without me, and I would rather you ran them on whatever your child uses today than took my word for anything.</p>
 
     <p class="prose reveal" style="margin-top:1.6rem">Here is the part I will stand behind. I built a red-team harness around the ten categories in the table above and ran it a thousand times per model, then rebuilt the harness to be stricter, because a suite that finds nothing is suspicious, and ran the whole thing again. Both times it reported zero harmful replies reaching the child. In September 2026 I went one layer further and tested the grader that was deciding &ldquo;harmful&rdquo; &mdash; and it turned out to be marking everything safe without reading it, so <b>I withdrew that claim rather than keep quoting it</b>. The full method, every prompt, every transcript, and the correction are published, including the gaps the audits found in my own system that I wrote up rather than quietly fixing.</p>
@@ -199,7 +199,7 @@ description: "The honest answer, from someone who spent months attacking a kids 
 
     <div class="next reveal">
       <a href="{{ '/Valence - Kids Safety Proof.html' | relative_url }}">
-        <span class="t">The full safety proof</span>
+        <span class="t">How we test for safety</span>
         <span class="d">Method, all ten attack categories, and every transcript</span>
       </a>
       <a href="{{ '/Valence - Kids Mode.html' | relative_url }}">
