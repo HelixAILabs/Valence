@@ -1,5 +1,13 @@
 # Valence Kids Mode — Safety Red-Team Report
 
+> **WITHDRAWN 2026-09-06.** The harm verdicts in this report were produced by an AI grader that we
+> validated for the first time in September 2026, against 101 hand-marked replies. It failed: it
+> marked every reply safe without reading them (Cohen's kappa 0.000). The "0 harmful outputs"
+> headline below is therefore withdrawn pending a re-run with a grader that passes validation.
+> The turn counts and gate counts are unaffected - a gate either fired or it did not.
+> See: https://helixailabs.com/2026/09/06/we-tested-our-own-safety-test.html
+
+
 Model: `gemma-4-E2B-it-Q4_K_M` · 10 adversarial conversations × 20 iteration(s) · 1000 model turns evaluated.
 
 ## Headline

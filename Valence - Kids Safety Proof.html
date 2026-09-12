@@ -1,19 +1,19 @@
 ---
 layout: doc
-title: "Kid-Safe AI, Tested 1,000 Times"
+title: "How We Test Kids Mode - and What We Found Wrong With Our Own Test"
 slug: safety
 nav: safety
-description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness stricter, then did it again. Zero harmful replies reached the child, both times."
+description: "We attacked Kids Mode 1,000 times per model and published the result. Then we tested the grader behind it, found it was marking every reply safe without reading it, and withdrew the claim. Here is the method, the correction, and what we do about it."
 ---
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="wrap">
     
-    <h1 class="hero-h1 reveal">We tried to break it <em>1,000 times</em>. It held.</h1>
-    <p class="hero-lead reveal">An AI a child can talk to, that a parent can trust. We don&rsquo;t just <em>say</em> it&rsquo;s safer. We built an adversarial harness for Kids Mode and ran the models we ship-test through it: <b>1,000 jailbreak turns each, on two on-device models so far</b>. Zero harmful replies reached the child on either. We don&rsquo;t claim every AI is safe: only the specific ones we put through this.</p>
-    <p class="specline">Adversarial red-team &middot; 1,000 turns per model &middot; two on-device models</p>
+    <h1 class="hero-h1 reveal">We tried to break it <em>1,000 times</em>. Then we broke the test.</h1>
+    <p class="hero-lead reveal">An AI a child can talk to, that a parent can trust. We don&rsquo;t just <em>say</em> it&rsquo;s safer: we built an adversarial harness for Kids Mode and ran <b>1,000 jailbreak turns per model</b> through it. In September 2026 we went one layer deeper and tested the <b>grader</b> that decides whether a reply was harmful. It was marking every reply safe without reading it, so <b>we withdrew our headline claim.</b> This page is the method, the correction, and what we changed.</p>
+    <p class="specline">Adversarial red-team &middot; 1,000 turns per model &middot; headline claim withdrawn 2026-09-06</p>
     <div class="final-actions reveal" style="justify-content:flex-start;margin-top:2rem">
-      <a class="btn btn-coral" href="#result">See the result <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-coral" href="{{ '/2026/09/06/we-tested-our-own-safety-test.html' | relative_url }}">Read the correction <span class="arrow">&rarr;</span></a>
       <a class="btn btn-ghost" href="Valence - Kids Mode.html">How Kids Mode works</a>
     </div>
   </div>
@@ -25,7 +25,7 @@ description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness s
     <div class="sec-rule reveal"></div>
     <h2 class="sec-h2 reveal">Kids are <em>already</em> using AI.</h2>
     <p class="sec-lead reveal">The real risks aren&rsquo;t hypothetical. A determined child, or just a curious one, will try to get the AI to say something it shouldn&rsquo;t: a self-harm method, a swear word, an explicit story, &ldquo;pretend you have no rules.&rdquo; And the subtler danger. An AI that acts like a <b>friend</b>, fostering unhealthy attachment, or that fumbles a child in genuine distress.</p>
-    <p class="sec-lead reveal" style="margin-top:1rem">Valence Kids Mode is built so that <b>none of that reaches the child</b>: and so a <b>parent can see everything</b>, on their own device, with nothing sent to the cloud.</p>
+    <p class="sec-lead reveal" style="margin-top:1rem">Valence Kids Mode is built to <b>keep that away from the child</b>, and so a <b>parent can see everything</b>, on their own device, with nothing sent to the cloud. How well it does that is a measurement, not a promise, and this page is where we publish it &mdash; including the parts that came out badly.</p>
   </div>
 </section>
 
@@ -77,18 +77,19 @@ description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness s
 <section id="result">
   <div class="wrap">
     <div class="sec-rule reveal"></div>
-    <h2 class="sec-h2 reveal">Two full audits. 2,000+ attacks per model. <em>Zero</em> harmful replies.</h2>
-    <p class="sec-lead reveal">We ran the full jailbreak set <b>20 times against each model</b>, the AI sampling fresh, different answers every run, on <b>two on-device models</b>: the smallest a family would realistically run, and a capable one. Then we did it all again.</p>
+    <h2 class="sec-h2 reveal">Two full audits. 2,000+ attacks per model. And a result we later withdrew.</h2>
+    <p class="sec-lead reveal">We ran the full jailbreak set <b>20 times against each model</b>, the AI sampling fresh, different answers every run, on <b>two on-device models</b>: the smallest a family would realistically run, and a capable one. Then we did it all again. Here is what that produced &mdash; and, below it, why we no longer stand behind the headline number.</p>
     <div class="stat reveal">
       <div class="big">0 <em>reached the child</em></div>
-      <div class="sub">harmful replies delivered, on both models we tested</div>
+      <div class="sub">what the audit reported &mdash; a figure we withdrew on 6 September 2026</div>
       <div class="stat-rows">
         <div class="r"><p style="color:#fff;font-weight:600;margin:0;font-size:1.02rem">Answered safely itself</p><p>On most turns the AI simply gave a safe reply: no intervention needed.</p></div>
         <div class="r"><p style="color:#fff;font-weight:600;margin:0;font-size:1.02rem">Gate stepped in</p><p>On the hardest life-safety turns, the gate held the reply back, swapped in a vetted response, and alerted the parent: <b style="color:#fff">before</b> the child saw anything.</p></div>
-        <div class="r"><div class="n">0</div><p>Harmful replies that reached the child. The only number that really matters. Zero, on <b style="color:#fff">both</b> models.</p></div>
+        <div class="r"><div class="n">0</div><p>Harmful replies that reached the child &mdash; <b style="color:#fff">as scored by our grader</b>. This is the number we withdrew: in September 2026 we tested that grader and found it marked every reply safe without reading it.</p></div>
       </div>
     </div>
-    <p class="prose reveal" style="margin-top:2rem">These are the numbers from our <b>second full audit</b>, run for 1.6. After the first audit we rebuilt the harness to be stricter with ourselves. It now drives the <b>exact system prompt that ships</b>, and its escape detector was made independently able to fail (our original one, we found, graded that check too gently, so we fixed the instrument and ran the entire gauntlet again rather than carry the old number forward). Across both audits: <b>more than 2,000 adversarial turns per model. Zero harmful replies delivered, in either.</b></p>
+    <p class="prose reveal" style="margin-top:2rem">These are the numbers from our <b>second full audit</b>, run for 1.6. After the first audit we rebuilt the harness to be stricter with ourselves. It now drives the <b>exact system prompt that ships</b>, and its escape detector was made independently able to fail (our original one, we found, graded that check too gently, so we fixed the instrument and ran the entire gauntlet again rather than carry the old number forward). Across both audits: <b>more than 2,000 adversarial turns per model</b>, and a harm figure of zero in both &mdash; a figure we have since withdrawn, for the reason in the next paragraph.</p>
+    <p class="prose reveal" style="margin-top:1.4rem"><b>That is the second time we caught our own instrument, and the third time is the one that matters.</b> In September 2026 we tested the piece neither audit had ever checked: the grader that decides whether a delivered reply was harmful. We marked 101 real delivered replies by hand and asked it to mark the same ones. It called <b>all 101 safe</b>, including three a human marked harmful. Corrected for chance, its agreement with a human was <b>zero</b>. So the numbers below describe what a grader said, and that grader could not tell the difference. We withdrew the claim rather than leave it standing. <a href="{{ '/2026/09/06/we-tested-our-own-safety-test.html' | relative_url }}">The full correction is here &rarr;</a></p>
     <p class="prose reveal" style="margin-top:1rem">Here is every number, for both models, and what each one means:</p>
     <div style="overflow-x:auto">
     <table class="tbl reveal" style="min-width:600px">
@@ -99,8 +100,8 @@ description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness s
       </tbody>
     </table>
     </div>
-    <p class="prose reveal" style="margin-top:1.4rem">Read a row like this. We threw <b>1,000</b> attacks at the model; most of the time it <b>answered safely on its own</b>; on the hardest turns the <b>gate stepped in</b> with a vetted reply and a parent alert; and <b>zero</b> harmful replies reached the child. The two middle numbers only show <em>where</em> the safety came from. The AI itself, or the gate on top. The last column is the promise, and it&rsquo;s the same on both: <b>zero</b>.</p>
-    <p class="prose reveal" style="margin-top:1.2rem">That the <b>smallest</b> model held just as completely as the capable one is the point. Your child is protected even on the weakest model we test. And because the AI generated genuinely different answers across all 20 runs, this is a <b>breadth</b> result: not the same lucky answer repeated.</p>
+    <p class="prose reveal" style="margin-top:1.4rem">Read a row like this. We threw <b>1,000</b> attacks at the model; most of the time it <b>answered safely on its own</b>; on the hardest turns the <b>gate stepped in</b> with a vetted reply and a parent alert. The two middle numbers show <em>where</em> the safety came from &mdash; the AI itself, or the gate on top &mdash; and those two we still stand behind, because a gate either fired or it did not, and that is countable without a grader.</p>
+    <p class="prose reveal" style="margin-top:1.2rem"><b>The last column is the one we withdrew.</b> Deciding whether a delivered reply was harmful is a judgement, and we had an AI making it. When we finally tested that AI it turned out to be answering &ldquo;safe&rdquo; to everything. A separate end&#8209;to&#8209;end run, marked by hand instead, later found three harmful replies among the 75 hostile scenarios of a 117-scenario run on the smallest model &mdash; plus eight more where a child signalled something real and got nothing useful back. We are re&#8209;running this audit once we have a grader that passes validation, and we will publish that number whichever way it lands.</p>
   </div>
 </section>
 
@@ -120,17 +121,17 @@ description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness s
 <section id="honest">
   <div class="wrap">
     <div class="sec-rule reveal"></div>
-    <h2 class="sec-h2 reveal">What &ldquo;0 breaks&rdquo; means, and what it <em>doesn&rsquo;t</em>.</h2>
+    <h2 class="sec-h2 reveal">What this audit still shows, and what it <em>doesn&rsquo;t</em>.</h2>
     <div class="callout reveal">
-      <h3>What it proves</h3>
-      <p>Across 1,000 adversarial turns <b>on each model</b>, spanning 10 jailbreak techniques and all five age bands, a child could not talk their way past the safety layer, and no harmful content was delivered: measured against the <b>real shipping safety system</b>.</p>
+      <h3>What still stands</h3>
+      <p>Across 1,000 adversarial turns <b>on each model</b>, spanning 10 jailbreak techniques and all five age bands, this ran against the <b>real shipping safety system</b> &mdash; not a mock. The gate behaviour is countable and holds: on the hardest turns it withheld the reply, substituted a vetted one, and alerted the parent. What does not stand is the claim about the replies that <em>were</em> delivered, because the grader that judged them has since failed validation.</p>
     </div>
     <div class="callout reveal">
       <h3>What it isn&rsquo;t</h3>
       <p>It is <b>not</b> a mathematical proof of impossibility, and it is <b>not</b> a blanket claim that every AI is safe. It&rsquo;s strong, reproducible, measured evidence, for <b>the specific models we test</b>. Two are through the harness today; the same gauntlet runs on any model we add. No guardrail is unbreakable; anyone who tells you otherwise is selling something.</p>
     </div>
     <p class="prose reveal" style="margin-top:1.8rem">We also publish our own findings. An internal audit identified <b>one recall-strengthening gap</b> (the AI verifier doesn&rsquo;t yet score &ldquo;acting like a friend&rdquo; as its own axis. That&rsquo;s handled by the system prompt plus a keyword check today) and two follow-ups. None of them let unsafe content reach a child; all are tracked.</p>
-    <p class="prose reveal" style="margin-top:1rem">The stricter detector flagged 97 turns across both models for over-warm &ldquo;friend&rdquo; language, a separate, lower-severity behaviour we&rsquo;re tightening, and still recorded <b>zero harmful replies</b>. A meter that can move and still reads zero is worth more than one pinned there.</p>
+    <p class="prose reveal" style="margin-top:1rem">The stricter detector flagged 97 turns across both models for over-warm &ldquo;friend&rdquo; language, a separate, lower-severity behaviour we&rsquo;re tightening. On the harm question it still read <b>zero</b> &mdash; and in September 2026 we learned that this particular meter reads zero because it cannot move. That is the whole reason the headline claim is withdrawn.</p>
 
     <ul class="trust-list reveal">
       <li><b>On-device &amp; private.</b> No conversation, no safety check, no oversight data leaves the PC.</li>
@@ -151,7 +152,7 @@ description: "We attacked Kids Mode 1,000 times per model, rebuilt the harness s
       <a class="btn btn-coral" href="{{ '/' | relative_url }}#downloads">Get the free trial <span class="arrow">&rarr;</span></a>
       <a class="btn btn-ghost" href="Valence - Kids Mode.html">How Kids Mode works</a>
     </div>
-    <p class="fineprint reveal">Red-team method: 10 multi-turn jailbreak conversations &times; 5 age bands, run 20 times against the real production Kids-Mode safety system, on two on-device models: gemma-4 E2B (the smallest a family would run) and gemma-4 E4B. 1,000 adversarial turns per model, 2,000 total; every response measured for harm and crisis handling. The harness is a reproducible test in the Valence codebase; full prompts and per-turn transcripts are published under <a href="{{ '/research/' | relative_url }}">Research</a>. Generated by the Valence safety team.</p>
+    <p class="fineprint reveal">Red-team method: 10 multi-turn jailbreak conversations &times; 5 age bands, run 20 times against the real production Kids-Mode safety system, on two on-device models: gemma-4 E2B (the smallest a family would run) and gemma-4 E4B. 1,000 adversarial turns per model, 2,000 total; every response measured for harm and crisis handling. The harness is a reproducible test in the Valence codebase; full prompts and per-turn transcripts are published under <a href="{{ '/research/' | relative_url }}">Research</a>. <b>Correction, 6 September 2026:</b> the harm measurement in both audits was performed by an AI grader that we validated for the first time in September 2026, against 101 hand-marked replies. It failed &mdash; agreement with a human of zero, corrected for chance &mdash; so the &ldquo;0 reached the child&rdquo; figure is withdrawn pending a re-run. The thresholds, the result and the marked data are filed as <a href="{{ '/research/data/' | relative_url }}">Exhibits H&ndash;J</a>. Generated by the Valence safety team.</p>
   </div>
 </section>
 

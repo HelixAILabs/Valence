@@ -9,34 +9,34 @@ permalink: /research/
 <header class="case-head"><div class="wrap">
   <div class="case-rule">
     <span class="case-no">Helix AI Labs · Research</span>
-    <span class="case-sub">3 case files &middot; 12 exhibits</span>
+    <span class="case-sub">4 case files &middot; 15 exhibits &middot; 1 withdrawn</span>
   </div>
   <h1>The case files.</h1>
-  <p class="lede">We prove two different things, and we don't mix them up. <b>First, your child is protected.</b> We attacked Kids Mode 1,000 times, on the smallest model a family might run <em>and</em> the capable one, and never got a harmful response through to a child. <b>Second, how reliably we alert you, the parent.</b> That work is honest and still improving. Measured, not promised, highs and lows alike.</p>
+  <p class="lede">We test two different things, and we don't mix them up. <b>First, what the child is actually shown.</b> <b>Second, how reliably we alert you, the parent.</b> Both are open work, and one of the files below is a claim we withdrew ourselves after finding that the grader behind it could not tell a harmful reply from a safe one. Measured, not promised, highs and lows alike &mdash; and this is what the lows look like.</p>
 </div></header>
 
 <section class="wrap">
-  <div class="sechead">Case 01 &middot; closed</div>
+  <div class="sechead">Case 01 &middot; withdrawn</div>
 
   <a class="case-card lead" href="{{ '/research/papers/kids-safety-proven.html' | relative_url }}">
     <div class="top">
       <span class="case-no">Case 01</span>
       <span class="genre">Kids Mode / adversarial</span>
-      <span class="stamp stamp-cleared">Cleared<small>0 of 1,000</small></span>
+      <span class="stamp stamp-withdrawn">Withdrawn<small>the grader failed</small></span>
     </div>
-    <h3>We attacked Kids Mode 1,000 times. Nothing harmful reached the child.</h3>
-    <p class="dek">The plain&#8209;language proof that your child won't be shown harmful content, 10 jailbreak techniques, every age band, run 20 times against the real shipping safety system, on the <b>smallest model we support</b> and the capable tier. With the honest fine print, too.</p>
+    <h3>Withdrawn: &ldquo;nothing harmful reached the child.&rdquo;</h3>
+    <p class="dek">This case concluded that 1,000 hostile turns per model produced nothing harmful. In September 2026 we tested the <b>grader</b> that produced that verdict and found it was marking every reply safe without reading it. The finding stands withdrawn until it is re&#8209;run with a grader that passes validation. <b>The page is kept up, uncorrected below its notice, because deleting it would be the dishonest option.</b></p>
     <div class="stat">
-      <span><b>1,000</b> turns per model</span>
-      <span><b>0</b> harmful outputs</span>
-      <span><b>0</b> reached the child</span>
+      <span><b>0.00</b> grader agreement</span>
+      <span><b>3</b> replies later found harmful</span>
+      <span><b>re&#8209;run</b> pending</span>
     </div>
     <dl class="filed">
       <dt>Models</dt><dd class="lead-dots"></dd><dd>gemma&#8209;4 E2B &amp; E4B &middot; on&#8209;device</dd>
       <dt>Method</dt><dd class="lead-dots"></dd><dd>10 techniques &times; 5 age bands &times; 20 runs</dd>
-      <dt>Exhibits</dt><dd class="lead-dots"></dd><dd>5 filed &middot; transcripts verbatim</dd>
+      <dt>Withdrawn</dt><dd class="lead-dots"></dd><dd>2026&#8209;09&#8209;06 &middot; see Case 04</dd>
     </dl>
-    <p style="margin:1.1rem 0 0"><span class="go">Read the proof &rarr;</span></p>
+    <p style="margin:1.1rem 0 0"><span class="go">Read the withdrawal notice &rarr;</span></p>
   </a>
 
   <div class="sechead">Open investigations</div>
@@ -61,6 +61,22 @@ permalink: /research/
       <p style="margin:1.1rem 0 0"><span class="go">Read the log &rarr;</span></p>
     </a>
 
+    <a class="case-card" href="{{ '/2026/09/06/we-tested-our-own-safety-test.html' | relative_url }}">
+      <div class="top">
+        <span class="case-no">Case 04</span>
+        <span class="genre">Kids Mode / measurement</span>
+        <span class="stamp stamp-open">Open<small>thresholds locked first</small></span>
+      </div>
+      <h3>We tested our own safety test. It was answering &ldquo;safe&rdquo; to everything.</h3>
+      <p class="dek">Every safety number we had published rested on an AI grader nobody had ever checked. We marked 101 real delivered replies by hand and asked the graders to mark the same ones. The grader agreed with a human <b>no more than chance would</b>, and missed all three replies that should never have been shown. This is the correction, the three failures in plain language, and what changed because of them.</p>
+      <dl class="filed">
+        <dt>Thresholds locked</dt><dd class="lead-dots"></dd><dd>2026&#8209;09&#8209;06 &middot; before the run</dd>
+        <dt>Marked by hand</dt><dd class="lead-dots"></dd><dd>101 delivered replies</dd>
+        <dt>Outcome</dt><dd class="lead-dots"></dd><dd>both graders failed &middot; Case 01 withdrawn</dd>
+      </dl>
+      <p style="margin:1.1rem 0 0"><span class="go">Read the correction &rarr;</span></p>
+    </a>
+
     <div class="case-card">
       <div class="top">
         <span class="case-no">Case 03</span>
@@ -77,6 +93,6 @@ permalink: /research/
   </div>
 
   <div class="note" style="margin-top:2rem">
-    <b>Why a case stays open.</b> Case 01 is a settled, reproducible result: that's why it's closed and leads the file. The research <em>logs</em> stay open until each result is settled and its receipts survive a skeptic. Every protocol above was locked <em>before</em> its run, and the raw numbers were published after, whichever way they came out. See <a href="{{ '/research/data/' | relative_url }}">the evidence room</a>.
+    <b>Why a case gets withdrawn.</b> Case 01 led this file as a settled result. It is now withdrawn, because in September 2026 we tested the grader underneath it and the grader could not tell a harmful reply from a safe one (Case 04). We have left the page up with its notice rather than quietly deleting it. Every protocol above was locked <em>before</em> its run and the raw numbers published after, whichever way they came out &mdash; and this is what that commitment costs when it comes out badly. See <a href="{{ '/research/data/' | relative_url }}">the evidence room</a>.
   </div>
 </section>

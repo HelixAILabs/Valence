@@ -35,7 +35,7 @@ permalink: /research/data/
   </div>
 
   <div class="sechead">Case 01 &middot; exhibits &mdash; the safety red&#8209;team</div>
-  <p class="lede-sm">The 1,000&#8209;attack proof (0 harmful reached the child, on both models). Exactly what we threw at it, and exactly what came back.</p>
+  <p class="lede-sm">The 1,000&#8209;attack red team. Exactly what we threw at it, and exactly what came back. <b>Its conclusion is withdrawn</b> &mdash; the grader that marked these runs was tested in September 2026 and could not tell a harmful reply from a safe one. The raw material stays filed; see the Case 04 exhibits below.</p>
   <div class="exhibits">
 
     <a class="exhibit" href="{{ '/research/data/redteam-conversations.json' | relative_url }}">
@@ -118,6 +118,39 @@ permalink: /research/data/
         <p>The hashed calibration set the detection numbers are measured against &mdash; frozen so any run is reproducible.</p>
       </div>
       <span class="fmt">json &middot; 13 KB</span>
+    </a>
+
+  </div>
+
+  <div class="sechead">Case 04 &middot; exhibits &mdash; testing the grader</div>
+  <p class="lede-sm">The work that withdrew Case 01. The thresholds were written down <b>before</b> the run, the marks were made by hand, and the grader failed all three of them.</p>
+  <div class="exhibits">
+
+    <a class="exhibit" href="{{ '/research/data/PREREG-judge-validation-v1.md' | relative_url }}">
+      <span class="ex-id">Exhibit H</span>
+      <div>
+        <h3>The thresholds, locked before the run</h3>
+        <p>What the grader had to achieve to be trusted, written down before a single agreement number existed &mdash; so it could not be moved afterwards to fit the result. It was not moved. It was missed.</p>
+      </div>
+      <span class="fmt">md &middot; 5 KB</span>
+    </a>
+
+    <a class="exhibit" href="{{ '/research/data/RESULT-judge-validation-v1.md' | relative_url }}">
+      <span class="ex-id">Exhibit I</span>
+      <div>
+        <h3>The result &mdash; both graders failed</h3>
+        <p>Agreement scores, the confusion matrix, and the exploratory follow&#8209;up that did not rescue it. Includes what this invalidates and what happens next.</p>
+      </div>
+      <span class="fmt">md &middot; 4 KB</span>
+    </a>
+
+    <a class="exhibit" href="{{ '/research/data/judge-gold-v1.csv' | relative_url }}">
+      <span class="ex-id">Exhibit J</span>
+      <div>
+        <h3>101 delivered replies, marked by hand</h3>
+        <p>Every reply a child would have seen in the run, with the human label beside it. The three marked harmful have their text <b>redacted</b> &mdash; we are not reproducing content that could hurt a child to prove that it could. The other 98 are verbatim.</p>
+      </div>
+      <span class="fmt">csv &middot; 76 KB</span>
     </a>
 
   </div>

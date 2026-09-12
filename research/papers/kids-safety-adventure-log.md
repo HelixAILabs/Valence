@@ -6,8 +6,11 @@ published in [Data &amp; receipts](../data/). This log is the *story* and the *l
 replaces the receipts.
 
 > **Two promises — read this first.** Kids Mode's core job is to *keep the child from being exposed to
-> harmful chat* (the AI won't produce harmful content, resists jailbreaks, de-escalates — 1,000
-> adversarial turns, 0 harmful outputs). **This log is about a *different* layer:** how reliably we
+> harmful chat* (the AI resists jailbreaks and de-escalates — 1,000 adversarial turns per model).
+> **The "0 harmful outputs" figure from those runs is WITHDRAWN as of 2026-09-06:** the grader that
+> produced it was tested and found to mark every reply safe without reading it. A hand-marked
+> end-to-end run has since found three harmful replies on the smallest model.
+> **This log is about a *different* layer:** how reliably we
 > *alert the parent* when the child says something concerning. Every % here measures **alerting, not
 > exposure** — a missed alert means we didn't notify the parent as reliably as we want yet, *not* that
 > the child was shown anything harmful.

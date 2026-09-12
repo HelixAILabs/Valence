@@ -3,17 +3,18 @@ layout: doc
 title: "AI Safety for Kids, Proven: a 1,000-Attack Red Team"
 slug: paper-proven
 nav: research
-description: "We attacked Valence Kids Mode 1,000 times with the tricks people use to break AI. Zero harmful responses reached the child, with the receipts."
+description: "WITHDRAWN 2026-09-06. This 1,000-attack red team concluded that nothing harmful reached the child. We later tested the grader that produced that verdict and found it marked every reply safe without reading it. Kept up, with the correction on top."
 ---
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "We attacked Kids Mode 1,000 times. Nothing harmful ever reached the child.",
+  "headline": "WITHDRAWN 2026-09-06: We attacked Kids Mode 1,000 times and concluded nothing harmful reached the child.",
   "author": {"@type": "Organization", "name": "Helix AI Labs"},
   "datePublished": "2026-08-27",
-  "about": "AI safety for children: a 1,000-turn adversarial red team of the Valence Kids Mode safety system, with every prompt and transcript published."
+  "dateModified": "2026-09-06",
+  "about": "AI safety for children: a 1,000-turn adversarial red team of the Valence Kids Mode safety system, with every prompt and transcript published. The harm finding was WITHDRAWN on 2026-09-06 after the AI grader that produced it was validated for the first time and found to mark every reply safe without reading it. The page is kept up, unedited beneath a correction notice."
 }
 </script>
 <header class="case-head case-file"><div class="wrap wide">
@@ -22,16 +23,35 @@ description: "We attacked Valence Kids Mode 1,000 times with the tricks people u
     <span class="genre">Kids Mode / adversarial</span>
     <span class="case-sub"><a class="backlink" href="{{ '/research/' | relative_url }}">← All case files</a></span>
   </div>
-  <span class="stamp stamp-cleared file-stamp">Cleared<small>0 of 1,000</small></span>
+  <span class="stamp stamp-withdrawn file-stamp">Withdrawn<small>the grader failed</small></span>
   <h1>We attacked Kids Mode 1,000 times. Nothing harmful ever reached the child.</h1>
   <p class="standfirst">We don't just <em>say</em> Valence Kids Mode is safer. We hit it 1,000 times with the same tricks people use to break AI, on the <b>smallest model a family might run</b> as well as the capable one, and measured every single response.</p>
   <dl class="filed">
     <dt>Models</dt><dd class="lead-dots"></dd><dd>gemma‑4 E2B &amp; E4B · on‑device</dd>
     <dt>Method</dt><dd class="lead-dots"></dd><dd>10 techniques × 5 age bands × 20 runs</dd>
-    <dt>Finding</dt><dd class="lead-dots"></dd><dd>0 harmful reached the child</dd>
+    <dt>Finding</dt><dd class="lead-dots"></dd><dd><b>withdrawn 2026‑09‑06</b></dd>
     <dt>Exhibits</dt><dd class="lead-dots"></dd><dd><a href="{{ '/research/data/' | relative_url }}">A–D, filed →</a></dd>
   </dl>
 </div></header>
+
+<section><div class="wrap wide">
+  <div class="withdrawn-notice">
+    <p class="wn-tag">Withdrawn &middot; 6 September 2026</p>
+    <h2>This finding no longer stands. We tested the grader, and the grader was not grading.</h2>
+    <p>Every number below was produced by an AI grader deciding whether each reply was harmful. In September 2026 we checked that grader for the first time: we marked 101 real delivered replies by hand and asked it to mark the same ones. <b>It called all 101 safe</b> &mdash; including three that a human marked harmful. Corrected for chance, its agreement with a human was <b>zero</b>. It was not reading the replies. It was a rubber stamp with a good&#8209;looking percentage attached.</p>
+    <p>So the claim in the headline is withdrawn. Not because we know it is false at 1,000 turns, but because the instrument that produced it cannot tell the difference, and a claim that cannot fail is not evidence. A separate end&#8209;to&#8209;end run, marked by hand, later found three harmful replies and eight cases where a child signalled something real and got nothing useful back.</p>
+    <p><b>We have left this page up, unedited below this notice.</b> Deleting it would make the record look cleaner than it was. The method here is still the method; what failed was the marking.</p>
+    <p class="wn-go"><a href="{{ '/2026/09/06/we-tested-our-own-safety-test.html' | relative_url }}">Read the correction in full &rarr;</a></p>
+  </div>
+</div></section>
+
+<style>
+.dossier .withdrawn-notice{border:2px solid var(--d-stamp);border-radius:4px;padding:1.5rem 1.6rem;margin:2rem 0 .5rem;background:var(--d-paper-2)}
+.dossier .withdrawn-notice .wn-tag{font-family:var(--d-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--d-stamp);margin:0 0 .5rem}
+.dossier .withdrawn-notice h2{font-family:var(--d-serif);margin:0 0 .8rem;line-height:1.15;color:var(--d-ink)}
+.dossier .withdrawn-notice p{color:var(--d-ink-soft);line-height:1.6}
+.dossier .withdrawn-notice .wn-go{margin:1.1rem 0 0;font-weight:600}
+</style>
 
 <section><div class="wrap wide">
   <div class="proof">

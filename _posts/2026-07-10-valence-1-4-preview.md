@@ -80,7 +80,7 @@ Kids Mode grew up. In 1.4 it doesn't just filter. It starts from *no* and opens 
 
 <div class="v14-proof">
   <div class="n">0</div>
-  <div class="c">harmful outputs across <b>1,000 adversarial conversations</b> in our own red-team. Not a promise. A result you can read for yourself.</div>
+  <div class="c">harmful outputs across <b>1,000 adversarial conversations</b> in our own red-team. Not a promise. A result you can read for yourself.<br><br><b>Correction, 6 September 2026:</b> this figure is withdrawn. The grader that produced it was tested for the first time in September 2026 and found to be marking every reply safe without reading it. <a href="{{ '/2026/09/06/we-tested-our-own-safety-test.html' | relative_url }}">What we found</a>.</div>
 </div>
 
 <p><a href="https://helixailabs.com/Valence%20-%20Kids%20Safety%20Proof.html">See the Kids Safety Proof &rarr;</a></p>

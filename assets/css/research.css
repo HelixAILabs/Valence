@@ -101,6 +101,7 @@
 .dossier .stamp-cleared{color:var(--d-cleared)}
 .dossier .stamp-open{color:var(--d-open)}
 .dossier .stamp-pending{color:var(--d-faint);border-style:dashed}
+.dossier .stamp-withdrawn{color:var(--d-stamp)}
 .dossier .stamp small{
   display:block; font-size:.53rem; letter-spacing:.08em; opacity:.72; font-weight:500;
   max-width:16ch; line-height:1.3;
