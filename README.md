@@ -14,7 +14,7 @@
 
 Two installers on that page. **Slim** is right for most people and needs internet once during setup. **All-in-one** bundles every backend for machines that cannot touch the network while installing.
 
-The Android alpha is available now as a direct download: **[Valence-1.5.14-alpha-arm64.apk](https://helixailabs.com/valence/Valence-1.5.14-alpha-arm64.apk)** · 64-bit Android 7.0+ · 32 MB. macOS is in private alpha. Email help@helixailabs.com to ask for access.
+The Android alpha is available now as a direct download: **[Valence-1.5.15-alpha-arm64.apk](https://helixailabs.com/valence/Valence-1.5.15-alpha-arm64.apk)** · 64-bit Android 7.0+ · 32 MB. macOS is in private alpha. Email help@helixailabs.com to ask for access.
 
 > Current version, exact file sizes, and the SHA-256 for each installer are on the
 > **[download section of the website](https://helixailabs.com/#downloads)**, which is generated
