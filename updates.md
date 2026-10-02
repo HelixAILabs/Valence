@@ -23,7 +23,7 @@ description: Every Valence release, grouped by platform and version family, with
   {% if forloop.first %}{% assign open = "true" %}{% else %}{% assign open = "false" %}{% endif %}
   <div class="rel dl" data-dl data-open="{{ open }}">
     <button class="dl-head" type="button" aria-expanded="{{ open }}" aria-controls="fam-{{ fam | slugify }}">
-      <span class="dl-plat">{{ fam }}.x &middot; <span class="rel-os">{{ platform }}</span></span>
+      <span class="dl-plat">{{ items.first.family_label | default: fam }}.x &middot; <span class="rel-os">{{ platform }}</span></span>
       <span class="dl-status">{{ shipped_items | size }} release{% if shipped_items.size != 1 %}s{% endif %} &middot;
         {% if items.size > 1 and items.last.date != items.first.date %}{{ items.last.date | date: "%b %-d" }} – {{ items.first.date | date: "%b %-d, %Y" }}{% else %}{{ items.first.date | date: "%b %-d, %Y" }}{% endif %}</span>
       <svg class="dl-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
