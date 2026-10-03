@@ -1,6 +1,13 @@
 # Release index. One row per shipped build. The narrative posts still live in _posts.
 # Regenerate rather than hand-edit when adding a release.
 releases:
+  - version: "1.5.16.2 alpha"
+    date: 2026-10-02
+    family: "android-1.5"
+    family_label: "1.5"
+    platform: "Android"
+    summary: "Choose the conversation size from the model menu"
+    url: "/2026/10/02/valence-mobile-1-5-16-2.html"
   - version: "1.5.16.1 alpha"
     date: 2026-10-02
     family: "android-1.5"
