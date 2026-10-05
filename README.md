@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.7.2 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.2/Valence-1.7.2-slim.msi)**
+**[Download Valence 1.8.0 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.0/Valence-1.8.0-slim.msi)**
 
-Windows 10/11 (64-bit) · 121.71 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+Windows 10/11 (64-bit) · 121.09 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `0ADB8056AE7C78315C4F7BEECA0ABF73ADDE60767773AC24B3072C89B8440164`
+> **SHA-256:** `A039F09306F6BB490D1736D5DDF1A2CEC64156CB212B37ACF8C3FDB4D5C62829`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.7.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.7.2/Valence-1.7.2.msi)**
+**[Download Valence 1.8.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.0/Valence-1.8.0.msi)**
 
-Windows 10/11 (64-bit) · 620.16 MB
+Windows 10/11 (64-bit) · 619.7 MB
 
-> **SHA-256:** `5EC8C36B146DACEB1F9289CEDD78F2CF40804EE9E56680B21E4DA3C5892F7958`
+> **SHA-256:** `23C7FB290DA1B4290FE51117C85111469EC8A9D1D4BD61BCD0EA2D76F17E2F6D`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 121.71 MB | 620.16 MB |
+| Download size | 121.09 MB | 619.7 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.7.2](https://helixailabs.github.io/Valence/2026/09/03/valence-1-7-2.html)** &nbsp;_(latest)_ | Sep 3, 2026 | A much smaller installer - slim drops from 310 MB to 122 MB and the all-in-one from 808 MB to 620 MB, after removing a redundant second copy of the application that every installer had been carrying to supply its shortcut picture. It also stops leaving ~180 MB behind in a hidden Windows folder on every install. The shortcut icon no longer goes blank after an update. |
+| **[1.8.0](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-0.html)** &nbsp;_(latest)_ | Oct 5, 2026 | See how answers are made - local models show their steps (thinking, tools, web search) as a trail above the reply, saved with the conversation. A calmer four-control composer. Web search moves to your own free Tavily key, with your saved key and searches left shown in Settings. Kids Mode Stop, crisis-hotline and regenerate fixes. Qwen 3.8 27B Balanced downloads again; X-Ray Performance History fixed; new app icon. |
+| **[1.7.2](https://helixailabs.github.io/Valence/2026/09/03/valence-1-7-2.html)** | Sep 3, 2026 | A much smaller installer - slim drops from 310 MB to 122 MB and the all-in-one from 808 MB to 620 MB, after removing a redundant second copy of the application that every installer had been carrying to supply its shortcut picture. It also stops leaving ~180 MB behind in a hidden Windows folder on every install. The shortcut icon no longer goes blank after an update. |
 | **[1.7.1](https://helixailabs.github.io/Valence/2026/08/31/valence-1-7-1.html)** | Aug 31, 2026 | Kids Mode alerts that reach the right person: notifications wait until a grown-up profile is active instead of firing at the child, each alert opens the conversation it is about and carries a badge, and the bell is hidden entirely in Kids Mode. The parent dashboard's conversation tips, flagged-message highlighting, mark-reviewed and quiet hours all work. Detection catches more indirect phrasing while one class of false alarm is gone. |
 | **[1.7.0](https://helixailabs.github.io/Valence/2026/08/25/valence-1-7-0.html)** | Aug 25, 2026 | The premium reskin - glass surfaces across the app, one accent color that retints everything, the appearance picker in the top bar, bundled Barlow typography, a calmer top bar with a token donut, and X-Ray reorganized into four chip views with engine performance-over-time charts. |
 | **[1.6.0](https://helixailabs.github.io/Valence/2026/08/24/valence-1-6-0.html)** | Aug 24, 2026 | Streaming that never stalls, replies sized to the model's real capacity, memory recall that finds and cites what it used, the X-Ray Performance card, faster local models (Qwen 3.8 now loads), wider Kids crisis detection re-audited at 1,000 fresh turns per model (the "zero harmful replies" figure from that audit was withdrawn on 2026-09-06 — see the correction). |
