@@ -40,10 +40,10 @@ valence_buy_page: "/buy.html"
 valence_buy_url: "https://buy.stripe.com/4gMdR31yQadY1E4d2beAg01"
 valence_buy_url_windows: "https://buy.stripe.com/fZu9AN91i0DofuU2nxeAg02"
 
-valence_version: 1.8.0
+valence_version: 1.8.1
 valence_date: October 5, 2026
-valence_slim_mb: 121.09
-valence_full_mb: 619.7
+valence_slim_mb: 121.08
+valence_full_mb: 619.68
 
 # Jekyll skips dotfiles by default, but .htaccess is a real web-server file that
 # must ship: it carries the 301s for the retired doc URLs and the ErrorDocument
