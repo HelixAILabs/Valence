@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.8.1 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.1/Valence-1.8.1-slim.msi)**
+**[Download Valence 1.8.2 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.2/Valence-1.8.2-slim.msi)**
 
-Windows 10/11 (64-bit) · 121.08 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+Windows 10/11 (64-bit) · 121.09 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `71048B96A3E0DC59E450B5D8A936CC318DEA3579494B56A7B3EF27BE1EB0C324`
+> **SHA-256:** `EB22AFC824DEDCFC618C48001ECC7D0CF53A91C138E440CA6101A49280E98854`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.8.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.1/Valence-1.8.1.msi)**
+**[Download Valence 1.8.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.2/Valence-1.8.2.msi)**
 
-Windows 10/11 (64-bit) · 619.68 MB
+Windows 10/11 (64-bit) · 619.69 MB
 
-> **SHA-256:** `BBB8EC369F5EDC5CF3C4ACD1BF11E4123105FA41114E8AB5691264CB82E5AE36`
+> **SHA-256:** `99F19F184CD872C9320A0663649ED064B86036023D75808A362BAB5A737D241F`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 121.08 MB | 619.68 MB |
+| Download size | 121.09 MB | 619.69 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.8.1](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-1.html)** &nbsp;_(latest)_ | Oct 5, 2026 | Thinking shows how long it took ("Thought for 6s") instead of a character count; the step after a tool reads "Analyzed the result" instead of claiming "search results". |
+| **[1.8.2](https://helixailabs.github.io/Valence/2026/10/06/valence-1-8-2.html)** &nbsp;_(latest)_ | Oct 6, 2026 | You can see the model loading: one status line above the reply instead of an empty bubble; the answer shows from the first word; the loading background runs behind the top bar and message box. |
+| [1.8.1](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-1.html) | Oct 5, 2026 | Thinking shows how long it took ("Thought for 6s") instead of a character count; the step after a tool reads "Analyzed the result" instead of claiming "search results". |
 | **[1.8.0](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-0.html)** | Oct 5, 2026 | See how answers are made - local models show their steps (thinking, tools, web search) as a trail above the reply, saved with the conversation. A calmer four-control composer. Web search moves to your own free Tavily key, with your saved key and searches left shown in Settings. Kids Mode Stop, crisis-hotline and regenerate fixes. Qwen 3.8 27B Balanced downloads again; X-Ray Performance History fixed; new app icon. |
 | **[1.7.2](https://helixailabs.github.io/Valence/2026/09/03/valence-1-7-2.html)** | Sep 3, 2026 | A much smaller installer - slim drops from 310 MB to 122 MB and the all-in-one from 808 MB to 620 MB, after removing a redundant second copy of the application that every installer had been carrying to supply its shortcut picture. It also stops leaving ~180 MB behind in a hidden Windows folder on every install. The shortcut icon no longer goes blank after an update. |
 | **[1.7.1](https://helixailabs.github.io/Valence/2026/08/31/valence-1-7-1.html)** | Aug 31, 2026 | Kids Mode alerts that reach the right person: notifications wait until a grown-up profile is active instead of firing at the child, each alert opens the conversation it is about and carries a badge, and the bell is hidden entirely in Kids Mode. The parent dashboard's conversation tips, flagged-message highlighting, mark-reviewed and quiet hours all work. Detection catches more indirect phrasing while one class of false alarm is gone. |
