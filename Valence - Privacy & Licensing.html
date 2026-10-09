@@ -4,50 +4,68 @@ title: "Privacy & Licensing"
 slug: privacy
 nav: privacy
 ---
+<!-- SEQ-2035 (2026-10-09): corrected against the v1.8.3 data-flow audit. Every claim is true of the SHIPPED
+     app, 1.8.3. Claims marked DEPENDS ON SEQ-2016/2030/2031/2032 describe 1.8.3 behaviour plus a
+     "(changing in the next update)" note; each DEPENDS comment carries the 1.8.4 wording to flip to
+     when 1.8.4 ships. -->
 <header class="hero">
   <div class="wrap">
-    
-    <h1 class="reveal">Valence never <em>phones home</em>.</h1>
-    <p class="lead reveal">The whole promise in one line: <b>Valence never collects or sends your data anywhere on its own, ever.</b> The only way anything leaves your computer is if <b>you</b> choose to send it. Here's exactly how that works.</p>
+
+    <h1 class="reveal">Valence doesn't <em>watch you</em>.</h1>
+    <p class="lead reveal">The whole promise in one line: <b>Valence collects nothing about you and reports nothing to us.</b> No telemetry, no analytics, no account. Some features do go online, and a few of those are on from the start. Every one of them is listed below, with exactly what it sends and where.</p>
   </div>
 </header>
 
 <section class="sec">
   <div class="wrap">
     <div class="sec-head reveal"><span class="no">01</span><h2>What Valence does on its own</h2></div>
-    <p><b>Nothing about you, ever.</b> No telemetry. No analytics. No background uploads. No account to create. Valence doesn't track how you use it, what you ask, or who you are.</p>
-    <p>The one routine thing it does on its own: at launch it asks our site whether a newer version exists. That's a bare version lookup, <b>no identifier, no usage, nothing about you</b>, it's on by default so fixes reach you, and it's one switch in Settings to turn off. Full detail just below, because you deserve the exact shape of it.</p>
+    <p><b>Nothing about you, ever.</b> No telemetry. No analytics. No crash reports or logs sent anywhere. No account to create. Valence doesn't track how you use it, what you ask, or who you are.</p>
+    <p>Two routine things happen without you pressing a button:</p>
+    <div class="rows stagger">
+      <div class="row">
+        <span class="k">Update check</span>
+        <span class="v">At launch, Valence asks our site whether a newer version exists. It's a <b>bare version lookup</b>: <span class="green">no identifier, no usage, nothing about you</span>. It's on by default so fixes reach you, it's one switch in Settings to turn off, and local-only mode blocks it.</span>
+      </div>
+      <div class="row">
+        <span class="k">Search key check</span>
+        <span class="v">Only if you've added your own <b>Tavily</b> web-search key: about every 12 hours, Valence quietly checks with Tavily that the key still works. It sends the key, nothing else. Right now it runs whenever a key is saved, including in local-only mode and Kids profiles (changing in the next update, so it respects both). <!-- DEPENDS ON SEQ-2016. 1.8.4 wording: "It sends the key, nothing else, and it doesn't run in local-only mode or Kids profiles." --></span>
+      </div>
+    </div>
     <p>Your conversations, your memory, and your settings live on your computer as ordinary files you can open, read, back up, or delete. If your machine is offline, Valence still works.</p>
     <div class="callout reveal">
-      <p class="big">Even your license key <em>never phones home.</em></p>
-      <p>Your key is verified by <b>cryptography built into Valence itself</b>: there's no activation call, no server check, nothing to ping. The math proves the key is valid, right on your machine. You could buy Valence, unplug the network, and activate it on a computer that never touches the internet again.</p>
+      <p class="big">Your license key <em>never phones home.</em></p>
+      <p>Your key is verified by <b>cryptography built into Valence itself</b>, and so is the trial: there's no activation call, no server check, nothing to ping. The math proves the key is valid, right on your machine. You could buy Valence, unplug the network, and activate it on a computer that never touches the internet again.</p>
     </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="no">02</span><h2>The only times anything leaves, and you're the one doing it</h2></div>
+    <div class="sec-head reveal"><span class="no">02</span><h2>When something leaves, and where it goes</h2></div>
     <div class="rows stagger">
       <div class="row">
-        <span class="k">Checking for an update</span>
-        <span class="v"><b>On by default, so fixes reach you.</b> At launch, Valence asks our site one question, "is there a newer version?", and if there is, it asks whether you'd like to download it. <span class="green">Nothing about you is sent</span>: no identifier, no usage, just the version lookup. You can turn it off any time in Settings and check by hand instead. And when you do install an update, Valence <b>verifies the installer's cryptographic fingerprint (SHA-256)</b> before it ever runs.</span>
+        <span class="k">Installing an update</span>
+        <span class="v">If you say yes to an update, the installer downloads <b>from GitHub</b>. Valence <b>verifies the installer's cryptographic fingerprint (SHA-256)</b> before it ever runs.</span>
       </div>
       <div class="row">
         <span class="k">Downloading a local model</span>
-        <span class="v">The model comes <b>straight from Hugging Face</b>, not from us. We never see it happen. <span class="green">No usage data, no chats, no patterns reach Helix: ever.</span></span>
+        <span class="v">Only when you click. The model comes <b>straight from Hugging Face</b>, not from us. <span class="green">No usage data, no chats, no patterns reach Helix.</span></span>
       </div>
       <div class="row">
-        <span class="k">Setting up a slim install</span>
-        <span class="v"><b>Once, during setup.</b> The slim installer fetches the graphics-acceleration pack for your card from our GitHub releases. The only thing that request reveals is <b>which pack your machine asked for</b>. Every pack is <b>integrity-checked against a fingerprint built into the app</b> before it installs. The all-in-one installer skips this request entirely, since every pack is already in the box.</span>
+        <span class="k">Graphics packs</span>
+        <span class="v">The slim installer fetches the graphics-acceleration pack for your card <b>during setup</b>, and you can fetch one later <b>from Settings</b>. Packs come from our GitHub releases; the request reveals <b>which pack your machine asked for</b>. Every pack is <b>integrity-checked against a fingerprint built into the app</b> before it installs. The all-in-one installer already has every pack in the box.</span>
       </div>
       <div class="row">
         <span class="k">Using a cloud model</span>
-        <span class="v">Optional. If you connect ChatGPT, Claude, Gemini or another provider <b>with your own key</b>, your prompts go <b>directly to that provider</b>, on your account. A call <b>you</b> make. Each provider has its own privacy policy; read theirs. <b>Helix is never in the middle.</b></span>
+        <span class="v">Optional. If you connect OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Vertex AI or Ollama <b>with your own key</b>, each message goes <b>directly to that provider</b>, on your account. That includes your prompt, the conversation so far, any memory, knowledge or web results Valence adds for context, and your attachments. OpenRouter requests also carry a header naming Valence as the app. Each provider has its own privacy policy; read theirs. <b>Helix is never in the middle.</b></span>
       </div>
       <div class="row">
         <span class="k">Importing old chats</span>
-        <span class="v">Your move, start to finish. Connect an account and pull your history out, or export it and load the file by hand. Either way it lands <b>on your device</b>. <span class="green">Helix never sees a word of it.</span></span>
+        <span class="v">Your move, start to finish. Sign in to ChatGPT, Claude or Gemini <b>inside Valence</b> and pull your history out, or export it yourself and load the file. Signing in talks to that company directly. Either way the history lands <b>on your device</b>. <span class="green">Helix never sees a word of it.</span></span>
+      </div>
+      <div class="row">
+        <span class="k">Other optional features</span>
+        <span class="v">Each is off until you set it up, and each sends what it needs to the service you chose: <b>HIVE cloud memory</b> (memories and summaries), <b>cloud text-to-speech</b> (the text being read aloud), and <b>image generation</b> (your image prompt).</span>
       </div>
     </div>
   </div>
@@ -55,16 +73,28 @@ nav: privacy
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="no">03</span><h2>Tools &amp; abilities, off until you say so</h2></div>
-    <p>Valence can run <b>tools (MCP) and abilities</b> that reach the web, touch your files, or run code. That's powerful, and it's exactly the kind of thing that should never be on without your say-so.</p>
+    <div class="sec-head reveal"><span class="no">03</span><h2>Tools &amp; abilities: what's on from the start</h2></div>
+    <p>Valence can run <b>tools (MCP) and abilities</b> that reach the web, touch your files, or run code. Here is exactly what a fresh install turns on, and what it doesn't.</p>
     <div class="rows stagger">
       <div class="row">
-        <span class="k">Off by default</span>
-        <span class="v"><b>Every tool ships switched off.</b> Nothing reaches anywhere, touches a file, or runs until <b>you</b> turn it on. No surprises, no quiet background actions.</span>
+        <span class="k">On from the start: web</span>
+        <span class="v"><b>Web search</b>, <b>read a web page</b>, and the bundled <b>Web Search</b> tool start on, so the AI can look things up. Searching only works once you add your own <b>Tavily</b> key; then the search words go to Tavily. Without a key, nothing is searched. When it reads a page, it fetches that page from its site. A link you paste into a message is fetched automatically.</span>
       </div>
       <div class="row">
-        <span class="k">Yours to see and revoke</span>
-        <span class="v">You can see what each tool can reach and <span class="green">switch it back off anytime</span>. Your choice, start to finish, and whatever a tool does, it does on <b>your</b> machine, not ours.</span>
+        <span class="k">Automatic look-ups</span>
+        <span class="v">With a Tavily key and a local model, Valence can look things up for you before answering. That search can use <b>your whole message</b> as the query, so the message goes to Tavily.</span>
+      </div>
+      <div class="row">
+        <span class="k">On from the start: on-device</span>
+        <span class="v">A few helpers that never touch the network: memory recall, the clock, the calculator, and your own knowledge files.</span>
+      </div>
+      <div class="row">
+        <span class="k">Off until you say so</span>
+        <span class="v"><b>Every other tool and ability</b>, including any MCP server you add, stays off until <b>you</b> turn it on.</span>
+      </div>
+      <div class="row">
+        <span class="k">Yours to switch off</span>
+        <span class="v">See what each tool can reach and <span class="green">switch any of them off anytime</span>, including web search. Web tools are <b>off in Kids profiles</b> and in <b>local-only mode</b>.</span>
       </div>
     </div>
   </div>
@@ -73,15 +103,23 @@ nav: privacy
 <section class="sec">
   <div class="wrap">
     <div class="sec-head reveal"><span class="no">04</span><h2>Your files &amp; the diagnostic log</h2></div>
-    <p><b>Honest both ways:</b> your chats and memory are saved as <b>plain files</b>: which is why you can open, read, and delete them. It also means they aren't encrypted by Valence today. Keep them on an <b>encrypted drive</b> (Windows BitLocker and the like) and they're protected at rest. <b>Built-in encryption is on the roadmap after v1.</b> Your API keys are already stored encrypted.</p>
+    <p><b>Honest both ways:</b> your chats and memory are saved as <b>plain files</b>, which is why you can open, read, and delete them. They're not encrypted unless you choose to encrypt them.</p>
     <div class="rows stagger">
       <div class="row">
+        <span class="k">Encryption at rest</span>
+        <span class="v"><b>Off by default, one switch in Settings.</b> Turn on <b>Data Encryption</b> and new chat and memory files are locked to your Windows account (DPAPI); existing files are re-encrypted the next time they change. An <b>encrypted drive</b> (Windows BitLocker and the like) protects everything else at rest.</span>
+      </div>
+      <div class="row">
+        <span class="k">Keys &amp; secrets</span>
+        <span class="v">Your <b>AI provider keys</b> and <b>Tavily key</b> are stored encrypted (DPAPI). <b>Tokens you give an MCP server are not yet</b>: they sit in the settings file in plain text, and that's being fixed. The email address inside your license key is also kept in that file. <!-- SEQ-2033 --></span>
+      </div>
+      <div class="row">
         <span class="k">The diagnostic log</span>
-        <span class="v">Valence keeps a small local log, <b>just in case something breaks</b> and you need help. It's <b>circular</b> (it can't balloon in size) and it <b>auto-clears by day 14</b>: or you purge it by hand whenever you like.</span>
+        <span class="v">Valence keeps a local log, <b>just in case something breaks</b> and you need help. Each time Valence starts, it <b>deletes Valence logs older than 14 days</b>. Two things aren't cleaned up automatically yet: <b>crash logs from the local AI engine</b> and <b>bug-report zips</b>. Delete them by hand from the logs folder (Settings &rarr; Diagnostics &rarr; Log Files) whenever you like. <!-- SEQ-2034 --></span>
       </div>
       <div class="row">
         <span class="k">It's yours to hand over, or not</span>
-        <span class="v">That log <b>never leaves your machine unless you send it to me</b>. <span class="green">I can't reach in and pull it, by design.</span> If you want help, you deliver it; otherwise I never see it.</span>
+        <span class="v">Logs <b>never leave your machine unless you send them to me</b>. The bug-report button only builds a zip on your computer and opens an email <b>for you</b> to send. <span class="green">I can't reach in and pull anything, by design.</span></span>
       </div>
     </div>
   </div>
@@ -94,20 +132,20 @@ nav: privacy
     <div class="rows stagger">
       <div class="row">
         <span class="k">When you buy</span>
-        <span class="v"><b>Stripe</b> runs the checkout. They handle your card and take your name, email and country to complete the sale and tax. <span class="green">I never see or store your card.</span> Stripe is a payment company, not a data broker; their terms cover that step.</span>
+        <span class="v"><b>Stripe</b> runs the checkout. They take your name, email, country and card to complete the sale and tax. <span class="green">I never see or store your card.</span> Then my purchase system (on Amazon Web Services, in the US) keeps a <b>purchase record</b>: your email, your license key, which key you bought, the Stripe order number, and when the key was made and emailed. Your email is <b>built into your license key</b>, and it shows up in that system's logs. The key is emailed to you through <b>Resend</b>, an email-delivery service.</span>
       </div>
       <div class="row">
-        <span class="k">When you email me</span>
-        <span class="v">Your message lands in <b>Microsoft Office 365</b>: enterprise email, protected by Microsoft's security. I keep it long enough to help you, and <b>I'm the only one reading it.</b></span>
+        <span class="k">When you write to me</span>
+        <span class="v">The contact form takes your <b>name, email, topic and message</b> and passes them through Amazon Web Services and Resend to my inbox. Email, from the form or straight to me, lands in <b>Microsoft 365</b>. I keep it long enough to help you, and <b>I'm the only one reading it.</b></span>
       </div>
       <div class="row">
         <span class="k">When you visit the site</span>
-        <span class="v">I see <b>hit counts</b>, how many people landed on a page, and that's it. <span class="green">No cookies following you around, no profile, no pixels, no ad networks.</span></span>
+        <span class="v">I look at <b>hit counts</b>, how many people landed on a page, and that's it. My web host keeps standard server logs, as every host does. <span class="green">No cookies following you around, no profile, no pixels, no ad networks.</span> The site's fonts load from <b>Google Fonts</b>, so your browser does contact Google for them.</span>
       </div>
     </div>
     <div class="callout reveal">
-      <p class="big">No servers in the loop. <em>Nothing to leak.</em></p>
-      <p>There's no Helix account, no Helix cloud, no Helix database of your activity. The privacy isn't a policy I promise to follow, it's how the app is built. If you never buy, email, or visit, <b>I have nothing about you at all.</b></p>
+      <p class="big">No Helix account. No Helix cloud. <em>No record of your chats.</em></p>
+      <p>The only thing I store about you is the purchase record above, and only if you buy. There's no account, no Helix cloud, and no database of your activity. The privacy isn't a policy I promise to follow, it's how the app is built. If you never buy or write to me, <b>I have nothing about you beyond a web-server log line.</b></p>
     </div>
   </div>
 </section>
@@ -123,11 +161,30 @@ nav: privacy
       </div>
       <div class="row">
         <span class="k">Why that matters</span>
-        <span class="v">Because the model is <b>local</b>, the child's data <span class="green">never leaves your machine</span>. Your own computer does all the work. When nothing is collected or transmitted, COPPA's data-collection concerns don't apply the way they do to cloud AI.</span>
+        <span class="v">Because the model is <b>local</b>, your own computer answers your child. <b>Web tools are off</b> in Kids profiles. Helix collects nothing, so COPPA's data-collection concerns don't apply the way they do to cloud AI. Today, three things can still reach the internet from a Kids profile (plus the search key check in section 01), and each is <b>changing in the next update</b>:</span>
+      </div>
+      <div class="row">
+        <span class="k">Voice typing</span>
+        <!-- DEPENDS ON SEQ-2030. 1.8.4 wording: "Your child&rsquo;s voice <b>never leaves your computer</b> &mdash; unless a parent turns on voice typing, which uses Microsoft&rsquo;s online speech recognition." -->
+        <span class="v">The microphone uses <b>Microsoft's online speech recognition</b> to turn what your child says into text, so their voice goes to Microsoft. Today a parent can't switch the Kids microphone off on its own (changing in the next update: it will stay off unless a parent turns voice typing on).</span>
+      </div>
+      <div class="row">
+        <span class="k">Images in replies</span>
+        <!-- DEPENDS ON SEQ-2031. 1.8.4 wording: "Images linked in a reply <b>don't load automatically</b>." -->
+        <span class="v">If a reply links to an image, it loads automatically, which means the image's website sees the request. This happens in Kids profiles and in local-only mode too (changing in the next update: linked images won't load automatically).</span>
+      </div>
+      <div class="row">
+        <span class="k">HIVE cloud memory</span>
+        <!-- DEPENDS ON SEQ-2032. 1.8.4 wording: "Kids chats are <b>never copied to HIVE cloud memory</b>." -->
+        <span class="v">Off unless a parent sets it up. If you do turn on HIVE, Kids chats can be copied to the HIVE address you set (changing in the next update: Kids chats will never be copied to HIVE).</span>
+      </div>
+      <div class="row">
+        <span class="k">Cloud safety scan: your choice</span>
+        <span class="v">Kids Mode has an <b>optional cloud safety scan</b>. If you turn it on, your child's conversations are sent to <b>your own cloud AI provider</b> to be checked for safety concerns. It's off unless you turn it on, and you can turn it off again anytime.</span>
       </div>
       <div class="row">
         <span class="k">Parents hold the record</span>
-        <span class="v">Everything Kids Mode keeps so you can review it lives <b>on the device, under your control</b>. <span class="green">Review or delete any of it, anytime</span>, and it never leaves the machine.</span>
+        <span class="v">Everything Kids Mode keeps so you can review it lives <b>on the device, under your control</b>. <span class="green">Review or delete any of it, anytime.</span> It stays on the machine unless you turn on the cloud safety scan or HIVE cloud memory.</span>
       </div>
       <div class="row">
         <span class="k">Adults &amp; frontier models</span>
@@ -147,7 +204,36 @@ nav: privacy
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="no">08</span><h2>Licensing. The whole deal</h2></div>
+    <div class="sec-head reveal"><span class="no">08</span><h2>Your responsibility</h2></div>
+    <p>Valence is the workspace, <b>not the AI</b>. The models you run in it are made by other companies or published openly; I don't make them and I don't control what they say. The <a href="{{ '/eula.html' | relative_url }}" style="color:var(--coral)">license agreement</a> you accept when you install says this in full. In plain words:</p>
+    <div class="rows stagger">
+      <div class="row">
+        <span class="k">Answers can be wrong</span>
+        <span class="v">AI can be confidently wrong, out of date, or harmful. <b>Check anything that matters</b> before you rely on it.</span>
+      </div>
+      <div class="row">
+        <span class="k">Not medical advice</span>
+        <span class="v">Valence is <b>not</b> a doctor, lawyer, financial adviser or therapist, and it isn't meant to diagnose or treat anything. Talk to a qualified professional.</span>
+      </div>
+      <div class="row">
+        <span class="k">Not for emergencies</span>
+        <span class="v">If you or someone else may be in danger, <b>call 911</b> or your local emergency number. In the US, <b>call or text 988</b> for the Suicide &amp; Crisis Lifeline.</span>
+      </div>
+      <div class="row">
+        <span class="k">What you do with it</span>
+        <span class="v">You're responsible for what you ask, what you do with the answers, and for following the rules of each AI provider you connect.</span>
+      </div>
+      <div class="row">
+        <span class="k">Kids Mode</span>
+        <span class="v">The parent or guardian supervises. Kids Mode's safeguards <b>reduce</b> risk; they don't remove it.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">09</span><h2>Licensing. The whole deal</h2></div>
     <div class="lic stagger">
       <div class="card">
         <span class="t">Try it</span>
@@ -157,20 +243,21 @@ nav: privacy
       <div class="card">
         <span class="t">Buy it</span>
         <span class="h">$59.95, once</span>
-        <p>You get a key and you own it &mdash; permanently, and I can&rsquo;t revoke it. The All-in-one key unlocks Valence on <b>every platform</b> we ship it on: Windows now, Mac and Android as they land &mdash; no second purchase when they arrive. Prefer just Windows? A cheaper single-platform key is also available. <a href="{{ site.valence_buy_page }}">Buy a license &rarr;</a></p>
+        <p>You get a key and it&rsquo;s yours to keep: a <b>perpetual</b> license for devices you own or control. The All-in-one key unlocks Valence on <b>every platform</b> we ship it on: Windows now, Mac and Android as they land &mdash; no second purchase when they arrive. Prefer just Windows? The <b>Windows-only key is $24.99</b>. <a href="{{ site.valence_buy_page }}">Buy a license &rarr;</a></p>
       </div>
       <div class="card">
         <span class="t">Refunds</span>
         <span class="h">None, here's why</span>
-        <p>Your key is cryptographic and <b>permanently yours</b>: I genuinely can't revoke it or stop you using it. A refund would mean you keep the working software <b>and</b> get your money back. That's why the <b>7-day free trial</b> is your test drive: buy only when you're sure.</p>
+        <p>Your key is verified offline, so once it&rsquo;s issued there&rsquo;s <b>no switch I could flip to take it back</b>. A refund would mean you keep the working software <b>and</b> get your money back. That's why the <b>7-day free trial</b> is your test drive: buy only when you're sure.</p>
       </div>
       <div class="card">
         <span class="t">Platform</span>
         <span class="h">Windows desktop</span>
-        <p>A desktop application for Windows. It runs on your machine, and works fully offline.</p>
+        <p>A desktop application for Windows. It runs on your machine, and works fully offline once set up.</p>
       </div>
     </div>
-    <p class="sec-foot-note">Because I can't take back what you permanently own, I won't sell through marketplaces that force refunds I can't honor, not stubbornness, just fairness to a solo developer. <b>Helix AI Labs is a registered business in Washington State, USA.</b></p>
-    <p class="updated">Last updated: June 2026 · Questions? <a href="mailto:help@helixailabs.com" style="color:var(--coral)">help@helixailabs.com</a></p>
+    <p class="sec-foot-note">Your key is verified offline, so <b>nothing on my side can switch it off remotely</b>, and I never deactivate a key for a customer in good standing. The license ends only on a material breach of the <a href="{{ '/eula.html' | relative_url }}" style="color:var(--coral)">EULA</a>, such as selling or sharing keys. Because an issued key can&rsquo;t be taken back, I won&rsquo;t sell through marketplaces that force refunds I can&rsquo;t honor, not stubbornness, just fairness to a solo developer. <b>Helix AI Labs is a registered business in Washington State, USA.</b></p>
+    <p class="sec-foot-note">The legal terms are in the <a href="{{ '/eula.html' | relative_url }}" style="color:var(--coral)">End-User License Agreement</a>, the same one you accept in the installer. This page is a plain-language notice; it isn&rsquo;t part of that agreement.</p>
+    <p class="updated">Last updated: October 9, 2026 · Questions? <a href="mailto:help@helixailabs.com" style="color:var(--coral)">help@helixailabs.com</a></p>
   </div>
 </section>

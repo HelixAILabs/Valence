@@ -136,7 +136,7 @@ description: "The complete Valence handbook in plain language: chatting, convers
         <h2>Cloud providers</h2>
         <p class="doc-lead">Valence can also talk to the major cloud AIs using your own key.</p>
         <p>Supported: <b>OpenAI</b>, <b>Anthropic</b> (Claude), <b>Google</b> (Gemini), <b>xAI</b> (Grok), <b>OpenRouter</b>, <b>Ollama</b>, plus <b>Azure OpenAI</b> and <b>Vertex AI</b> for business setups. You pay the provider directly; Valence takes no cut and never sees your conversations.</p>
-        <p>Keys are encrypted on your machine using Windows' own protection and are never uploaded. Switch provider or model from the dropdowns at the top of the chat.</p>
+        <p>Keys are encrypted on your machine using Windows' own protection and are only ever sent to the provider they belong to. Switch provider or model from the dropdowns at the top of the chat.</p>
         <p>Step-by-step help getting a key lives in the <a href="Valence - Guides.html#keys" style="color:var(--coral)">setup guides</a>.</p>
         <span class="where">Settings → AI Providers</span>
       </section>
@@ -228,7 +228,7 @@ description: "The complete Valence handbook in plain language: chatting, convers
         <h3>What gets locked</h3>
         <p>While a kids profile is active, Valence hides settings, profile creation and editing, saving and exporting conversations, the memory browser, usage, and model comparison. Switching profiles requires the parental password. A <b>Kids Mode</b> badge shows in the title bar.</p>
         <h3>Which AI a child can use</h3>
-        <p>Only the built-in local model or Vertex AI. With the local model, <b>a child's conversations never leave the computer</b>.</p>
+        <p>Only the built-in on-device model; cloud models aren't available in Kids profiles. <b>A child's conversations stay on the computer</b> unless a parent turns on the optional cloud safety scan or HIVE cloud memory. The microphone uses Microsoft's online speech recognition (changing in the next update, so it's off unless a parent turns it on).<!-- DEPENDS ON SEQ-2030/2032. 1.8.4 wording: "...unless a parent turns on the optional cloud safety scan or voice typing (which uses Microsoft's online speech recognition)." --></p>
         <span class="where">Profile menu → + New → Kids Mode wizard</span>
       </section>
 
@@ -273,7 +273,7 @@ description: "The complete Valence handbook in plain language: chatting, convers
           <div class="kv-row"><span class="k">Profiles &amp; settings</span><span class="v">Including parental controls and encrypted API keys.</span></div>
           <div class="kv-row"><span class="k">Kids activity</span><span class="v">Session history and the data behind the Parent Dashboard.</span></div>
         </div>
-        <p>Kids conversations can additionally be <b>encrypted at rest</b>, so nobody else using the same computer can read them. Settings → Storage shows where everything lives and lets you back it up or wipe it.</p>
+        <p>Chats and memory can also be <b>encrypted at rest</b>. It's off by default: turn on <b>Data Encryption</b> in Settings and new files are locked to your Windows account, so other accounts on the same computer can't read them. Settings → Storage shows where everything lives and lets you back it up or wipe it.</p>
         <span class="where">Settings → Storage</span>
       </section>
 

@@ -36,7 +36,7 @@ nav: specs
       <div class="row"><span class="k">Acceleration</span><span class="v">Matched to your hardware: <b>CUDA</b> on NVIDIA, <b>Vulkan</b> on AMD &amp; Intel, with a CPU fallback that always works. Exposes a local OpenAI-compatible endpoint.</span></div>
       <div class="row"><span class="k">Two installers</span><span class="v"><b>Slim (~300&nbsp;MB)</b> scans your hardware at setup and fetches only the acceleration pack your card uses, integrity-checked against a fingerprint built into the app. <b>All-in-one (~810&nbsp;MB)</b> bundles every backend for offline or locked-down machines.</span></div>
       <div class="row"><span class="k">Setup</span><span class="v">A guided first run: hardware scan (local: nothing sent), model download with honest progress, then auto-starts. <b>No API key, no daemon, no configuration.</b></span></div>
-      <div class="row"><span class="k">Connectivity</span><span class="v"><span class="green">Fully offline after setup.</span> The local model never makes a network request.</span></div>
+      <div class="row"><span class="k">Connectivity</span><span class="v"><span class="green">Works fully offline after setup.</span> The local model itself never makes a network request. Web search runs only with your own Tavily key, and links you paste are fetched. Local-only mode blocks web search and the update check.</span></div>
       <div class="row"><span class="k">Bring your own local</span><span class="v">Drop in <b>your own downloaded models</b> and run them on the same built-in engine, most popular open models work.<a class="fn-ref" href="#fn-gguf" id="fnref-gguf">1</a> Prefer <b>Ollama</b>? Point Valence at your install and use those too.</span></div>
     </div>
     <p class="footnote" id="fn-gguf"><span class="fn-num">1</span> Local models use the <b>GGUF</b> format (the file format llama.cpp loads). Most open-source models are published in GGUF or can be converted to it. <a href="#fnref-gguf" class="fn-back">↩</a></p>
@@ -140,8 +140,8 @@ nav: specs
     <div class="rows stagger">
       <div class="row"><span class="k">Settings</span><span class="v"><code>%AppData%\AIOverlayV2.1\settings.json</code></span></div>
       <div class="row"><span class="k">Saved chats</span><span class="v"><code>Documents\AIOverlay</code> (configurable), stored as JSON with full message metadata.</span></div>
-      <div class="row"><span class="k">API keys</span><span class="v">Encrypted with <b>Windows DPAPI</b>: they never leave your machine in plain text.</span></div>
-      <div class="row"><span class="k">Telemetry to Helix</span><span class="v"><span class="green">0 bytes.</span> Cloud calls go straight to the provider you chose; Helix is never in the path.</span></div>
+      <div class="row"><span class="k">API keys</span><span class="v">AI provider and Tavily keys are encrypted with <b>Windows DPAPI</b>. Tokens you give an MCP server are <b>not yet</b> encrypted; that&rsquo;s being fixed.</span></div>
+      <div class="row"><span class="k">Telemetry to Helix</span><span class="v"><span class="green">None.</span> The only request to Helix is an anonymous update check (no identifier), which you can turn off. Cloud calls go straight to the provider you chose; Helix is never in the path.</span></div>
     </div>
   </div>
 </section>

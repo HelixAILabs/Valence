@@ -1,0 +1,199 @@
+---
+layout: doc
+title: "End-User License Agreement"
+slug: eula
+nav: privacy
+description: "The Valence End-User License Agreement: the same agreement you accept in the installer. A perpetual license for devices you own or control."
+---
+<!-- SEQ-2035 / IMP-2183 (2026-10-09): verbatim text of Installer/EULA.rtf as approved by the owner on
+     2026-10-09. If the installer's EULA.rtf changes, change this page in the same release. -->
+<style>
+/* Page-specific: the EULA. Tokens only (.pg scope). */
+.pg-eula *{box-sizing:border-box}
+.pg-eula{--max:880px;background:var(--paper);color:var(--ink)}
+.pg-eula .wrap{width:min(var(--max),calc(100% - clamp(1.5rem,5vw,4rem)));margin:0 auto}
+.pg-eula a{color:var(--coral)}
+.pg-eula .hero{padding:clamp(2.04rem,7vw,3.4rem) 0 clamp(1.4rem,3vw,1.8rem)}
+.pg-eula .hero .kick{font-family:'Geist Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral)}
+.pg-eula .hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.03rem,3.78vw,2.6rem);line-height:1.05;letter-spacing:-0.01em;margin:0.9rem 0 0}
+.pg-eula .hero .lead{font-size:1.08rem;color:var(--ink-soft);max-width:62ch;margin:1.1rem 0 0;line-height:1.6}
+.pg-eula .hero .lead b{color:var(--ink);font-weight:600}
+.pg-eula .updated{font-family:'Geist Mono',monospace;font-size:0.74rem;letter-spacing:0.03em;color:var(--mute);margin:1rem 0 0}
+.pg-eula .toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.1rem 0;margin:0 0 0.4rem}
+.pg-eula .toc b{display:block;font-family:'Geist Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute);margin-bottom:0.6rem}
+.pg-eula .toc ol{columns:2;column-gap:2rem;margin:0;padding-left:1.4rem;font-size:0.92rem;line-height:1.75}
+@media(max-width:600px){.pg-eula .toc ol{columns:1}}
+.pg-eula .toc a{color:var(--ink-soft);text-decoration:none}
+.pg-eula .toc a:hover{color:var(--coral)}
+.pg-eula .legal{padding:0.6rem 0 clamp(2.4rem,5vw,3.4rem)}
+.pg-eula .legal .preamble{font-size:1rem;color:var(--ink-soft);line-height:1.65;margin:1.4rem 0 0}
+.pg-eula .legal h2{font-family:'Geist Mono',monospace;font-size:0.86rem;letter-spacing:0.06em;font-weight:600;color:var(--ink);margin:2.1rem 0 0.7rem;padding-top:1.3rem;border-top:1px dashed var(--rule);scroll-margin-top:72px}
+.pg-eula .legal p,.pg-eula .legal li{font-size:1rem;color:var(--ink-soft);line-height:1.65;max-width:72ch}
+.pg-eula .legal p{margin:0 0 0.85rem}
+.pg-eula .legal b{color:var(--ink);font-weight:600}
+.pg-eula .legal ul,.pg-eula .legal ol{margin:0 0 0.9rem;padding-left:1.4rem}
+.pg-eula .legal li{margin:0 0 0.4rem}
+.pg-eula .legal ol.alpha{list-style:lower-alpha}
+.pg-eula .legal ol.alpha li::marker{content:"(" counter(list-item, lower-alpha) ") "}
+.pg-eula .legal .caps{font-size:0.92rem;letter-spacing:0.01em}
+.pg-eula .legal .contact{font-family:'Geist Mono',monospace;font-size:0.86rem;color:var(--ink)}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kick">Valence &middot; Legal</span>
+    <h1>End-User License Agreement</h1>
+    <p class="lead">This is the agreement you accept when you install Valence, word for word. For the plain-language version of what the app does with your data and what your key covers, see <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a>. That page is a notice, not part of this agreement.</p>
+    <p class="updated">Last updated: October 9, 2026</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <nav class="toc" aria-label="Sections">
+    <b>Contents</b>
+    <ol>
+      <li><a href="#s1">Definitions</a></li>
+      <li><a href="#s2">License grant</a></li>
+      <li><a href="#s3">Trial period</a></li>
+      <li><a href="#s4">Restrictions</a></li>
+      <li><a href="#s5">AI models and output</a></li>
+      <li><a href="#s6">Not professional advice; not for emergencies</a></li>
+      <li><a href="#s7">Your responsibility and acceptable use</a></li>
+      <li><a href="#s8">Third-party services</a></li>
+      <li><a href="#s9">Kids Mode</a></li>
+      <li><a href="#s10">Privacy</a></li>
+      <li><a href="#s11">Payment and refunds</a></li>
+      <li><a href="#s12">Updates</a></li>
+      <li><a href="#s13">Intellectual property</a></li>
+      <li><a href="#s14">Disclaimer of warranties</a></li>
+      <li><a href="#s15">Termination</a></li>
+      <li><a href="#s16">Limitation of liability</a></li>
+      <li><a href="#s17">Indemnification</a></li>
+      <li><a href="#s18">Governing law and venue</a></li>
+      <li><a href="#s19">Changes to this agreement</a></li>
+      <li><a href="#s20">General</a></li>
+      <li><a href="#s21">Contact</a></li>
+    </ol>
+  </nav>
+</section>
+
+<article class="legal wrap">
+  <p class="preamble"><b>Valence &mdash; Cross-Model AI Interface</b><br>Copyright &copy; 2024&ndash;2026 Helix AI Labs. All Rights Reserved.</p>
+  <p class="caps">PLEASE READ THIS END-USER LICENSE AGREEMENT (&ldquo;AGREEMENT&rdquo;) CAREFULLY BEFORE USING THE SOFTWARE.</p>
+  <p>This Agreement is between you and Helix AI Labs, a business registered in the State of Washington, USA (&ldquo;Helix&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By installing, copying, or otherwise using Valence (the &ldquo;Software&rdquo;), you agree to be bound by this Agreement. If you do not agree, do not install or use the Software. If you are accepting on behalf of a household or organization, you confirm you have authority to bind it.</p>
+
+  <h2 id="s1">1. DEFINITIONS</h2>
+  <ul>
+    <li><b>&ldquo;Software&rdquo;</b> means Valence, including its installers, updates, bundled components and documentation that Helix provides.</li>
+    <li><b>&ldquo;License Key&rdquo;</b> means the cryptographic key Helix issues on purchase. It is verified offline by the Software.</li>
+    <li><b>&ldquo;Edition&rdquo;</b> means the type of License Key you bought:
+      <ul>
+        <li><b>All-in-one</b>: covers the Software on every platform for which Helix releases it.</li>
+        <li><b>Windows-only</b>: covers the Software on Microsoft Windows.</li>
+      </ul>
+    </li>
+    <li><b>&ldquo;Models&rdquo;</b> means any AI model you use through the Software, whether run on your own device (for example open-weight models downloaded from Hugging Face) or accessed through a third-party provider (for example OpenAI, Anthropic, Google, Microsoft Azure, xAI, OpenRouter, Google Vertex AI or Ollama).</li>
+    <li><b>&ldquo;Output&rdquo;</b> means any text, image, audio, code or other content a Model produces.</li>
+    <li><b>&ldquo;Third-Party Services&rdquo;</b> means any service not operated by Helix that the Software can connect to, including Model providers, web search and web pages, model and file hosts, speech services, memory services, and conversation-import sources.</li>
+  </ul>
+
+  <h2 id="s2">2. LICENSE GRANT</h2>
+  <p>2.1 <b>Trial.</b> Before purchase, Helix grants you a limited, non-exclusive, non-transferable license to install and use the Software free of charge for the trial period in Section 3.</p>
+  <p>2.2 <b>Purchased license.</b> On purchase of a License Key, Helix grants you a perpetual, non-exclusive, non-transferable license to install and use the Software, within the scope of your Edition, for your own personal or internal business use on devices you own or control. This license does not expire and is not revocable by Helix, except that it ends under Section 15 if you materially breach this Agreement.</p>
+  <p>2.3 <b>Scope by Edition.</b></p>
+  <ul>
+    <li>An <b>All-in-one</b> License Key covers the Software on each platform Helix releases it for, as and when that platform is released. Helix does not promise that any particular platform will be released, or when.</li>
+    <li>A <b>Windows-only</b> License Key covers the Software on Microsoft Windows only.</li>
+  </ul>
+  <p>2.4 <b>No technical revocation.</b> The License Key is verified offline and Helix has no means to deactivate it remotely. That technical fact does not enlarge the license: use outside Section 2 or after termination under Section 15 is unlicensed.</p>
+  <p>2.5 <b>Reservation.</b> All rights not expressly granted are reserved by Helix. The Software is licensed, not sold.</p>
+
+  <h2 id="s3">3. TRIAL PERIOD</h2>
+  <p>The Software may be used free of charge for a seven (7) day trial period beginning on the date of first launch. After the trial period, a valid License Key is required to continue using the Software. License Keys may be purchased at <a href="https://helixailabs.com">https://helixailabs.com</a>.</p>
+
+  <h2 id="s4">4. RESTRICTIONS</h2>
+  <p>You may NOT, without prior written authorization from Helix:</p>
+  <ol class="alpha">
+    <li>Copy, reproduce, or duplicate any portion of the Software, except for installations permitted by Section 2 and reasonable backup copies;</li>
+    <li>Modify, adapt, or create derivative works based on the Software;</li>
+    <li>Distribute, publish, or transmit the Software to any third party;</li>
+    <li>Sell, lease, license, or sublicense the Software;</li>
+    <li>Reverse engineer, decompile, or disassemble the Software, except to the extent applicable law expressly permits this despite this limitation;</li>
+    <li>Remove or alter any proprietary notices, labels, or marks;</li>
+    <li>Share, publish, or sell a License Key, or generate, alter, or circumvent License Key or trial verification.</li>
+  </ol>
+
+  <h2 id="s5">5. AI MODELS AND OUTPUT</h2>
+  <p>5.1 <b>Helix provides the interface, not the models.</b> The Software is an interface (&ldquo;harness&rdquo;) for running and talking to Models. Helix does not create, train, own, or control any Model. Models are made by third parties, either as open-weight models you download or as services you access with your own account and key.</p>
+  <p>5.2 <b>Output may be wrong or harmful.</b> Output is generated automatically and may be inaccurate, incomplete, out of date, biased, offensive, or harmful, and may look confident when it is wrong. Helix does not review Output and does not guarantee it is accurate, appropriate, original, or safe to rely on.</p>
+  <p>5.3 <b>Your judgment.</b> You are solely responsible for evaluating Output before relying on it or acting on it, and for anything you do with it.</p>
+  <p>5.4 <b>Tools act on your instructions.</b> Where you enable tools or abilities (for example web search, reading web pages, or MCP servers), a Model may take actions through them. You choose which tools are enabled and are responsible for their use.</p>
+
+  <h2 id="s6">6. NOT PROFESSIONAL ADVICE; NOT FOR EMERGENCIES</h2>
+  <p>6.1 The Software and its Output are <b>not</b> medical, legal, financial, tax, mental-health or other professional advice, and are not a substitute for a qualified professional. For example, using the Software to diagnose or treat a medical condition is not an intended use.</p>
+  <p>6.2 The Software is <b>not</b> a crisis or emergency service and must not be relied on in an emergency. If you or someone else may be in danger, contact local emergency services (911 in the United States) or a crisis line (988 in the United States) immediately.</p>
+  <p>6.3 Do not use the Software where its failure or an inaccurate Output could lead to death, personal injury, or severe physical, property, or environmental damage.</p>
+
+  <h2 id="s7">7. YOUR RESPONSIBILITY AND ACCEPTABLE USE</h2>
+  <p>7.1 You are solely responsible for your use of the Software, for the content you enter, and for what you do with Output.</p>
+  <p>7.2 You will not use the Software to:</p>
+  <ol class="alpha">
+    <li>break any law or regulation, or infringe or misappropriate anyone&rsquo;s rights;</li>
+    <li>harm, harass, threaten, exploit or endanger any person, including any minor;</li>
+    <li>create or distribute malware, or gain unauthorized access to any system or data;</li>
+    <li>violate the terms, usage policies or acceptable-use rules of any Model provider or other Third-Party Service you use through the Software.</li>
+  </ol>
+  <p>7.3 You are responsible for having the rights and consents needed for any content, files or personal information you give to the Software or send through it to a Third-Party Service.</p>
+
+  <h2 id="s8">8. THIRD-PARTY SERVICES</h2>
+  <p>8.1 When you use a Third-Party Service through the Software, your content (for example prompts, conversation history, attachments, and context the Software adds such as memory, knowledge or web results) goes directly from your device to that service. Helix does not operate, control, or receive it.</p>
+  <p>8.2 Each Third-Party Service is governed by its own terms and privacy policy, which are between you and that provider. You are responsible for your account, keys, and any fees with each provider.</p>
+  <p>8.3 Helix is not responsible for the availability, accuracy, security, conduct, or content of any Third-Party Service, and its listing in the Software is not an endorsement.</p>
+
+  <h2 id="s9">9. KIDS MODE</h2>
+  <p>9.1 Kids Mode is a set of tools to help a parent or guardian supervise a child&rsquo;s use of the Software. It is not a substitute for supervision. The parent or guardian who sets up a Kids profile is responsible for supervising the child&rsquo;s use and for the settings they choose.</p>
+  <p>9.2 Kids Mode safeguards reduce risk; they do not eliminate it. No filter, model, or safeguard is perfect, and a child may still see inaccurate, inappropriate, or harmful Output.</p>
+  <p>9.3 Some Kids Mode options, if a parent turns them on, send a child&rsquo;s conversations to a Third-Party Service (for example the optional cloud safety scan, which sends Kids transcripts to the parent&rsquo;s own cloud provider). The parent is responsible for choosing them.</p>
+
+  <h2 id="s10">10. PRIVACY</h2>
+  <p>The Software contains no telemetry or analytics, and License Key and trial verification run on your device. How the Software and Helix handle data is described in the <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a> page at https://helixailabs.com.</p>
+
+  <h2 id="s11">11. PAYMENT AND REFUNDS</h2>
+  <p>Payments are processed by Stripe. License Keys are a one-time purchase. Because a License Key cannot be deactivated once issued, <b>all sales are final and no refunds are given</b>, except where a refund is required by applicable law. The free trial exists so you can evaluate the Software before you buy.</p>
+
+  <h2 id="s12">12. UPDATES</h2>
+  <p>Helix may, but is not required to, provide updates. Updates are covered by this Agreement unless they come with their own terms. The Software checks for updates at launch by default; you can turn this off in Settings.</p>
+
+  <h2 id="s13">13. INTELLECTUAL PROPERTY</h2>
+  <p>The Software and all copies thereof are proprietary to Helix and title thereto remains in Helix. The Software is copyrighted and protected by the laws of the United States and other countries. As between you and Helix, Helix claims no ownership of your content or of Output; your rights in Output are subject to the terms of the Model and provider that produced it.</p>
+
+  <h2 id="s14">14. DISCLAIMER OF WARRANTIES</h2>
+  <p class="caps">TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE, ANY OUTPUT, AND ANY ACCESS TO THIRD-PARTY SERVICES ARE PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NONINFRINGEMENT, ACCURACY, AND UNINTERRUPTED OR ERROR-FREE OPERATION. HELIX DOES NOT WARRANT THAT ANY OUTPUT IS ACCURATE, SAFE OR SUITABLE, OR THAT KIDS MODE WILL PREVENT EVERY HARMFUL INTERACTION.</p>
+
+  <h2 id="s15">15. TERMINATION</h2>
+  <p>This Agreement is effective until terminated. It terminates automatically if you materially breach it (including Sections 4 and 7) and, if the breach can be cured, you fail to cure it within thirty (30) days after notice from Helix. The trial license ends when the trial period ends unless you buy a License Key. On termination you must stop using the Software and destroy all copies. Sections 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18 and 20 survive termination.</p>
+
+  <h2 id="s16">16. LIMITATION OF LIABILITY</h2>
+  <p class="caps">16.1 TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL HELIX BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF DATA, PROFITS, REVENUE OR GOODWILL, ARISING OUT OF OR RELATED TO THIS AGREEMENT, THE SOFTWARE, ANY OUTPUT, OR ANY THIRD-PARTY SERVICE, REGARDLESS OF THE CAUSE OF ACTION OR THE THEORY OF LIABILITY, EVEN IF HELIX HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+  <p class="caps">16.2 TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, HELIX&rsquo;S TOTAL LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THIS AGREEMENT OR THE SOFTWARE SHALL NOT EXCEED THE AMOUNT YOU ACTUALLY PAID HELIX FOR THE LICENSE KEY. IF YOU HAVE USED THE SOFTWARE ONLY UNDER THE FREE TRIAL, HELIX&rsquo;S TOTAL LIABILITY IS ZERO DOLLARS (US$0).</p>
+  <p>16.3 Some jurisdictions do not allow the exclusion or limitation of certain warranties or damages. In those jurisdictions the exclusions and limits above apply only to the extent the law allows, and nothing in this Agreement limits liability that cannot be limited by law.</p>
+
+  <h2 id="s17">17. INDEMNIFICATION</h2>
+  <p>To the extent permitted by applicable law, you will defend, indemnify, and hold harmless Helix and its owners and contractors from and against any claims, damages, losses, liabilities, costs and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use or misuse of the Software or any Output; (b) your content; (c) your breach of this Agreement; or (d) your violation of any law or of any Third-Party Service&rsquo;s terms.</p>
+
+  <h2 id="s18">18. GOVERNING LAW AND VENUE</h2>
+  <p>This Agreement is governed by the laws of the State of Washington, USA, without regard to its conflict-of-laws rules. The United Nations Convention on Contracts for the International Sale of Goods does not apply. Subject to any non-waivable right you have under the law of where you live, any dispute arising out of or related to this Agreement will be brought exclusively in the state or federal courts located in the State of Washington, and you consent to their jurisdiction.</p>
+
+  <h2 id="s19">19. CHANGES TO THIS AGREEMENT</h2>
+  <p>Helix may update this Agreement. The version you accepted governs the version of the Software you installed with it. A new version applies to an update only if you accept it when installing or first launching that update. Changes will not reduce the scope or duration of a License Key you have already bought.</p>
+
+  <h2 id="s20">20. GENERAL</h2>
+  <p>20.1 <b>Entire agreement.</b> This Agreement is the entire agreement between you and Helix about the Software and supersedes any prior statements about it.</p>
+  <p>20.2 <b>Severability.</b> If any provision is held unenforceable, it will be enforced to the maximum extent permissible and the rest of the Agreement remains in effect.</p>
+  <p>20.3 <b>No waiver.</b> Failure to enforce a provision is not a waiver of it.</p>
+  <p>20.4 <b>Assignment.</b> You may not assign or transfer this Agreement or a License Key without Helix&rsquo;s prior written consent. Helix may assign this Agreement in connection with a merger, acquisition or sale of the business.</p>
+
+  <h2 id="s21">21. CONTACT</h2>
+  <p>For licensing inquiries or support, contact:</p>
+  <p class="contact">Helix AI Labs &mdash; <a href="mailto:help@helixailabs.com">help@helixailabs.com</a><br><a href="https://helixailabs.com">https://helixailabs.com</a></p>
+</article>

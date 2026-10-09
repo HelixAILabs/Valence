@@ -32,9 +32,9 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
-| Privacy | 100% local | 100% local |
+| Privacy | on-device model, no telemetry | on-device model, no telemetry |
 
-Either way, everything, your conversations, models, and memory, runs on your machine and never phones home.
+Either way, your conversations, models, and memory live on your machine, and Valence sends Helix nothing about you. The only request to Helix is an anonymous update check, which you can switch off. Every feature that goes online is listed on the [Privacy & Licensing](https://helixailabs.com/Valence%20-%20Privacy%20&%20Licensing.html) page.
 
 ---
 

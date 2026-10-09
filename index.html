@@ -15,14 +15,14 @@ redirect_from:
   "name": "Valence",
   "operatingSystem": "Windows 10, Windows 11",
   "applicationCategory": "UtilitiesApplication",
-  "description": "A private AI app that runs on your own computer. Local models included; nothing you type is sent to a company's servers. Kids Mode is built in.",
+  "description": "A private AI app that runs on your own computer. Local models included; your conversations live on your computer, not a company's servers. Kids Mode is built in.",
   "offers": {"@type": "AggregateOffer", "lowPrice": "24.99", "highPrice": "59.95", "priceCurrency": "USD", "offerCount": "2"},
   "publisher": {"@type": "Organization", "name": "Helix AI Labs", "url": "https://helixailabs.com"}
 }
 </script>
 <section class="hero wrap">
   <h1 class="rise">The AI app your whole family can trust.</h1>
-  <p class="sub rise">It works like ChatGPT, except it runs on your own computer, so nothing you or your kids type is sent to a company's servers.</p>
+  <p class="sub rise">It works like ChatGPT, except it runs on your own computer, so your family's conversations stay there, not on a company's servers.</p>
   <div class="hero-act rise">
         <a class="btn btn-go" href="#downloads"><span class="btn-in">Try it free<svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     <a class="btn btn-ghost-hero" href="{{ site.valence_buy_page }}"><span class="btn-in">Buy Valence</span></a>
@@ -34,7 +34,7 @@ redirect_from:
   <div class="values rise-late">
     <div class="card">
       <h2>Chat completely privately</h2>
-      <p>Ask about health, money, work, anything at all. The model runs right on your PC and nothing you type ever goes online.</p>
+      <p>Ask about health, money, work, anything at all. The model runs right on your PC, and your chats are saved there, not in someone's cloud.</p>
       <p class="more"><button class="toggle" data-how aria-expanded="false" aria-controls="how-0">How<svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></p>
       <div class="disc detail" id="how-0" data-open="false"><div class="disc-in"><p>Pick a free on-device model (Gemma, Qwen) and Valence runs it entirely on your PC. It works with the internet unplugged. Small models like 8 GB of RAM; bigger ones want 16 GB and a graphics card. Cloud models run on anything, and even then your history and memory stay on your disk.</p></div></div>
     </div>
@@ -134,11 +134,11 @@ redirect_from:
       <div class="fcopy">
         <span class="fnum">Local AI · one-click setup</span>
         <h3>A real model, set up in <em>one click</em>.</h3>
-        <p>On first run, Valence suggests a local model and, with one click, downloads and configures the whole thing for you. No account, no API key, no command line. From then on it runs entirely on your computer, and everything you type stays on your disk.</p>
+        <p>On first run, Valence suggests a local model and, with one click, downloads and configures the whole thing for you. No account, no API key, no command line. From then on the model runs entirely on your computer, and your chats are saved on your own disk.</p>
         <ul class="mini stagger">
           <li>One-click first-run setup: no account, no key, no command line</li>
           <li>Suggests a model and sets everything up for you: no tinkering</li>
-          <li>Once set up, runs fully offline. Your words never leave your disk</li>
+          <li>Once set up, works fully offline. The model itself never sends your words anywhere</li>
         </ul>
       </div>
       {%- include loop.html
@@ -263,7 +263,7 @@ redirect_from:
     <div class="trust-rows reveal stagger">
       <div class="trust-row">
         <span class="who">Local model</span>
-        <span class="what">Nothing leaves. Runs entirely on your computer: no request is ever made without your direct action.</span>
+        <span class="what">The model runs on your computer and answers there. A link you paste is fetched, and if you add your own web-search key, search words go to Tavily. The privacy page lists every feature that goes online.</span>
         <span class="dest stay">stays on disk</span>
       </div>
       <div class="trust-row">
@@ -272,9 +272,9 @@ redirect_from:
         <span class="dest go">→ your provider</span>
       </div>
       <div class="trust-row">
-        <span class="who">Helix servers</span>
-        <span class="what"><b>There are none.</b> No telemetry, no analytics, no account to create. Helix is never in the path. Your chats and memory are plain files on your disk.</span>
-        <span class="dest stay">none exist</span>
+        <span class="who">Helix</span>
+        <span class="what"><b>Never in the path.</b> No telemetry, no analytics, no account to create. The only thing the app ever sends us is an <b>anonymous update check</b>, and you can switch it off. Your chats and memory are files on your disk.</span>
+        <span class="dest stay">update check only</span>
       </div>
     </div>
     <p class="trust-note reveal">A tool you <b>own</b>: not a service that owns you.</p>

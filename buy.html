@@ -35,6 +35,8 @@ description: "Choose the Valence license that fits: a Windows-only key, or one k
 .pg-buy .sku.alpha .price{color:var(--mute);font-size:1.1rem;font-family:'Geist Mono',monospace}
 .pg-buy .foot-note{font-size:0.95rem;color:var(--mute);line-height:1.6;margin:1.6rem 0 0;max-width:70ch;padding-top:1.2rem;border-top:1px dashed var(--rule)}
 .pg-buy .foot-note b{color:var(--ink-soft);font-weight:600}
+.pg-buy .sec-head p.agree{font-size:0.92rem;color:var(--ink-soft);margin:0.5rem 0 0}
+.pg-buy .agree a{color:var(--coral)}
 @media (pointer:coarse){.pg-buy .btn{min-height:44px}}
 </style>
 
@@ -51,6 +53,7 @@ description: "Choose the Valence license that fits: a Windows-only key, or one k
     <div class="sec-head">
       <h2>Choose your platform</h2>
       <p>Every key is permanently yours, verified by cryptography built into Valence itself — no activation server, ever.</p>
+      <p class="agree">By buying a key you agree to the <a href="{{ '/eula.html' | relative_url }}">End-User License Agreement</a>.</p>
     </div>
     <div class="skus">
 
@@ -85,6 +88,6 @@ description: "Choose the Valence license that fits: a Windows-only key, or one k
 
     </div>
 
-    <p class="foot-note"><b>No refunds, here's why:</b> your key is cryptographic and permanently yours — I genuinely can't revoke it or stop you using it. A refund would mean you keep the working software <b>and</b> get your money back. That's why the 7-day free trial is your test drive: buy only when you're sure. Full detail on <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a>.</p>
+    <p class="foot-note"><b>No refunds, here's why:</b> your key is verified offline, so once it's issued there's no switch I could flip to take it back, and I never deactivate a key for a customer in good standing. A refund would mean you keep the working software <b>and</b> get your money back. That's why the 7-day free trial is your test drive: buy only when you're sure. Full detail on <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a> and in the <a href="{{ '/eula.html' | relative_url }}">EULA</a>.</p>
   </div>
 </section>

@@ -119,12 +119,14 @@ description: "Kids Mode is a private AI built for children, not an adult chatbot
     <div class="feature reveal">
       <div class="fcopy">
         <span class="fnum">Pillar 1, Private by design</span>
-        <h3>It runs on your machine. <em>Nothing leaves it.</em></h3>
-        <p>Kids profiles can <b>only</b> use the on-device model. The cloud picker is removed, with no override. Your child&rsquo;s words are answered by your own computer, so <b>nothing they type is ever sent anywhere</b>. When nothing is collected or transmitted, the data-collection worries that hang over cloud AI for kids simply don&rsquo;t apply.</p>
+        <h3>It runs on your machine. <em>Not someone&rsquo;s cloud.</em></h3>
+        <p>Kids profiles can <b>only</b> use the on-device model. The cloud picker is removed, with no override, and web tools are off. Your child&rsquo;s words are answered by <b>your own computer, not a company&rsquo;s servers</b>, and Helix collects nothing, so the data-collection worries that hang over cloud AI for kids don&rsquo;t apply the same way.</p>
+        <!-- DEPENDS ON SEQ-2030/2031/2032. 1.8.4 wording: "Two options can change that, and only a parent can turn them on: the <b>cloud safety scan</b>, which sends your child&rsquo;s conversations to your own cloud AI provider to be checked, and <b>voice typing</b>, which uses Microsoft&rsquo;s online speech recognition." -->
+        <p>A few things do go online, and the <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}" style="color:var(--coral)">privacy page</a> lists each one: the <b>cloud safety scan</b> and <b>HIVE cloud memory</b> if a parent turns them on, the microphone, which uses Microsoft&rsquo;s online speech recognition, and images linked in a reply, which load from their website. The microphone, images and HIVE are <b>changing in the next update</b>, so that only a parent&rsquo;s choice sends anything out.</p>
         <ul class="mini stagger">
           <li>On-device model only: no frontier or cloud models, no exceptions</li>
           <li>Conversations are plain files on your disk, under your control</li>
-          <li>Review or delete any of it, anytime. It never leaves the machine</li>
+          <li>Review or delete any of it, anytime. It stays on the machine unless you turn on the cloud safety scan or HIVE</li>
         </ul>
       </div>
       <figure class="shot pending" style="--ar:2448/1286;margin:0">
@@ -272,7 +274,7 @@ description: "Kids Mode is a private AI built for children, not an adult chatbot
       <div class="ctrl-row"><span class="k">Locked profiles</span><span class="v">Switching out of a Kids profile takes your password. A child can&rsquo;t restart their way around it.</span></div>
       <div class="ctrl-row"><span class="k">Custom instructions</span><span class="v">Add your own house rules, emphasize a topic, steer away from another, folded straight into Botly&rsquo;s instructions.</span></div>
       <div class="ctrl-row"><span class="k">Locked model</span><span class="v">Pin the exact on-device model your child uses. No switching, no surprises.</span></div>
-      <div class="ctrl-row"><span class="k">Feature locks</span><span class="v">Turn voice, read-aloud, slash-commands and the technical inspector on or off per child.</span></div>
+      <div class="ctrl-row"><span class="k">Feature locks</span><span class="v">Turn voice triggers, read-aloud, slash-commands and the technical inspector on or off per child.</span></div>
       <div class="ctrl-row"><span class="k">Tamper lockdown</span><span class="v">If the safety settings are ever altered, the app locks to a parent screen until you verify: safety can&rsquo;t be quietly switched off.</span></div>
     </div>
 

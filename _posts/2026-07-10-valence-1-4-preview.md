@@ -8,6 +8,9 @@ date: 2026-07-10
 <style>
 .v14-lead{font-family:'Geist',sans-serif;font-size:1.24rem;line-height:1.55;color:var(--ink-soft);margin:0 0 1.4rem}
 .v14-lead b{color:var(--ink);font-weight:600}
+.v14-fix{font-size:0.98rem;line-height:1.6;color:var(--ink-soft);border-left:3px solid var(--coral);padding:0.7rem 1rem;margin:1.2rem 0 1.4rem;background:var(--card)}
+.v14-fix b{color:var(--ink)}
+.v14-fix a{color:var(--coral)}
 .v14-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin:1.9rem 0}
 .v14-pillars div{background:var(--card);padding:1.25rem 1.3rem;margin:0}
 .v14-pillars .t{font-family:'Geist Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
@@ -63,6 +66,8 @@ date: 2026-07-10
 ## Privacy you can see
 
 Valence never needed an account and never sent your conversations anywhere. 1.4 makes that concrete:
+
+<p class="v14-fix"><b>Correction, 9 October 2026.</b> This post said more than what shipped, here and in the "Private" pillar above. Encryption at rest is <b>opt-in</b>: it is off by default, and one switch in Settings (Data Encryption) turns it on for chat and memory files. Local-only mode blocks web search and the update check; it is not a promise that nothing can ever leave. The post is left as written. The current list of everything that goes online is on <a href="{{ '/Valence - Privacy & Licensing.html' | relative_url | escape }}">Privacy &amp; Licensing</a>.</p>
 
 <div class="v14-feat"><b>Everything's encrypted on disk.</b> Your conversations, your memory, and your profiles are now encrypted at rest, so even the files sitting on your own drive don't give up what you talked about.</div>
 
