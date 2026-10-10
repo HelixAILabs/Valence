@@ -33,14 +33,21 @@ redirect_from:
 .pg-buy .sku .price small{font-family:'Geist',sans-serif;font-size:0.95rem;color:var(--mute);font-weight:400}
 .pg-buy .sku p.blurb{font-size:0.98rem;color:var(--ink-soft);line-height:1.55;margin:0.8rem 0 1.3rem;flex-grow:1}
 .pg-buy .sku .btn{justify-content:center;width:100%}
-.pg-buy .skus.three{grid-template-columns:repeat(3,1fr);margin-top:1rem}
-@media(max-width:980px){.pg-buy .skus.three{grid-template-columns:1fr}}
+.pg-buy .sku.wide{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1.2rem 2.4rem;padding:1.8rem 2rem}
+.pg-buy .sku.wide .blurb{margin-bottom:0;max-width:56ch}
+.pg-buy .sku.wide .btn{width:auto;min-width:16rem}
+@media(max-width:720px){.pg-buy .sku.wide{grid-template-columns:1fr;padding:1.5rem 1.6rem}.pg-buy .sku.wide .btn{width:100%;min-width:0}}
+.pg-buy .sub-head{margin:2.6rem 0 1.1rem}
+.pg-buy .sub-head h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(1.3rem,2.2vw,1.6rem);margin:0;line-height:1.15}
+.pg-buy .sub-head p{font-size:0.95rem;color:var(--ink-soft);margin:0.4rem 0 0;max-width:70ch}
+.pg-buy .sub-head p b{color:var(--ink);font-weight:600}
+.pg-buy .skus.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.pg-buy .skus.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pg-buy .skus.four{grid-template-columns:1fr}.pg-buy .sku .alt.pad{display:none}}
 .pg-buy .sku .stage{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--rule);border-radius:99px;padding:0.14rem 0.55rem;margin-left:0.5rem;vertical-align:1px}
-.pg-buy .sku .alt{font-size:0.92rem;margin:0.75rem 0 0;text-align:center}
+.pg-buy .sku .alt{font-size:0.92rem;margin:0.75rem 0 0;text-align:center;min-height:1.4em}
 .pg-buy .sku .alt a{color:var(--coral)}
-.pg-buy .sku .wait{font-family:'Geist Mono',monospace;font-size:0.8rem;color:var(--ink-soft);text-align:center;border:1px dashed var(--rule);border-radius:99px;padding:0.7rem 1rem}
-.pg-buy .alpha-note{font-size:0.95rem;color:var(--ink-soft);margin:2rem 0 0}
-.pg-buy .alpha-note b{color:var(--ink);font-weight:600}
+.pg-buy .sku .wait{font-family:'Geist Mono',monospace;font-size:0.8rem;color:var(--ink-soft);border:1px dashed var(--rule);border-radius:99px;padding:0 1rem;margin:0;min-height:3rem;display:flex;align-items:center;justify-content:center}
 .pg-buy .foot-note{font-size:0.95rem;color:var(--mute);line-height:1.6;margin:1.6rem 0 0;max-width:70ch;padding-top:1.2rem;border-top:1px dashed var(--rule)}
 .pg-buy .foot-note b{color:var(--ink-soft);font-weight:600}
 .pg-buy .sec-head p.agree{font-size:0.92rem;color:var(--ink-soft);margin:0.5rem 0 0}
@@ -59,35 +66,38 @@ redirect_from:
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Choose your platform</h2>
+      <h2>Choose your key</h2>
       <p>Every key is permanently yours, verified by cryptography built into Valence itself — no activation server, ever.</p>
       <p class="agree">By buying a key you agree to the <a href="{{ '/eula.html' | relative_url }}">End-User License Agreement</a>.</p>
     </div>
-    <div class="skus">
+    <div class="sku featured wide">
+      <span class="tag">Recommended</span>
+      <div class="wide-copy">
+        <span class="plat">All platforms</span>
+        <div class="price">$59.95<small> once</small></div>
+        <p class="blurb">One key for Valence on Windows, Mac, Android and iPhone, including the ones still in alpha. No second purchase as each one arrives.</p>
+      </div>
+      <a class="btn btn-coral" href="{{ site.valence_buy_url }}">Buy All-in-one key &rarr;</a>
+    </div>
+
+    <div class="sub-head">
+      <h3>Or just one platform</h3>
+      <p><b>Mac, Android and iPhone are in alpha</b>: the core works and the edges are rough. A platform key goes on sale when that app is released.</p>
+    </div>
+    <div class="skus four">
 
       <div class="sku">
         <span class="plat">Windows</span>
         <div class="price">$24.99<small> once</small></div>
-        <p class="blurb">Unlocks Valence on Windows. The right pick if that's the only place you'll run it.</p>
+        <p class="blurb">Unlocks Valence on Windows 10 and 11.</p>
         <a class="btn btn-coral" href="{{ site.valence_buy_url_windows }}">Buy Windows key &rarr;</a>
+        <p class="alt"><a href="{{ '/#downloads' | relative_url }}">Try it free for 7 days</a></p>
       </div>
-
-      <div class="sku featured">
-        <span class="tag">Recommended</span>
-        <span class="plat">All platforms</span>
-        <div class="price">$59.95<small> once</small></div>
-        <p class="blurb">Unlocks Valence everywhere we ship it: Windows, Mac, Android and iPhone. No second purchase as each one arrives.</p>
-        <a class="btn btn-coral" href="{{ site.valence_buy_url }}">Buy All-in-one key &rarr;</a>
-      </div>
-
-    </div>
-    <p class="alpha-note"><b>Mac, Android and iPhone are in alpha.</b> The core works and the edges are rough. The Android key is on sale now; Mac and iPhone keys go on sale when those apps are released. The All-in-one above already covers all three.</p>
-    <div class="skus three">
 
       <div class="sku">
         <span class="plat">macOS<span class="stage">Alpha</span></span>
         <div class="price">$24.99<small> once</small></div>
-        <p class="blurb">Unlocks Valence on Mac. Apple Silicon (M-series) only. Goes on sale the day the Mac app is released; until then the alpha is by request.</p>
+        <p class="blurb">Unlocks Valence on Mac. Apple Silicon (M-series) only. The alpha is by request until release.</p>
         <p class="wait">Not released yet</p>
         <p class="alt"><a href="mailto:help@helixailabs.com?subject=macOS%20alpha%20access&amp;body=Hi%20Chase%2C%20I%27d%20like%20to%20try%20the%20Valence%20macOS%20alpha.">Ask for the Mac alpha</a></p>
       </div>
@@ -95,7 +105,7 @@ redirect_from:
       <div class="sku">
         <span class="plat">Android<span class="stage">Alpha</span></span>
         <div class="price">$14.99<small> once</small></div>
-        <p class="blurb">Unlocks Valence on Android. Direct download for 64-bit Android 7.0+; some features are still being built. Google Play comes later.</p>
+        <p class="blurb">Unlocks Valence on Android. Direct download for 64-bit Android 7.0+. Google Play comes later.</p>
         <a class="btn btn-coral" href="{{ site.valence_buy_url_android }}">Buy Android key &rarr;</a>
         <p class="alt"><a href="https://helixailabs.com/valence/Valence-1.5.18-alpha-arm64.apk">Download the Android alpha</a></p>
       </div>
@@ -105,6 +115,7 @@ redirect_from:
         <div class="price">$14.99<small> once</small></div>
         <p class="blurb">Unlocks Valence on iPhone. Goes on sale the day the app is live on the App Store.</p>
         <p class="wait">In App Store review</p>
+        <p class="alt pad" aria-hidden="true">&nbsp;</p>
       </div>
 
     </div>
