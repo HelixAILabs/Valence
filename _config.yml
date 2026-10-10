@@ -39,6 +39,9 @@ social:
 valence_buy_page: "/buy.html"
 valence_buy_url: "https://buy.stripe.com/4gMdR31yQadY1E4d2beAg01"
 valence_buy_url_windows: "https://buy.stripe.com/fZu9AN91i0DofuU2nxeAg02"
+valence_buy_url_mac: "https://buy.stripe.com/9B64gt7Xe3PA1E46DNeAg03"
+valence_buy_url_android: "https://buy.stripe.com/14AbIV3GYcm61E40fpeAg04"
+valence_buy_url_ios: "https://buy.stripe.com/8x29AN5P62LwbeE1jteAg05"
 
 valence_version: 1.8.3
 valence_date: October 7, 2026
