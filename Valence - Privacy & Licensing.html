@@ -4,10 +4,11 @@ title: "Privacy & Licensing"
 slug: privacy
 nav: privacy
 ---
-<!-- SEQ-2035 (2026-10-09): corrected against the v1.8.3 data-flow audit. Every claim is true of the SHIPPED
-     app, 1.8.3. Claims marked DEPENDS ON SEQ-2016/2030/2031/2032 describe 1.8.3 behaviour plus a
-     "(changing in the next update)" note; each DEPENDS comment carries the 1.8.4 wording to flip to
-     when 1.8.4 ships. -->
+<!-- SEQ-2035 (2026-10-19): every claim is verified against the SHIPPED app, Valence 1.9.0 (tag v1.9.0,
+     master c7614633). There was no 1.8.4: SEQ-2031 (images), SEQ-2032 (HIVE) and SEQ-2084 (voice typing,
+     which replaced SEQ-2030) shipped in 1.9.0 and are described here as current behaviour. SEQ-2016 (the
+     Tavily key check runs in local-only mode and Kids profiles) is still OPEN in 1.9.0 and is described as
+     it is today. Claim table with file:line evidence: AIOverlayV2.1 reviews/SEQ-2035-1.9.0-CLAIMS.md. -->
 <header class="hero">
   <div class="wrap">
 
@@ -28,7 +29,7 @@ nav: privacy
       </div>
       <div class="row">
         <span class="k">Search key check</span>
-        <span class="v">Only if you've added your own <b>Tavily</b> web-search key: about every 12 hours, Valence quietly checks with Tavily that the key still works. It sends the key, nothing else. Right now it runs whenever a key is saved, including in local-only mode and Kids profiles (changing in the next update, so it respects both). <!-- DEPENDS ON SEQ-2016. 1.8.4 wording: "It sends the key, nothing else, and it doesn't run in local-only mode or Kids profiles." --></span>
+        <span class="v">Only if you've added your own <b>Tavily</b> web-search key: when Valence starts, or when you open the web search setting, if the key hasn't been checked in the last 12 hours, Valence quietly checks with Tavily that it still works. It sends the key, nothing else. Right now it runs whenever a key is saved, including in local-only mode and Kids profiles, and that's being fixed. <!-- SEQ-2016 open in 1.9.0: WebViewBridge.cs:3001 calls the re-check with no local-only or Kids gate. --></span>
       </div>
     </div>
     <p>Your conversations, your memory, and your settings live on your computer as ordinary files you can open, read, back up, or delete. If your machine is offline, Valence still works.</p>
@@ -58,6 +59,10 @@ nav: privacy
       <div class="row">
         <span class="k">Using a cloud model</span>
         <span class="v">Optional. If you connect OpenAI, Anthropic, Google, Azure, xAI, OpenRouter, Vertex AI or Ollama <b>with your own key</b>, each message goes <b>directly to that provider</b>, on your account. That includes your prompt, the conversation so far, any memory, knowledge or web results Valence adds for context, and your attachments. OpenRouter requests also carry a header naming Valence as the app. Each provider has its own privacy policy; read theirs. <b>Helix is never in the middle.</b></span>
+      </div>
+      <div class="row">
+        <span class="k">Pictures in replies</span>
+        <span class="v">If a reply links to a picture, it <b>doesn't load by itself</b>. Click it and Valence fetches it from that picture's website, which sees the request. <span class="green">In Kids profiles and local-only mode, linked pictures never load.</span></span>
       </div>
       <div class="row">
         <span class="k">Importing old chats</span>
@@ -161,22 +166,27 @@ nav: privacy
       </div>
       <div class="row">
         <span class="k">Why that matters</span>
-        <span class="v">Because the model is <b>local</b>, your own computer answers your child. <b>Web tools are off</b> in Kids profiles. Helix collects nothing, so COPPA's data-collection concerns don't apply the way they do to cloud AI. Today, three things can still reach the internet from a Kids profile (plus the search key check in section 01), and each is <b>changing in the next update</b>:</span>
+        <span class="v">Because the model is <b>local</b>, your own computer answers your child. <b>Web tools are off</b> in Kids profiles. Helix collects nothing, so COPPA's data-collection concerns don't apply the way they do to cloud AI. Nothing about your child goes online unless a parent chooses it, as listed below. The search key check in section 01 does still run in Kids profiles today; it sends only the key, and only if one is saved.</span>
       </div>
       <div class="row">
         <span class="k">Voice typing</span>
-        <!-- DEPENDS ON SEQ-2030. 1.8.4 wording: "Your child&rsquo;s voice <b>never leaves your computer</b> &mdash; unless a parent turns on voice typing, which uses Microsoft&rsquo;s online speech recognition." -->
-        <span class="v">The microphone uses <b>Microsoft's online speech recognition</b> to turn what your child says into text, so their voice goes to Microsoft. Today a parent can't switch the Kids microphone off on its own (changing in the next update: it will stay off unless a parent turns voice typing on).</span>
+        <!-- SEQ-2084 (1.9.0): System.Speech offline engine only; DictationQualityGate.ShipsOn = false, so voice typing is off for everyone. -->
+        <span class="v">Your child&rsquo;s voice <b>never leaves your computer</b>. Valence no longer uses Microsoft&rsquo;s online speech recognition; it only uses the speech recognition built into Windows, which works on your computer. That isn&rsquo;t accurate enough yet, so voice typing is <b>off in this version</b>, for everyone.</span>
       </div>
       <div class="row">
-        <span class="k">Images in replies</span>
-        <!-- DEPENDS ON SEQ-2031. 1.8.4 wording: "Images linked in a reply <b>don't load automatically</b>." -->
-        <span class="v">If a reply links to an image, it loads automatically, which means the image's website sees the request. This happens in Kids profiles and in local-only mode too (changing in the next update: linked images won't load automatically).</span>
+        <span class="k">Pictures in replies</span>
+        <!-- SEQ-2031 (1.9.0): RemoteImagePosture - Kids viewer, Kids-owned chat, local-only never load; adults click to load. -->
+        <span class="v">Pictures linked in a reply <b>never load</b> in a Kids profile, and they stay unloaded when a parent opens a child&rsquo;s chat too. (A chat a parent continued before version 1.9.0 isn&rsquo;t covered yet &mdash; that&rsquo;s being fixed.)</span>
       </div>
       <div class="row">
         <span class="k">HIVE cloud memory</span>
-        <!-- DEPENDS ON SEQ-2032. 1.8.4 wording: "Kids chats are <b>never copied to HIVE cloud memory</b>." -->
-        <span class="v">Off unless a parent sets it up. If you do turn on HIVE, Kids chats can be copied to the HIVE address you set (changing in the next update: Kids chats will never be copied to HIVE).</span>
+        <!-- SEQ-2032 (1.9.0): HiveMirrorPolicy skips Kids owners and Kids-owned content; HIVE is off while Kids is active. -->
+        <span class="v">Kids chats are <b>never copied to HIVE cloud memory</b>, even if a parent has HIVE set up and later continues a child&rsquo;s chat in their own profile. HIVE is switched off entirely while a Kids profile is in use. (A chat a parent continued before version 1.9.0 isn&rsquo;t covered yet &mdash; that&rsquo;s being fixed.)</span>
+      </div>
+      <div class="row">
+        <span class="k">A parent continuing a Kids chat</span>
+        <!-- SEQ-2045 (1.9.0): KidsEgressPolicy.Evaluate holds the send until the parent chooses. -->
+        <span class="v">If you continue your child&rsquo;s chat from your own profile with a cloud model, Valence <b>asks you first</b>: use a local model instead, send it anyway, or cancel. Nothing is sent until you choose.</span>
       </div>
       <div class="row">
         <span class="k">Cloud safety scan: your choice</span>
@@ -184,7 +194,7 @@ nav: privacy
       </div>
       <div class="row">
         <span class="k">Parents hold the record</span>
-        <span class="v">Everything Kids Mode keeps so you can review it lives <b>on the device, under your control</b>. <span class="green">Review or delete any of it, anytime.</span> It stays on the machine unless you turn on the cloud safety scan or HIVE cloud memory.</span>
+        <span class="v">Everything Kids Mode keeps so you can review it lives <b>on the device, under your control</b>. <span class="green">Review or delete any of it, anytime.</span> It stays on the machine unless you turn on the cloud safety scan or choose to continue a child&rsquo;s chat on a cloud model.</span>
       </div>
       <div class="row">
         <span class="k">Adults &amp; frontier models</span>
@@ -258,6 +268,6 @@ nav: privacy
     </div>
     <p class="sec-foot-note">Your key is verified offline, so <b>nothing on my side can switch it off remotely</b>, and I never deactivate a key for a customer in good standing. The license ends only on a material breach of the <a href="{{ '/eula.html' | relative_url }}" style="color:var(--coral)">EULA</a>, such as selling or sharing keys. Because an issued key can&rsquo;t be taken back, I won&rsquo;t sell through marketplaces that force refunds I can&rsquo;t honor, not stubbornness, just fairness to a solo developer. <b>Helix AI Labs is a registered business in Washington State, USA.</b></p>
     <p class="sec-foot-note">The legal terms are in the <a href="{{ '/eula.html' | relative_url }}" style="color:var(--coral)">End-User License Agreement</a>, the same one you accept in the installer. This page is a plain-language notice; it isn&rsquo;t part of that agreement.</p>
-    <p class="updated">Last updated: October 9, 2026 · Questions? <a href="mailto:help@helixailabs.com" style="color:var(--coral)">help@helixailabs.com</a></p>
+    <p class="updated">Last updated: October 19, 2026 &middot; Questions? <a href="mailto:help@helixailabs.com" style="color:var(--coral)">help@helixailabs.com</a></p>
   </div>
 </section>

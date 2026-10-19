@@ -115,11 +115,11 @@ description: "The complete Valence handbook in plain language: chatting, convers
 
       <section class="doc-sec" id="files">
         <h2>Files, images &amp; voice</h2>
-        <p class="doc-lead">You can give Valence documents and pictures, or talk instead of typing.</p>
+        <p class="doc-lead">You can give Valence documents and pictures to work with.</p>
         <h3>Attachments</h3>
         <p>The paperclip attaches text files, PDFs, and images. Long documents are split into chunks automatically so they fit the model's context. Images need a model that can see, most current cloud models can, and Valence tells you when the selected one can't.</p>
         <h3>Voice</h3>
-        <p><b>Ctrl + M</b> toggles voice input. <b>Ctrl + Alt + T</b> is push-to-talk and works even when Valence isn't the active window.</p>
+        <p>Voice typing is <b>off in this version</b>. Valence only uses the speech recognition built into Windows, which works on your computer, so your voice is never sent online. That recognizer isn&rsquo;t accurate enough yet, so the microphone button explains this instead of listening, and <b>Ctrl + M</b> and <b>Ctrl + Alt + T</b> (push-to-talk) do the same.</p>
         <span class="where">The input bar at the bottom of the chat</span>
       </section>
 
@@ -228,7 +228,7 @@ description: "The complete Valence handbook in plain language: chatting, convers
         <h3>What gets locked</h3>
         <p>While a kids profile is active, Valence hides settings, profile creation and editing, saving and exporting conversations, the memory browser, usage, and model comparison. Switching profiles requires the parental password. A <b>Kids Mode</b> badge shows in the title bar.</p>
         <h3>Which AI a child can use</h3>
-        <p>Only the built-in on-device model; cloud models aren't available in Kids profiles. <b>A child's conversations stay on the computer</b> unless a parent turns on the optional cloud safety scan or HIVE cloud memory. The microphone uses Microsoft's online speech recognition (changing in the next update, so it's off unless a parent turns it on).<!-- DEPENDS ON SEQ-2030/2032. 1.8.4 wording: "...unless a parent turns on the optional cloud safety scan or voice typing (which uses Microsoft's online speech recognition)." --></p>
+        <p>Only the built-in on-device model; cloud models aren't available in Kids profiles. <b>A child's conversations stay on the computer</b> unless a parent turns on the optional cloud safety scan or continues a child&rsquo;s chat on a cloud model, which Valence asks about first. Kids chats are never copied to HIVE cloud memory, pictures linked in a reply never load, and voice typing never sends a child&rsquo;s voice online. (Chats a parent continued before version 1.9.0 aren&rsquo;t covered by the HIVE and picture rules yet &mdash; that&rsquo;s being fixed.)<!-- SEQ-2035: verified against 1.9.0 (SEQ-2031/2032/2045/2084). --></p>
         <span class="where">Profile menu → + New → Kids Mode wizard</span>
       </section>
 
@@ -338,8 +338,8 @@ description: "The complete Valence handbook in plain language: chatting, convers
           <div class="kv-row"><span class="k">Ctrl + P</span><span class="v">Quick switch profile</span></div>
           <div class="kv-row"><span class="k">Ctrl + Shift + R</span><span class="v">Regenerate last response</span></div>
           <div class="kv-row"><span class="k">Ctrl + Shift + C</span><span class="v">Copy conversation to clipboard</span></div>
-          <div class="kv-row"><span class="k">Ctrl + M</span><span class="v">Toggle voice input</span></div>
-          <div class="kv-row"><span class="k">Ctrl + Alt + T</span><span class="v">Push-to-talk (works globally)</span></div>
+          <div class="kv-row"><span class="k">Ctrl + M</span><span class="v">Toggle voice input (off in this version)</span></div>
+          <div class="kv-row"><span class="k">Ctrl + Alt + T</span><span class="v">Push-to-talk (off in this version)</span></div>
           <div class="kv-row"><span class="k">Ctrl + Alt + O</span><span class="v">Show or hide Valence (works globally)</span></div>
         </div>
         <span class="where">Menu → More options → Keyboard shortcuts</span>
