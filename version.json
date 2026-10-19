@@ -1,19 +1,19 @@
 {
-  "version": "1.8.3",
-  "releaseDate": "2026-10-07",
-  "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.8.3/Valence-1.8.3.msi",
-  "sha256": "2E047533A4D0B899DC9BF5FE8D85874E89295DE6A01E6B227AE8A53C1C58AA99",
+  "version": "1.9.0",
+  "releaseDate": "2026-10-19",
+  "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.9.0/Valence-1.9.0.msi",
+  "sha256": "58F14A19E186DEC82CD171EF150042CC4F219E83B22D201FBACC36818923CCEC",
   "channel": "stable",
   "flavors": {
     "full": {
-      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.8.3/Valence-1.8.3.msi",
-      "sha256": "2E047533A4D0B899DC9BF5FE8D85874E89295DE6A01E6B227AE8A53C1C58AA99",
-      "sizeBytes": 649953745
+      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.9.0/Valence-1.9.0.msi",
+      "sha256": "58F14A19E186DEC82CD171EF150042CC4F219E83B22D201FBACC36818923CCEC",
+      "sizeBytes": 650300594
     },
     "slim": {
-      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.8.3/Valence-1.8.3-slim.msi",
-      "sha256": "3C22A184782EA8EBCF890C93DAA60D45E8C099505B50A93D0E5A93D2888D9D0D",
-      "sizeBytes": 127222800
+      "downloadUrl": "https://github.com/HelixAILabs/Valence/releases/download/v1.9.0/Valence-1.9.0-slim.msi",
+      "sha256": "8AA90809C548A31A21C81B9887C37B5429F7B56BF42A8B6E5105E377E2559517",
+      "sizeBytes": 127571671
     }
   }
 }

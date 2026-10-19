@@ -1,6 +1,12 @@
 # Release index. One row per shipped build. The narrative posts still live in _posts.
 # Regenerate rather than hand-edit when adding a release.
 releases:
+  - version: "1.9.0"
+    date: 2026-10-19
+    family: "1.9"
+    platform: "Windows"
+    summary: "Watch it think, stop it any time"
+    url: "/2026/10/19/valence-1-9-0.html"
   - version: "1.8.3"
     date: 2026-10-07
     family: "1.8"
