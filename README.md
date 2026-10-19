@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.8.3 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.3/Valence-1.8.3-slim.msi)**
+**[Download Valence 1.9.0 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.0/Valence-1.9.0-slim.msi)**
 
-Windows 10/11 (64-bit) · 121.33 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+Windows 10/11 (64-bit) · 121.66 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `3C22A184782EA8EBCF890C93DAA60D45E8C099505B50A93D0E5A93D2888D9D0D`
+> **SHA-256:** `8AA90809C548A31A21C81B9887C37B5429F7B56BF42A8B6E5105E377E2559517`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.8.3 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.8.3/Valence-1.8.3.msi)**
+**[Download Valence 1.9.0 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.0/Valence-1.9.0.msi)**
 
-Windows 10/11 (64-bit) · 619.84 MB
+Windows 10/11 (64-bit) · 620.17 MB
 
-> **SHA-256:** `2E047533A4D0B899DC9BF5FE8D85874E89295DE6A01E6B227AE8A53C1C58AA99`
+> **SHA-256:** `58F14A19E186DEC82CD171EF150042CC4F219E83B22D201FBACC36818923CCEC`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 121.33 MB | 619.84 MB |
+| Download size | 121.66 MB | 620.17 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.8.3](https://helixailabs.github.io/Valence/2026/10/07/valence-1-8-3.html)** &nbsp;_(latest)_ | Oct 7, 2026 | Only one local model runs at a time; each profile keeps its own model; chats save themselves (choose how often); a clearer Local AI model list with Text and Image models. |
+| **[1.9.0](https://helixailabs.github.io/Valence/2026/10/19/valence-1-9-0.html)** &nbsp;_(latest)_ | Oct 19, 2026 | See what the model is thinking; Stop works from the first second; scroll up and it stays put; tool steps show as steps; long local chats keep going; the local AI restarts itself; stronger Kids protections; images in replies load only when you click; voice typing paused (no audio to Microsoft). |
+| **[1.8.3](https://helixailabs.github.io/Valence/2026/10/07/valence-1-8-3.html)** | Oct 7, 2026 | Only one local model runs at a time; each profile keeps its own model; chats save themselves (choose how often); a clearer Local AI model list with Text and Image models. |
 | [1.8.2](https://helixailabs.github.io/Valence/2026/10/06/valence-1-8-2.html) | Oct 6, 2026 | You can see the model loading: one status line above the reply instead of an empty bubble; the answer shows from the first word; the loading background runs behind the top bar and message box. |
 | [1.8.1](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-1.html) | Oct 5, 2026 | Thinking shows how long it took ("Thought for 6s") instead of a character count; the step after a tool reads "Analyzed the result" instead of claiming "search results". |
 | **[1.8.0](https://helixailabs.github.io/Valence/2026/10/05/valence-1-8-0.html)** | Oct 5, 2026 | See how answers are made - local models show their steps (thinking, tools, web search) as a trail above the reply, saved with the conversation. A calmer four-control composer. Web search moves to your own free Tavily key, with your saved key and searches left shown in Settings. Kids Mode Stop, crisis-hotline and regenerate fixes. Qwen 3.8 27B Balanced downloads again; X-Ray Performance History fixed; new app icon. |
