@@ -1,0 +1,55 @@
+---
+layout: doc
+title: "HAL Remote — Privacy & Support"
+slug: halremote
+nav: privacy
+description: "HAL Remote is a free TV remote for iPhone with no ads, no tracking and no data collection. Privacy policy and support."
+---
+<!-- 2026-10-21: privacy policy + support page for the HAL Remote iOS app (App Store
+     Connect privacy and support URL). Every claim is checked against the app's source
+     (D3athByMonkey/playGround, ios-tv-remote): it has no analytics, ads, account or
+     server; it talks only to TVs on the user's network; pairing keys are kept in the
+     iOS Keychain (Services/KeychainStore.swift). Change this page if that stops being true. -->
+<style>
+.pg-halremote *{box-sizing:border-box}
+.pg-halremote{--max:760px;background:var(--paper);color:var(--ink)}
+.pg-halremote .wrap{width:min(var(--max),calc(100% - clamp(1.5rem,5vw,4rem)));margin:0 auto}
+.pg-halremote a{color:var(--coral)}
+.pg-halremote .hero{padding:clamp(2.04rem,7vw,3.4rem) 0 clamp(1.4rem,3vw,1.8rem)}
+.pg-halremote .hero .kick{font-family:'Geist Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral)}
+.pg-halremote .hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.03rem,3.78vw,2.6rem);line-height:1.05;letter-spacing:-0.01em;margin:0.9rem 0 0}
+.pg-halremote .hero .lead{font-size:1.08rem;color:var(--ink-soft);max-width:62ch;margin:1.1rem 0 0;line-height:1.6}
+.pg-halremote .hero .updated{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--ink-soft);margin:1rem 0 0}
+.pg-halremote section{padding:0 0 clamp(1.6rem,4vw,2.4rem)}
+.pg-halremote h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.6rem;margin:1.6rem 0 0.6rem}
+.pg-halremote p,.pg-halremote li{line-height:1.65;color:var(--ink)}
+.pg-halremote ul{padding-left:1.2rem}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kick">HAL Remote &middot; Privacy &amp; Support</span>
+    <h1>HAL Remote collects nothing.</h1>
+    <p class="lead">HAL Remote is a free remote for Smart TVs on your Wi-Fi network, made by Helix AI Labs. <b>No ads, no tracking, no account, nothing to buy.</b> It talks only to your TV.</p>
+    <p class="updated">Last updated: October 21, 2026</p>
+  </div>
+</header>
+
+<section class="wrap" id="privacy">
+  <h2>Privacy policy</h2>
+  <ul>
+    <li><b>No data collection.</b> HAL Remote does not collect, store on a server, sell or share any personal information. It has no analytics, crash reporting, advertising or tracking of any kind.</li>
+    <li><b>Only your TV.</b> The app connects only to TVs on your own local network, and sends them only the commands you press (and any text you type with the keyboard). Nothing is sent to Helix AI Labs or anyone else.</li>
+    <li><b>Kept on your phone.</b> Your TV's address and brand are saved on your device so it can reconnect. The pairing key your TV issues is kept in your iPhone's Keychain. None of this leaves your phone, and deleting the app removes it.</li>
+    <li><b>Local network permission.</b> iOS asks for permission to use your local network. HAL Remote uses it only to find and control your TV.</li>
+    <li><b>Children.</b> The app collects no information from anyone, including children.</li>
+    <li><b>Changes.</b> If this ever changes, this page will be updated before the app is.</li>
+  </ul>
+</section>
+
+<section class="wrap" id="support">
+  <h2>Support</h2>
+  <p>HAL Remote works with Samsung, LG (webOS), Hisense (VIDAA) and Vizio (SmartCast) TVs. Your phone and TV must be on the same Wi-Fi network. The first time you connect, accept the prompt on the TV (Samsung, LG) or type the PIN it shows (Vizio).</p>
+  <p>Questions or problems: <a href="mailto:help@helixailabs.com?subject=HAL%20Remote">help@helixailabs.com</a></p>
+  <p style="color:var(--ink-soft);font-size:0.9rem">HAL Remote is not affiliated with Samsung, LG, Hisense or Vizio. Brand names identify which TVs it works with.</p>
+</section>
