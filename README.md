@@ -12,19 +12,19 @@
 
 **Slim — right for most people** (needs internet once, during setup):
 
-**[Download Valence 1.9.1 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.1/Valence-1.9.1-slim.msi)**
+**[Download Valence 1.9.2 slim (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.2/Valence-1.9.2-slim.msi)**
 
-Windows 10/11 (64-bit) · 121.67 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
+Windows 10/11 (64-bit) · 121.76 MB · 7-day free trial, then **$59.95 once** · fully offline after setup · no subscription
 
-> **SHA-256:** `F397B8EABFEBB213B08115434ED8BDA9566E0FBB234EBC33E903BBD321DC367D`
+> **SHA-256:** `675BB34ED8D71E425740DE163464E633F571B19B517829F76F5A1A78625572F0`
 
 **All-in-one — for offline / locked-down machines** (every backend bundled, nothing to fetch):
 
-**[Download Valence 1.9.1 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.1/Valence-1.9.1.msi)**
+**[Download Valence 1.9.2 (.msi)](https://github.com/HelixAILabs/Valence/releases/download/v1.9.2/Valence-1.9.2.msi)**
 
-Windows 10/11 (64-bit) · 620.18 MB
+Windows 10/11 (64-bit) · 620.28 MB
 
-> **SHA-256:** `23246F6279FFFF18584847D08BF142435649216C6AD6261308ACD896C0B9C12F`
+> **SHA-256:** `05A08CF3849559D9D16683F9132E1B75C2B43EBB5476F050273D89DF00A8269C`
 > Both installers are unsigned, so Windows SmartScreen may warn you — click **More info → Run anyway**. Existing installs upgrade in place (and keep their flavor).
 
 ### Which download?
@@ -33,7 +33,7 @@ The lighter install we promised is here. **Slim** takes one quick look at your h
 
 | | Slim | All-in-one |
 |---|---|---|
-| Download size | 121.67 MB | 620.18 MB |
+| Download size | 121.76 MB | 620.28 MB |
 | Graphics backends | fetched for your card | all bundled |
 | Internet at setup | once | never |
 | Works offline after | yes | yes |
@@ -59,7 +59,8 @@ A private, controlled, curated space for working with AI — local or cloud, all
 
 | Version | Date | Summary |
 |---------|------|---------|
-| **[1.9.1](https://helixailabs.github.io/Valence/2026/10/19/valence-1-9-1.html)** &nbsp;_(latest)_ | Oct 19, 2026 | Kids chats a parent continued in an earlier version are recognised as Kids chats, so pictures, HIVE and the cloud prompt protect them too; setup screen no longer says "slim" on every installer. |
+| **[1.9.2](https://helixailabs.github.io/Valence/2026/11/19/valence-1-9-2.html)** &nbsp;_(latest)_ | Nov 19, 2026 | A recovery key for the parental password; Ripple, a living background behind the conversation; links in Kids chats stay closed; print a child's conversation; updates are checked before they install; Kids crisis-alert and link fixes. |
+| **[1.9.1](https://helixailabs.github.io/Valence/2026/10/19/valence-1-9-1.html)** | Oct 19, 2026 | Kids chats a parent continued in an earlier version are recognised as Kids chats, so pictures, HIVE and the cloud prompt protect them too; setup screen no longer says "slim" on every installer. |
 | **[1.9.0](https://helixailabs.github.io/Valence/2026/10/19/valence-1-9-0.html)** | Oct 19, 2026 | See what the model is thinking; Stop works from the first second; scroll up and it stays put; tool steps show as steps; long local chats keep going; the local AI restarts itself; stronger Kids protections; images in replies load only when you click; voice typing paused (no audio to Microsoft). |
 | **[1.8.3](https://helixailabs.github.io/Valence/2026/10/07/valence-1-8-3.html)** | Oct 7, 2026 | Only one local model runs at a time; each profile keeps its own model; chats save themselves (choose how often); a clearer Local AI model list with Text and Image models. |
 | [1.8.2](https://helixailabs.github.io/Valence/2026/10/06/valence-1-8-2.html) | Oct 6, 2026 | You can see the model loading: one status line above the reply instead of an empty bubble; the answer shows from the first word; the loading background runs behind the top bar and message box. |
