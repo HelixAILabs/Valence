@@ -7,8 +7,8 @@ nav: privacy
 <!-- SEQ-2035 (2026-10-19): every claim is verified against the SHIPPED app, Valence 1.9.0 (tag v1.9.0,
      master c7614633). There was no 1.8.4: SEQ-2031 (images), SEQ-2032 (HIVE) and SEQ-2084 (voice typing,
      which replaced SEQ-2030) shipped in 1.9.0 and are described here as current behaviour. SEQ-2016 (the
-     Tavily key check runs in local-only mode and Kids profiles) is still OPEN in 1.9.0 and is described as
-     it is today. Claim table with file:line evidence: AIOverlayV2.1 reviews/SEQ-2035-1.9.0-CLAIMS.md. -->
+     Tavily key check runs in local-only mode and Kids profiles) was fixed in 1.9.2; the Tavily row is
+     updated to 1.9.2 (2026-11-19). Claim table with file:line evidence: AIOverlayV2.1 reviews/SEQ-2035-1.9.0-CLAIMS.md. -->
 <header class="hero">
   <div class="wrap">
 
@@ -29,7 +29,7 @@ nav: privacy
       </div>
       <div class="row">
         <span class="k">Search key check</span>
-        <span class="v">Only if you've added your own <b>Tavily</b> web-search key: when Valence starts, or when you open the web search setting, if the key hasn't been checked in the last 12 hours, Valence quietly checks with Tavily that it still works. It sends the key, nothing else. Right now it runs whenever a key is saved, including in local-only mode and Kids profiles, and that's being fixed. <!-- SEQ-2016 open in 1.9.0: WebViewBridge.cs:3001 calls the re-check with no local-only or Kids gate. --></span>
+        <span class="v">Only if you've added your own <b>Tavily</b> web-search key: when Valence starts, or when you open the web search setting, if the key hasn't been checked in the last 12 hours, Valence quietly checks with Tavily that it still works. It sends the key, nothing else. It never checks in local-only mode or in a Kids profile, and it doesn't check on its own while web search is turned off. <!-- SEQ-2016 fixed in 1.9.2 (v1.9.2 = 44d59aee): every key check goes through SearchKeyChecker.cs:52, which asks KeyCheckPermission.cs:25-30 first (Kids and local-only refuse every check; search off refuses the automatic ones). --></span>
       </div>
     </div>
     <p>Your conversations, your memory, and your settings live on your computer as ordinary files you can open, read, back up, or delete. If your machine is offline, Valence still works.</p>
